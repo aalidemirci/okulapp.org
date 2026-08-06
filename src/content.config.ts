@@ -13,6 +13,8 @@ const projects = defineCollection({
     topics: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     order: z.number().default(99),
+    /** Projenin okulapp.org içindeki veya harici tanıtım sitesi (opsiyonel). */
+    siteUrl: z.string().optional(),
   }),
 });
 

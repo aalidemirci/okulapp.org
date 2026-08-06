@@ -11,21 +11,27 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { title, description, repoUrl, language, topics } = project.data;
+const { title, description, repoUrl, language, topics, siteUrl } = project.data;
 const { Content } = await render(project);
 ---
 
 <BaseLayout title={`${title} — okulapp.org`} description={description} ogType="article">
-  <article>
+  <article class="page">
     <header class="project-header">
+      <p class="eyebrow">Proje</p>
       <h1>{title}</h1>
       <p class="lead">{description}</p>
       <div class="project-meta">
         {language && <span class="tag">{language}</span>}
         {topics.map((topic) => <span class="tag">{topic}</span>)}
       </div>
-      <a class="repo-link" href={repoUrl}>Kaynak kodu GitHub'da →</a>
+      <div class="project-actions">
+        {siteUrl && <a class="button button-primary" href={siteUrl}>Proje sitesi →</a>}
+        <a class="button button-outline" href={repoUrl}>Kaynak kodu GitHub'da</a>
+      </div>
     </header>
-    <Content />
+    <div class="document">
+      <Content />
+    </div>
   </article>
 </BaseLayout>
