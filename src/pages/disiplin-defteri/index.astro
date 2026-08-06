@@ -1,0 +1,169 @@
+---
+import DDLayout from '../../layouts/DDLayout.astro';
+import release from '../../data/dd-release.json';
+
+const packageLabels: Record<string, [string, string]> = {
+  windows_installer: ['Windows kurulum', 'Önerilen · Yönetici parolası gerekmez'],
+  windows_portable: ['Windows taşınabilir', "Kurulum yapmadan veya USB'den kullanım"],
+  linux_deb: ['Pardus / Debian', '.deb paketi · Yönetici parolası gerekir'],
+  linux_archive: ['Pardus / Linux taşınabilir', 'Yönetici parolası olmadan kurulum'],
+  checksums: ['SHA-256 özetleri', 'İndirilen dosyaları doğrulamak için'],
+};
+
+function formatBytes(bytes: number): string {
+  if (!Number.isFinite(bytes) || bytes <= 0) return '';
+  const units = ['B', 'KB', 'MB', 'GB'];
+  const index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+  return `${(bytes / 1024 ** index).toFixed(index > 1 ? 1 : 0)} ${units[index]}`;
+}
+
+const releaseAssets = release.assets as { kind: string; url: string; size?: number }[];
+const assets = release.available ? releaseAssets.filter((asset) => packageLabels[asset.kind]) : [];
+const releaseDate =
+  release.available && release.published_at
+    ? new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(release.published_at))
+    : '';
+---
+
+<DDLayout
+  title="Disiplin Defteri — Okullar için güvenli ve çevrimdışı"
+  description="Disiplin Defteri; ortaöğretim kurumlarının disiplin, onur ve ödül süreçlerini çevrimdışı yöneten ücretsiz masaüstü uygulamasıdır."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Okul bilgisayarında çalışır · Veri buluta gitmez</p>
+      <h1>Disiplin süreçleri düzenli, süreler görünür, veriler okulda kalır.</h1>
+      <p class="lead">
+        Ortaöğretim kurumları için disiplin, onur ve ödül süreçlerini tek yerde yöneten;
+        resmî evrakları hazırlayan, çevrimdışı masaüstü uygulaması.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#indir">Uygulamayı indir</a>
+        <a class="button button-secondary" href="/disiplin-defteri/kilavuz/">Kullanım kılavuzu</a>
+      </div>
+      <p class="privacy-promise">
+        Öğrenci ve personel kayıtları cihazınızdan çıkmaz. Site; çerez, reklam ve ziyaretçi
+        analizi kullanmaz.
+      </p>
+    </div>
+    <aside class="hero-panel" aria-label="Program özeti">
+      <div class="status-line"><span></span> Çevrimdışı çalışma</div>
+      <div class="metric"><strong>25</strong><span>resmî evrak şablonu</span></div>
+      <div class="metric"><strong>157–206</strong><span>yönetmelik maddelerine dayalı süreçler</span></div>
+      <div class="metric"><strong>Windows + Pardus</strong><span>kurulum seçenekleri</span></div>
+    </aside>
+  </section>
+
+  <section class="section" id="ozellikler">
+    <div class="section-heading">
+      <p class="eyebrow">Neler sunuyor?</p>
+      <h2>Kurul işlerini baştan sona takip edin</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="card"><span class="card-number">01</span><h3>Süreç takibi</h3><p>Dilekçe ve ihbardan kurul kararına, itirazdan kapanışa kadar tüm adımlar tek akışta.</p></article>
+      <article class="card"><span class="card-number">02</span><h3>Yasal süreler</h3><p>İş günü temelli tebliğ, itiraz, kurul kararı ve tedbir süreleri otomatik hesaplanır.</p></article>
+      <article class="card"><span class="card-number">03</span><h3>Hazır evraklar</h3><p>Disiplin belgeleri, dizi pusulası, karar defteri ve onur/ödül belgeleri PDF olarak hazırlanır.</p></article>
+      <article class="card"><span class="card-number">04</span><h3>Kolay veri aktarımı</h3><p>Öğrenci ve personel bilgileri e-Okul Excel çıktısından veya panodan içe alınabilir.</p></article>
+      <article class="card"><span class="card-number">05</span><h3>Şifreli yedek</h3><p>Veritabanı yedeği cihazda şifrelenir; buluta otomatik yükleme yapılmaz.</p></article>
+      <article class="card"><span class="card-number">06</span><h3>Çevrimdışı kullanım</h3><p>Kurulumdan sonra internet gerekmez; uygulama yalnızca okul bilgisayarında çalışır.</p></article>
+    </div>
+  </section>
+
+  <section class="section download-section" id="indir">
+    <div class="section-heading two-column-heading">
+      <div>
+        <p class="eyebrow">Güvenli indirme</p>
+        <h2>Uygulamayı indirin</h2>
+      </div>
+      <p class="release-summary">
+        {release.available
+          ? `${release.prerelease ? 'Beta sürüm' : 'En yeni sürüm'}: ${release.version}`
+          : 'İlk indirilebilir sürüm hazırlık aşamasında.'}
+      </p>
+    </div>
+
+    <div class="drive-card">
+      <div>
+        <h3>Google Drive'dan indirin</h3>
+        <p>
+          Kurulum dosyaları resmî Google Drive klasöründe yayımlanır. MEB ağı gibi
+          GitHub'ın engelli olduğu ağlardan da erişilebilir.
+        </p>
+      </div>
+      <a class="button button-primary" href={release.driveUrl} rel="noopener">Google Drive'dan indir</a>
+    </div>
+
+    {assets.length > 0 && (
+      <div class="download-grid">
+        {assets.map((asset) => (
+          <article class="download-card">
+            <h3>{packageLabels[asset.kind][0]}</h3>
+            <p class="download-meta">
+              {packageLabels[asset.kind][1]}{asset.size ? ` · ${formatBytes(asset.size)}` : ''}
+            </p>
+            <a class="button" href={asset.url} rel="noopener" aria-label={`${packageLabels[asset.kind][0]} paketini GitHub'dan indir`}>
+              GitHub'dan indir
+            </a>
+          </article>
+        ))}
+      </div>
+    )}
+
+    <div class="security-note">
+      <strong>Dosya güvenliği</strong>
+      <p>
+        Dosyalar yalnızca resmî Google Drive klasöründen ve projenin resmî GitHub Releases
+        alanından sunulur. İndirdikten sonra yayımlanan SHA-256 özetiyle doğrulamanız önerilir.
+      </p>
+      <a href="/disiplin-defteri/kilavuz/#dosya-dogrulama">Dosya doğrulama adımları →</a>
+    </div>
+
+    <p class="github-fallback">
+      GitHub'a erişebiliyorsanız paketleri
+      <a href={release.releaseUrl} rel="noopener">GitHub Releases</a> sayfasından da indirebilirsiniz.
+    </p>
+  </section>
+
+  <section class="section updates" id="guncellemeler">
+    <div class="section-heading">
+      <p class="eyebrow">Güncellemeler</p>
+      <h2>Her sürümün ne getirdiğini görün</h2>
+    </div>
+    <div class="update-layout">
+      <div>
+        <p class="release-title">
+          {release.available
+            ? release.name || `Disiplin Defteri ${release.version}`
+            : 'İndirilebilir sürüm henüz yayımlanmadı'}
+        </p>
+        <p class="muted">
+          {release.available && releaseDate
+            ? releaseDate
+            : 'Paketler güvenlik kontrollerinden sonra burada görünür.'}
+        </p>
+      </div>
+      <div>
+        <p>Yeni özellikler, düzeltmeler ve bilinen sorunlar sürüm sayfasında açıkça yayımlanır.</p>
+        <a class="text-link" href={release.releaseUrl} rel="noopener">Tüm sürüm notlarını görüntüle →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="iletisim">
+    <div>
+      <p class="eyebrow">İletişim</p>
+      <h2>Bir sorun veya öneriniz mi var?</h2>
+      <p>Teknik destek, öneri ve hata bildirimleri için e-posta gönderebilirsiniz.</p>
+      <a class="button button-primary" href="mailto:aalidemirci@gmail.com?subject=Disiplin%20Defteri%20hakkında">E-posta gönder</a>
+    </div>
+    <aside class="warning-card">
+      <strong>Kişisel veri göndermeyin</strong>
+      <p>
+        E-postaya veya herkese açık GitHub kayıtlarına öğrenci/personel adı, T.C. kimlik
+        numarası, telefon, adres, disiplin dosyası, ekran görüntüsü, yedek ya da günlük
+        dosyası eklemeyin.
+      </p>
+      <a href="/disiplin-defteri/gizlilik/">Gizlilik ve KVKK bilgilendirmesi →</a>
+    </aside>
+  </section>
+</DDLayout>
