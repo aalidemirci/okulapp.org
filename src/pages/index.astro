@@ -3,7 +3,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
-const featured = (await getCollection('projects', ({ data }) => data.featured))
+const projects = await getCollection('projects');
+const featured = projects
+  .filter((project) => project.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
 ---
 
@@ -11,22 +13,43 @@ const featured = (await getCollection('projects', ({ data }) => data.featured))
   title="okulapp.org — Ahmet Ali Demirci'nin projeleri"
   description="Eğitim kurumları için geliştirdiğim açık kaynak yazılımlar: okul yönetimi, disiplin süreçleri ve daha fazlası."
 >
-  <h1>Merhaba 👋</h1>
-  <p>
-    Ben Ahmet Ali Demirci. Bu sitede, çoğunlukla eğitim kurumlarının günlük
-    işlerini kolaylaştırmayı amaçlayan yazılım projelerimi tanıtıyorum. Tüm
-    projelerin kaynak kodu
-    <a href="https://github.com/aalidemirci">GitHub profilimde</a> herkese açık.
-  </p>
-  <p>
-    Teknik olmayan okuyucular için her projenin sayfasında "bu ne işe yarar,
-    kimin için" sorularının yanıtı var; geliştiriciler için de depo bağlantısı
-    ve mimari özet bulunuyor.
-  </p>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Açık kaynak · Eğitim odaklı</p>
+      <h1>Okulların işini kolaylaştıran yazılımlar.</h1>
+      <p class="lead">
+        Ben Ahmet Ali Demirci. Eğitim kurumlarının günlük işlerini
+        kolaylaştırmayı amaçlayan yazılım projeleri geliştiriyorum. Teknik
+        olmayan okuyucular için her projenin sayfasında "bu ne işe yarar,
+        kimin için" sorularının yanıtı var; geliştiriciler için depo
+        bağlantısı ve mimari özet bulunuyor.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/projeler/">Projeleri gör</a>
+        <a class="button button-secondary" href="/hakkimda/">Hakkımda</a>
+      </div>
+      <p class="privacy-promise">
+        Bu site çerez, reklam ve ziyaretçi analizi kullanmaz.
+      </p>
+    </div>
+    <aside class="hero-panel" aria-label="Site özeti">
+      <div class="status-line"><span></span> GitHub'da açık kaynak</div>
+      <div class="metric"><strong>{projects.length}</strong><span>public proje</span></div>
+      <div class="metric"><strong>Türkçe</strong><span>anlatım ve dokümantasyon</span></div>
+      <div class="metric"><strong>Windows + Pardus</strong><span>hedef platformlar</span></div>
+    </aside>
+  </section>
 
-  <h2>Öne çıkan projeler</h2>
-  <ul class="project-list">
-    {featured.map((project) => <ProjectCard project={project} />)}
-  </ul>
-  <p><a href="/projeler/">Tüm projeleri gör →</a></p>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Projeler</p>
+      <h2>Öne çıkan projeler</h2>
+    </div>
+    <ul class="feature-grid">
+      {featured.map((project) => <ProjectCard project={project} />)}
+    </ul>
+    <p class="section-cta">
+      <a class="text-link" href="/projeler/">Tüm projeleri gör →</a>
+    </p>
+  </section>
 </BaseLayout>

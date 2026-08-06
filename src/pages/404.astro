@@ -6,11 +6,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Sayfa bulunamadı — okulapp.org"
   description="Aradığınız sayfa bulunamadı. Ana sayfaya veya proje listesine dönebilirsiniz."
 >
-  <h1>404 — Sayfa bulunamadı</h1>
-  <p>
-    Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.
-  </p>
-  <p>
-    <a href="/">Ana sayfaya dön</a> · <a href="/projeler/">Projelere göz at</a>
-  </p>
+  <div class="page">
+    <p class="eyebrow">404</p>
+    <h1>Sayfa bulunamadı</h1>
+    <p>Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.</p>
+    <div class="project-actions">
+      <a class="button button-primary" href="/">Ana sayfaya dön</a>
+      <a class="button button-outline" href="/projeler/">Projelere göz at</a>
+    </div>
+  </div>
 </BaseLayout>
