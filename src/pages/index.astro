@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const featured = (await getCollection('projects', ({ data }) => data.featured))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="okulapp.org — Ahmet Ali Demirci'nin projeleri"
+  description="Eğitim kurumları için geliştirdiğim açık kaynak yazılımlar: okul yönetimi, disiplin süreçleri ve daha fazlası."
+>
+  <h1>Merhaba 👋</h1>
+  <p>
+    Ben Ahmet Ali Demirci. Bu sitede, çoğunlukla eğitim kurumlarının günlük
+    işlerini kolaylaştırmayı amaçlayan yazılım projelerimi tanıtıyorum. Tüm
+    projelerin kaynak kodu
+    <a href="https://github.com/aalidemirci">GitHub profilimde</a> herkese açık.
+  </p>
+  <p>
+    Teknik olmayan okuyucular için her projenin sayfasında "bu ne işe yarar,
+    kimin için" sorularının yanıtı var; geliştiriciler için de depo bağlantısı
+    ve mimari özet bulunuyor.
+  </p>
+
+  <h2>Öne çıkan projeler</h2>
+  <ul class="project-list">
+    {featured.map((project) => <ProjectCard project={project} />)}
+  </ul>
+  <p><a href="/projeler/">Tüm projeleri gör →</a></p>
+</BaseLayout>

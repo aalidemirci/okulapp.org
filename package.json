@@ -1,0 +1,16 @@
+{
+  "name": "okulapp-org",
+  "description": "okulapp.org — Ahmet Ali Demirci'nin kişisel proje sitesi",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync": "node scripts/sync-repos.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^5.18.2"
+  }
+}

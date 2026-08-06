@@ -1,0 +1,229 @@
+/* okulapp.org — tek global stil dosyası. Mobil öncelikli, açık/koyu tema.
+   Tema: html[data-theme] head'deki küçük script ile ayarlanır; JS kapalıysa
+   media query'deki koyu değerler devreye girer. */
+
+:root {
+  --bg: #fdfdfc;
+  --bg-soft: #f3f2ef;
+  --text: #1f2328;
+  --text-soft: #57606a;
+  --accent: #0b5cad;
+  --accent-soft: #dbe9f6;
+  --border: #d7d9dc;
+  --radius: 10px;
+  --content-width: 46rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a;
+    --bg-soft: #1d2126;
+    --text: #e6e8ea;
+    --text-soft: #9aa4ae;
+    --accent: #6cb2f5;
+    --accent-soft: #21354a;
+    --border: #313840;
+  }
+}
+
+html[data-theme='light'] {
+  --bg: #fdfdfc;
+  --bg-soft: #f3f2ef;
+  --text: #1f2328;
+  --text-soft: #57606a;
+  --accent: #0b5cad;
+  --accent-soft: #dbe9f6;
+  --border: #d7d9dc;
+}
+
+html[data-theme='dark'] {
+  --bg: #14171a;
+  --bg-soft: #1d2126;
+  --text: #e6e8ea;
+  --text-soft: #9aa4ae;
+  --accent: #6cb2f5;
+  --accent-soft: #21354a;
+  --border: #313840;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 1.5em 0 0.5em;
+}
+
+h1 { font-size: 1.75rem; margin-top: 0.5em; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem; }
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+code, pre {
+  font-family: ui-monospace, 'Cascadia Code', Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--bg-soft);
+  border-radius: 4px;
+}
+
+code { padding: 0.1em 0.35em; }
+
+pre {
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+}
+
+pre code { padding: 0; background: none; }
+
+img { max-width: 100%; }
+
+/* Üst çubuk */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.site-header nav {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-soft);
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+#theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Proje kartları */
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  background: var(--bg-soft);
+}
+
+.project-card h3 {
+  margin: 0 0 0.35rem;
+}
+
+.project-card h3 a {
+  text-decoration: none;
+}
+
+.project-card p {
+  margin: 0 0 0.6rem;
+  color: var(--text-soft);
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.tag {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.1rem 0.65rem;
+}
+
+/* Detay sayfası */
+.project-header p.lead {
+  font-size: 1.1rem;
+  color: var(--text-soft);
+}
+
+.repo-link {
+  display: inline-block;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.4rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Alt bilgi */
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Küçük ekran üstü iyileştirmeler */
+@media (min-width: 40rem) {
+  h1 { font-size: 2.1rem; }
+}

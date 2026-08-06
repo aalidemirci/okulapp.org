@@ -1,0 +1,13 @@
+// Cloudflare Workers Static Assets yapılandırması.
+// Site tamamen statik: Worker script'i yok, bu yüzden "main" ve
+// assets.binding tanımlı değil. İleride dinamik rota gerekirse buraya
+// "main" ve assets.binding eklenip Worker kodu yazılabilir.
+{
+  "name": "okulapp",
+  "compatibility_date": "2026-08-06",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

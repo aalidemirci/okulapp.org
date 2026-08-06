@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { title, description, repoUrl, language, topics } = project.data;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={`${title} — okulapp.org`} description={description} ogType="article">
+  <article>
+    <header class="project-header">
+      <h1>{title}</h1>
+      <p class="lead">{description}</p>
+      <div class="project-meta">
+        {language && <span class="tag">{language}</span>}
+        {topics.map((topic) => <span class="tag">{topic}</span>)}
+      </div>
+      <a class="repo-link" href={repoUrl}>Kaynak kodu GitHub'da →</a>
+    </header>
+    <Content />
+  </article>
+</BaseLayout>

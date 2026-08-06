@@ -1,0 +1,19 @@
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+// Her public GitHub reposu için src/content/projects/<repo-adi>.md dosyası.
+// Metadata git'te durur; build sırasında API çağrısı yapılmaz.
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    repoUrl: z.string().url(),
+    language: z.string().optional(),
+    topics: z.array(z.string()).default([]),
+    featured: z.boolean().default(false),
+    order: z.number().default(99),
+  }),
+});
+
+export const collections = { projects };
