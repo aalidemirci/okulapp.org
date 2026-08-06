@@ -3,7 +3,7 @@
 // assets.binding tanımlı değil. İleride dinamik rota gerekirse buraya
 // "main" ve assets.binding eklenip Worker kodu yazılabilir.
 {
-  "name": "okulapp",
+  "name": "okulapp-org",
   "compatibility_date": "2026-08-06",
   "assets": {
     "directory": "./dist",
