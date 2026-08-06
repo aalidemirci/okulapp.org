@@ -1,10 +1,36 @@
 {
-  "available": false,
-  "version": "",
-  "name": "",
-  "published_at": "",
+  "available": true,
+  "version": "2026.7.0-beta.1",
+  "name": "Disiplin Defteri v2026.7.0-beta.1",
+  "published_at": "2026-07-31T21:17:55Z",
   "prerelease": true,
   "driveUrl": "https://drive.google.com/drive/folders/1GfvIJdcflLDiRngf_MpaqRNVDSzM3bjU?usp=sharing",
   "releaseUrl": "https://github.com/aalidemirci/disiplin-defteri-codex/releases",
-  "assets": []
+  "assets": [
+    {
+      "kind": "windows_installer",
+      "url": "https://github.com/aalidemirci/disiplin-defteri-codex/releases/download/v2026.7.0-beta.1/disiplin-defteri-2026.7.0-beta.1-win64-setup.exe",
+      "size": 44209218
+    },
+    {
+      "kind": "windows_portable",
+      "url": "https://github.com/aalidemirci/disiplin-defteri-codex/releases/download/v2026.7.0-beta.1/disiplin-defteri-2026.7.0-beta.1-win64-portable.zip",
+      "size": 57547883
+    },
+    {
+      "kind": "linux_deb",
+      "url": "https://github.com/aalidemirci/disiplin-defteri-codex/releases/download/v2026.7.0-beta.1/disiplin-defteri_2026.7.0.beta.1_amd64.deb",
+      "size": 154029424
+    },
+    {
+      "kind": "linux_archive",
+      "url": "https://github.com/aalidemirci/disiplin-defteri-codex/releases/download/v2026.7.0-beta.1/disiplin-defteri-2026.7.0-beta.1-linux-x64.tar.gz",
+      "size": 217129487
+    },
+    {
+      "kind": "checksums",
+      "url": "https://github.com/aalidemirci/disiplin-defteri-codex/releases/download/v2026.7.0-beta.1/SHA256SUMS.txt",
+      "size": 458
+    }
+  ]
 }
