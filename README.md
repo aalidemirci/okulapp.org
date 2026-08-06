@@ -29,6 +29,19 @@ npm run build      # statik çıktı -> dist/
 npm run preview    # build çıktısını lokal sunar
 ```
 
+## Disiplin Defteri bölümü
+
+`/disiplin-defteri/` altındaki tanıtım, kılavuz ve gizlilik sayfaları,
+projenin GitHub Pages sitesinin Astro'ya taşınmış hâlidir (MEB ağında GitHub
+engelli olduğu için erişilebilir kopya). İndirme verisi
+`src/data/dd-release.json` dosyasında elle tutulur:
+
+- `driveUrl`: resmî Google Drive klasörü (birincil indirme kaynağı).
+- Yeni GitHub sürümü çıktığında `available: true` yapın; `version`, `name`,
+  `published_at`, `prerelease` ve `assets` alanlarını doldurun
+  (`kind` değerleri: `windows_installer`, `windows_portable`, `linux_deb`,
+  `linux_archive`, `checksums`). Paket kartları otomatik görünür.
+
 ## Yeni proje ekleme
 
 1. `npm run sync` çalıştırın (gereksinim: `gh` CLI, `gh auth login` yapılmış).
