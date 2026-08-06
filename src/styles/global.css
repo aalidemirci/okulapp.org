@@ -20,6 +20,7 @@
   --warn-bg: #fff7df;
   --code-bg: #e8ebe5;
   --shadow: 0 22px 60px rgba(23, 60, 52, 0.12);
+  --focus-ring: #173c34;
   --radius: 18px;
 }
 
@@ -37,6 +38,7 @@
     --warn-bg: #2e2913;
     --code-bg: #22332d;
     --shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+    --focus-ring: #e9b44c;
   }
 }
 
@@ -53,6 +55,7 @@ html[data-theme='light'] {
   --warn-bg: #fff7df;
   --code-bg: #e8ebe5;
   --shadow: 0 22px 60px rgba(23, 60, 52, 0.12);
+  --focus-ring: #173c34;
 }
 
 html[data-theme='dark'] {
@@ -68,6 +71,7 @@ html[data-theme='dark'] {
   --warn-bg: #2e2913;
   --code-bg: #22332d;
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+  --focus-ring: #e9b44c;
 }
 
 * {
@@ -75,8 +79,13 @@ html[data-theme='dark'] {
 }
 
 html {
-  scroll-behavior: smooth;
   color-scheme: light dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -95,7 +104,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--amber);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
