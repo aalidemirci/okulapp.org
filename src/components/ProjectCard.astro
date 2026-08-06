@@ -9,7 +9,7 @@ const { project } = Astro.props;
 const { title, description, language, topics } = project.data;
 ---
 
-<li class="project-card">
+<li class="card project-card">
   <h3><a href={`/projeler/${project.id}/`}>{title}</a></h3>
   <p>{description}</p>
   <div class="project-meta">

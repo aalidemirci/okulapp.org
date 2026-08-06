@@ -3,20 +3,22 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 
-const projects = (await getCollection('projects'))
-  .sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'tr'));
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'tr'),
+);
 ---
 
 <BaseLayout
   title="Projeler — okulapp.org"
   description="Ahmet Ali Demirci'nin GitHub'daki tüm public projeleri: açıklamalar, kullanılan diller ve depo bağlantıları."
 >
-  <h1>Projeler</h1>
-  <p>
-    GitHub'daki public depolarımın tam listesi. Her projenin kendi sayfasında
-    ne işe yaradığı ve nasıl çalıştığı anlatılıyor.
-  </p>
-  <ul class="project-list">
-    {projects.map((project) => <ProjectCard project={project} />)}
-  </ul>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Projeler</p>
+      <h1>Tüm projeler</h1>
+    </div>
+    <ul class="feature-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </ul>
+  </section>
 </BaseLayout>

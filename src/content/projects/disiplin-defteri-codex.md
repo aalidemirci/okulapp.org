@@ -6,6 +6,7 @@ language: Python
 topics: []
 featured: true
 order: 1
+siteUrl: /disiplin-defteri/
 ---
 
 Disiplin Defteri, bir lisenin disiplin kurulu işlerini kâğıt ve dağınık Word

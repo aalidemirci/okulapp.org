@@ -6,9 +6,11 @@ interface Props {
   description: string;
   /** Open Graph içerik türü; makale benzeri sayfalarda "article" verilebilir. */
   ogType?: string;
+  /** Disiplin Defteri sayfaları Pages'taki no-referrer politikasını korur. */
+  noReferrer?: boolean;
 }
 
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, ogType = 'website', noReferrer = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -16,6 +18,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {noReferrer && <meta name="referrer" content="no-referrer" />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -32,7 +35,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
     <script is:inline>
       // Tema tercihi: localStorage > sistem tercihi. FOUC olmasın diye
-      // head içinde, render'dan önce çalışır. Tek "ağır olmayan" JS budur.
+      // head içinde, render'dan önce çalışır.
       (() => {
         const saved = localStorage.getItem('theme');
         const system = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -41,33 +44,47 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </script>
   </head>
   <body>
-    <header class="site-header">
-      <nav aria-label="Ana gezinme">
-        <a class="brand" href="/">okulapp.org</a>
-        <div class="nav-links">
+    <a class="skip-link" href="#icerik">İçeriğe geç</a>
+
+    <slot name="header">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="okulapp.org ana sayfa">
+          <span class="brand-mark" aria-hidden="true">oa</span>
+          <span>okulapp.org</span>
+        </a>
+        <nav aria-label="Ana gezinme">
           <a href="/projeler/">Projeler</a>
           <a href="/hakkimda/">Hakkımda</a>
-          <button id="theme-toggle" type="button" aria-label="Açık/koyu tema değiştir">◐</button>
-        </div>
-      </nav>
-    </header>
+          <button class="theme-toggle" type="button" aria-label="Açık/koyu tema değiştir">◐</button>
+        </nav>
+      </header>
+    </slot>
 
-    <main>
+    <main id="icerik">
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <p>
-        © {new Date().getFullYear()} Ahmet Ali Demirci ·
-        <a href="https://github.com/aalidemirci" rel="me">GitHub</a>
-      </p>
-    </footer>
+    <slot name="footer">
+      <footer class="site-footer">
+        <div>
+          <strong>okulapp.org</strong>
+          <p>© {new Date().getFullYear()} Ahmet Ali Demirci</p>
+        </div>
+        <div class="footer-links">
+          <a href="/projeler/">Projeler</a>
+          <a href="/hakkimda/">Hakkımda</a>
+          <a href="https://github.com/aalidemirci" rel="me">GitHub</a>
+        </div>
+      </footer>
+    </slot>
 
     <script is:inline>
-      document.getElementById('theme-toggle')?.addEventListener('click', () => {
-        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem('theme', next);
+      document.querySelectorAll('.theme-toggle').forEach((button) => {
+        button.addEventListener('click', () => {
+          const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem('theme', next);
+        });
       });
     </script>
   </body>
