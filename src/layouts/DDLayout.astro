@@ -1,0 +1,46 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noReferrer>
+  <Fragment slot="header">
+    <header class="site-header">
+      <a class="brand" href="/disiplin-defteri/" aria-label="Disiplin Defteri ana sayfa">
+        <span class="brand-mark" aria-hidden="true">DD</span>
+        <span>Disiplin Defteri</span>
+      </a>
+      <nav aria-label="Disiplin Defteri menüsü">
+        <a href="/disiplin-defteri/#ozellikler">Özellikler</a>
+        <a href="/disiplin-defteri/#indir">İndir</a>
+        <a href="/disiplin-defteri/kilavuz/">Kılavuz</a>
+        <a href="/disiplin-defteri/gizlilik/">Gizlilik</a>
+        <button class="theme-toggle" type="button" aria-label="Açık/koyu tema değiştir">◐</button>
+      </nav>
+    </header>
+  </Fragment>
+
+  <slot />
+
+  <Fragment slot="footer">
+    <footer class="site-footer">
+      <div>
+        <strong>Disiplin Defteri</strong>
+        <p>Ticari olmayan kullanım için ücretsiz masaüstü uygulaması.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/disiplin-defteri/kilavuz/">Kılavuz</a>
+        <a href="/disiplin-defteri/gizlilik/">Gizlilik ve KVKK</a>
+        <a href="https://github.com/aalidemirci/disiplin-defteri-codex/blob/main/LICENSE" rel="noopener">Lisans</a>
+        <a href="https://github.com/aalidemirci/disiplin-defteri-codex" rel="noopener">GitHub</a>
+        <a href="/">okulapp.org'a dön</a>
+      </div>
+    </footer>
+  </Fragment>
+</BaseLayout>
