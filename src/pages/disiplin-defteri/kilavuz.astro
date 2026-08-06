@@ -1,0 +1,106 @@
+---
+import DDLayout from '../../layouts/DDLayout.astro';
+---
+
+<DDLayout
+  title="Kullanım Kılavuzu — Disiplin Defteri"
+  description="Disiplin Defteri kurulum, ilk kullanım, yedekleme ve sorun giderme kılavuzu."
+>
+  <div class="document-layout">
+    <aside class="document-nav" aria-label="Kılavuz içindekiler">
+      <strong>İçindekiler</strong>
+      <a href="#paket-secimi">Paket seçimi</a>
+      <a href="#windows">Windows kurulumu</a>
+      <a href="#pardus">Pardus / Linux</a>
+      <a href="#ilk-acilis">İlk açılış</a>
+      <a href="#yedekleme">Yedekleme</a>
+      <a href="#dosya-dogrulama">Dosya doğrulama</a>
+      <a href="#sorun-giderme">Sorun giderme</a>
+    </aside>
+    <article class="document">
+      <p class="eyebrow">Kullanım kılavuzu</p>
+      <h1>Kurulumdan ilk dosyanıza kadar</h1>
+      <div class="info-box">
+        <strong>İnternet bağlantısı gerekmez.</strong>
+        <p>Program kurulduktan sonra kayıtlar yalnızca kullandığınız bilgisayarda tutulur.</p>
+      </div>
+
+      <h2 id="paket-secimi">Hangi paketi seçmeliyim?</h2>
+      <div class="guide-table" role="table" aria-label="Kurulum paketi seçenekleri">
+        <div role="row"><strong role="cell">Windows kurulum</strong><span role="cell">Normal kullanım için önerilen seçenek; yönetici parolası gerekmez.</span></div>
+        <div role="row"><strong role="cell">Windows taşınabilir</strong><span role="cell">Kurulumun engellendiği bilgisayarlar veya USB kullanımı için.</span></div>
+        <div role="row"><strong role="cell">Pardus / Debian paketi</strong><span role="cell">Normal Linux kurulumu; yönetici parolası gerekir.</span></div>
+        <div role="row"><strong role="cell">Linux arşivi</strong><span role="cell">Yönetici parolası olmadan kullanıcı hesabına kurulum için.</span></div>
+      </div>
+
+      <h2 id="windows">Windows kurulumu</h2>
+      <ol>
+        <li>İndirdiğiniz <code>win64-setup.exe</code> dosyasına çift tıklayın.</li>
+        <li>Windows koruma uyarısı gösterirse dosyayı yalnızca bu sitenin yönlendirdiği resmî Google Drive klasöründen veya resmî GitHub sürümünden indirdiğinizi doğrulayın.</li>
+        <li>Kurulum sihirbazında ilerleyin ve Başlat menüsünden uygulamayı açın.</li>
+      </ol>
+
+      <h2 id="pardus">Pardus / Linux kurulumu</h2>
+      <p>
+        <code>.deb</code> dosyasına çift tıklayıp yazılım yükleyicisinde <strong>Kur</strong>
+        seçeneğini kullanın. Yönetici erişiminiz yoksa Linux taşınabilir arşivini indirip
+        içindeki açıklamaları izleyin.
+      </p>
+
+      <h2 id="ilk-acilis">İlk açılış</h2>
+      <ol>
+        <li>Okul adı, il/ilçe ve yönetici bilgilerini girin.</li>
+        <li>Ders yılını ve başlangıç/bitiş tarihlerini belirleyin.</li>
+        <li>Resmî ve idari tatilleri girin. Ara tatilleri iş günü hesabından çıkarmayın.</li>
+        <li>Öğrenci ve personel listesini e-Okul Excel çıktısından veya panodan aktarın.</li>
+      </ol>
+      <div class="warning-card">
+        <strong>Gerçek verileri destek talebine eklemeyin</strong>
+        <p>
+          İçe aktardığınız öğrenci/personel dosyalarını, oluşturulan evrakları, uygulama
+          yedeğini veya ekran görüntülerini e-posta ve GitHub üzerinden paylaşmayın.
+        </p>
+      </div>
+
+      <h2 id="yedekleme">Yedekleme</h2>
+      <p>
+        Ayarlar → Güvenlik ekranından şifreli <code>.ddbak</code> yedeği oluşturun. Yedek
+        cihazda şifrelenir ve herhangi bir bulut hesabına otomatik gönderilmez. Disk
+        arızasına karşı yedeği kurumunuzun onayladığı güvenli bir ortama ayrıca kopyalayın.
+      </p>
+
+      <h2 id="dosya-dogrulama">İndirilen dosyayı doğrulama</h2>
+      <p>
+        Sürümle birlikte yayımlanan <code>SHA256SUMS.txt</code> dosyasındaki değer ile
+        indirdiğiniz dosyanın özetini karşılaştırın.
+      </p>
+      <h3>Windows PowerShell</h3>
+      <pre><code>Get-FileHash .\disiplin-defteri-&lt;sürüm&gt;-win64-setup.exe -Algorithm SHA256</code></pre>
+      <h3>Pardus / Linux</h3>
+      <pre><code>sha256sum -c SHA256SUMS.txt</code></pre>
+
+      <h2 id="sorun-giderme">Sık karşılaşılan sorunlar</h2>
+      <h3>WebView2 bulunamadı</h3>
+      <p>
+        Windows 10 kullanılan bazı bilgisayarlarda Microsoft Edge WebView2 bileşeninin kurum
+        bilişim sorumlusu tarafından kurulması gerekebilir.
+      </p>
+      <h3>Program zaten çalışıyor</h3>
+      <p>
+        Aynı anda yalnızca bir kopya çalışır. Görev çubuğundaki açık pencereyi bulun veya
+        bilgisayarı yeniden başlatın.
+      </p>
+      <h3>Veritabanı bozuk uyarısı</h3>
+      <p>
+        Programı kapatın ve en son sağlam şifreli yedekten dönün. Bozuk veritabanını veya
+        yedeği destek talebine eklemeyin.
+      </p>
+
+      <p class="document-source">
+        Ayrıntılı teknik kılavuz için
+        <a href="https://github.com/aalidemirci/disiplin-defteri-codex/blob/main/docs/kurulum.md" rel="noopener">depodaki güncel kurulum belgesine</a>
+        bakabilirsiniz.
+      </p>
+    </article>
+  </div>
+</DDLayout>
