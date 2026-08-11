@@ -1,29 +1,29 @@
 {
   "available": true,
-  "version": "0.4.0",
-  "name": "Okul Zili 0.4.0",
-  "published_at": "2026-08-11T15:40:30Z",
+  "version": "0.4.2",
+  "name": "Okul Zili 0.4.2",
+  "published_at": "2026-08-11T16:08:29Z",
   "prerelease": false,
   "releaseUrl": "https://github.com/aalidemirci/okulzili/releases",
   "assets": [
     {
       "kind": "windows_installer",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.0/OkulZili-Kurulum-0.4.0.exe",
-      "size": 22542162
+      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.2/OkulZili-Kurulum-0.4.2.exe",
+      "size": 22536579
     },
     {
       "kind": "windows_portable",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.0/OkulZili-Tasinabilir-0.4.0.zip",
-      "size": 27799914
+      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.2/OkulZili-Tasinabilir-0.4.2.zip",
+      "size": 27801034
     },
     {
       "kind": "linux_deb",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.0/okul-zili_0.4.0_all.deb",
-      "size": 192032
+      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.2/okul-zili_0.4.2_all.deb",
+      "size": 193008
     },
     {
       "kind": "checksums",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.0/SHA256SUMS-0.4.0.txt",
+      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.4.2/SHA256SUMS-0.4.2.txt",
       "size": 280
     }
   ]

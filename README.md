@@ -31,10 +31,15 @@ Gereksinim: Node.js 20+.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321
-npm run build      # statik çıktı -> dist/
-npm run preview    # build çıktısını lokal sunar
+npm run dev             # http://localhost:4321
+npm run build           # statik çıktı -> dist/
+npm run preview         # build çıktısını lokal sunar
+npm run check-releases  # sürüm verileri GitHub'daki son sürümle uyuşuyor mu
 ```
+
+`npm run build`, `prebuild` adımında `check-releases` betiğini `--warn-only`
+kipinde çalıştırır: sürüm verisi eskiyse uyarır, derlemeyi durdurmaz. Ağ
+kapalıysa sessizce geçer.
 
 ## Disiplin Defteri bölümü
 
@@ -58,9 +63,11 @@ ağında GitHub engelli olduğu için erişilebilir kopya buradadır. İndirme v
 ile aynıdır (`driveUrl` opsiyoneldir, tanımlıysa Drive kartı eklenebilir).
 
 Yeni sürüm çıktığında `version`, `name`, `published_at`, `prerelease` ve
-`assets` alanlarını güncelleyin. Depodaki `website/` klasörü ile bu bölümün
-metinleri ayrı yaşar: sürüm notu veya özellik değiştiğinde iki taraf da elle
-güncellenir.
+`assets` alanlarını güncelleyin; `npm run check-releases` eksik kalanı söyler.
+
+Okul Zili deposundaki `website/` klasörü artık bu sayfalara yönlendirdiği için
+buradaki metinler **tek kaynaktır**; içerik eskirse başka yerde güncel kopyası
+yoktur.
 
 ## Yeni proje ekleme
 

@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/check-releases.mjs --warn-only",
     "build": "astro build",
     "preview": "astro preview",
-    "sync": "node scripts/sync-repos.mjs"
+    "sync": "node scripts/sync-repos.mjs",
+    "check-releases": "node scripts/check-releases.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
