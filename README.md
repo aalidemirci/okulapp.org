@@ -15,6 +15,13 @@ Workers Static Assets üzerinde yayınlanır.
 - Tasarım tek global CSS dosyasındadır (`src/styles/global.css`); Tailwind ve
   ağır JavaScript yoktur. Açık/koyu tema sistem tercihine uyar, sağ üstteki
   düğmeyle elle de değiştirilebilir.
+- **Renk kümeleri:** Tasarım dili her yerde aynıdır; yalnızca renk token'ları
+  `html[data-palette]` ile değişir. `BaseLayout`'un `palette` prop'u üç değer
+  alır: `site` (varsayılan — okulapp.org kabuğu: mürekkep moru + mercan),
+  `dd` (Disiplin Defteri: koyu yeşil + amber), `oz` (Okul Zili: derin lacivert
+  + turkuaz). Yeni bir proje bölümü eklerken `global.css` içindeki üç blokta
+  (açık tema, `prefers-color-scheme: dark`, `data-theme='dark'`) yeni bir
+  `data-palette` değeri tanımlayın.
 - Worker script'i yoktur: `wrangler.jsonc` yalnızca `assets` tanımlar. İleride
   dinamik rota gerekirse aynı Worker'a `main` + `assets.binding` eklenebilir.
 
@@ -42,6 +49,19 @@ engelli olduğu için erişilebilir kopya). İndirme verisi
   (`kind` değerleri: `windows_installer`, `windows_portable`, `linux_deb`,
   `linux_archive`, `checksums`). Paket kartları otomatik görünür.
 
+## Okul Zili bölümü
+
+`/okul-zili/` altındaki tanıtım, kılavuz ve gizlilik sayfaları, projenin
+GitHub Pages sitesinin (`okulzili/website/`) Astro'ya taşınmış hâlidir; MEB
+ağında GitHub engelli olduğu için erişilebilir kopya buradadır. İndirme verisi
+`src/data/oz-release.json` dosyasında elle tutulur; alanlar Disiplin Defteri
+ile aynıdır (`driveUrl` opsiyoneldir, tanımlıysa Drive kartı eklenebilir).
+
+Yeni sürüm çıktığında `version`, `name`, `published_at`, `prerelease` ve
+`assets` alanlarını güncelleyin. Depodaki `website/` klasörü ile bu bölümün
+metinleri ayrı yaşar: sürüm notu veya özellik değiştiğinde iki taraf da elle
+güncellenir.
+
 ## Yeni proje ekleme
 
 1. `npm run sync` çalıştırın (gereksinim: `gh` CLI, `gh auth login` yapılmış).
@@ -52,6 +72,9 @@ engelli olduğu için erişilebilir kopya). İndirme verisi
    ("ne işe yarar, kimin için, nasıl çalışır"). README kopyalamayın; gerçek
    kişi verisi (öğrenci adı, numara, e-posta, telefon) siteye taşımayın.
 3. Ana sayfada görünmesi için `featured: true`, sıralama için `order` verin.
+   Vitrin kartının üst şeridi için `accent` (projenin kendi renginden bir hex
+   değeri, tırnak içinde) ve kısa durum etiketi için `badge` verilebilir;
+   ikisi de opsiyoneldir.
 4. `npm run build` ile doğrulayın.
 
 ## Deploy

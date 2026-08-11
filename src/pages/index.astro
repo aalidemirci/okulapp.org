@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import ShowcaseCard from '../components/ShowcaseCard.astro';
 
 const projects = await getCollection('projects');
 const featured = projects
@@ -11,18 +11,17 @@ const featured = projects
 
 <BaseLayout
   title="okulapp.org — Ahmet Ali Demirci'nin projeleri"
-  description="Eğitim kurumları için geliştirdiğim açık kaynak yazılımlar: okul yönetimi, disiplin süreçleri ve daha fazlası."
+  description="Eğitim öğretim ve okul yönetimi süreçleri için geliştirdiğim çevrimdışı çalışan, Türkçe, açık kaynak yazılımlar."
 >
-  <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">Açık kaynak · Eğitim odaklı</p>
-      <h1>Okulların işini kolaylaştıran yazılımlar.</h1>
+  <section class="home-hero">
+    <div>
+      <p class="eyebrow">Eğitim için yazılım · Açık kaynak</p>
+      <h1>Okulun işini kolaylaştıran yazılımlar.</h1>
       <p class="lead">
-        Ben Ahmet Ali Demirci. Eğitim kurumlarının günlük işlerini
-        kolaylaştırmayı amaçlayan yazılım projeleri geliştiriyorum. Teknik
-        olmayan okuyucular için her projenin sayfasında "bu ne işe yarar,
-        kimin için" sorularının yanıtı var; geliştiriciler için depo
-        bağlantısı ve mimari özet bulunuyor.
+        Ben Ahmet Ali Demirci. Bir okulda karşılaştığım işleri — disiplin dosyalarını,
+        ders zilini, evrak düzenini — kâğıt ve dağınık şablonlar yerine çalışan
+        programlara dönüştürüyorum. Hepsi çevrimdışı çalışır, Türkçedir ve okulların
+        ücretsiz kullanımına açıktır.
       </p>
       <div class="hero-actions">
         <a class="button button-primary" href="/projeler/">Projeleri gör</a>
@@ -32,24 +31,98 @@ const featured = projects
         Bu site çerez, reklam ve ziyaretçi analizi kullanmaz.
       </p>
     </div>
-    <aside class="hero-panel" aria-label="Site özeti">
-      <div class="status-line"><span></span> GitHub'da açık kaynak</div>
-      <div class="metric"><strong>{projects.length}</strong><span>public proje</span></div>
-      <div class="metric"><strong>Türkçe</strong><span>anlatım ve dokümantasyon</span></div>
-      <div class="metric"><strong>Windows + Pardus</strong><span>hedef platformlar</span></div>
+
+    <aside class="principle-panel" aria-label="Bütün projelerde ortak ilkeler">
+      <h2>Her projede ortak</h2>
+      <ul>
+        <li>
+          <span class="principle-icon" aria-hidden="true">✓</span>
+          <span class="principle-text"><b>Çevrimdışı çalışır</b><span>Kurulumdan sonra internet gerekmez; veri okulun bilgisayarında kalır.</span></span>
+        </li>
+        <li>
+          <span class="principle-icon" aria-hidden="true">✓</span>
+          <span class="principle-text"><b>Hesap ve bulut yok</b><span>Üyelik, telemetri, çevrimiçi etkinleştirme veya abonelik istemez.</span></span>
+        </li>
+        <li>
+          <span class="principle-icon" aria-hidden="true">✓</span>
+          <span class="principle-text"><b>Türkçe ve mevzuata yakın</b><span>Arayüz de belgeler de Türkçe; süreçler yönetmeliğin diliyle kurulur.</span></span>
+        </li>
+        <li>
+          <span class="principle-icon" aria-hidden="true">✓</span>
+          <span class="principle-text"><b>Okullara ücretsiz</b><span>Ticari olmayan kullanım için ücretsiz; kaynak kodu GitHub'da açık.</span></span>
+        </li>
+      </ul>
     </aside>
   </section>
+
+  <div class="stat-strip">
+    <div><strong>{projects.length}</strong><span>yayımlanan proje</span></div>
+    <div><strong>Windows + Pardus</strong><span>hedef platformlar</span></div>
+    <div><strong>KVKK'ya uygun</strong><span>veri cihazdan çıkmaz</span></div>
+    <div><strong>Açık kaynak</strong><span>kod ve belgeler GitHub'da</span></div>
+  </div>
 
   <section class="section">
     <div class="section-heading">
       <p class="eyebrow">Projeler</p>
-      <h2>Öne çıkan projeler</h2>
+      <h2>Şu anda kullanılabilir olanlar</h2>
+      <p>
+        Her projenin kendi tanıtım sayfası, kullanım kılavuzu ve indirme bağlantısı var.
+        Teknik olmayan okuyucu için "ne işe yarar, kimin için", geliştirici için depo
+        bağlantısı ve mimari özet aynı sayfada.
+      </p>
     </div>
-    <ul class="feature-grid">
-      {featured.map((project) => <ProjectCard project={project} />)}
+    <ul class="showcase-grid">
+      {featured.map((project) => <ShowcaseCard project={project} />)}
     </ul>
     <p class="section-cta">
       <a class="text-link" href="/projeler/">Tüm projeleri gör →</a>
     </p>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Yaklaşım</p>
+      <h2>Nasıl çalışıyorum?</h2>
+    </div>
+    <ul class="approach-grid">
+      <li>
+        <b>Gerçek bir ihtiyaçtan başlar</b>
+        <p>
+          Her proje, okulda fiilen yaşadığım ya da meslektaşlarımın anlattığı somut bir
+          zorluktan doğar; hayali bir kullanıcı için değil, o iş için yazılır.
+        </p>
+      </li>
+      <li>
+        <b>Okulun şartlarına göre kurulur</b>
+        <p>
+          İnternetin kesildiği, sunucunun olmadığı, yetkinin sınırlı olduğu bir
+          bilgisayarda çalışması esastır. Kurulum tek makineye yapılır, kullanım öğrenmesi
+          kolaydır.
+        </p>
+      </li>
+      <li>
+        <b>Veri okulda kalır</b>
+        <p>
+          Öğrenci ve personel bilgileri buluta gitmez, yedekler şifrelenir, kayıtların
+          nereye kopyalanacağına kurum karar verir.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="home-cta">
+    <div>
+      <p class="eyebrow" style="color: var(--on-deep-faint)">İletişim</p>
+      <h2>Okulunuzda işe yarar mı, denemek ister misiniz?</h2>
+      <p>
+        Kurulum, kullanım ve öneriler için yazabilirsiniz. Yeni bir ihtiyaç anlatmak da
+        aynı kapıya çıkıyor: çoğu proje böyle bir e-postayla başladı.
+      </p>
+    </div>
+    <div class="hero-actions">
+      <a class="button button-primary" href="mailto:aalidemirci@gmail.com?subject=okulapp.org%20hakkında">E-posta gönder</a>
+      <a class="button button-secondary" href="https://github.com/aalidemirci" rel="me">GitHub</a>
+    </div>
   </section>
 </BaseLayout>
