@@ -87,4 +87,8 @@ Workers Static Assets olarak yayınlanır. Lokalden `wrangler deploy`
 - Build komutu: `npm run build`
 - Çıktı: `dist/`
 - 404: `dist/404.html` (`not_found_handling: "404-page"`)
+- Alan adları `wrangler.jsonc` içindeki `routes` alanında custom domain olarak
+  tanımlıdır (`okulapp.org` ve `www.okulapp.org`); DNS kayıtlarını Cloudflare
+  deploy sırasında kendisi oluşturur. Yeni bir alan adı eklerken listeden
+  mevcutları **silmeyin**, yalnızca ekleyin.
 - Bu repoda hiçbir token veya gizli anahtar bulunmaz.

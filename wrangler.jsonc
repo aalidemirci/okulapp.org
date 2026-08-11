@@ -5,6 +5,15 @@
 {
   "name": "okulapp-org",
   "compatibility_date": "2026-08-06",
+  // Custom domain'ler: deploy sırasında Cloudflare gerekli DNS kaydını
+  // kendisi oluşturur. Apex kaydı olmadığı için site yalnızca www üzerinden
+  // açılıyordu; canonical URL'ler ve sitemap ise apex'i gösteriyor
+  // (astro.config.mjs -> site). İkisi de listede: wrangler yalnızca burada
+  // yazanları ekler, mevcut www bağlantısı bozulmasın diye o da duruyor.
+  "routes": [
+    { "pattern": "okulapp.org", "custom_domain": true },
+    { "pattern": "www.okulapp.org", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist",
     "html_handling": "auto-trailing-slash",
