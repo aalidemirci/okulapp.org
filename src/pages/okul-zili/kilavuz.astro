@@ -87,18 +87,28 @@ import OZLayout from '../../layouts/OZLayout.astro';
 
       <h2 id="program">Ders programını hazırlama</h2>
       <p>
-        <strong>Haftalık program</strong> ekranında günü seçin. İlk ders, ders sayısı ve
-        süresi, teneffüs, öğle arasının konumu ve süresini girip
-        <strong>Programı hesapla</strong> düğmesine basın.
+        <strong>Haftalık program</strong> ekranında günü seçin ve
+        <strong>Eğitim modeli</strong> alanından tekli ya da ikili eğitimi belirleyin.
+        İkili eğitimde önce <strong>Sabah</strong>, sonra <strong>Öğleden sonra</strong>
+        oturumunu düzenlersiniz; her oturumun ilk ders saati, ders sayısı, süreleri ve
+        öğrenci zili farkı birbirinden bağımsızdır.
       </p>
       <p>
-        Öğrenci/öğretmen zili kullanılacaksa seçeneği açıp öğrenci zilinin öğretmen
-        zilinden kaç dakika önce çalacağını yazın. Hazırlanan günü diğer günlere kopyalamak
-        için <strong>Günlere uygula</strong> seçeneğini kullanın.
+        Normal derslerde <strong>Blok düzeni</strong> alanını boş bırakın. Blok ders
+        uygulanıyorsa toplamı ders sayısına eşit bir desen yazın (örneğin
+        <code>2+2+1+1</code>); bu durumda blok içindeki ara ziller çalmaz. Ardından
+        <strong>Oturumu hesapla ve kaydet</strong> düğmesine basın.
       </p>
       <p>
-        Tablodaki bir ders satırına çift tıklayarak yalnızca seçili gün için öğrenci zili,
-        öğretmen zili veya ders bitiş saatini düzeltebilirsiniz.
+        Oturum çakışması, aynı dakikaya denk gelen geçiş zilleri, blok içine düşen öğle
+        arası ve fazla kısa teneffüsler kaydedilmeden önce engellenir; ekrandaki uyarıya
+        göre saatleri düzeltin.
+      </p>
+      <p>
+        Tablodaki bir satıra çift tıklayarak yalnızca o blok veya dersin öğrenci zili,
+        öğretmen zili ve bitiş saatini elle düzeltebilirsiniz. Hazırladığınız düzeni aynı
+        tekli/ikili ve blok yapısını kullanan diğer günlere <strong>Günlere uygula</strong>
+        ile kopyalayabilirsiniz.
       </p>
 
       <h2 id="takvim">Takvim ve tatiller</h2>

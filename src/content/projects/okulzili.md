@@ -8,7 +8,7 @@ featured: true
 order: 2
 siteUrl: /okul-zili/
 accent: '#0d6b7b'
-badge: Sürüm 0.3.1
+badge: Sürüm 0.4.0
 ---
 
 Okul Zili, okulun ders zilini bir kişinin saate bakıp düğmeye basmasına ya da
@@ -19,6 +19,14 @@ kendisi hesaplar. Hazırladığınız bir günü diğer günlere ya da tüm ders
 günlerine tek işlemle kopyalayabilir, gerektiğinde yalnızca tek bir dersin
 saatini elle düzeltebilirsiniz. Öğrenci zili isteğe bağlıdır; öğretmen
 zilinden kaç dakika önce çalacağı gün bazında ayarlanır.
+
+Her okul tek oturumla çalışmıyor. Günler tekli eğitim ya da sabah/öğleden
+sonra biçiminde iki oturumlu kurulabilir; her oturumun başlangıç saati, ders
+sayısı, süreleri ve öğrenci zili farkı birbirinden bağımsızdır. Blok ders
+uygulayan okullar için `2+2+1+1` gibi bir desen yazmak yeterli: program blok
+içindeki gereksiz ara zilleri kaldırır. Oturumların çakışması, aynı dakikaya
+denk gelen geçiş zilleri ve blok içine düşen öğle arası gibi hatalar
+kaydedilmeden önce engellenir.
 
 Zil çalmaması gereken günler de programın doğal parçasıdır. Ders yılı,
 dönemler, ara tatiller ve yarıyıl tatili takvim ekranından düzenlenir;
@@ -39,8 +47,10 @@ ayrılır; paylaşılabilir yedekler karmayla doğrulanır ve içlerine PIN ile
 günlük konmaz.
 
 Teknik tarafta uygulama Python ve Tk ile yazılmıştır; üçüncü taraf test çatısı
-kullanmadan `unittest` ile doğrulanır. Windows için kurulum ve taşınabilir
-paket, Pardus 23 / Ubuntu 22.04+ için `.deb` paketi üretilir. Bulut hesabı,
+kullanmadan `unittest` ile doğrulanır (124 otomatik test). Windows için kurulum
+ve taşınabilir paket, Pardus 23 / Ubuntu 22.04+ için `.deb` paketi üretilir.
+Eski tekli eğitim programları yeni sürümlerde olduğu gibi açılır; şema geçişi
+veri kaybetmeden yapılır. Bulut hesabı,
 telemetri veya çevrimiçi etkinleştirme yoktur; veriler Windows'ta
 `%LOCALAPPDATA%\OkulZili`, Linux'ta `~/.local/share/okul-zili` altında kalır.
 Ticari olmayan kullanım için ücretsizdir (PolyForm Noncommercial 1.0.0).
