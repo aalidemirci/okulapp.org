@@ -16,6 +16,8 @@ import OZLayout from '../../layouts/OZLayout.astro';
       <a href="#program">Ders programı</a>
       <a href="#takvim">Takvim ve tatiller</a>
       <a href="#ses">Ses güvenliği</a>
+      <a href="#muzik">Teneffüs müziği</a>
+      <a href="#ses-duzeyi">Zil ses düzeyi</a>
       <a href="#yedekleme">Yedekleme</a>
       <a href="#dosya-dogrulama">Dosya doğrulama</a>
       <a href="#sorun-giderme">Sorun giderme</a>
@@ -100,6 +102,13 @@ import OZLayout from '../../layouts/OZLayout.astro';
         <strong>Oturumu hesapla ve kaydet</strong> düğmesine basın.
       </p>
       <p>
+        Blok içindeki ders sınırlarında öğretmen değişimini duyurmak isterseniz
+        <strong>Blok içi sınıf değişim zili</strong> seçeneğini açık bırakın. Bu zil
+        teneffüs oluşturmaz, beş saniye çalar ve haftalık program tablosunda ayrı bir
+        sütunda görünür. Oturum bazında kapatabilir, sesini <strong>Sesler ve
+        sirenler</strong> sayfasından değiştirebilirsiniz.
+      </p>
+      <p>
         Oturum çakışması, aynı dakikaya denk gelen geçiş zilleri, blok içine düşen öğle
         arası ve fazla kısa teneffüsler kaydedilmeden önce engellenir; ekrandaki uyarıya
         göre saatleri düzeltin.
@@ -133,6 +142,39 @@ import OZLayout from '../../layouts/OZLayout.astro';
         <li>Ses cihazını değiştirdikten sonra Sistem kontrolü ekranını çalıştırın.</li>
         <li>Okulda kullanım hakkı bulunmayan müzik veya anons dosyalarını programa eklemeyin.</li>
       </ul>
+      <p>
+        Zil, marş, anons ve ikaz kayıtları kurulum paketinin içinde gelir; program
+        çalışmak için hiçbir ses dosyasını internetten indirmez.
+      </p>
+
+      <h2 id="muzik">Teneffüs müziği</h2>
+      <p>
+        <strong>Sesler ve sirenler</strong> sayfasındaki <strong>Teneffüste hafif
+        müzik</strong> seçeneğini açın, kamu malı beste havuzundan parçayı ve ses düzeyini
+        seçip kaydedin. Varsayılan düzey %20, izin verilen üst sınır %40'tır ve seçenek
+        varsayılan olarak kapalı gelir.
+      </p>
+      <p>
+        Müzik yalnızca ders bitişi ile aynı gün içindeki sıradaki zil arasında çalar.
+        Sıradaki zilden bir saniye önce, bir tören veya tatbikat başlatıldığında ya da
+        <strong>Sesi durdur</strong> düğmesine basıldığında kendiliğinden kesilir.
+      </p>
+
+      <h2 id="ses-duzeyi">Zil ses düzeyi</h2>
+      <p>
+        Üst çubuktaki <strong>Yönetim</strong> düğmesinden <strong>Okul ve cihaz
+        ayarları</strong> bölümünü açın. <strong>Zil ses düzeyi</strong> çubuğu öğrenci,
+        öğretmen, teneffüs, tören ve tatbikat yayınlarının ortak seviyesini %0–100
+        arasında ayarlar. Teneffüs müziğinin ayrı ve daha düşük güvenlik sınırı bundan
+        etkilenmez.
+      </p>
+      <div class="warning-card">
+        <strong>Değişiklikten sonra deneyin</strong>
+        <p>
+          Ses düzeyini değiştirdikten sonra gerçek bir yayından önce <strong>Sesler ve
+          sirenler</strong> sayfasında kısa bir deneme yapın.
+        </p>
+      </div>
 
       <h2 id="yedekleme">Yedek alma ve taşıma</h2>
       <p>
