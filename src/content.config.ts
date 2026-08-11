@@ -15,6 +15,10 @@ const projects = defineCollection({
     order: z.number().default(99),
     /** Projenin okulapp.org içindeki veya harici tanıtım sitesi (opsiyonel). */
     siteUrl: z.string().optional(),
+    /** Ana sayfa vitrin kartının şerit rengi; projenin kendi renk kümesinden. */
+    accent: z.string().optional(),
+    /** Vitrin kartında görünen kısa durum etiketi (ör. "Sürüm 0.3.1", "Beta"). */
+    badge: z.string().optional(),
   }),
 });
 

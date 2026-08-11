@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noReferrer palette="oz">
+  <Fragment slot="header">
+    <header class="site-header">
+      <a class="brand" href="/okul-zili/" aria-label="Okul Zili ana sayfa">
+        <img class="brand-logo" src="/okul-zili.png" width="42" height="42" alt="" />
+        <span>Okul Zili<small>Akıllı zamanlama</small></span>
+      </a>
+      <nav aria-label="Okul Zili menüsü">
+        <a href="/okul-zili/#ozellikler">Özellikler</a>
+        <a href="/okul-zili/#indir">İndir</a>
+        <a href="/okul-zili/kilavuz/">Kılavuz</a>
+        <a href="/okul-zili/#guvenlik">Güvenlik</a>
+        <a href="/okul-zili/#iletisim">İletişim</a>
+        <button class="theme-toggle" type="button" aria-label="Açık/koyu tema değiştir">◐</button>
+      </nav>
+    </header>
+  </Fragment>
+
+  <slot />
+
+  <Fragment slot="footer">
+    <footer class="site-footer">
+      <div>
+        <strong>Okul Zili</strong>
+        <p>Çevrimdışı okul zili ve anons sistemi.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/okul-zili/kilavuz/">Kılavuz</a>
+        <a href="/okul-zili/gizlilik/">Gizlilik</a>
+        <a href="https://github.com/aalidemirci/okulzili/blob/main/LICENSE" rel="noopener">Lisans</a>
+        <a href="https://github.com/aalidemirci/okulzili" rel="noopener">GitHub</a>
+        <a href="/">okulapp.org'a dön</a>
+      </div>
+    </footer>
+  </Fragment>
+</BaseLayout>

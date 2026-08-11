@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, description, language, topics, siteUrl, accent, badge } = project.data;
+---
+
+<li class="showcase-card" style={accent ? `--card-accent: ${accent}` : undefined}>
+  <div class="showcase-head">
+    <h3><a href={`/projeler/${project.id}/`}>{title}</a></h3>
+    {badge && <span class="showcase-badge">{badge}</span>}
+  </div>
+  <p class="showcase-summary">{description}</p>
+  <div class="project-meta">
+    {language && <span class="tag">{language}</span>}
+    {topics.map((topic) => <span class="tag">{topic}</span>)}
+  </div>
+  <p class="showcase-actions">
+    {siteUrl && <a href={siteUrl}>Tanıtım ve indirme →</a>}
+    <a href={`/projeler/${project.id}/`}>Ayrıntılı anlatım →</a>
+  </p>
+</li>

@@ -6,15 +6,26 @@ interface Props {
   description: string;
   /** Open Graph içerik türü; makale benzeri sayfalarda "article" verilebilir. */
   ogType?: string;
-  /** Disiplin Defteri sayfaları Pages'taki no-referrer politikasını korur. */
+  /** Proje sayfaları Pages'taki no-referrer politikasını korur. */
   noReferrer?: boolean;
+  /**
+   * Renk kümesi. Tasarım dili aynı kalır, yalnızca token'lar değişir:
+   * "site" okulapp.org kabuğu, "dd" Disiplin Defteri, "oz" Okul Zili.
+   */
+  palette?: 'site' | 'dd' | 'oz';
 }
 
-const { title, description, ogType = 'website', noReferrer = false } = Astro.props;
+const {
+  title,
+  description,
+  ogType = 'website',
+  noReferrer = false,
+  palette = 'site',
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="tr">
+<html lang="tr" data-palette={palette}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

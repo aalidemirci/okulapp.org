@@ -7,6 +7,8 @@ topics: []
 featured: true
 order: 1
 siteUrl: /disiplin-defteri/
+accent: '#2a6759'
+badge: Beta 2026.7.0
 ---
 
 Disiplin Defteri, bir lisenin disiplin kurulu işlerini kâğıt ve dağınık Word
