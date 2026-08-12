@@ -8,7 +8,7 @@ featured: true
 order: 2
 siteUrl: /okul-zili/
 accent: '#0d6b7b'
-badge: Sürüm 0.6.0
+badge: Sürüm 0.7.0
 ---
 
 Okul Zili, okulun ders zilini bir kişinin saate bakıp düğmeye basmasına ya da
@@ -54,9 +54,12 @@ Program okul ortamının hata payını hesaba katarak tasarlandı: her çalmadan
 çalar ve ekranda görünür bir uyarı çıkar; seçili USB cihazı kaybolursa
 varsayılan çıkıştan yeniden denenir. Tek oynatma kuyruğu iki sesin üst üste
 binmesini engeller, uyku/uyanma sonrası kaçırılan ziller tolerans kuralına
-göre değerlendirilir. Yönetici, nöbetçi ve salt görüntüleme profilleri PIN ile
-ayrılır; paylaşılabilir yedekler karmayla doğrulanır ve içlerine PIN ile
-günlük konmaz.
+göre değerlendirilir. Elektrik kesintisinden sonra bilgisayar açıldığında
+ziller kimsenin PIN girmesini beklemez: uygulama salt görüntüleme yetkisiyle
+kendiliğinden çalışmaya başlar, yönetim işlevleri girişle açılır. Yönetici,
+nöbetçi ve salt görüntüleme profilleri PIN ile ayrılır; art arda hatalı
+girişler artan bekleme süresiyle yavaşlatılır. Paylaşılabilir yedekler
+karmayla doğrulanır ve içlerine PIN ile günlük konmaz.
 
 Teknik tarafta uygulama Python ve Tk ile yazılmıştır; üçüncü taraf test çatısı
 kullanmadan `unittest` ile doğrulanır. Windows için kurulum
