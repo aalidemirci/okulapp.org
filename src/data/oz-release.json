@@ -8,22 +8,22 @@
   "assets": [
     {
       "kind": "windows_installer",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.7.0/OkulZili-Kurulum-0.7.0.exe",
+      "url": "https://indir.okulapp.org/okul-zili/OkulZili-Kurulum-0.7.0.exe",
       "size": 69113183
     },
     {
       "kind": "windows_portable",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.7.0/OkulZili-Tasinabilir-0.7.0.zip",
+      "url": "https://indir.okulapp.org/okul-zili/OkulZili-Tasinabilir-0.7.0.zip",
       "size": 80527243
     },
     {
       "kind": "linux_deb",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.7.0/okul-zili_0.7.0_all.deb",
+      "url": "https://indir.okulapp.org/okul-zili/okul-zili_0.7.0_all.deb",
       "size": 52887624
     },
     {
       "kind": "checksums",
-      "url": "https://github.com/aalidemirci/okulzili/releases/download/v0.7.0/SHA256SUMS-0.7.0.txt",
+      "url": "https://indir.okulapp.org/okul-zili/SHA256SUMS-0.7.0.txt",
       "size": 281
     }
   ]

@@ -108,8 +108,8 @@ const releaseDate =
             <p class="download-meta">
               {packageLabels[asset.kind][1]}{asset.size ? ` · ${formatBytes(asset.size)}` : ''}
             </p>
-            <a class="button" href={asset.url} rel="noopener" aria-label={`${packageLabels[asset.kind][0]} paketini GitHub'dan indir`}>
-              GitHub'dan indir
+            <a class="button" href={asset.url} rel="noopener" aria-label={`${packageLabels[asset.kind][0]} paketini indir`}>
+              İndir
             </a>
           </article>
         ))}
@@ -119,16 +119,16 @@ const releaseDate =
     <div class="security-note">
       <strong>Dosya bütünlüğü</strong>
       <p>
-        Paketler yalnızca projenin resmî GitHub Releases alanından sunulur. İndirdiğiniz
+        Paketler bu sitenin kendi indirme alanından (indir.okulapp.org) sunulur; aynı
+        dosyalar projenin resmî GitHub Releases sayfasında da yayımlanır. İndirdiğiniz
         dosyayı yayımlanan SHA-256 değeriyle doğrulamanız önerilir.
       </p>
       <a href="/okul-zili/kilavuz/#dosya-dogrulama">Nasıl doğrulanır? →</a>
     </div>
 
     <p class="github-fallback">
-      MEB ağı gibi GitHub'ın engelli olduğu bir bağlantı kullanıyorsanız paketleri okul
-      dışındaki bir bağlantıdan indirip kurulum dosyasını taşıyabilirsiniz. Bu sayfa ve
-      kılavuz engelsiz erişilebilir olarak burada tutulur.
+      İndirme bağlantıları MEB ağı gibi GitHub'ın engelli olduğu bağlantılarda da
+      çalışır: paketler GitHub'dan değil, okulapp.org'un kendi indirme alanından gelir.
     </p>
   </section>
 
