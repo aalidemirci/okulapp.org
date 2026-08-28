@@ -16,10 +16,11 @@ Workers Static Assets üzerinde yayınlanır.
   ağır JavaScript yoktur. Açık/koyu tema sistem tercihine uyar, sağ üstteki
   düğmeyle elle de değiştirilebilir.
 - **Renk kümeleri:** Tasarım dili her yerde aynıdır; yalnızca renk token'ları
-  `html[data-palette]` ile değişir. `BaseLayout`'un `palette` prop'u üç değer
+  `html[data-palette]` ile değişir. `BaseLayout`'un `palette` prop'u dört değer
   alır: `site` (varsayılan — okulapp.org kabuğu: mürekkep moru + mercan),
   `dd` (Disiplin Defteri: koyu yeşil + amber), `oz` (Okul Zili: derin lacivert
-  + turkuaz). Yeni bir proje bölümü eklerken `global.css` içindeki üç blokta
+  + turkuaz), `ss` (Sorumluluk Sınavı: bordo + sıcak kum). Yeni bir proje
+  bölümü eklerken `global.css` içindeki üç blokta
   (açık tema, `prefers-color-scheme: dark`, `data-theme='dark'`) yeni bir
   `data-palette` değeri tanımlayın.
 - Worker script'i yoktur: `wrangler.jsonc` yalnızca `assets` tanımlar. İleride
@@ -68,6 +69,19 @@ Yeni sürüm çıktığında `version`, `name`, `published_at`, `prerelease` ve
 Okul Zili deposundaki `website/` klasörü artık bu sayfalara yönlendirdiği için
 buradaki metinler **tek kaynaktır**; içerik eskirse başka yerde güncel kopyası
 yoktur.
+
+## Sorumluluk Sınavı bölümü
+
+`/sorumluluk-sinavi/` altındaki tanıtım, kılavuz ve gizlilik sayfaları
+projenin **tek** tanıtım kaynağıdır; uygulamanın GitHub Pages sitesi yoktur.
+İçerik `../sorumluluk-sinavi` deposundaki `BENIOKU.md`, `KURULUM.md` ve
+`CHANGELOG.md` dosyalarından doğrulanır.
+
+İndirme verisi `src/data/ss-release.json` dosyasında elle tutulur; alanlar
+diğer projelerle aynıdır. **Fark:** paketler şimdilik GitHub Releases
+üzerinden sunulur, `indir.okulapp.org` aynası henüz yoktur — bu yüzden
+indirme bölümünde MEB ağı uyarısı duruyor. Paketler R2'ye taşındığında hem
+`assets` adresleri hem de o uyarı güncellenmelidir.
 
 ## Yeni proje ekleme
 

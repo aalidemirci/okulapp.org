@@ -28,6 +28,7 @@ Site içeriği uygulama depolarından beslenir; bu depolar yan yana durur:
 .claude/apps/okulapp.org/          bu depo
 .claude/apps/okulzili/             Okul Zili uygulaması
 .claude/apps/disiplin-defteri-codex/  Disiplin Defteri uygulaması
+.claude/apps/sorumluluk-sinavi/    Sorumluluk Sınavı uygulaması
 ```
 
 Bir projenin özelliği veya kılavuzu değiştiyse kaynağı `../<depo>` içindeki
@@ -44,6 +45,7 @@ Tasarım dili ve bileşenler tüm sitede ortaktır; yalnızca renk token'ları
 | `site` (varsayılan) | ana sayfa, projeler, hakkımda, 404 | mürekkep moru + mercan |
 | `dd` | `/disiplin-defteri/**` | koyu yeşil + amber |
 | `oz` | `/okul-zili/**` | derin lacivert + turkuaz |
+| `ss` | `/sorumluluk-sinavi/**` | bordo + sıcak kum |
 
 **Yeni bir renk kümesi eklerken `src/styles/global.css` içinde ÜÇ ayrı yerde
 tanımlamalısınız:** açık tema bloğu, `@media (prefers-color-scheme: dark)`
@@ -63,10 +65,18 @@ erişebiliyor. Okul Zili'nin `website/` klasörü artık yalnızca buraya
 yönlendirir, yani **bu sayfalar tek kaynaktır** — içerik eskirse başka bir
 yerde güncel kopyası yoktur.
 
+`/sorumluluk-sinavi/` bölümünün taşındığı bir Pages sitesi hiç olmadı; o
+sayfalar baştan burada yazıldı ve projenin tek tanıtımıdır. Kaynağı
+`../sorumluluk-sinavi` içindeki `BENIOKU.md`, `KURULUM.md` ve `CHANGELOG.md`.
+Diğer ikisinden bir farkı daha var: paketleri henüz `indir.okulapp.org`
+aynasında değil, yalnızca GitHub Releases'te duruyor. Bu yüzden indirme
+bölümünde MEB ağı uyarısı var; paketler R2'ye taşındığında o uyarı ve
+`assets` adresleri birlikte güncellenmelidir.
+
 ## Sürüm verisi ELLE tutulur
 
-`src/data/oz-release.json` ve `src/data/dd-release.json` indirme kartlarını
-üretir. Uygulama deposunda yeni sürüm çıktığında bu dosyalar güncellenmezse
+`src/data/oz-release.json`, `src/data/dd-release.json` ve
+`src/data/ss-release.json` indirme kartlarını üretir. Uygulama deposunda yeni sürüm çıktığında bu dosyalar güncellenmezse
 site eski paketi göstermeye devam eder — pratikte en sık yapılan hata budur.
 
 `npm run check-releases` bunu denetler ve eksik alanları ekrana yazar.
