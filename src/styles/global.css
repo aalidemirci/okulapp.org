@@ -362,18 +362,6 @@ img {
   text-decoration: none;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: var(--deep);
-  color: var(--on-deep);
-  font-size: 0.83rem;
-  letter-spacing: 0.05em;
-}
-
 .brand-logo {
   width: 42px;
   height: 42px;
