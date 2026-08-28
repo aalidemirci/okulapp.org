@@ -36,9 +36,48 @@ Bir projenin özelliği veya kılavuzu değiştiyse kaynağı `../<depo>` içind
 `SURUM-NOTLARI.md` ve `KULLANIM.md` dosyalarıdır. Site metnini oradan
 doğrulamadan güncellemeyin.
 
+## Ortak çalışma düzeni — bu siteye birden çok proje yazar
+
+Bu depo yukarıdaki projelerin **ORTAK YAYIN ALANIDIR**; aynı güne birden çok
+oturum (yerel veya bulut) dokunabilir. 29.08.2026'da eski bir tabandan açılan
+dal canlıyı geri sardı (belge arşivi 5 setten 3'e düştü); kurallar bu vakadan
+çıkarılmıştır ve **siteye dokunan her oturum için bağlayıcıdır:**
+
+1. **Alan sahipliği (tek yazar ilkesi).** Sitedeki her içerik alanının tek
+   üretici projesi vardır; başka projenin alanına dokunulmaz, değişiklik
+   kaynağı olan depoda yapılıp oradan gelir:
+
+   | Alan | Tek yazar | Nasıl değişir |
+   |---|---|---|
+   | `public/evrak/**` + `src/data/evrak-arsivi.json` | evrakmotoru | ÜRETİLİR (`gnl_yayin.py`); elle düzenlenmez |
+   | `src/data/oz-release.json` | okulzili | sürüm çıkınca elle güncellenir |
+   | `src/data/dd-release.json` | disiplin-defteri-codex | sürüm çıkınca elle güncellenir |
+   | `src/data/ss-release.json` | sorumluluk-sinavi | sürüm çıkınca elle güncellenir |
+   | sayfalar, layout, stil, bileşenler | bu deponun kendi oturumları | normal geliştirme |
+
+2. **Taze taban.** Siteye dokunan her oturum işe `git fetch origin` yapıp
+   **güncel `origin/main`** üzerinden başlar; push'tan hemen önce tekrar
+   çekilir. Eski main'den açılmış bir dal/PR, güncel main'e getirilmeden
+   (rebase / merge / GitHub "Update branch") **birleştirilmez** — aksi hâlde
+   başka projenin yeni yayınını sessizce dışarıda bırakır.
+
+3. **Yayın kapısı: production yalnız `main`.** Cloudflare Workers Builds'te
+   "Version command" alanı `npx wrangler versions upload`tır (29.08.2026'da
+   düzeltildi): main dışı dallar yalnız **önizleme** üretir, canlıya çıkamaz.
+   Bu alanı `npx wrangler deploy` YAPMAYIN — yapılırsa her dal push'u
+   doğrudan canlıya deploy olur (yaşanan vaka buydu).
+
+4. **Commit dili.** Commit başlığı hangi alandan geldiğini söyler:
+   "Belge arşivi: …", "Okul Zili: …", "Disiplin Defteri: …",
+   "Sorumluluk Sınavı: …", site geneli için "Site: …" / sayfa adı.
+
+5. **Yayın sonrası kontrol.** main'e push'tan 1-2 dakika sonra canlıda
+   ilgili sayfa doğrulanır (ör. `/belge-arsivi/` üzerindeki set ve belge
+   sayısı beklenenle eşleşmeli).
+
 ## Evrak şablonları ÜRETİLEN dosyalardır — elle düzenlemeyin
 
-`/evrak-sablonlari` sayfasındaki belgeler ve `src/data/evrak-set.json`,
+`/belge-arsivi` sayfalarındaki belgeler ve `src/data/evrak-arsivi.json`,
 **evrakmotoru deposundaki motorlardan** üretilir:
 
 ```bash
@@ -46,13 +85,16 @@ cd ../evrakmotoru && python arac/gnl_yayin.py --site ../okulapp.org
 ```
 
 Hat şu sırayla çalışır: üretim → biçim denetimi → **KVKK/kimlik denetimi** →
-PDF önizleme → ZIP + manifest → bu depoya kopya. Kural:
+PDF önizleme → ZIP + manifest → bu depoya kopya. `--setler` süzgeci
+(`kurul,zumre,oab,servis,kantin`) tek set yayımlamayı sağlar; arşiv manifesti
+çok setlidir, hat yalnız kendi setinin kaydını tazeler, diğerlerine dokunmaz.
+Kural:
 
-- `public/evrak/**` ve `src/data/evrak-set.json` **elle düzenlenmez**; içerik
+- `public/evrak/**` ve `src/data/evrak-arsivi.json` **elle düzenlenmez**; içerik
   değişikliği evrakmotorundaki motorda yapılır ve hat yeniden çalıştırılır.
-- Manifest dosyası bilerek `evrak-set.json`'dır; **`*-release.json` adı
+- Manifest dosyası bilerek `evrak-arsivi.json`'dur; **`*-release.json` adı
   verilmemelidir** — `scripts/check-releases.mjs` o deseni tarayıp GitHub sürümü
-  arar, bu setin GitHub sürümü yoktur.
+  arar, bu setlerin GitHub sürümü yoktur.
 - Belgeler okul, kişi ve konum kimliği içermez (yayın öncesi denetim bunu
   zorlar). Doldurulmuş nüshalar hiçbir koşulda bu depoya girmez.
 
