@@ -34,7 +34,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Marka işareti ve favicon aynı dosyadır; iki kopya tutulmuyor. -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:title" content={title} />
@@ -61,7 +62,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <slot name="header">
       <header class="site-header">
         <a class="brand" href="/" aria-label="okulapp.org ana sayfa">
-          <span class="brand-mark" aria-hidden="true">oa</span>
+          <img class="brand-logo" src="/logo.svg" width="42" height="42" alt="" />
           <span>okulapp.org</span>
         </a>
         <nav aria-label="Ana gezinme">

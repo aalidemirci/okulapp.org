@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="okulapp.org">
+  <title>okulapp.org</title>
+  <desc>
+    Çatı ve taban: okulapp.org marka işareti. Hem başlıktaki işaret hem de
+    favicon bu dosyadır, iki kopya tutulmuyor (BaseLayout'a bakın).
+    Renkler site renk kümesinin koyu blok ve vurgu değerleridir; SVG bir
+    varlık dosyası olduğu için CSS token'ı okuyamaz, hex burada zorunludur.
+    Küme değişirse bu iki değer elle güncellenir. Bu açıklamayı XML yorumu
+    olarak yazmayın: token adlarındaki çift tire XML yorumunda yasaktır ve
+    dosya çözülemez hâle gelir.
+  </desc>
+  <rect width="32" height="32" rx="7" fill="#2b2660"/>
+  <path d="M7 17.2 16 9.6l9 7.6" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="11" y="20.2" width="10" height="3.8" rx="1.9" fill="#f4845f"/>
+</svg>
