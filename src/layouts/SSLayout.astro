@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noReferrer palette="ss">
+  <Fragment slot="header">
+    <header class="site-header">
+      <a class="brand" href="/sorumluluk-sinavi/" aria-label="Sorumluluk Sınavı ana sayfa">
+        <img class="brand-logo" src="/sorumluluk-sinavi.png" width="42" height="42" alt="" />
+        <span>Sorumluluk Sınavı<small>Plan ve görevlendirme</small></span>
+      </a>
+      <nav aria-label="Sorumluluk Sınavı menüsü">
+        <a href="/sorumluluk-sinavi/#ozellikler">Özellikler</a>
+        <a href="/sorumluluk-sinavi/#indir">İndir</a>
+        <a href="/sorumluluk-sinavi/kilavuz/">Kılavuz</a>
+        <a href="/sorumluluk-sinavi/#mevzuat">Mevzuat</a>
+        <a href="/sorumluluk-sinavi/#iletisim">İletişim</a>
+        <button class="theme-toggle" type="button" aria-label="Açık/koyu tema değiştir">◐</button>
+      </nav>
+    </header>
+  </Fragment>
+
+  <slot />
+
+  <Fragment slot="footer">
+    <footer class="site-footer">
+      <div>
+        <strong>Sorumluluk Sınavı</strong>
+        <p>Ticari olmayan kullanım için ücretsiz masaüstü uygulaması.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/sorumluluk-sinavi/kilavuz/">Kılavuz</a>
+        <a href="/sorumluluk-sinavi/gizlilik/">Gizlilik ve KVKK</a>
+        <a href="https://github.com/aalidemirci/sorumluluk-sinavi/blob/main/LICENSE" rel="noopener">Lisans</a>
+        <a href="https://github.com/aalidemirci/sorumluluk-sinavi" rel="noopener">GitHub</a>
+        <a href="/">okulapp.org'a dön</a>
+      </div>
+    </footer>
+  </Fragment>
+</BaseLayout>

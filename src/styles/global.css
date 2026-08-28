@@ -8,6 +8,7 @@
      site (varsayılan) → mürekkep moru + mercan  : okulapp.org kabuğu
      dd                → koyu yeşil + amber      : Disiplin Defteri
      oz                → derin lacivert + turkuaz: Okul Zili
+     ss                → bordo + sıcak kum       : Sorumluluk Sınavı
 
    Tema (açık/koyu): html[data-theme] head'deki inline script ile ayarlanır;
    JS kapalıysa prefers-color-scheme devreye girer. */
@@ -110,6 +111,35 @@
   --panel-line: #cfdee2;
 }
 
+:root[data-palette='ss'] {
+  --paper: #f7f1ee;
+  --surface: #fffbf9;
+  --ink: #2a141b;
+  --muted: #6d525a;
+  --doc-text: #43282f;
+  --deep: #5d1f31;
+  --accent: #d9a066;
+  --accent-hover: #e5b483;
+  --accent-ink: #33190a;
+  --link: #9a2f4a;
+  --chip: #f3dfe3;
+  --line: #e8d9dc;
+  --tint: #f2e6e7;
+  --warn-bg: #fdf0e4;
+  --code-bg: #f0e2e3;
+  --shadow: 0 22px 60px rgba(93, 31, 49, 0.14);
+  --focus-ring: #5d1f31;
+
+  --on-deep: #ffffff;
+  --on-deep-soft: #f4e2e6;
+  --on-deep-faint: #e0bcc4;
+
+  --panel-bg: #fffbf9;
+  --panel-ink: #2a141b;
+  --panel-muted: #6d525a;
+  --panel-line: #e8d9dc;
+}
+
 /* --- Koyu tema: sistem tercihi (elle "light" seçilmediyse) --------- */
 
 @media (prefers-color-scheme: dark) {
@@ -162,6 +192,23 @@
     --code-bg: #10303c;
     --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
     --focus-ring: #2bb3ad;
+  }
+
+  :root[data-palette='ss']:not([data-theme='light']) {
+    --paper: #1b1015;
+    --surface: #251820;
+    --ink: #f6e9ec;
+    --muted: #bda3ab;
+    --doc-text: #ddc9ce;
+    --deep: #5d1f31;
+    --link: #f0a0b0;
+    --chip: #3a1f2a;
+    --line: #3a2b31;
+    --tint: #201319;
+    --warn-bg: #33261a;
+    --code-bg: #2c1d24;
+    --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+    --focus-ring: #d9a066;
   }
 }
 
@@ -216,6 +263,23 @@
   --code-bg: #10303c;
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
   --focus-ring: #2bb3ad;
+}
+
+:root[data-theme='dark'][data-palette='ss'] {
+  --paper: #1b1015;
+  --surface: #251820;
+  --ink: #f6e9ec;
+  --muted: #bda3ab;
+  --doc-text: #ddc9ce;
+  --deep: #5d1f31;
+  --link: #f0a0b0;
+  --chip: #3a1f2a;
+  --line: #3a2b31;
+  --tint: #201319;
+  --warn-bg: #33261a;
+  --code-bg: #2c1d24;
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+  --focus-ring: #d9a066;
 }
 
 /* ------------------------------------------------------------------ */
@@ -1194,6 +1258,9 @@ code {
   border-radius: 4px;
   font-family: ui-monospace, 'Cascadia Code', Menlo, monospace;
   font-size: 0.9em;
+  /* Dosya yolları ters bölü içerir; tarayıcı orada satır sonu üretmez.
+     Bu olmadan uzun bir yol dar ekranda sayfayı yatay kaydırır. */
+  overflow-wrap: anywhere;
 }
 
 pre {
@@ -1207,6 +1274,8 @@ pre {
 pre code {
   background: transparent;
   padding: 0;
+  /* Blok içindeki komut kırılmaz; pre kendi içinde yatay kaydırır. */
+  overflow-wrap: normal;
 }
 
 .document .warning-card,

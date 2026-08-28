@@ -1,0 +1,25 @@
+{
+  "available": true,
+  "version": "0.4.0",
+  "name": "Sorumluluk Sınavı 0.4.0",
+  "published_at": "2026-08-28T05:19:14Z",
+  "prerelease": false,
+  "releaseUrl": "https://github.com/aalidemirci/sorumluluk-sinavi/releases",
+  "assets": [
+    {
+      "kind": "windows_installer",
+      "url": "https://github.com/aalidemirci/sorumluluk-sinavi/releases/download/v0.4.0/SorumlulukSinavi-Kurulum-0.4.0.exe",
+      "size": 15350349
+    },
+    {
+      "kind": "windows_portable",
+      "url": "https://github.com/aalidemirci/sorumluluk-sinavi/releases/download/v0.4.0/SorumlulukSinavi-Tasinabilir-0.4.0.zip",
+      "size": 18600882
+    },
+    {
+      "kind": "checksums",
+      "url": "https://github.com/aalidemirci/sorumluluk-sinavi/releases/download/v0.4.0/SHA256SUMS-0.4.0.txt",
+      "size": 206
+    }
+  ]
+}

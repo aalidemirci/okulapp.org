@@ -1,0 +1,246 @@
+---
+import SSLayout from '../../layouts/SSLayout.astro';
+---
+
+<SSLayout
+  title="Kullanım Kılavuzu — Sorumluluk Sınavı"
+  description="Sorumluluk Sınavı kurulum, e-Okul raporlarını indirme, plan üretme, evrak ve teslim takibi kılavuzu."
+>
+  <div class="document-layout">
+    <aside class="document-nav" aria-label="Kılavuz içindekiler">
+      <strong>İçindekiler</strong>
+      <a href="#paket-secimi">Paket seçimi</a>
+      <a href="#windows">Windows kurulumu</a>
+      <a href="#guncelleme">Kurulu makineyi güncelleme</a>
+      <a href="#raporlar">e-Okul raporlarını indirme</a>
+      <a href="#kullanim-sirasi">Kullanım sırası</a>
+      <a href="#plan">Plan ekranı</a>
+      <a href="#evrak">Evrak ve teslim</a>
+      <a href="#ilan">İlan çıktıları</a>
+      <a href="#yedekleme">Yedekleme</a>
+      <a href="#dosya-dogrulama">Dosya doğrulama</a>
+      <a href="#sorun-giderme">Sorun giderme</a>
+    </aside>
+    <article class="document">
+      <p class="eyebrow">Kullanım kılavuzu</p>
+      <h1>Kurulumdan onaylı plana kadar</h1>
+      <div class="info-box">
+        <strong>İnternet bağlantısı gerekmez.</strong>
+        <p>
+          Program kurulduktan sonra hiçbir ağ isteği yapmaz. e-Okul'a bağlanmaz; raporları
+          siz indirir, programa yüklersiniz. Ürettiği planın e-Okul'a girişini de kullanıcı
+          elle yapar.
+        </p>
+      </div>
+
+      <h2 id="paket-secimi">Hangi paketi seçmeliyim?</h2>
+      <div class="guide-table" role="table" aria-label="Kurulum paketi seçenekleri">
+        <div role="row"><strong role="cell">Windows kurulum</strong><span role="cell">Normal kullanım için önerilen seçenek; yönetici parolası gerekmez, Program Files'a yazmaz.</span></div>
+        <div role="row"><strong role="cell">Windows taşınabilir</strong><span role="cell">Kurulumun engellendiği bilgisayarlar veya USB kullanımı için. Klasörün tamamını taşıyın; <code>_internal</code> olmadan çalışmaz.</span></div>
+        <div role="row"><strong role="cell">SHA-256 özetleri</strong><span role="cell">İndirdiğiniz dosyanın bozulmadığını doğrulamak için.</span></div>
+      </div>
+      <p>
+        Pardus / Linux paketi henüz üretilmiyor. Program Linux'ta çalışacak biçimde
+        yazılmıştır ancak dağıtılan paket şimdilik yalnız Windows içindir.
+      </p>
+
+      <h2 id="windows">Windows kurulumu</h2>
+      <ol>
+        <li>İndirdiğiniz <code>SorumlulukSinavi-Kurulum-&lt;sürüm&gt;.exe</code> dosyasına çift tıklayın.</li>
+        <li>Windows koruma uyarısı gösterirse dosyayı bu sitenin yönlendirdiği resmî sürüm sayfasından indirdiğinizi doğrulayın.</li>
+        <li>Kurulum <strong>kullanıcı başınadır</strong>: yönetici hakkı istemez, varsayılan yer <code>%LOCALAPPDATA%\SorumlulukSinavi\uygulama</code> olur.</li>
+        <li>Başlat menüsünden uygulamayı açın. Masaüstü kısayolu isteğe bağlıdır.</li>
+      </ol>
+      <div class="info-box">
+        <strong>Bir bilgisayarı birden çok kişi kullanıyorsa</strong>
+        <p>
+          Kurulum kullanıcı başına yapıldığı için her Windows hesabında ayrı kurulum
+          gerekir; her hesabın verisi de ayrıdır.
+        </p>
+      </div>
+
+      <h2 id="guncelleme">Kurulu makineyi güncelleme</h2>
+      <p>
+        Yeni sürüm eskisinin üzerine kurulur; önce kaldırmaya gerek yoktur. Veritabanı
+        kurulum klasöründe değil ayrı bir yerde durduğu için güncelleme <strong>veriye
+        dokunmaz</strong>: ilk açılışta gereken şema göçü uygulanır, öncesinde otomatik
+        yedek alınır.
+      </p>
+      <h3>Soru sormadan kurmak</h3>
+      <pre><code>.\SorumlulukSinavi-Kurulum-0.4.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
+      <h3>Kurulu sürümü doğrulamak</h3>
+      <pre><code>(Get-Item "$env:LOCALAPPDATA\SorumlulukSinavi\uygulama\SorumlulukSinavi.exe").VersionInfo.FileVersion</code></pre>
+      <p>
+        Kaldırma Başlat menüsünden ya da Ayarlar → Uygulamalar üzerinden yapılır; kaldırma
+        da veritabanını silmez. Kurulum klasörü kaldırma yapılmadan elle silinmişse
+        Ayarlar → Uygulamalar listesinde kaldırılamayan bir kayıt kalabilir; üzerine yeni
+        sürümü kurmak bu kaydı düzeltir.
+      </p>
+
+      <h2 id="raporlar">e-Okul raporlarını indirme</h2>
+      <div class="warning-card">
+        <strong>"Excel'e aktar" düğmesiyle indirmeyin</strong>
+        <p>
+          Biçimlendirilmiş çıktı birleşik hücreler ve tekrarlanan başlıklar içerir; program
+          bunu okuyamaz. Aşağıdaki yol izlenmelidir.
+        </p>
+      </div>
+      <ol>
+        <li>Raporu e-Okul'da açın, görüntüleyici seçeneklerinden <strong>HTML5 görüntüleyiciyi</strong> seçin.</li>
+        <li>Görüntüleyicinin dışa aktarma menüsünden <strong>Excel</strong> biçimini seçin.</li>
+        <li>Açılan seçeneklerde <strong>SADECE VERİ</strong> seçeneğini işaretleyin.</li>
+        <li>İnen dosyayı açıp kaydetmeden programa yükleyin.</li>
+      </ol>
+      <div class="guide-table" role="table" aria-label="Gereken e-Okul raporları">
+        <div role="row"><strong role="cell">OOK01001R1</strong><span role="cell">Kurum Personel Listesi — öğretmen listesi ve branş havuzu bu rapordan kurulur.</span></div>
+        <div role="row"><strong role="cell">OOK12001R010</strong><span role="cell">Sorumluluk Sınavına Girecek Öğrenci Listesi — sınava girecek öğrenciler ve dersleri.</span></div>
+      </div>
+      <p>
+        Aynı yönerge ilgili ekranların üstünde ve uygulamanın Yardım sayfasında da yazılıdır.
+        Dosya yanlış biçimdeyse program sessizce yanlış okumaz; hangi başlığı bulamadığını
+        söyleyerek durur. Personel raporunda kurum sicil numarası sütunu yoksa aynı adlı iki
+        öğretmen ayırt edilemeyeceği için içe aktarma hata vererek durur.
+      </p>
+
+      <h2 id="kullanim-sirasi">Kullanım sırası</h2>
+      <p>Soldaki adımlar sırayla tamamlanır; her adım bir sonrakinin girdisidir.</p>
+      <ol>
+        <li><strong>Kurum ayarları</strong> — okul bilgileri ve üç dönemin tarihleri. Sınav pencereleri bu tarihlerden hesaplanır ve ekranın altında gösterilir.</li>
+        <li><strong>Öğretmen listesi</strong> — <code>OOK01001R1</code> raporu. Önce önizleme açılır; onaylamadan hiçbir kayıt değişmez. Rapora yansımamış bir kişiyi elle ekleyebilir, ayrılan kişiyi pasife alabilirsiniz. Görevi olan kişi silinemez, pasife alınır.</li>
+        <li><strong>Salonlar</strong> — sınav salonları ve kapasiteleri. Salon sayısı aynı saatte kaç sınav yapılabileceğini belirler.</li>
+        <li><strong>e-Okul sorumluluk</strong> — <code>OOK12001R010</code> raporu. Rapor okulun tamamını kapsıyorsa "tam listedir" işaretli kalsın; kısmi liste aktarıyorsanız işareti kaldırın, yoksa dosyada olmayan kayıtlar pasife alınır.</li>
+        <li><strong>Ders / branş</strong> — her ders bir branşa eşlenir. Türk dili ve edebiyatı ile yabancı dil derslerini <strong>iki aşamalı</strong> işaretleyin (OKY md.58/2-e); program ders adına bakarak öneri getirir ama kararı siz verirsiniz.</li>
+        <li><strong>Sınav planı</strong> — parametreleri seçin, isterseniz önce <strong>Yükü çözümle</strong> ile gün seçeneklerinin sonucunu görün, sonra <strong>Planı üret</strong>.</li>
+        <li><strong>Evrak ve teslim</strong> — planı kaydettikten sonra belgeleri üretin; sınavlardan sonra geri alınan evrakı teslim çizelgesine işleyin.</li>
+      </ol>
+
+      <h3>Plan üretmeden önce sorulan üç şey</h3>
+      <div class="guide-table" role="table" aria-label="Plan üretim parametreleri">
+        <div role="row"><strong role="cell">Hafta sonu kullanılsın mı?</strong><span role="cell">Kullanılabilir seçilse bile hafta içi tükenmeden hafta sonuna geçilmez (OKY md.58/2-ç).</span></div>
+        <div role="row"><strong role="cell">Öğrenci günlük sınav sınırı</strong><span role="cell">Varsayılan 2. Pencereye sığmayan öğrenci için gereken en düşük değere çıkarılır ve raporlanır.</span></div>
+        <div role="row"><strong role="cell">Yazılı + uygulama tek mi sayılsın?</strong><span role="cell">Tek sayılırsa iki aşamalı dersin iki oturumu öğrencinin günlük sayacına bir sınav olarak girer.</span></div>
+      </div>
+      <p>
+        Plan üretilemezse hangi kısıtın bağladığı yazılır: salon sayısı, görevli kapasitesi,
+        branş arzı ya da bir öğrencinin günlük oturum tavanı.
+      </p>
+
+      <h2 id="plan">Plan ekranı</h2>
+      <ul>
+        <li>Kartı başka bir gün/saat hücresine <strong>sürükleyip bırakın.</strong> Öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir; engel doğuran taşıma otomatik geri alınır ve kimin çakıştığı yazılır.</li>
+        <li>İki aşamalı dersin yazılı ve uygulama oturumu birlikte taşınır.</li>
+        <li><strong>Geri al / ileri al</strong> ile adım adım gezinebilirsiniz.</li>
+        <li>Plan <strong>Kaydet</strong> denene kadar veritabanına yazılmaz.</li>
+        <li><strong>Müdür onayıyla kesinleştir</strong> planı kilitler; kesinleşmiş oturum taşınamaz ve kesinleşmiş plan silinemez.</li>
+      </ul>
+      <p>
+        Alt paneldeki liste kural ihlallerini gösterir: kırmızı satırlar engel, sarı satırlar
+        uyarıdır. Engelli plan taslak olarak kaydedilebilir ama kesinleştirilemez.
+      </p>
+
+      <h2 id="evrak">Evrak ve teslim</h2>
+      <p>
+        <strong>Evrak üretimi</strong> sekmesinde üretmek istediğiniz belgeleri işaretleyip
+        klasör seçersiniz; belgeler <code>.docx</code> olarak oraya yazılır. Aynı içerik
+        yeniden üretilirse sürüm numarası artmaz; plan değişip belge farklılaşırsa artar.
+      </p>
+      <div class="guide-table" role="table" aria-label="Üretilen belgeler">
+        <div role="row"><strong role="cell">Sınav programı (öğrenci)</strong><span role="cell">Tarih, saat, ders, süre, salon.</span></div>
+        <div role="row"><strong role="cell">Sınav programı (görevli)</strong><span role="cell">Aynısı, üzerine komisyon ve gözcüler.</span></div>
+        <div role="row"><strong role="cell">Görevlendirme çizelgesi</strong><span role="cell">Komisyon bazlı; ikinci sayfasında tebliğ-tebellüğ tablosu. Yatay A4 üretilir.</span></div>
+        <div role="row"><strong role="cell">Öğretmen görev sayacı</strong><span role="cell">Üç dönemin dökümü ve 12/15 durumu. Kesinleşmemiş plandan da üretilebilir; taslak dönem varsa belgeye uyarı düşer.</span></div>
+        <div role="row"><strong role="cell">Plan dışı bırakılanlar tutanağı</strong><span role="cell">Başvurusu bulunmadığı için plana alınmayanlar. Okul içi kayıttır, ilan edilmez.</span></div>
+      </div>
+      <p>
+        Komisyon tutanağı, yoklama listesi ve kâğıt sarf tutanağı bu setten çıkarılmıştır;
+        ilk ikisi e-Okul'dan alınır. Belgelerde program logosu yer almaz — evrak okulun
+        evrakıdır. Her belgenin altında dayanağı yazılıdır; belgeler EBYS/DYS kayıt numarası
+        ve güvenli elektronik imza ibaresi üretmez.
+      </p>
+      <h3>Teslim çizelgesi</h3>
+      <p>
+        Her oturum için beklenen evrak listelenir. Bir satırı seçip teslim eden ile teslim
+        alan görevliyi girerek <strong>Seçili evrakı teslim al</strong> düğmesine basın.
+        Teslim eden ile alan aynı kişi olamaz. Yeşil satır teslim alınmış, kırmızı satır
+        süresinde gelmemiş evrakı gösterir; teslim süresi sınav tarihini izleyen ilk iş
+        günüdür.
+      </p>
+
+      <h2 id="ilan">İlan çıktıları ve KVKK</h2>
+      <p>
+        Okul web sayfasında yayımlanmak üzere iki belge üretilir. <strong>Sınav
+        takviminde</strong> hiçbir kişisel veri yoktur: ne öğrenci, ne görevli öğretmen, ne
+        de imzalayan müdürün adı geçer. Her iki ilan belgesi de kişi adı yerine "Okul
+        Müdürlüğü" makam satırıyla çıkar.
+      </p>
+      <p>
+        <strong>Öğrenci sınav çizelgesinde</strong> ad ve soyadı hiçbir seçenekte açık
+        yazılmaz. Gösterim biçimi evrak ekranından seçilir:
+      </p>
+      <div class="guide-table" role="table" aria-label="Öğrenci gösterim seçenekleri">
+        <div role="row"><strong role="cell">Okul numarası + maskeli ad</strong><span role="cell">Varsayılan. <code>12820 — A**** A** D******</code></span></div>
+        <div role="row"><strong role="cell">Yalnız okul numarası</strong><span role="cell"><code>12820</code></span></div>
+        <div role="row"><strong role="cell">Yalnız maskeli ad</strong><span role="cell"><code>A**** A** D******</code></span></div>
+      </div>
+      <p>
+        Her iki belgede 6698 sayılı Kanuna atıf yapan bir not bulunur. Plan müdür onayıyla
+        kesinleşmeden üretilirse belge üzerinde TASLAK uyarısı yazar.
+      </p>
+
+      <h2 id="yedekleme">Yedekleme</h2>
+      <p>
+        Uygulamayı kapatın ve veri klasöründeki <code>sorumluluk.db</code> dosyasını kurumun
+        yedek ortamına kopyalayın. Veri klasörü Windows'ta
+        <code>%LOCALAPPDATA%\SorumlulukSinavi\plan</code> altındadır. Şema yükseltmelerinde
+        uygulama göç öncesi otomatik yedek alır.
+      </p>
+      <div class="warning-card">
+        <strong>Gerçek veriyi dışarı çıkarmayın</strong>
+        <p>
+          Veritabanını e-posta, kişisel bulut hesabı veya herkese açık bir depoya koymayın.
+          Destek talebine de eklemeyin.
+        </p>
+      </div>
+
+      <h2 id="dosya-dogrulama">İndirilen dosyayı doğrulama</h2>
+      <p>
+        Sürümle birlikte yayımlanan <code>SHA256SUMS-&lt;sürüm&gt;.txt</code> dosyasındaki
+        değer ile indirdiğiniz dosyanın özetini karşılaştırın.
+      </p>
+      <h3>Windows PowerShell</h3>
+      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.4.0.exe -Algorithm SHA256</code></pre>
+
+      <h2 id="sorun-giderme">Sık karşılaşılan sorunlar</h2>
+      <h3>İçe aktarma "başlık bulunamadı" diyerek duruyor</h3>
+      <p>
+        Rapor büyük olasılıkla "Excel'e aktar" düğmesiyle indirilmiştir. Yukarıdaki
+        <a href="#raporlar">HTML5 görüntüleyici → Excel → SADECE VERİ</a> yolunu izleyerek
+        yeniden indirin.
+      </p>
+      <h3>Aynı adlı iki öğretmen ayırt edilemiyor</h3>
+      <p>
+        Personel raporunda kurum sicil numarası sütunu yoktur. Raporu bu sütunu içerecek
+        biçimde yeniden alın; program yanlış eşleme yapmaktansa durur.
+      </p>
+      <h3>Plan üretilemiyor</h3>
+      <p>
+        Ekranda hangi kısıtın bağladığı yazar. Salon sayısını, pasife alınmış öğretmenleri
+        ve ders-branş eşlemesini gözden geçirin; okulda öğretmeni olmayan bir branş
+        gerekiyorsa branş havuzuna elle ekleyin.
+      </p>
+      <h3>12/15 sınırı uyarı vermiyor</h3>
+      <p>
+        8. Dönem Toplu Sözleşme md.4 gereği 2025-2026 ve 2026-2027 öğretim yıllarında bu
+        sınırlar uygulanmaz. Program bu iki yılı bilir; sayacı yine tutar ama sınır uyarısı
+        vermez.
+      </p>
+
+      <p class="document-source">
+        Ayrıntılı kurulum ve paketleme belgesi için
+        <a href="https://github.com/aalidemirci/sorumluluk-sinavi/blob/main/KURULUM.md" rel="noopener">depodaki KURULUM.md</a>
+        dosyasına bakabilirsiniz. Uygulamanın kendi <strong>Yardım</strong> sayfasında da
+        mevzuat hükümleri, kullanım ve planlama motorunun çalışma mantığı yazılıdır.
+      </p>
+    </article>
+  </div>
+</SSLayout>
