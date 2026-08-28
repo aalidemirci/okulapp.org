@@ -68,10 +68,6 @@ yerde güncel kopyası yoktur.
 `/sorumluluk-sinavi/` bölümünün taşındığı bir Pages sitesi hiç olmadı; o
 sayfalar baştan burada yazıldı ve projenin tek tanıtımıdır. Kaynağı
 `../sorumluluk-sinavi` içindeki `BENIOKU.md`, `KURULUM.md` ve `CHANGELOG.md`.
-Diğer ikisinden bir farkı daha var: paketleri henüz `indir.okulapp.org`
-aynasında değil, yalnızca GitHub Releases'te duruyor. Bu yüzden indirme
-bölümünde MEB ağı uyarısı var; paketler R2'ye taşındığında o uyarı ve
-`assets` adresleri birlikte güncellenmelidir.
 
 ## Sürüm verisi ELLE tutulur
 

@@ -101,18 +101,6 @@ const releaseDate =
       </p>
     </div>
 
-    <div class="drive-card">
-      <div>
-        <h3>MEB ağından indirme</h3>
-        <p>
-          Bu projenin paketleri şimdilik yalnızca GitHub üzerinden sunuluyor; GitHub'ın
-          engellendiği okul ağlarında bağlantılar açılmaz. Sitenin kendi indirme alanına
-          (indir.okulapp.org) taşınması bekliyor. O zamana kadar dosyayı GitHub'a
-          erişebilen bir bağlantıdan indirip okul bilgisayarına taşımanız gerekir.
-        </p>
-      </div>
-    </div>
-
     {assets.length > 0 && (
       <div class="download-grid">
         {assets.map((asset) => (
@@ -132,8 +120,9 @@ const releaseDate =
     <div class="security-note">
       <strong>Dosya güvenliği</strong>
       <p>
-        Paketler projenin resmî GitHub Releases sayfasında yayımlanır. Kurulum kullanıcı
-        başınadır: yönetici parolası istemez, Program Files'a yazmaz ve mevcut
+        Paketler bu sitenin kendi indirme alanından (indir.okulapp.org) sunulur; aynı
+        dosyalar projenin resmî GitHub Releases sayfasında da yayımlanır. Kurulum
+        kullanıcı başınadır: yönetici parolası istemez, Program Files'a yazmaz ve mevcut
         veritabanınıza dokunmaz. İndirdiğiniz dosyayı yayımlanan SHA-256 değeriyle
         doğrulamanız önerilir.
       </p>
@@ -141,9 +130,11 @@ const releaseDate =
     </div>
 
     <p class="github-fallback">
-      Okulda 0.3.0 kurulu ise üzerine 0.4.0 kurun: o numarayla iki farklı paket derlendi,
-      hangi içeriği taşıdığı ayırt edilemiyor. Yükseltme önce kaldırmayı gerektirmez ve
-      veritabanına dokunmaz.
+      İndirme bağlantıları MEB ağı gibi GitHub'ın engelli olduğu bağlantılarda da
+      çalışır: paketler GitHub'dan değil, okulapp.org'un kendi indirme alanından gelir.
+      Okulda 0.3.0 kurulu ise üzerine 0.4.0 kurun — o numarayla iki farklı paket
+      derlendi, hangi içeriği taşıdığı ayırt edilemiyor. Yükseltme önce kaldırmayı
+      gerektirmez ve veritabanına dokunmaz.
     </p>
   </section>
 

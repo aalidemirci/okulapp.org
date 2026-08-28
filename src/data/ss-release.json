@@ -8,17 +8,17 @@
   "assets": [
     {
       "kind": "windows_installer",
-      "url": "https://github.com/aalidemirci/sorumluluk-sinavi/releases/download/v0.4.0/SorumlulukSinavi-Kurulum-0.4.0.exe",
+      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Kurulum-0.4.0.exe",
       "size": 15350349
     },
     {
       "kind": "windows_portable",
-      "url": "https://github.com/aalidemirci/sorumluluk-sinavi/releases/download/v0.4.0/SorumlulukSinavi-Tasinabilir-0.4.0.zip",
+      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Tasinabilir-0.4.0.zip",
       "size": 18600882
     },
     {
       "kind": "checksums",
-      "url": "https://github.com/aalidemirci/sorumluluk-sinavi/releases/download/v0.4.0/SHA256SUMS-0.4.0.txt",
+      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SHA256SUMS-0.4.0.txt",
       "size": 206
     }
   ]

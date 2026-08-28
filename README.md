@@ -78,10 +78,8 @@ projenin **tek** tanıtım kaynağıdır; uygulamanın GitHub Pages sitesi yoktu
 `CHANGELOG.md` dosyalarından doğrulanır.
 
 İndirme verisi `src/data/ss-release.json` dosyasında elle tutulur; alanlar
-diğer projelerle aynıdır. **Fark:** paketler şimdilik GitHub Releases
-üzerinden sunulur, `indir.okulapp.org` aynası henüz yoktur — bu yüzden
-indirme bölümünde MEB ağı uyarısı duruyor. Paketler R2'ye taşındığında hem
-`assets` adresleri hem de o uyarı güncellenmelidir.
+diğer projelerle aynıdır. Paketler `indir.okulapp.org/sorumluluk-sinavi/`
+altından sunulur, `releaseUrl` sürüm karşılaştırması için GitHub'da kalır.
 
 ## Yeni proje ekleme
 
