@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Process *)",
+      "PowerShell(tasklist *)",
+      "Bash(gh run watch *)",
+      "PowerShell(gh run watch *)",
+      "Bash(npm run build)",
+      "PowerShell(npm run build)",
+      "Bash(npm run check-releases)",
+      "PowerShell(npm run check-releases)"
+    ]
+  }
+}
