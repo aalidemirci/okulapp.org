@@ -2,42 +2,44 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ShowcaseCard from '../components/ShowcaseCard.astro';
+import arsiv from '../data/evrak-arsivi.json';
 
 const projects = await getCollection('projects');
 const featured = projects
   .filter((project) => project.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
+const belgeSayisi = arsiv.setler.reduce((n, s) => n + s.belgeler.length, 0);
 ---
 
 <BaseLayout
   title="okulapp.org — Ahmet Ali Demirci'nin projeleri"
-  description="Eğitim öğretim ve okul yönetimi süreçleri için geliştirdiğim çevrimdışı çalışan, Türkçe, açık kaynak yazılımlar."
+  description="Okul işleri için çevrimdışı çalışan Türkçe programlar ve doldurulmaya hazır belge şablonları. Kişisel bir çalışmadır; ücretsiz ve açık kaynaktır."
 >
   <section class="home-hero">
     <div>
-      <p class="eyebrow">Eğitim için yazılım · Açık kaynak</p>
-      <h1>Okulun işini kolaylaştıran yazılımlar.</h1>
+      <p class="eyebrow">Kişisel bir çalışma · Ücretsiz · Açık kaynak</p>
+      <h1>Okul işleri için programlar ve belge şablonları.</h1>
       <p class="lead">
-        Ben Ahmet Ali Demirci. Bir okulda karşılaştığım işleri — disiplin dosyalarını,
-        ders zilini, evrak düzenini — kâğıt ve dağınık şablonlar yerine çalışan
-        programlara dönüştürüyorum. Hepsi çevrimdışı çalışır, Türkçedir ve okulların
-        ücretsiz kullanımına açıktır.
+        Ben Ahmet Ali Demirci. Okulda karşılaştığım işler için çevrimdışı çalışan
+        Türkçe programlar yazıyor, her yıl yeniden hazırlanan evrak için belge
+        setleri derliyorum. İşime yarayanları burada paylaşıyorum; dileyen okul
+        ücretsiz kullanabilir.
       </p>
       <div class="hero-actions">
-        <a class="button button-primary" href="/projeler/">Projeleri gör</a>
-        <a class="button button-secondary" href="/hakkimda/">Hakkımda</a>
+        <a class="button button-primary" href="/projeler/">Programlar</a>
+        <a class="button button-secondary" href="/belge-arsivi/">Belge arşivi</a>
       </div>
       <p class="privacy-promise">
         Bu site çerez, reklam ve ziyaretçi analizi kullanmaz.
       </p>
     </div>
 
-    <aside class="principle-panel" aria-label="Bütün projelerde ortak ilkeler">
-      <h2>Her projede ortak</h2>
+    <aside class="principle-panel" aria-label="Paylaşılan program ve belgelerde ortak ilkeler">
+      <h2>Paylaştıklarımda ortak</h2>
       <ul>
         <li>
           <span class="principle-icon" aria-hidden="true">✓</span>
-          <span class="principle-text"><b>Çevrimdışı çalışır</b><span>Kurulumdan sonra internet gerekmez; veri okulun bilgisayarında kalır.</span></span>
+          <span class="principle-text"><b>Çevrimdışı çalışır</b><span>Programlar kurulumdan sonra internet istemez; veri okulun bilgisayarında kalır.</span></span>
         </li>
         <li>
           <span class="principle-icon" aria-hidden="true">✓</span>
@@ -45,29 +47,33 @@ const featured = projects
         </li>
         <li>
           <span class="principle-icon" aria-hidden="true">✓</span>
-          <span class="principle-text"><b>Türkçe ve mevzuata yakın</b><span>Arayüz de belgeler de Türkçe; süreçler yönetmeliğin diliyle kurulur.</span></span>
+          <span class="principle-text"><b>Türkçe, dayanağı yazılı</b><span>Arayüz de belgeler de Türkçe; süreçler mevzuat hükümlerinden kurulur, dayanaklar gösterilir.</span></span>
         </li>
         <li>
           <span class="principle-icon" aria-hidden="true">✓</span>
           <span class="principle-text"><b>Okullara ücretsiz</b><span>Ticari olmayan kullanım için ücretsiz; kaynak kodu GitHub'da açık.</span></span>
         </li>
       </ul>
+      <p class="panel-note">
+        Bunlar kişisel çalışmalar; eksik ya da gözden kaçmış bir nokta olabilir.
+        Kullanmadan önce dayanağını bilmiyorsanız araştırın, biliyorsanız kontrol edin.
+      </p>
     </aside>
   </section>
 
   <div class="stat-strip">
-    <div><strong>{projects.length}</strong><span>yayımlanan proje</span></div>
+    <div><strong>{projects.length}</strong><span>yayımlanan program</span></div>
+    <div><strong>{belgeSayisi}</strong><span>hazır belge şablonu</span></div>
     <div><strong>Windows + Pardus</strong><span>hedef platformlar</span></div>
-    <div><strong>KVKK'ya uygun</strong><span>veri cihazdan çıkmaz</span></div>
     <div><strong>Açık kaynak</strong><span>kod ve belgeler GitHub'da</span></div>
   </div>
 
   <section class="section">
     <div class="section-heading">
-      <p class="eyebrow">Projeler</p>
+      <p class="eyebrow">Programlar</p>
       <h2>Şu anda kullanılabilir olanlar</h2>
       <p>
-        Her projenin kendi tanıtım sayfası, kullanım kılavuzu ve indirme bağlantısı var.
+        Her programın kendi tanıtım sayfası, kullanım kılavuzu ve indirme bağlantısı var.
         Teknik olmayan okuyucu için "ne işe yarar, kimin için", geliştirici için depo
         bağlantısı ve mimari özet aynı sayfada.
       </p>
@@ -82,6 +88,30 @@ const featured = projects
 
   <section class="section">
     <div class="section-heading">
+      <p class="eyebrow">Belge arşivi</p>
+      <h2>Doldurulmaya hazır belge setleri</h2>
+      <p>
+        Kurul ve zümre tutanakları gibi her yıl yeniden yazılan okul evrakının Word
+        şablonları. Metinler mevzuattaki gündem ve görev hükümlerinden kurulur,
+        dayanaklar belgenin sonunda listelenir; indirip okulunuza uyarlarsınız.
+      </p>
+    </div>
+    <ul class="feature-grid">
+      {arsiv.setler.map((s) => (
+        <li class="card">
+          <h3><a href={`/belge-arsivi/${s.slug}/`}>{s.ad}</a></h3>
+          <p>{s.ozet}</p>
+          <p class="muted">{s.belgeler.length} belge · sürüm {s.surum}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="section-cta">
+      <a class="text-link" href="/belge-arsivi/">Belge arşivine git →</a>
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
       <p class="eyebrow">Yaklaşım</p>
       <h2>Nasıl çalışıyorum?</h2>
     </div>
@@ -90,7 +120,7 @@ const featured = projects
         <b>Gerçek bir ihtiyaçtan başlar</b>
         <p>
           Her proje, okulda fiilen yaşadığım ya da meslektaşlarımın anlattığı somut bir
-          zorluktan doğar; hayali bir kullanıcı için değil, o iş için yazılır.
+          zorluktan doğar; hayali bir kullanıcı için değil, o iş için hazırlanır.
         </p>
       </li>
       <li>
@@ -114,10 +144,10 @@ const featured = projects
   <section class="home-cta">
     <div>
       <p class="eyebrow" style="color: var(--on-deep-faint)">İletişim</p>
-      <h2>Okulunuzda işe yarar mı, denemek ister misiniz?</h2>
+      <h2>Soru, öneri ve düzeltmeler için yazın</h2>
       <p>
-        Kurulum, kullanım ve öneriler için yazabilirsiniz. Yeni bir ihtiyaç anlatmak da
-        aynı kapıya çıkıyor: çoğu proje böyle bir e-postayla başladı.
+        Kurulum, kullanım, hata bildirimi ya da yeni bir ihtiyaç için e-posta
+        gönderebilirsiniz; çoğu proje böyle bir e-postayla başladı.
       </p>
     </div>
     <div class="hero-actions">
