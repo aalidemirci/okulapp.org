@@ -9,12 +9,12 @@
     {
       "kind": "windows_installer",
       "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Kurulum-0.4.0.exe",
-      "size": 15350349
+      "size": 15359625
     },
     {
       "kind": "windows_portable",
       "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Tasinabilir-0.4.0.zip",
-      "size": 18600882
+      "size": 18606087
     },
     {
       "kind": "checksums",
