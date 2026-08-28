@@ -2,6 +2,319 @@
   "guncelleme": "2026-08-28",
   "setler": [
     {
+      "slug": "okul-aile-birligi-belgeleri",
+      "ad": "Okul-aile birliği belgeleri",
+      "ozet": "Okul-aile birliğinin bütün iş ve işlemleri için çalışma rehberi + 23 form: genel kurul, yönetim ve denetleme kurulları, bağış-defter-harcama zinciri, personel, etkinlik, kantin (birlik tarafı) ve temsilcilikler.",
+      "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir. Kantin bölümü, kantinin birlikçe KİRAYA VERİLMESİ senaryosuna göre düzenlenmiştir; birlikçe işletilmesi hâlinde arz bedeli %1'dir ve Yönetmeliğin 17 nci maddesinin birinci fıkrasının (b) bendi uygulanır.",
+      "surum": "2026.08",
+      "tarih": "2026-08-28",
+      "mevzuat_teyit_tarihi": "28.08.2026",
+      "lisans": "CC BY 4.0",
+      "gruplar": [
+        {
+          "anahtar": "dosya",
+          "ad": "Rehber ve işlem dosyası",
+          "aciklama": "Setin çalışma rehberi (organlar, gelir-gider, kantin-servis, denetime hazırlık, yıllık iş takvimi) ile yıllık işlem dosyasının kapak ve kontrol listesi."
+        },
+        {
+          "anahtar": "genel-kurul",
+          "ad": "Genel kurul",
+          "aciklama": "Çağrı-duyuru, katılım cetveli ve yeter sayı tespiti, toplantı tutanağı ile sonuç bildirimi ve belge devir-teslimi."
+        },
+        {
+          "anahtar": "yonetim",
+          "ad": "Yönetim kurulu",
+          "aciklama": "Görev bölümü ve imza yetkisi, aylık toplantı ve yıllık katılım izleme, okul müdürüne aylık bildirim, tahmini bütçe ve dönemlik duyurular, yıllık faaliyet raporu ve kesin hesap."
+        },
+        {
+          "anahtar": "denetleme",
+          "ad": "Denetleme kurulu",
+          "aciklama": "Görev bölümü, kontrol listeli ara denetim raporu ve genel kurula sunulan yıllık (nihai) denetim raporu."
+        },
+        {
+          "anahtar": "mali",
+          "ad": "Bağış, defter ve harcama zinciri",
+          "aciklama": "Bağış kabul ve izleme, defter-makbuz tasdik ve kayıt, okul talebi → yönetim kurulu kararı → alım komisyonu → ödeme onayı zinciri."
+        },
+        {
+          "anahtar": "isletme",
+          "ad": "Personel, etkinlik, kantin ve temsil",
+          "aciklama": "Sigortalı personel istihdam dosyası, etkinlik/kampanya gelir-gider onayı, kantin kira-arz bedeli-pay izleme ve birlik temsilcilerinin kurul-komisyon görevlendirmeleri."
+        }
+      ],
+      "paket": {
+        "dosya": "Okul-Aile-Birligi-Belge-Seti-2026.08.zip",
+        "boyut": 3141896,
+        "sha256": "9258db82fb3223bfb1bf0f6a0fd4a9f100b194684311dc7ba5bded54b0641710"
+      },
+      "belgeler": [
+        {
+          "kod": "GNL-OAB-RH-001",
+          "grup": "dosya",
+          "ad": "Çalışma rehberi ve yıllık iş takvimi",
+          "aciklama": "Birlik organları, üyelik, gelirler ve harcama zinciri, kantin ve servis (birlik tarafı), okul müdürlüğüyle temas noktaları, denetime hazırlık ve yıllık iş takvimini tek belgede toplayan okul içi rehber.",
+          "dosya": "GNL-OAB-RH-001_Okul_Aile_Birligi_Calisma_Rehberi_ve_Yillik_Is_Takvimi_v1.0.docx",
+          "boyut": 54550,
+          "sha256": "fa492a21c45ccb6943b25925aff5ab57b72a267bc5817d1c8124ed5b368d46ab",
+          "pdf": "GNL-OAB-RH-001_Okul_Aile_Birligi_Calisma_Rehberi_ve_Yillik_Is_Takvimi_v1.0.pdf",
+          "sayfa": 7
+        },
+        {
+          "kod": "GNL-OAB-FR-001",
+          "grup": "dosya",
+          "ad": "İşlem dosyası kapak ve kontrol listesi",
+          "aciklama": "Yıllık işlem dosyasının kapak sayfası; defter, tutanak, duyuru, TEFBİS ve kantin belgelerini denetim kriterleriyle izleyen kontrol listesi.",
+          "dosya": "GNL-OAB-FR-001_OAB_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.docx",
+          "boyut": 42543,
+          "sha256": "cc10060248560c9b45cafbaf1097323cf3db1ea6669215d31d69e8d92266efcc",
+          "pdf": "GNL-OAB-FR-001_OAB_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-002",
+          "grup": "genel-kurul",
+          "ad": "Genel kurul çağrısı ve gündem duyurusu",
+          "aciklama": "Olağan/olağanüstü genel kurul çağrısı, örnek gündem, pano-internet duyuru metni ve üç kanallı duyuru kanıt çizelgesi.",
+          "dosya": "GNL-OAB-FR-002_Genel_Kurul_Toplanti_Cagrisi_ve_Gundem_Duyurusu_v1.0.docx",
+          "boyut": 42787,
+          "sha256": "36be795c273a82914cad30f312d02621fb9cfa3a10caff09dd7fb841dcc1f6ba",
+          "pdf": "GNL-OAB-FR-002_Genel_Kurul_Toplanti_Cagrisi_ve_Gundem_Duyurusu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-003",
+          "grup": "genel-kurul",
+          "ad": "Katılım cetveli ve yeter sayı tespiti",
+          "aciklama": "Üye katılım cetveli, gözlemci öğrenci listesi ve toplantı yeter sayısı tespit tutanağı.",
+          "dosya": "GNL-OAB-FR-003_Genel_Kurul_Katilim_Cetveli_ve_Yeter_Sayi_Tespit_Tutanagi_v1.0.docx",
+          "boyut": 41666,
+          "sha256": "0b4fe8ad676783908a6dc02826d6d134ef5f0cfaf9e6f3bf9a8e6b1a4967a441",
+          "pdf": "GNL-OAB-FR-003_Genel_Kurul_Katilim_Cetveli_ve_Yeter_Sayi_Tespit_Tutanagi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-004",
+          "grup": "genel-kurul",
+          "ad": "Genel kurul toplantı tutanağı",
+          "aciklama": "Açılış-divan, gündem maddelerinin görüşülmesi, ibra, bütçe, yetkilendirme ve liste hâlinde açık oyla seçim sonuçları.",
+          "dosya": "GNL-OAB-FR-004_Genel_Kurul_Toplanti_Tutanagi_v1.0.docx",
+          "boyut": 43257,
+          "sha256": "4650ceb10f9565e7dcb37afceb4261ff2932088e9daae0168af53792446ff1a8",
+          "pdf": "GNL-OAB-FR-004_Genel_Kurul_Toplanti_Tutanagi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-005",
+          "grup": "genel-kurul",
+          "ad": "Sonuç bildirimi ve devir-teslim",
+          "aciklama": "Genel kurul sonucunun bildirimi, eski-yeni yönetim kurulu arasında defter, koçan, banka ve dosyaların devir-teslimi, sonraki adımlar kontrolü.",
+          "dosya": "GNL-OAB-FR-005_Genel_Kurul_Sonuc_Bildirimi_ve_Devir_Teslim_Tutanagi_v1.0.docx",
+          "boyut": 42076,
+          "sha256": "cdd358d5f2438061cfb8369b8197e0608bf4fc8d5d240ea6b3ab06a7cc1c0729",
+          "pdf": "GNL-OAB-FR-005_Genel_Kurul_Sonuc_Bildirimi_ve_Devir_Teslim_Tutanagi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-006",
+          "grup": "yonetim",
+          "ad": "YK görev bölümü ve imza yetkisi",
+          "aciklama": "Başkan, başkan yardımcısı, muhasip ve sekreter seçimi; banka müşterek imza yetkisi; çalışma düzeni kararları.",
+          "dosya": "GNL-OAB-FR-006_Yonetim_Kurulu_Gorev_Bolumu_ve_Imza_Yetkisi_Tutanagi_v1.0.docx",
+          "boyut": 42022,
+          "sha256": "a92d1e62861fc90e8594f1bc88c7c4903a6cc4be8e0702a6c31ad7c22fe47ce9",
+          "pdf": "GNL-OAB-FR-006_Yonetim_Kurulu_Gorev_Bolumu_ve_Imza_Yetkisi_Tutanagi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-007",
+          "grup": "yonetim",
+          "ad": "YK aylık toplantı ve karar tutanağı",
+          "aciklama": "Aylık toplantının katılım, gündem ve karar çalışma taslağı — noter tasdikli karar defterinin yerine geçmez.",
+          "dosya": "GNL-OAB-FR-007_Yonetim_Kurulu_Toplanti_Gundemi_ve_Karar_Tutanagi_v1.0.docx",
+          "boyut": 42061,
+          "sha256": "ce8cd25569297453538e35e8f295e1d36dedbe044d1f683e5bd340cb7013bef5",
+          "pdf": "GNL-OAB-FR-007_Yonetim_Kurulu_Toplanti_Gundemi_ve_Karar_Tutanagi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-008",
+          "grup": "yonetim",
+          "ad": "YK toplantı ve katılım izleme çizelgesi",
+          "aciklama": "Yıl boyu toplantı-katılım izleme; devamsızlık ve üyelik değişikliği kaydı.",
+          "dosya": "GNL-OAB-FR-008_Yonetim_Kurulu_Toplanti_ve_Katilim_Izleme_Cizelgesi_v1.0.docx",
+          "boyut": 41651,
+          "sha256": "9e3509674ec2e3c9db48452ef88492e72851fe3600a1f2ebfc1efd9b837ffe39",
+          "pdf": "GNL-OAB-FR-008_Yonetim_Kurulu_Toplanti_ve_Katilim_Izleme_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-009",
+          "grup": "yonetim",
+          "ad": "Okul müdürüne aylık bildirim",
+          "aciklama": "Birlik başkanının her ay sonunda okul müdürüne yazılı gelir-gider ve bağış bildirimi; TEFBİS kayıt izi.",
+          "dosya": "GNL-OAB-FR-009_Birlik_Baskaninin_Okul_Mudurune_Aylik_Bildirimi_v1.0.docx",
+          "boyut": 41604,
+          "sha256": "43b0d78420ef9f09fdcdf6a50b4a25f1d18ed0567eff0d0072125ba584b240d3",
+          "pdf": "GNL-OAB-FR-009_Birlik_Baskaninin_Okul_Mudurune_Aylik_Bildirimi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-010",
+          "grup": "yonetim",
+          "ad": "Tahmini bütçe ve dönemlik duyuru formu",
+          "aciklama": "Genel kurulda görüşülen tahmini bütçe ile dönemlik gelir-gider özetinin pano ve internet duyurusu; duyuru kanıt kaydı.",
+          "dosya": "GNL-OAB-FR-010_Tahmini_Butce_ve_Donemlik_Gelir_Gider_Duyuru_Formu_v1.0.docx",
+          "boyut": 42020,
+          "sha256": "841a6fc11bf2ef80a4f52e9338633213d309ae289592120d2bb0f20086136424",
+          "pdf": "GNL-OAB-FR-010_Tahmini_Butce_ve_Donemlik_Gelir_Gider_Duyuru_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-011",
+          "grup": "denetleme",
+          "ad": "Denetleme kurulu görev bölümü",
+          "aciklama": "Üç asıl üç yedek üyenin görev bölümü, beyanlar ve yıllık denetim planı.",
+          "dosya": "GNL-OAB-FR-011_Denetleme_Kurulu_Gorev_Bolumu_Tutanagi_v1.0.docx",
+          "boyut": 41954,
+          "sha256": "764ab2c0eda92627bd5311dd572c6fe9b6be28c582c1ea1036514fd650a18906",
+          "pdf": "GNL-OAB-FR-011_Denetleme_Kurulu_Gorev_Bolumu_Tutanagi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-012",
+          "grup": "denetleme",
+          "ad": "Ara denetim raporu (kontrol listeli)",
+          "aciklama": "22 kalemlik kontrol listesiyle ara denetim: defter-makbuz düzeni, harcama zinciri, kantin, TEFBİS uyumu, mali durum özeti ve sonuç.",
+          "dosya": "GNL-OAB-FR-012_Denetleme_Kurulu_Ara_Denetim_Raporu_v1.0.docx",
+          "boyut": 43791,
+          "sha256": "cba07f8917a9323b3ead51ba17df4a9f91fc7a92f2bbd8228add752f413778f5",
+          "pdf": "GNL-OAB-FR-012_Denetleme_Kurulu_Ara_Denetim_Raporu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-013",
+          "grup": "denetleme",
+          "ad": "Yıllık (nihai) denetim raporu",
+          "aciklama": "Faaliyet döneminin mali özeti, alan bazında değerlendirme ve genel kurula sunulan sonuç-kanaat bölümü.",
+          "dosya": "GNL-OAB-FR-013_Denetleme_Kurulu_Yillik_Nihai_Denetim_Raporu_v1.0.docx",
+          "boyut": 41901,
+          "sha256": "8750325e506c34f190304e560ec67a203d7151fda60280f4538db3dcdce502b2",
+          "pdf": "GNL-OAB-FR-013_Denetleme_Kurulu_Yillik_Nihai_Denetim_Raporu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-014",
+          "grup": "mali",
+          "ad": "Bağış kabul ve kayıt izleme çizelgesi",
+          "aciklama": "Nakdî-ayni bağış izleme (resmî EK-1 makbuz esaslı), şartlı bağış takibi ve bağış toplamada yasaklar uyarısı.",
+          "dosya": "GNL-OAB-FR-014_Bagis_Kabul_ve_Kayit_Izleme_Cizelgesi_v1.0.docx",
+          "boyut": 42212,
+          "sha256": "8f917a15b6ce55e703049ba827ba22a119c7ce52951dca76239e935ac555866a",
+          "pdf": "GNL-OAB-FR-014_Bagis_Kabul_ve_Kayit_Izleme_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-015",
+          "grup": "mali",
+          "ad": "Defter, makbuz ve belge tasdik-kayıt çizelgesi",
+          "aciklama": "Defterlerin tasdik kaydı, makbuz koçanlarının seri-cilt-sıra ve kurum mührü izleme çizelgesi.",
+          "dosya": "GNL-OAB-FR-015_Defter_Makbuz_ve_Belge_Tasdik_Kayit_Cizelgesi_v1.0.docx",
+          "boyut": 41965,
+          "sha256": "dbf6cb5737afe8898ec9cb10a6ed7a01e3731119061ba8e4220ec07e063b138d",
+          "pdf": "GNL-OAB-FR-015_Defter_Makbuz_ve_Belge_Tasdik_Kayit_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-016",
+          "grup": "mali",
+          "ad": "Okul yönetimi ihtiyaç ve harcama talep formu",
+          "aciklama": "Okul müdürlüğünün birliğe yazılı harcama talebi ve yönetim kurulunun işlem-karar bölümü — harcama dosyasının ilk belgesi.",
+          "dosya": "GNL-OAB-FR-016_Okul_Yonetimi_Ihtiyac_ve_Harcama_Talep_Formu_v1.0.docx",
+          "boyut": 41572,
+          "sha256": "d3baa9239b1fe49fed2ed2925bfd89cdfdbe9cf958afd29c37e1dc9d7e097a46",
+          "pdf": "GNL-OAB-FR-016_Okul_Yonetimi_Ihtiyac_ve_Harcama_Talep_Formu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-017",
+          "grup": "mali",
+          "ad": "Alım komisyonu piyasa araştırması ve karar",
+          "aciklama": "En az üç kişilik mal ve hizmet alım komisyonunun teklif toplama, karar ve teslim alma tutanağı.",
+          "dosya": "GNL-OAB-FR-017_Mal_ve_Hizmet_Alim_Komisyonu_Piyasa_Arastirmasi_ve_Karar_Tutanagi_v1.0.docx",
+          "boyut": 41676,
+          "sha256": "05221a69a8eca4d9604cd006773404fa925be5286f036349ed4a6d0f4ae53eff",
+          "pdf": "GNL-OAB-FR-017_Mal_ve_Hizmet_Alim_Komisyonu_Piyasa_Arastirmasi_ve_Karar_Tutanagi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-018",
+          "grup": "mali",
+          "ad": "Harcama belgesi kontrol ve ödeme onayı",
+          "aciklama": "Her harcama dosyasının belge kontrol listesi ve başkan + muhasip müşterek imzalı ödeme onayı.",
+          "dosya": "GNL-OAB-FR-018_Harcama_Belgesi_Kontrol_ve_Odeme_Onay_Formu_v1.0.docx",
+          "boyut": 41481,
+          "sha256": "d1a99ec5d827e10d424d6ca436513d8a862d922dae7a4006ffd8811b31820cdb",
+          "pdf": "GNL-OAB-FR-018_Harcama_Belgesi_Kontrol_ve_Odeme_Onay_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-019",
+          "grup": "isletme",
+          "ad": "Birlik personeli istihdam dosyası",
+          "aciklama": "Sigortalı çalışan için kişi başına özlük dosyası: SGK, bordro, izin kayıt belgesi, kıdem-ihbar karşılığı ve İSG kalemleri.",
+          "dosya": "GNL-OAB-FR-019_Birlik_Personeli_Istihdam_Dosyasi_ve_Ozluk_Takip_Formu_v1.0.docx",
+          "boyut": 42789,
+          "sha256": "2a55f5b3e791ac4ba954a42489a75abba63d315bdaf0968f4eb7a84279882ead",
+          "pdf": "GNL-OAB-FR-019_Birlik_Personeli_Istihdam_Dosyasi_ve_Ozluk_Takip_Formu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-020",
+          "grup": "isletme",
+          "ad": "Etkinlik / kampanya gelir-gider ve onay formu",
+          "aciklama": "Sosyal-kültürel etkinlik ve kampanyaların onay zinciri (SEK → müdür → il/ilçe MEM) ile gelir-gider kaydı.",
+          "dosya": "GNL-OAB-FR-020_Sosyal_Kulturel_Etkinlik_Kampanya_Gelir_Gider_Kayit_ve_Onay_Formu_v1.0.docx",
+          "boyut": 42169,
+          "sha256": "52f77dfb92732fbb331d6297de708ec30b2bbbca9c9bc846be5b4e4ed06879a4",
+          "pdf": "GNL-OAB-FR-020_Sosyal_Kulturel_Etkinlik_Kampanya_Gelir_Gider_Kayit_ve_Onay_Formu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-021",
+          "grup": "isletme",
+          "ad": "Kantin kira, arz bedeli ve pay izleme",
+          "aciklama": "Aylık kira tahsilatı, %3 arz bedeli ve il/ilçe paylarının izlenmesi (A4 yatay; birlik tarafı).",
+          "dosya": "GNL-OAB-FR-021_Kantin_Kira_Tahsilat_Arz_Bedeli_ve_Pay_Dagitim_Izleme_Cizelgesi_v1.0.docx",
+          "boyut": 42528,
+          "sha256": "a204f6d8503c2c7a9eca71e95d10f998f0f5ee499f192a43818086e656f8d69d",
+          "pdf": "GNL-OAB-FR-021_Kantin_Kira_Tahsilat_Arz_Bedeli_ve_Pay_Dagitim_Izleme_Cizelgesi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-OAB-FR-022",
+          "grup": "isletme",
+          "ad": "Temsilci görevlendirme çizelgesi",
+          "aciklama": "Birlik temsilcilerinin okul kurul ve komisyonlarına (OÖDK, sosyal etkinlikler kurulu, kontenjan, servis, kantin, ihale) görevlendirilmesi.",
+          "dosya": "GNL-OAB-FR-022_Birlik_Temsilcilerinin_Kurul_ve_Komisyonlara_Gorevlendirme_Cizelgesi_v1.0.docx",
+          "boyut": 42150,
+          "sha256": "6ccbac84039a497e641cac2d6fba628296bbb8b7399e6ad869bd6f8f61e74936",
+          "pdf": "GNL-OAB-FR-022_Birlik_Temsilcilerinin_Kurul_ve_Komisyonlara_Gorevlendirme_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-OAB-FR-023",
+          "grup": "yonetim",
+          "ad": "Yıllık faaliyet raporu ve kesin hesap",
+          "aciklama": "Yönetim kurulunun görev alanlarına göre faaliyet raporu, tahmini bütçe ile karşılaştırmalı kesin hesap cetveli ve yükümlülük kontrolü.",
+          "dosya": "GNL-OAB-FR-023_Yonetim_Kurulu_Yillik_Faaliyet_Raporu_ve_Kesin_Hesap_Cetveli_v1.0.docx",
+          "boyut": 42698,
+          "sha256": "97f5bc148e16aed7cf48230d0e55e663b4fd4da70db2fe833546fbdf0ef2c94a",
+          "pdf": "GNL-OAB-FR-023_Yonetim_Kurulu_Yillik_Faaliyet_Raporu_ve_Kesin_Hesap_Cetveli_v1.0.pdf",
+          "sayfa": 2
+        }
+      ]
+    },
+    {
       "slug": "zumre-tutanaklari",
       "ad": "Zümre tutanakları",
       "ozet": "Beş olağan zümre toplantısının branştan bağımsız çerçeve tutanakları ve bir branşta doldurulmuş örneği.",
