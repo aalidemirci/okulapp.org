@@ -393,6 +393,24 @@ img {
   color: var(--link);
 }
 
+/* Proje bölümlerinden okulapp.org ana sayfasına dönüş kısayolu */
+.site-header .hub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.site-header .hub-link:hover {
+  color: var(--link);
+  border-color: var(--link);
+}
+
 .theme-toggle {
   border: 1px solid var(--line);
   background: var(--surface);
@@ -771,6 +789,15 @@ img {
   color: var(--accent-ink);
   font-size: 0.85rem;
   font-weight: 900;
+}
+
+.principle-panel .panel-note {
+  margin: 1.1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--on-deep-soft);
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 /* Sayı şeridi */
