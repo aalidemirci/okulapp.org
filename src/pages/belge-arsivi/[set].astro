@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import arsiv from '../../data/evrak-arsivi.json';
+
+// Veri kaynağı: evrakmotoru → `python arac/gnl_yayin.py --site ../okulapp.org`
+export function getStaticPaths() {
+  return arsiv.setler.map((s) => ({ params: { set: s.slug }, props: { set: s } }));
+}
+
+const { set } = Astro.props;
+const KOK = `/evrak/${set.slug}`;
+
+const kb = (bayt: number) => `${Math.round(bayt / 1024)} KB`;
+const mb = (bayt: number) => `${(bayt / 1024 / 1024).toFixed(1)} MB`;
+const tarih = new Date(set.tarih).toLocaleDateString('tr-TR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+
+// Manifestteki grup sırası korunur; grubu olmayan belgeler sona düşer.
+const gruplar = set.gruplar
+  .map((g) => ({ ...g, belgeler: set.belgeler.filter((b) => b.grup === g.anahtar) }))
+  .filter((g) => g.belgeler.length > 0);
+const grupsuz = set.belgeler.filter((b) => !set.gruplar.some((g) => g.anahtar === b.grup));
+---
+
+<BaseLayout
+  title={`${set.ad} — Belge arşivi — okulapp.org`}
+  description={`${set.ozet} Doldurulmaya hazır Word şablonları, PDF önizlemeleri ve tek paket indirme.`}
+>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow"><a href="/belge-arsivi/">Belge arşivi</a> · Ücretsiz</p>
+      <h1>{set.ad}</h1>
+      <p class="lead">{set.ozet}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={`${KOK}/${set.paket.dosya}`} download>
+          Tümünü indir (ZIP, {mb(set.paket.boyut)})
+        </a>
+        <a class="button button-secondary" href="#kullanim">Nasıl kullanılır</a>
+      </div>
+      <p class="privacy-promise">
+        {set.belgeler.length} belge · sürüm {set.surum} · {tarih} · Lisans {set.lisans}
+      </p>
+    </div>
+
+    <div class="info-box">
+      <p>
+        <b>Resmî bir Bakanlık belgesi değildir.</b> Mevzuat atıfları
+        {' '}<b>{set.mevzuat_teyit_tarihi}</b> tarihi itibarıyla yürürlükteki hükümlere göre
+        yazılmıştır; kullanmadan önce güncelliğini kontrol ediniz. Belgeler kişi, öğrenci
+        veya kurum verisi içermez; doldurduğunuz nüsha içerir ve okul dışına çıkarılmaz.
+      </p>
+    </div>
+  </section>
+
+  {gruplar.map((g) => (
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">{g.ad}</p>
+        <h2>{g.ad}</h2>
+        <p class="lead">{g.aciklama}</p>
+      </div>
+      <div class="download-grid">
+        {g.belgeler.map((b) => (
+          <article class="download-card">
+            <p class="download-meta">{b.kod}</p>
+            <h3>{b.ad}</h3>
+            <p>{b.aciklama}</p>
+            <p class="download-meta">
+              Word · {kb(b.boyut)}{b.sayfa ? ` · ${b.sayfa} sayfa` : ''}
+            </p>
+            <a class="button" href={`${KOK}/${b.dosya}`} download>Word olarak indir</a>
+            {b.pdf && (
+              <p class="download-meta" style="margin-top:0.6rem">
+                <a href={`${KOK}/onizleme-pdf/${b.pdf}`}>PDF önizleme</a>
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  {grupsuz.length > 0 && (
+    <section class="section">
+      <div class="section-heading">
+        <h2>Diğer belgeler</h2>
+      </div>
+      <div class="download-grid">
+        {grupsuz.map((b) => (
+          <article class="download-card">
+            <p class="download-meta">{b.kod}</p>
+            <h3>{b.ad}</h3>
+            <p>{b.aciklama}</p>
+            <a class="button" href={`${KOK}/${b.dosya}`} download>Word olarak indir</a>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="section" id="kullanim">
+    <div class="section-heading">
+      <p class="eyebrow">Kullanım</p>
+      <h2>Şablonu okulunuza uyarlamak</h2>
+    </div>
+    <ul class="feature-grid">
+      <li class="card">
+        <p class="card-number">1</p>
+        <h3>Kılavuz sayfasını silin</h3>
+        <p>
+          Her belgenin ilk sayfası kullanım kılavuzudur ve çoğaltmadan önce silinir.
+          Toplantı usulü, karar yazımı ve doldurma kuralları orada özetlenmiştir.
+        </p>
+      </li>
+      <li class="card">
+        <p class="card-number">2</p>
+        <h3>Kırmızı alanları doldurun</h3>
+        <p>
+          Okul adı, ad-soyad, tarih, saat ve sayı alanları kırmızı ve köşeli parantez
+          içindedir. Doldurduktan sonra parantezi kaldırıp yazıyı siyaha çevirin;
+          belgede kırmızı kalan alan eksik doldurma işaretidir.
+        </p>
+      </li>
+      <li class="card">
+        <p class="card-number">3</p>
+        <h3>Seçenekleri işaretleyin</h3>
+        <p>
+          Okuldan okula değişen hususlar (normal/ikili öğretim, geç gelme süresi,
+          cep telefonu uygulaması, muhafaza yeri) kutucuklu seçenek olarak
+          bırakılmıştır. Uygulanmayan seçenek silinir.
+        </p>
+      </li>
+      <li class="card">
+        <p class="card-number">4</p>
+        <h3>Görüşülmeyeni çıkarın</h3>
+        <p>
+          Görüşme özetleri ve kararlar önceden yazılıdır. Toplantıda görüşülmeyen
+          husus tutanakta bırakılmaz; cümle düzeltilir veya çıkarılır. Karar
+          çıkarıldığında sonraki karar numaraları kaydırılır.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Sürüm</p>
+      <h2>Güncelleme ve lisans</h2>
+    </div>
+    <p class="lead">
+      Set, mevzuat değiştikçe ve metin geliştikçe yenilenir; bu sayfa her zaman en
+      güncel sürümü gösterir. Yayımdaki sürüm <b>{set.surum}</b> ({tarih}), mevzuat
+      teyit tarihi <b>{set.mevzuat_teyit_tarihi}</b>. Paketin SHA-256 özeti:
+      {' '}<code>{set.paket.sha256.slice(0, 32)}…</code>
+    </p>
+    <p class="legal-note">
+      Lisans: <b>{set.lisans}</b> — kaynak gösterilerek kullanabilir, çoğaltabilir,
+      değiştirebilir ve kendi okulunuzun setine dönüştürebilirsiniz. Kaynak gösterimi
+      için “okulapp.org” yeterlidir.
+    </p>
+  </section>
+</BaseLayout>

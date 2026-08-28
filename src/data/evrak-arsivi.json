@@ -1,0 +1,137 @@
+{
+  "guncelleme": "2026-08-28",
+  "setler": [
+    {
+      "slug": "kurul-ve-zumre-tutanaklari",
+      "ad": "Kurul ve zümre tutanakları",
+      "ozet": "Öğretmenler kurulu ve zümre toplantılarının doldurulmaya hazır çerçeve tutanakları ile bir branşta doldurulmuş örneği.",
+      "surum": "2026.08",
+      "tarih": "2026-08-28",
+      "mevzuat_teyit_tarihi": "28.08.2026",
+      "lisans": "CC BY 4.0",
+      "gruplar": [
+        {
+          "anahtar": "kurul",
+          "ad": "Öğretmenler kurulu tutanakları",
+          "aciklama": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısı. Gündem çatısı Eğitim Kurulları ve Zümreleri Yönergesinin 9 uncu maddesindeki havuzdan, kurula görev veren Ortaöğretim Kurumları Yönetmeliği hükümleriyle tamamlanarak kurulmuştur."
+        },
+        {
+          "anahtar": "zumre",
+          "ad": "Zümre tutanakları",
+          "aciklama": "Beş olağan zümre toplantısının çerçeve tutanakları. Metin branştan bağımsız yazılmıştır: branş adı, sınıf düzeyleri ve öğretim programı bilgileri yer tutucudur."
+        },
+        {
+          "anahtar": "ornek",
+          "ad": "Doldurulmuş örnek",
+          "aciklama": "Çerçevenin bir branşta nasıl somutlaştığını gösteren tam metinli örnek. Kendi branşınız için çerçeveden başlamak daha kolaydır."
+        }
+      ],
+      "paket": {
+        "dosya": "Kurul-ve-Zumre-Tutanak-Sablonlari-2026.08.zip",
+        "boyut": 1549158,
+        "sha256": "7cc8f8797e42daf140be7b9cd72b334559d386c2247f56250b03fcb37b98d805"
+      },
+      "belgeler": [
+        {
+          "kod": "GNL-ZMR-ZT-001",
+          "grup": "zumre",
+          "ad": "Ders yılı başı zümre toplantısı",
+          "aciklama": "Yıl geneli çerçeveyi kuran toplantı: planlama, sınav ve performans usulü, iş bölümü, ölçme değerlendirme kararları.",
+          "dosya": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 58529,
+          "sha256": "b0a6f680ba2cbe9dd2858e530632fef63eba3056b306837a702c398618bb652e",
+          "pdf": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 13
+        },
+        {
+          "kod": "GNL-ZMR-ZT-002",
+          "grup": "zumre",
+          "ad": "Kasım ara zümre toplantısı",
+          "aciklama": "Birinci dönem ortası izleme: plan uyumu, sınav analizleri, öğrenme eksiklerine yönelik tedbirler.",
+          "dosya": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 44733,
+          "sha256": "d98bd8e43c477ac0868cf84321c62e6e9e6accd4de9d692d9e72e21ed62c11f2",
+          "pdf": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 5
+        },
+        {
+          "kod": "GNL-ZMR-ZT-003",
+          "grup": "zumre",
+          "ad": "İkinci dönem başı zümre toplantısı",
+          "aciklama": "Birinci dönemin değerlendirilmesi ve ikinci dönem planlaması.",
+          "dosya": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 44196,
+          "sha256": "fde6cf8581a9780ee47480d5094bdfd2bc1e883c7e2f4893599630f5a8e69c58",
+          "pdf": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 5
+        },
+        {
+          "kod": "GNL-ZMR-ZT-004",
+          "grup": "zumre",
+          "ad": "Nisan ara zümre toplantısı",
+          "aciklama": "İkinci dönem ortası izleme ve yıl sonu hazırlığı.",
+          "dosya": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 43678,
+          "sha256": "cc3ada66a1a6782d5c8a9bf986a4550dd109bb134565d15af67a14cc5c391bc7",
+          "pdf": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 5
+        },
+        {
+          "kod": "GNL-ZMR-ZT-005",
+          "grup": "zumre",
+          "ad": "Ders yılı sonu zümre toplantısı",
+          "aciklama": "Yıl boyunca alınan kararların sonuçlarıyla kapatılması ve gelecek yıla devredilen hususlar.",
+          "dosya": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 43023,
+          "sha256": "5a5738c130afeb669d3420a07625fdd6a553c9fcf4db487b2cb09f7928d62035",
+          "pdf": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 4
+        },
+        {
+          "kod": "GNL-ZMR-ZT-001-COG",
+          "grup": "ornek",
+          "ad": "Doldurulmuş örnek: coğrafya zümresi",
+          "aciklama": "Ders yılı başı çerçevesinin bir branşta somutlaşmış hâli: coğrafya öğretim programlarıyla doldurulmuş görüşmeler, 22 tam metinli karar, sınav çizelgesi, performans ölçekleri ve proje konu havuzu. Üye adları rol yer tutucusudur.",
+          "dosya": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 66058,
+          "sha256": "c28d74a74bb76e0b9526cab9b0e1fb5051be4331dc3383d6a36285ac1506038a",
+          "pdf": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 17
+        },
+        {
+          "kod": "GNL-OKR-OKT-001",
+          "grup": "kurul",
+          "ad": "Sene başı öğretmenler kurulu",
+          "aciklama": "Ders yılı başında yapılan kurul: gündem çatısı, seçimler, görevlendirmeler, haftalık ders programı, nöbet, okul kuralları ve bilişim araçları kararı.",
+          "dosya": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 81706,
+          "sha256": "9a891705436b26e3746a24f3ab1922743221cd8ff4aa1190548fbc47b747232a",
+          "pdf": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 26
+        },
+        {
+          "kod": "GNL-OKR-OKT-002",
+          "grup": "kurul",
+          "ad": "İkinci dönem başı öğretmenler kurulu",
+          "aciklama": "Birinci dönemin değerlendirilmesi, ikinci dönem planlaması, kıyafet görüşü ve puan iadesi gibi dönem başı işleri.",
+          "dosya": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 48165,
+          "sha256": "521c2ea828cf2217cbc939e7e466076ef57dfad82fe28744294e44fe5d3c59e3",
+          "pdf": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 7
+        },
+        {
+          "kod": "GNL-OKR-OKT-003",
+          "grup": "kurul",
+          "ad": "Yıl sonu öğretmenler kurulu",
+          "aciklama": "Yıl sonu değerlendirmesi: karar-sonuç tablosu, okul birincisi, gelecek yıla ilişkin öneriler.",
+          "dosya": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 47804,
+          "sha256": "3bbf7d0bc6e6b45c51d27a1ed112208e78dfdd79aad0a29316fdf71c3d21090b",
+          "pdf": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 7
+        }
+      ]
+    }
+  ]
+}

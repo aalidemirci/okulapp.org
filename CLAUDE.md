@@ -29,11 +29,32 @@ Site içeriği uygulama depolarından beslenir; bu depolar yan yana durur:
 .claude/apps/okulzili/             Okul Zili uygulaması
 .claude/apps/disiplin-defteri-codex/  Disiplin Defteri uygulaması
 .claude/apps/sorumluluk-sinavi/    Sorumluluk Sınavı uygulaması
+.claude/apps/evrakmotoru/          Evrak motoru (evrak şablonları buradan üretilir)
 ```
 
 Bir projenin özelliği veya kılavuzu değiştiyse kaynağı `../<depo>` içindeki
 `SURUM-NOTLARI.md` ve `KULLANIM.md` dosyalarıdır. Site metnini oradan
 doğrulamadan güncellemeyin.
+
+## Evrak şablonları ÜRETİLEN dosyalardır — elle düzenlemeyin
+
+`/evrak-sablonlari` sayfasındaki belgeler ve `src/data/evrak-set.json`,
+**evrakmotoru deposundaki motorlardan** üretilir:
+
+```bash
+cd ../evrakmotoru && python arac/gnl_yayin.py --site ../okulapp.org
+```
+
+Hat şu sırayla çalışır: üretim → biçim denetimi → **KVKK/kimlik denetimi** →
+PDF önizleme → ZIP + manifest → bu depoya kopya. Kural:
+
+- `public/evrak/**` ve `src/data/evrak-set.json` **elle düzenlenmez**; içerik
+  değişikliği evrakmotorundaki motorda yapılır ve hat yeniden çalıştırılır.
+- Manifest dosyası bilerek `evrak-set.json`'dır; **`*-release.json` adı
+  verilmemelidir** — `scripts/check-releases.mjs` o deseni tarayıp GitHub sürümü
+  arar, bu setin GitHub sürümü yoktur.
+- Belgeler okul, kişi ve konum kimliği içermez (yayın öncesi denetim bunu
+  zorlar). Doldurulmuş nüshalar hiçbir koşulda bu depoya girmez.
 
 ## Renk kümeleri (data-palette)
 

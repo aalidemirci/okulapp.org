@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import arsiv from '../../data/evrak-arsivi.json';
+
+// Bu veri dosyasını evrak motoru üretir:
+//   cd ../evrakmotoru && python arac/gnl_yayin.py --site ../okulapp.org
+// Elle düzenlemeyin; bkz. CLAUDE.md "Evrak şablonları ÜRETİLEN dosyalardır".
+const setler = arsiv.setler;
+const toplamBelge = setler.reduce((n, s) => n + s.belgeler.length, 0);
+const guncelleme = new Date(arsiv.guncelleme).toLocaleDateString('tr-TR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+const mb = (bayt: number) => `${(bayt / 1024 / 1024).toFixed(1)} MB`;
+---
+
+<BaseLayout
+  title="Belge arşivi — okulapp.org"
+  description="Okullarda kullanılan tutanak, form ve rehber belgelerinin doldurulmaya hazır, mevzuat dayanaklı ve ücretsiz şablonları."
+>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Belge arşivi · Ücretsiz</p>
+      <h1>Okul evrakı şablonları</h1>
+      <p class="lead">
+        Okul yönetiminde her yıl yeniden yazılan belgeler — tutanaklar, formlar,
+        rehberler — burada <b>doldurulmaya hazır şablonlar</b> hâlinde toplanıyor.
+        Metinler mevzuattaki gündem ve görev hükümlerinden kurulmuş, dayanaklar
+        belgenin sonundaki çizelgede toplanmış, okuldan okula değişen hususlar
+        seçenekli bırakılmıştır. Word biçimindedir; indirip kendi okulunuza
+        uyarlarsınız.
+      </p>
+      <p class="privacy-promise">
+        {toplamBelge} belge · {setler.length} set · Son güncelleme {guncelleme} ·
+        Kayıt gerekmez, ücretsizdir.
+      </p>
+    </div>
+
+    <ul class="feature-grid">
+      {setler.map((s) => (
+        <li class="card">
+          <h2><a href={`/belge-arsivi/${s.slug}/`}>{s.ad}</a></h2>
+          <p>{s.ozet}</p>
+          <p class="muted">
+            {s.belgeler.length} belge · sürüm {s.surum} · {s.lisans} ·
+            paket {mb(s.paket.boyut)}
+          </p>
+          <p>
+            <a class="button button-secondary" href={`/belge-arsivi/${s.slug}/`}>
+              Belgeleri gör
+            </a>
+          </p>
+        </li>
+      ))}
+    </ul>
+
+    <div class="info-box">
+      <p>
+        <b>Bu belgeler resmî Bakanlık belgeleri değildir.</b> Bir okulda kullanmak
+        üzere hazırlanmış, sonra kurum ve kişi bilgileri çıkarılarak
+        genelleştirilmiş çalışma metinleridir. Her setin kendi sayfasında mevzuat
+        teyit tarihi yazılıdır; kullanmadan önce güncelliğini kontrol ediniz.
+        Sorumluluk kullanan kuruma aittir.
+      </p>
+      <p>
+        <b>Kişisel veri:</b> Şablonlar hiçbir kişi, öğrenci veya kurum verisi
+        içermez; okul adı, ad-soyad, tarih ve sayı alanları kırmızı yer tutucudur.
+        Doldurduğunuz nüsha kişisel veri içerir: okul dışına verilmez, internette
+        yayımlanmaz, mevzuatta öngörülen süreyle okulda saklanır.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
