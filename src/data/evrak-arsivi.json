@@ -1,6 +1,282 @@
 {
-  "guncelleme": "2026-08-28",
+  "guncelleme": "2026-08-29",
   "setler": [
+    {
+      "slug": "okul-kantini-belgeleri",
+      "ad": "Okul kantini belgeleri",
+      "ozet": "Okul kantini (gıda işletmesi) için okul yönetiminin takip-denetim seti (7 form): işlem dosyası, işletmeci-çalışan belgeleri, aylık denetim komisyonu ve izleme, uygunsuzluk bildirimi, satış listesi-fiyat kontrolü, teslim/tahliye tutanağı.",
+      "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir. Set, kantinin okul-aile birliğince KİRAYA VERİLMESİ senaryosuna göre okul yönetiminin denetim-izleme tarafını düzenler; kiralama, kira ve arz bedeli takibi belgeleri okul-aile birliği setindedir. Aylık denetim, Kılavuz ekindeki resmî EK-1 formu ile yapılır; bu set resmî formların yerine geçmez.",
+      "surum": "2026.08",
+      "tarih": "2026-08-29",
+      "mevzuat_teyit_tarihi": "17.08.2026",
+      "lisans": "CC BY 4.0",
+      "gruplar": [
+        {
+          "anahtar": "dosya",
+          "ad": "İşlem dosyası ve teslim",
+          "aciklama": "Yıllık kantin işlem dosyasının kapak-kontrol listesi ile kiralanan yerin teslim ve tahliye-teslim tutanağı."
+        },
+        {
+          "anahtar": "personel",
+          "ad": "İşletmeci ve çalışan belgeleri",
+          "aciklama": "Kişi başına hijyen eğitimi, sağlık, adli sicil ve mesleki belge kontrolü; yıllık yenileme düzeni."
+        },
+        {
+          "anahtar": "denetim",
+          "ad": "Aylık denetim ve uygunsuzluk takibi",
+          "aciklama": "Gıda İşletmeleri Denetim Komisyonunun kuruluşu ve eğitimi, resmî EK-1 formuyla yapılan aylık denetimin yıllık izlenmesi, uygunsuzluk bildirimlerinin ve giderilme-fesih sürecinin kaydı."
+        },
+        {
+          "anahtar": "urun",
+          "ad": "Ürün ve fiyat kontrolü",
+          "aciklama": "Satışa sunulan ürünlerin Bilim Kurulu listesine, okul gıdası logosu şartına ve oda onaylı tavan fiyat tarifesine uygunluk kontrolü."
+        }
+      ],
+      "paket": {
+        "dosya": "Okul-Kantini-Belge-Seti-2026.08.zip",
+        "boyut": 952214,
+        "sha256": "c32062811019b0530a33d81b6dcc4a092f1c426b5352993c1dbead47e3a5f8d5"
+      },
+      "belgeler": [
+        {
+          "kod": "GNL-KNT-FR-001",
+          "grup": "dosya",
+          "ad": "İşlem dosyası kapak ve kontrol listesi",
+          "aciklama": "Yıllık kantin dosyasının eksiksizliği: sözleşme, işletmeci belgeleri, denetim arşivi, plan-kayıt ve TEFBİS kalemlerini 22 kalemde izleyen kontrol listesi.",
+          "dosya": "GNL-KNT-FR-001_Kantin_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.docx",
+          "boyut": 42217,
+          "sha256": "bdeaa29b024d0001090636d9d718be2557cc6eb0bc5b23f39dd3566e472045d3",
+          "pdf": "GNL-KNT-FR-001_Kantin_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-KNT-FR-002",
+          "grup": "personel",
+          "ad": "İşletmeci ve çalışan belge kontrol formu",
+          "aciklama": "Kişi başına hijyen eğitimi belgesi, sağlık muayenesi, adli sicil ve mesleki belge kontrolü; yıllık yenileme ve sağlık engeli sonuç bölümüyle.",
+          "dosya": "GNL-KNT-FR-002_Kantin_Isletmecisi_ve_Calisani_Belge_Kontrol_Formu_v1.0.docx",
+          "boyut": 41680,
+          "sha256": "24b5d1b8cf3ab17bf9dc3b8a3bc783d4d280d861e20fdac664854ee75875bd0e",
+          "pdf": "GNL-KNT-FR-002_Kantin_Isletmecisi_ve_Calisani_Belge_Kontrol_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-KNT-FR-003",
+          "grup": "denetim",
+          "ad": "Denetim komisyonu görevlendirme ve eğitim çizelgesi",
+          "aciklama": "Gıda İşletmeleri Denetim Komisyonunun kuruluşu (50 ve üzeri / 50'den az çalışan varyantları), üye eğitimleri ve görevlendirme kaydı.",
+          "dosya": "GNL-KNT-FR-003_Gida_Isletmeleri_Denetim_Komisyonu_Gorevlendirme_ve_Egitim_Cizelgesi_v1.0.docx",
+          "boyut": 41427,
+          "sha256": "f635fed9f5fbae70eba6270b40e0dee55d4bd05fc3487b5f8bfa7cc09d7c87f5",
+          "pdf": "GNL-KNT-FR-003_Gida_Isletmeleri_Denetim_Komisyonu_Gorevlendirme_ve_Egitim_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-KNT-FR-004",
+          "grup": "denetim",
+          "ad": "Aylık denetim izleme çizelgesi",
+          "aciklama": "Resmî EK-1 formuyla yapılan aylık denetim döngüsünün yıllık izlenmesi ve bildirim süreleri özeti (A4 yatay).",
+          "dosya": "GNL-KNT-FR-004_Kantin_Aylik_Denetim_Izleme_Cizelgesi_v1.0.docx",
+          "boyut": 41669,
+          "sha256": "646e4fa0d665f837f8fd2227e4aaa5595c501906f4759ba73443e31fe835574f",
+          "pdf": "GNL-KNT-FR-004_Kantin_Aylik_Denetim_Izleme_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-KNT-FR-005",
+          "grup": "denetim",
+          "ad": "Uygunsuzluk bildirim ve takip kayıt formu",
+          "aciklama": "Büyük/küçük uygunsuzluk bildirimlerinin (aynı gün / 3 iş günü) ve giderilme-fesih sürecinin uygunsuzluk başına kaydı.",
+          "dosya": "GNL-KNT-FR-005_Kantin_Uygunsuzluk_Bildirim_ve_Takip_Kayit_Formu_v1.0.docx",
+          "boyut": 41565,
+          "sha256": "5565fb63ea176afcc85f0c49c0e02a442c3c52a17638df2c6468865e1b4029f3",
+          "pdf": "GNL-KNT-FR-005_Kantin_Uygunsuzluk_Bildirim_ve_Takip_Kayit_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-KNT-FR-006",
+          "grup": "urun",
+          "ad": "Satış listesi ve fiyat tarifesi uygunluk kontrolü",
+          "aciklama": "Bilim Kurulu kararına (06.03.2025) göre yasaklı ürün kontrolü, kriterli ürün spot kontrolü, okul gıdası logosu ve tavan fiyat kontrolü.",
+          "dosya": "GNL-KNT-FR-006_Satisa_Sunulan_Urunler_ve_Fiyat_Tarifesi_Uygunluk_Kontrol_Cizelgesi_v1.0.docx",
+          "boyut": 42638,
+          "sha256": "dc5f16aacc0c405943fb90c82951e9ed7ed489fc64e5e1a760726794bd071aa8",
+          "pdf": "GNL-KNT-FR-006_Satisa_Sunulan_Urunler_ve_Fiyat_Tarifesi_Uygunluk_Kontrol_Cizelgesi_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-KNT-FR-007",
+          "grup": "dosya",
+          "ad": "Kantin yeri teslim / tahliye-teslim tutanağı",
+          "aciklama": "Kiralanan yerin sözleşmeden itibaren 15 gün içinde teslimi ve işletme sonunda tahliye-teslimi; demirbaş ve sayaç kayıtlarıyla.",
+          "dosya": "GNL-KNT-FR-007_Kantin_Yeri_Teslim_Tahliye_Teslim_Tutanagi_v1.0.docx",
+          "boyut": 41420,
+          "sha256": "43dae6b3b27545a97d802004d0defec6f8297bd910e8266bff5b647cd6e35feb",
+          "pdf": "GNL-KNT-FR-007_Kantin_Yeri_Teslim_Tahliye_Teslim_Tutanagi_v1.0.pdf",
+          "sayfa": 1
+        }
+      ]
+    },
+    {
+      "slug": "okul-servisi-belgeleri",
+      "ad": "Okul servisi belgeleri",
+      "ozet": "Sözleşmeli okul servisi iş ve işlemleri için okul yönetiminin takip-denetim seti (11 form): işlem dosyası, taşımacı-araç-personel kontrolleri, güzergâh ve bildirimler, öğrenci listesi ve haftalık yoklama, aksaklık-ihlal tutanakları.",
+      "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir. Set, velilerden ücret alınan SÖZLEŞMELİ OKUL SERVİSİ senaryosuna göre yazılmıştır; il/ilçe millî eğitim müdürlüğünce ihale edilen TAŞIMALI EĞİTİM kapsam dışıdır. Formlar okul yönetimi ve Taşımacıyı Tespit Komisyonu tarafında kullanılır; sözleşmenin tarafı komisyondur, okul-aile birliğinin payı komisyon üyeliğidir.",
+      "surum": "2026.08",
+      "tarih": "2026-08-29",
+      "mevzuat_teyit_tarihi": "17.08.2026",
+      "lisans": "CC BY 4.0",
+      "gruplar": [
+        {
+          "anahtar": "dosya",
+          "ad": "İşlem dosyası ve taşımacı seçimi",
+          "aciklama": "Yıllık servis işlem dosyasının kapak-kontrol listesi ile taşımacının başvuru ve sözleşme belgelerinin taşımacı bazlı kontrolü. Taşımacıyı Tespit Komisyonu sürecinin (şartname, ilan, karar, onay, sözleşme) belge zinciri buradan izlenir."
+        },
+        {
+          "anahtar": "kontrol",
+          "ad": "Araç ve personel kontrolleri",
+          "aciklama": "Araç başına donanım-belge kontrolü, şoför ve rehber personelin şart-belge kontrolü ve tüm filoyu tek bakışta izleyen ana kayıt çizelgesi."
+        },
+        {
+          "anahtar": "isleyis",
+          "ad": "Güzergâh, bildirim ve yoklama",
+          "aciklama": "Güzergâh ve azami seyahat sürelerinin belirlenmesi, personel-araç değişikliği bildirimleri, taşımacıdan alınan öğrenci listesi ve şoförün haftalık yoklama çizelgesi."
+        },
+        {
+          "anahtar": "ihlal",
+          "ad": "Aksaklık ve ihlaller",
+          "aciklama": "Okul yönetimi tespitlerinin tutanağı (üç tespitte özel izin belgesi iptal bildirimi) ile öğrencinin servis kuralları ihlalinin okula yazılı bildirimi ve okulun işlem zinciri."
+        }
+      ],
+      "paket": {
+        "dosya": "Okul-Servisi-Belge-Seti-2026.08.zip",
+        "boyut": 1499608,
+        "sha256": "4437736aab7ccabdb8cb478a2761076f651d77f7e41bc053cce407b12b5dd257"
+      },
+      "belgeler": [
+        {
+          "kod": "GNL-SRV-FR-001",
+          "grup": "dosya",
+          "ad": "İşlem dosyası kapak ve kontrol listesi",
+          "aciklama": "Yıllık servis işlem dosyasının kapak sayfası; şartname-ilan-komisyon-sözleşme zinciri ile araç, personel ve öğrenci kayıtlarını 25 kalemde izleyen kontrol listesi.",
+          "dosya": "GNL-SRV-FR-001_Servis_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.docx",
+          "boyut": 42057,
+          "sha256": "f2065ac48e5b48468d7fe5cb146fb9809a59b17152b15cdcdde13e0a22f000cd",
+          "pdf": "GNL-SRV-FR-001_Servis_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-002",
+          "grup": "dosya",
+          "ad": "Taşımacı evrak kontrol formu",
+          "aciklama": "Taşımacı başına başvuru (UE md. 6/1) ve sözleşme (UE md. 9/1) belgeleri ile taşımacı şartlarının kontrolü; sürücü belgesi süre şartı notuyla.",
+          "dosya": "GNL-SRV-FR-002_Tasimaci_Evrak_Kontrol_Formu_v1.0.docx",
+          "boyut": 42049,
+          "sha256": "42287a68b1006166116c8206d942a099d5dfb162a63bc04850b1e1176233830b",
+          "pdf": "GNL-SRV-FR-002_Tasimaci_Evrak_Kontrol_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-003",
+          "grup": "kontrol",
+          "ad": "Okul servis aracı uygunluk kontrol formu",
+          "aciklama": "Araç başına belge ve donanım kontrolü (Yönetmelik md. 4/1, 16 kalem); dönem başı ve ara kontrollerde kullanılır, geçiş takvimi notlarıyla.",
+          "dosya": "GNL-SRV-FR-003_Okul_Servis_Araci_Uygunluk_Kontrol_Formu_v1.0.docx",
+          "boyut": 42448,
+          "sha256": "c126cf3e682a9433606f98b8534c657c5076e919c8b48e8610fc3386646ef924",
+          "pdf": "GNL-SRV-FR-003_Okul_Servis_Araci_Uygunluk_Kontrol_Formu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-SRV-FR-004",
+          "grup": "kontrol",
+          "ad": "Şoför ve rehber personel belge kontrol formu",
+          "aciklama": "Kişi başına şart ve belge kontrolü (Yönetmelik md. 9); rehber personel bölümü 'çalıştırılıyorsa' esasıyla düzenlenmiştir.",
+          "dosya": "GNL-SRV-FR-004_Sofor_ve_Rehber_Personel_Belge_Kontrol_Formu_v1.0.docx",
+          "boyut": 41844,
+          "sha256": "3600e6e639da132bf74ee66ff00b224e04cfa05083ac1b9fbbbc006d75fb5e6c",
+          "pdf": "GNL-SRV-FR-004_Sofor_ve_Rehber_Personel_Belge_Kontrol_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-005",
+          "grup": "isleyis",
+          "ad": "Personel ve araç değişikliği bildirim formu",
+          "aciklama": "Taşımacının aynı gün bildirim yükümlülüğünün (md. 5/2-f) kaydı; bildirim ekleri kontrolü ve okul kayıt bölümüyle.",
+          "dosya": "GNL-SRV-FR-005_Servis_Personeli_ve_Arac_Degisikligi_Bildirim_Formu_v1.0.docx",
+          "boyut": 41154,
+          "sha256": "844bbab719e7ef48d1bed67e7178e08e92e76b02f07a4c6b8274d3f645f38cb1",
+          "pdf": "GNL-SRV-FR-005_Servis_Personeli_ve_Arac_Degisikligi_Bildirim_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-006",
+          "grup": "ihlal",
+          "ad": "Aksaklık ve ihlal tespit tutanağı",
+          "aciklama": "Okul yönetimi tespitlerinin tutanağı; tespit sayacı ve bir dönemde üç tespitte özel izin belgesi iptal bildirimi süreci (md. 9/4).",
+          "dosya": "GNL-SRV-FR-006_Servis_Aksaklik_ve_Ihlal_Tespit_Tutanagi_v1.0.docx",
+          "boyut": 41560,
+          "sha256": "3c082f12a220bc0ec55fe8eead24892158119cd6c89f7df7907dae8958e5d287",
+          "pdf": "GNL-SRV-FR-006_Servis_Aksaklik_ve_Ihlal_Tespit_Tutanagi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-007",
+          "grup": "isleyis",
+          "ad": "Güzergâh, indirme-bindirme ve azami süre tutanağı",
+          "aciklama": "Güzergâhların, okul alanındaki indirme-bindirme yerinin ve azami seyahat sürelerinin belirlenmesi (md. 6/1-ç, g); kroki alanıyla.",
+          "dosya": "GNL-SRV-FR-007_Guzergah_Indirme_Bindirme_ve_Azami_Sure_Tutanagi_v1.0.docx",
+          "boyut": 41060,
+          "sha256": "ce8ac72cd84ad0149cbb3af6f9a46d7086164c4cc307e8b0a45b00fd34ab3d64",
+          "pdf": "GNL-SRV-FR-007_Guzergah_Indirme_Bindirme_ve_Azami_Sure_Tutanagi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-008",
+          "grup": "kontrol",
+          "ad": "Araç ve personel ana kayıt çizelgesi",
+          "aciklama": "Tüm filo ve personelin tek bakışta izlendiği A4 yatay çizelge; belge geçerlilik tarihlerinin takibiyle (md. 6/1-c).",
+          "dosya": "GNL-SRV-FR-008_Servis_Arac_ve_Personel_Ana_Kayit_Cizelgesi_v1.0.docx",
+          "boyut": 41261,
+          "sha256": "47055695063fa67a800394da6c6ad7047aa05baf734802e937bbf365b5871cb6",
+          "pdf": "GNL-SRV-FR-008_Servis_Arac_ve_Personel_Ana_Kayit_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-009",
+          "grup": "isleyis",
+          "ad": "Servis kullanan öğrenci bildirim formu",
+          "aciklama": "Taşımacıdan okul yönetimine araç başına sözleşmeli öğrenci listesi; dönem başında ve her ekleme-çıkarmada yenilenir (şartnameye UE EK-1 md. 7-g ile bağlanır).",
+          "dosya": "GNL-SRV-FR-009_Servis_Kullanan_Ogrenci_Bildirim_Formu_v1.0.docx",
+          "boyut": 42345,
+          "sha256": "6c46e599c519ae86ca1f1a2ca1e1019a0ab47c06e6204ada7e521679a72f9ce1",
+          "pdf": "GNL-SRV-FR-009_Servis_Kullanan_Ogrenci_Bildirim_Formu_v1.0.pdf",
+          "sayfa": 1
+        },
+        {
+          "kod": "GNL-SRV-FR-010",
+          "grup": "ihlal",
+          "ad": "Servis kuralları ihlali öğrenci bildirim formu",
+          "aciklama": "Sürücü/rehber/öğretmenin okul yönetimine yazılı bildirimi; ikinci sayfada okulun işlem zinciri (öğrenci-veli görüşmesi, gerekirse disiplin kurulu).",
+          "dosya": "GNL-SRV-FR-010_Servis_Kurallari_Ihlali_Ogrenci_Bildirim_Formu_v1.0.docx",
+          "boyut": 42479,
+          "sha256": "f89ee4438e35c77e6c218474b5efb6a218f9da2ad7fa16a53d65e3831b6b65a4",
+          "pdf": "GNL-SRV-FR-010_Servis_Kurallari_Ihlali_Ogrenci_Bildirim_Formu_v1.0.pdf",
+          "sayfa": 2
+        },
+        {
+          "kod": "GNL-SRV-FR-011",
+          "grup": "isleyis",
+          "ad": "Haftalık servis yoklama çizelgesi",
+          "aciklama": "Şoförün sefer bazında yoklaması: 20 öğrenci × 5 gün × geliş/dönüş; sefer sonrası araç içi kontrol ve binen sayısı satırlarıyla.",
+          "dosya": "GNL-SRV-FR-011_Haftalik_Servis_Yoklama_Cizelgesi_v1.0.docx",
+          "boyut": 42528,
+          "sha256": "debd793f5b8a1747d4f705eca10653de2c73f6f3d1c8cf5edcc5d38e5a2e8028",
+          "pdf": "GNL-SRV-FR-011_Haftalik_Servis_Yoklama_Cizelgesi_v1.0.pdf",
+          "sayfa": 1
+        }
+      ]
+    },
     {
       "slug": "okul-aile-birligi-belgeleri",
       "ad": "Okul-aile birliği belgeleri",
