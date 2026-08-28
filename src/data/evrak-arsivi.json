@@ -2,23 +2,19 @@
   "guncelleme": "2026-08-28",
   "setler": [
     {
-      "slug": "kurul-ve-zumre-tutanaklari",
-      "ad": "Kurul ve zümre tutanakları",
-      "ozet": "Öğretmenler kurulu ve zümre toplantılarının doldurulmaya hazır çerçeve tutanakları ile bir branşta doldurulmuş örneği.",
+      "slug": "zumre-tutanaklari",
+      "ad": "Zümre tutanakları",
+      "ozet": "Beş olağan zümre toplantısının branştan bağımsız çerçeve tutanakları ve bir branşta doldurulmuş örneği.",
+      "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir.",
       "surum": "2026.08",
       "tarih": "2026-08-28",
       "mevzuat_teyit_tarihi": "28.08.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
         {
-          "anahtar": "kurul",
-          "ad": "Öğretmenler kurulu tutanakları",
-          "aciklama": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısı. Gündem çatısı Eğitim Kurulları ve Zümreleri Yönergesinin 9 uncu maddesindeki havuzdan, kurula görev veren Ortaöğretim Kurumları Yönetmeliği hükümleriyle tamamlanarak kurulmuştur."
-        },
-        {
-          "anahtar": "zumre",
-          "ad": "Zümre tutanakları",
-          "aciklama": "Beş olağan zümre toplantısının çerçeve tutanakları. Metin branştan bağımsız yazılmıştır: branş adı, sınıf düzeyleri ve öğretim programı bilgileri yer tutucudur."
+          "anahtar": "cerceve",
+          "ad": "Çerçeve tutanaklar",
+          "aciklama": "Beş olağan zümre toplantısının branştan bağımsız çerçeve tutanakları. Branş adı, sınıf düzeyleri ve öğretim programı bilgileri yer tutucudur; her alan zümresi kendi metnine uyarlar."
         },
         {
           "anahtar": "ornek",
@@ -27,63 +23,63 @@
         }
       ],
       "paket": {
-        "dosya": "Kurul-ve-Zumre-Tutanak-Sablonlari-2026.08.zip",
-        "boyut": 1549158,
-        "sha256": "7cc8f8797e42daf140be7b9cd72b334559d386c2247f56250b03fcb37b98d805"
+        "dosya": "Zumre-Tutanak-Sablonlari-2026.08.zip",
+        "boyut": 920683,
+        "sha256": "5e412140141ba124805bb47129c285ca15a2146f283abfb378d289b0cdc8be72"
       },
       "belgeler": [
         {
           "kod": "GNL-ZMR-ZT-001",
-          "grup": "zumre",
+          "grup": "cerceve",
           "ad": "Ders yılı başı zümre toplantısı",
           "aciklama": "Yıl geneli çerçeveyi kuran toplantı: planlama, sınav ve performans usulü, iş bölümü, ölçme değerlendirme kararları.",
           "dosya": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 58529,
-          "sha256": "b0a6f680ba2cbe9dd2858e530632fef63eba3056b306837a702c398618bb652e",
+          "sha256": "d5e85629023bcc69ffc99008f8cab9fe654eb0e763dc44de89eda5716f45154c",
           "pdf": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 13
         },
         {
           "kod": "GNL-ZMR-ZT-002",
-          "grup": "zumre",
+          "grup": "cerceve",
           "ad": "Kasım ara zümre toplantısı",
           "aciklama": "Birinci dönem ortası izleme: plan uyumu, sınav analizleri, öğrenme eksiklerine yönelik tedbirler.",
           "dosya": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 44733,
-          "sha256": "d98bd8e43c477ac0868cf84321c62e6e9e6accd4de9d692d9e72e21ed62c11f2",
+          "sha256": "a14169b14b7e6f0199aea8a8c1d3025b7316661e570b1ee3ea7080429714f24c",
           "pdf": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
         {
           "kod": "GNL-ZMR-ZT-003",
-          "grup": "zumre",
+          "grup": "cerceve",
           "ad": "İkinci dönem başı zümre toplantısı",
           "aciklama": "Birinci dönemin değerlendirilmesi ve ikinci dönem planlaması.",
           "dosya": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 44196,
-          "sha256": "fde6cf8581a9780ee47480d5094bdfd2bc1e883c7e2f4893599630f5a8e69c58",
+          "sha256": "9e8191829e8eb6752d3e3441cc841e5e7d5c10eaad24082eaa008822d287ee4a",
           "pdf": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
         {
           "kod": "GNL-ZMR-ZT-004",
-          "grup": "zumre",
+          "grup": "cerceve",
           "ad": "Nisan ara zümre toplantısı",
           "aciklama": "İkinci dönem ortası izleme ve yıl sonu hazırlığı.",
           "dosya": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 43678,
-          "sha256": "cc3ada66a1a6782d5c8a9bf986a4550dd109bb134565d15af67a14cc5c391bc7",
+          "sha256": "2e044562964d7b8f112ae3a846869375421a23eb1043fd096a37bf331c472d17",
           "pdf": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
         {
           "kod": "GNL-ZMR-ZT-005",
-          "grup": "zumre",
+          "grup": "cerceve",
           "ad": "Ders yılı sonu zümre toplantısı",
           "aciklama": "Yıl boyunca alınan kararların sonuçlarıyla kapatılması ve gelecek yıla devredilen hususlar.",
           "dosya": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 43023,
-          "sha256": "5a5738c130afeb669d3420a07625fdd6a553c9fcf4db487b2cb09f7928d62035",
+          "sha256": "825b1690eb3f6a197dcb60fd2114a145b97bf38eb4dace8ec90579f83d422052",
           "pdf": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 4
         },
@@ -93,41 +89,65 @@
           "ad": "Doldurulmuş örnek: coğrafya zümresi",
           "aciklama": "Ders yılı başı çerçevesinin bir branşta somutlaşmış hâli: coğrafya öğretim programlarıyla doldurulmuş görüşmeler, 22 tam metinli karar, sınav çizelgesi, performans ölçekleri ve proje konu havuzu. Üye adları rol yer tutucusudur.",
           "dosya": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 66058,
-          "sha256": "c28d74a74bb76e0b9526cab9b0e1fb5051be4331dc3383d6a36285ac1506038a",
+          "boyut": 65952,
+          "sha256": "0c1f3e6d218866870aa020d6c01c6d926f6c606159c430656572718f19d9ac3a",
           "pdf": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 17
-        },
+        }
+      ]
+    },
+    {
+      "slug": "ogretmenler-kurulu-tutanaklari",
+      "ad": "Öğretmenler kurulu tutanakları",
+      "ozet": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısının doldurulmaya hazır çerçeve tutanakları.",
+      "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir.",
+      "surum": "2026.08",
+      "tarih": "2026-08-28",
+      "mevzuat_teyit_tarihi": "28.08.2026",
+      "lisans": "CC BY 4.0",
+      "gruplar": [
+        {
+          "anahtar": "olagan",
+          "ad": "Olağan kurul toplantıları",
+          "aciklama": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısı. Gündem çatısı Eğitim Kurulları ve Zümreleri Yönergesinin 9 uncu maddesindeki havuzdan, kurula görev veren Ortaöğretim Kurumları Yönetmeliği hükümleriyle tamamlanarak kurulmuştur."
+        }
+      ],
+      "paket": {
+        "dosya": "Ogretmenler-Kurulu-Tutanak-Sablonlari-2026.08.zip",
+        "boyut": 627512,
+        "sha256": "f31a6b555c7a43a94bf57a8d0900f5c948cc66f4720addc454874784073f1a4d"
+      },
+      "belgeler": [
         {
           "kod": "GNL-OKR-OKT-001",
-          "grup": "kurul",
+          "grup": "olagan",
           "ad": "Sene başı öğretmenler kurulu",
           "aciklama": "Ders yılı başında yapılan kurul: gündem çatısı, seçimler, görevlendirmeler, haftalık ders programı, nöbet, okul kuralları ve bilişim araçları kararı.",
           "dosya": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 81706,
-          "sha256": "9a891705436b26e3746a24f3ab1922743221cd8ff4aa1190548fbc47b747232a",
+          "boyut": 81398,
+          "sha256": "3780e01f74a1b6a37852b5335ac77d162d65b112ed53bbefdc3b6e4ff2f0935c",
           "pdf": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 26
         },
         {
           "kod": "GNL-OKR-OKT-002",
-          "grup": "kurul",
+          "grup": "olagan",
           "ad": "İkinci dönem başı öğretmenler kurulu",
           "aciklama": "Birinci dönemin değerlendirilmesi, ikinci dönem planlaması, kıyafet görüşü ve puan iadesi gibi dönem başı işleri.",
           "dosya": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 48165,
-          "sha256": "521c2ea828cf2217cbc939e7e466076ef57dfad82fe28744294e44fe5d3c59e3",
+          "boyut": 48112,
+          "sha256": "db4953af7235649f93d858c5d44133084b6dd6a746761ee56a756982e1b6c79f",
           "pdf": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
         },
         {
           "kod": "GNL-OKR-OKT-003",
-          "grup": "kurul",
+          "grup": "olagan",
           "ad": "Yıl sonu öğretmenler kurulu",
           "aciklama": "Yıl sonu değerlendirmesi: karar-sonuç tablosu, okul birincisi, gelecek yıla ilişkin öneriler.",
           "dosya": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 47804,
-          "sha256": "3bbf7d0bc6e6b45c51d27a1ed112208e78dfdd79aad0a29316fdf71c3d21090b",
+          "boyut": 47790,
+          "sha256": "03e0654d276ef51e68d644b738b95baf6491dfb5130f932e4493319642da45d4",
           "pdf": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
         }
