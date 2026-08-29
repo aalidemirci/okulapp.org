@@ -12,6 +12,7 @@ const KOK = `/evrak/${set.slug}`;
 
 const kb = (bayt: number) => `${Math.round(bayt / 1024)} KB`;
 const mb = (bayt: number) => `${(bayt / 1024 / 1024).toFixed(1)} MB`;
+const bicim = (dosya: string) => (dosya.toLowerCase().endsWith('.xlsx') ? 'Excel' : 'Word');
 const tarih = new Date(set.tarih).toLocaleDateString('tr-TR', {
   day: '2-digit',
   month: 'long',
@@ -23,11 +24,14 @@ const gruplar = set.gruplar
   .map((g) => ({ ...g, belgeler: set.belgeler.filter((b) => b.grup === g.anahtar) }))
   .filter((g) => g.belgeler.length > 0);
 const grupsuz = set.belgeler.filter((b) => !set.gruplar.some((g) => g.anahtar === b.grup));
+
+// Excel tabanlı plan setinin kullanım adımları docx tutanak setlerinden farklıdır.
+const planSeti = set.slug === 'cografya-yillik-planlari';
 ---
 
 <BaseLayout
   title={`${set.ad} — Belge arşivi — okulapp.org`}
-  description={`${set.ozet} Doldurulmaya hazır Word şablonları, PDF önizlemeleri ve tek paket indirme.`}
+  description={`${set.ozet} Doldurulmaya hazır Word/Excel şablonları, PDF önizlemeleri ve tek paket indirme.`}
 >
   <section class="section">
     <div class="section-heading">
@@ -72,9 +76,9 @@ const grupsuz = set.belgeler.filter((b) => !set.gruplar.some((g) => g.anahtar ==
             <h3>{b.ad}</h3>
             <p>{b.aciklama}</p>
             <p class="download-meta">
-              Word · {kb(b.boyut)}{b.sayfa ? ` · ${b.sayfa} sayfa` : ''}
+              {bicim(b.dosya)} · {kb(b.boyut)}{b.sayfa ? ` · ${b.sayfa} sayfa` : ''}
             </p>
-            <a class="button" href={`${KOK}/${b.dosya}`} download>Word olarak indir</a>
+            <a class="button" href={`${KOK}/${b.dosya}`} download>{bicim(b.dosya)} olarak indir</a>
             {b.pdf && (
               <p class="download-meta" style="margin-top:0.6rem">
                 <a href={`${KOK}/onizleme-pdf/${b.pdf}`}>PDF önizleme</a>
@@ -97,7 +101,7 @@ const grupsuz = set.belgeler.filter((b) => !set.gruplar.some((g) => g.anahtar ==
             <p class="download-meta">{b.kod}</p>
             <h3>{b.ad}</h3>
             <p>{b.aciklama}</p>
-            <a class="button" href={`${KOK}/${b.dosya}`} download>Word olarak indir</a>
+            <a class="button" href={`${KOK}/${b.dosya}`} download>{bicim(b.dosya)} olarak indir</a>
           </article>
         ))}
       </div>
@@ -109,43 +113,85 @@ const grupsuz = set.belgeler.filter((b) => !set.gruplar.some((g) => g.anahtar ==
       <p class="eyebrow">Kullanım</p>
       <h2>Şablonu okulunuza uyarlamak</h2>
     </div>
-    <ul class="feature-grid">
-      <li class="card">
-        <p class="card-number">1</p>
-        <h3>Kılavuz sayfasını silin</h3>
-        <p>
-          Her belgenin ilk sayfası kullanım kılavuzudur ve çoğaltmadan önce silinir.
-          Toplantı usulü, karar yazımı ve doldurma kuralları orada özetlenmiştir.
-        </p>
-      </li>
-      <li class="card">
-        <p class="card-number">2</p>
-        <h3>Kırmızı alanları doldurun</h3>
-        <p>
-          Okul adı, ad-soyad, tarih, saat ve sayı alanları kırmızı ve köşeli parantez
-          içindedir. Doldurduktan sonra parantezi kaldırıp yazıyı siyaha çevirin;
-          belgede kırmızı kalan alan eksik doldurma işaretidir.
-        </p>
-      </li>
-      <li class="card">
-        <p class="card-number">3</p>
-        <h3>Seçenekleri işaretleyin</h3>
-        <p>
-          Okuldan okula değişen hususlar (normal/ikili öğretim, geç gelme süresi,
-          cep telefonu uygulaması, muhafaza yeri) kutucuklu seçenek olarak
-          bırakılmıştır. Uygulanmayan seçenek silinir.
-        </p>
-      </li>
-      <li class="card">
-        <p class="card-number">4</p>
-        <h3>Görüşülmeyeni çıkarın</h3>
-        <p>
-          Görüşme özetleri ve kararlar önceden yazılıdır. Toplantıda görüşülmeyen
-          husus tutanakta bırakılmaz; cümle düzeltilir veya çıkarılır. Karar
-          çıkarıldığında sonraki karar numaraları kaydırılır.
-        </p>
-      </li>
-    </ul>
+    {planSeti ? (
+      <ul class="feature-grid">
+        <li class="card">
+          <p class="card-number">1</p>
+          <h3>Kırmızı alanları doldurun</h3>
+          <p>
+            Planlar Excel dosyasıdır. Başlıktaki [OKUL ADI] ile ad-soyad ve tarih
+            alanları kırmızı ve köşeli parantez içindedir; doldurduktan sonra
+            parantezi kaldırıp yazıyı siyaha çevirin.
+          </p>
+        </li>
+        <li class="card">
+          <p class="card-number">2</p>
+          <h3>Okul temelli planlamayı kesinleştirin</h3>
+          <p>
+            Okul temelli planlama satırlarındaki kırmızı ekler zümre karar
+            taslağıdır; sene başı zümre toplantısında kesinleştirilir ve plana
+            işlenir. İçerik sütunları (konu, kazanım, süre) değiştirilmez.
+          </p>
+        </li>
+        <li class="card">
+          <p class="card-number">3</p>
+          <h3>Takvimi kontrol edin, sınav yazmayın</h3>
+          <p>
+            Takvim notundaki tatil ve yarım günler Bakanlık takvimiyle ortaktır;
+            il çalışma takviminizi kontrol edin. Yazılı sınav tarihleri plana
+            yazılmaz; okul sınav takvimiyle yürütülür. Planı zümre imzalar, okul
+            müdürü onaylar.
+          </p>
+        </li>
+        <li class="card">
+          <p class="card-number">4</p>
+          <h3>Diğer branşlar: rehberi kullanın</h3>
+          <p>
+            Rehber belgesindeki örnek yapay zekâ komutuyla kendi branşınızın
+            çerçeve planını (tymm.meb.gov.tr) aynı biçime getirebilirsiniz;
+            çıktıyı kaynak dosyayla karşılaştırmadan kullanmayın.
+          </p>
+        </li>
+      </ul>
+    ) : (
+      <ul class="feature-grid">
+        <li class="card">
+          <p class="card-number">1</p>
+          <h3>Kılavuz sayfasını silin</h3>
+          <p>
+            Her belgenin ilk sayfası kullanım kılavuzudur ve çoğaltmadan önce silinir.
+            Toplantı usulü, karar yazımı ve doldurma kuralları orada özetlenmiştir.
+          </p>
+        </li>
+        <li class="card">
+          <p class="card-number">2</p>
+          <h3>Kırmızı alanları doldurun</h3>
+          <p>
+            Okul adı, ad-soyad, tarih, saat ve sayı alanları kırmızı ve köşeli parantez
+            içindedir. Doldurduktan sonra parantezi kaldırıp yazıyı siyaha çevirin;
+            belgede kırmızı kalan alan eksik doldurma işaretidir.
+          </p>
+        </li>
+        <li class="card">
+          <p class="card-number">3</p>
+          <h3>Seçenekleri işaretleyin</h3>
+          <p>
+            Okuldan okula değişen hususlar (normal/ikili öğretim, geç gelme süresi,
+            cep telefonu uygulaması, muhafaza yeri) kutucuklu seçenek olarak
+            bırakılmıştır. Uygulanmayan seçenek silinir.
+          </p>
+        </li>
+        <li class="card">
+          <p class="card-number">4</p>
+          <h3>Görüşülmeyeni çıkarın</h3>
+          <p>
+            Görüşme özetleri ve kararlar önceden yazılıdır. Toplantıda görüşülmeyen
+            husus tutanakta bırakılmaz; cümle düzeltilir veya çıkarılır. Karar
+            çıkarıldığında sonraki karar numaraları kaydırılır.
+          </p>
+        </li>
+      </ul>
+    )}
   </section>
 
   <section class="section">
