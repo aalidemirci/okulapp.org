@@ -6,7 +6,7 @@
       "ad": "Coğrafya yıllık planları",
       "ozet": "MEB 2026-2027 coğrafya çerçeve yıllık planlarının okula uyarlanmış, A4 yatay ve doldurulmaya hazır sürümleri (6 plan: 9-12. sınıf, seçmeli varyantlarıyla) + diğer branşların aynı dönüşümü yapabilmesi için yapay zekâ komutlu uyarlama rehberi.",
       "kapsam": "Planlar, Bakanlığın tymm.meb.gov.tr adresinde yayımladığı 2026-2027 Anadolu lisesi coğrafya taslak çerçeve yıllık planından İÇERİK DEĞİŞTİRİLMEDEN, A4 yatay sayfaya yeniden yerleştirilerek üretilmiştir; Anadolu liseleri ile aynı çerçeve planı kullanan genel ortaöğretim kurumları içindir. 9, 10 ve 11. sınıflar Türkiye Yüzyılı Maarif Modeli programına, 12. sınıflar 2018 programına göredir; 11 ve 12. sınıflarda iki ve dört saatlik seçmeli varyantların ikisi de vardır. Fen ve sosyal bilimler liseleri ile diğer branşlar, kendi çerçeve planlarını rehberdeki yöntemle uyarlayabilir.",
-      "surum": "2026.08.2",
+      "surum": "2026.08.3",
       "tarih": "2026-08-29",
       "mevzuat_teyit_tarihi": "29.08.2026",
       "lisans": "CC BY 4.0",
@@ -28,9 +28,9 @@
         }
       ],
       "paket": {
-        "dosya": "Cografya-Yillik-Plan-Seti-2026.08.2.zip",
-        "boyut": 775401,
-        "sha256": "c07c97fa33ca116ede974ab9851741e63e0a5a52de4742edb830a018af91d086"
+        "dosya": "Cografya-Yillik-Plan-Seti-2026.08.3.zip",
+        "boyut": 771425,
+        "sha256": "920c8bc9cdff7acca06276822c303aed58708189aef5c9741da9019f98d7a2d4"
       },
       "belgeler": [
         {
@@ -40,7 +40,7 @@
           "aciklama": "Çerçeve planların indirme adresi (tymm.meb.gov.tr), okula uyarlama esasları ve diğer branşlar için kopyalanabilir örnek yapay zekâ komutu (prompt).",
           "dosya": "GNL-CYP-RH-001_Cerceve_Yillik_Plani_Okula_Uyarlama_Rehberi_v1.0.docx",
           "boyut": 39893,
-          "sha256": "ef22f70e3c2ea3091d2cbf9b881fd64c0cff897b5a362b0e0b6089a3eaab3c90",
+          "sha256": "888bae35825ab4a58363c8ec18b8f107a450eae4db785179062f387bc11ae345",
           "pdf": "GNL-CYP-RH-001_Cerceve_Yillik_Plani_Okula_Uyarlama_Rehberi_v1.0.pdf",
           "sayfa": 2
         },
@@ -50,8 +50,8 @@
           "ad": "9. sınıf coğrafya yıllık planı",
           "aciklama": "MEB 2026-2027 çerçeve planından içerik değiştirilmeden A4 yatay kurulmuş yıllık plan; ünite bazlı öğrenme kanıtları ve programlar arası bileşenler çizelge altındadır.",
           "dosya": "GNL-CYP-CP-001_Cografya_9_Sinif_Yillik_Plani_v1.0.xlsx",
-          "boyut": 18323,
-          "sha256": "60220459abd942b456e927799537524008996be06cbe7056cd198ccd55ee63da",
+          "boyut": 18267,
+          "sha256": "dca1d6f6a3be8460859274628ebb314f62a7b3d065fcdeddfc69572c4874bfbc",
           "pdf": "GNL-CYP-CP-001_Cografya_9_Sinif_Yillik_Plani_v1.0.pdf",
           "sayfa": 10
         },
@@ -61,8 +61,8 @@
           "ad": "10. sınıf coğrafya yıllık planı",
           "aciklama": "MEB 2026-2027 çerçeve planından içerik değiştirilmeden kurulmuş yıllık plan; okul temelli planlama, program gereği meslek seçimi ve kariyer rehberliği ağırlıklıdır.",
           "dosya": "GNL-CYP-CP-002_Cografya_10_Sinif_Yillik_Plani_v1.0.xlsx",
-          "boyut": 18584,
-          "sha256": "e06e6e52bc92e55c08dca90e239ee39b5236b37b5f4c45efec8e5a36a00614a9",
+          "boyut": 18414,
+          "sha256": "231f87d1e3fdf60d387f72dbade1a86818b688f5da625808bdcea1616e8106a0",
           "pdf": "GNL-CYP-CP-002_Cografya_10_Sinif_Yillik_Plani_v1.0.pdf",
           "sayfa": 10
         },
@@ -72,10 +72,10 @@
           "ad": "11. sınıf seçmeli coğrafya (haftada 4 saat) yıllık planı",
           "aciklama": "Öğrenme çıktılarının tamamını kapsayan dört saatlik seçmeli varyant.",
           "dosya": "GNL-CYP-CP-003_Cografya_11_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 19565,
-          "sha256": "a21542137422a55b09e2355a3457fed0aa253a338879f8cd36eb36f3b713b7bb",
+          "boyut": 19403,
+          "sha256": "09c7f8f5ef4782604c97ce46ac09327b451b6783a37026566bfb333b5a3f37bf",
           "pdf": "GNL-CYP-CP-003_Cografya_11_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.pdf",
-          "sayfa": 14
+          "sayfa": 13
         },
         {
           "kod": "GNL-CYP-CP-004",
@@ -83,10 +83,10 @@
           "ad": "11. sınıf seçmeli coğrafya (haftada 2 saat) yıllık planı",
           "aciklama": "Programın 1.4 bölümündeki çıktı listesiyle sınırlı iki saatlik seçmeli varyant (örneğin yabancı dil hazırlanan gruplar).",
           "dosya": "GNL-CYP-CP-004_Cografya_11_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 17623,
-          "sha256": "ce8d40522814110bc2298da62015b2ca31505bf038812056fab8f2a75786d80f",
+          "boyut": 17452,
+          "sha256": "57c169b5e01e24d3648223c08cbc14df1c172867b2828e8b4978127cd8e12e76",
           "pdf": "GNL-CYP-CP-004_Cografya_11_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.pdf",
-          "sayfa": 10
+          "sayfa": 9
         },
         {
           "kod": "GNL-CYP-CP-005",
@@ -94,8 +94,8 @@
           "ad": "12. sınıf seçmeli coğrafya (haftada 4 saat) yıllık planı",
           "aciklama": "2018 programına göre son uygulama yılı planı; kazanım ve açıklamalar birebir korunmuştur.",
           "dosya": "GNL-CYP-CP-005_Cografya_12_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 15909,
-          "sha256": "6c68059ed373a4614a79711fcc3bb12c750930e265c1a6ef49672f94ff50caa7",
+          "boyut": 15650,
+          "sha256": "c4444e98de4017d97bf70279d17ed0b8bbf2538cf551565f82dbc7f97770ba3a",
           "pdf": "GNL-CYP-CP-005_Cografya_12_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.pdf",
           "sayfa": 7
         },
@@ -105,8 +105,8 @@
           "ad": "12. sınıf seçmeli coğrafya (haftada 2 saat) yıllık planı",
           "aciklama": "2018 programının iki ders saati bölümüne göre kurulmuş plan.",
           "dosya": "GNL-CYP-CP-006_Cografya_12_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 14863,
-          "sha256": "4e44da631213166b6b945acc35a9b393e40c4ab91acf350d0b6800bd67bc5ba2",
+          "boyut": 14702,
+          "sha256": "6e496d227ab1557f32f2419531151daabf58c310f798e73e3ff79e27dc08c89e",
           "pdf": "GNL-CYP-CP-006_Cografya_12_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.pdf",
           "sayfa": 6
         }
