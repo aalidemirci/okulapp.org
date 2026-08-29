@@ -690,8 +690,8 @@
       "ad": "Öğretmenler kurulu tutanakları",
       "ozet": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısının doldurulmaya hazır çerçeve tutanakları.",
       "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir.",
-      "surum": "2026.08",
-      "tarih": "2026-08-28",
+      "surum": "2026.08.1",
+      "tarih": "2026-08-29",
       "mevzuat_teyit_tarihi": "28.08.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
@@ -702,9 +702,9 @@
         }
       ],
       "paket": {
-        "dosya": "Ogretmenler-Kurulu-Tutanak-Sablonlari-2026.08.zip",
-        "boyut": 627512,
-        "sha256": "f31a6b555c7a43a94bf57a8d0900f5c948cc66f4720addc454874784073f1a4d"
+        "dosya": "Ogretmenler-Kurulu-Tutanak-Sablonlari-2026.08.1.zip",
+        "boyut": 631578,
+        "sha256": "163bf6b03fdd102ef9b1877808831ded60acc79d1b9a1fca85f3d555b35e6846"
       },
       "belgeler": [
         {
@@ -713,8 +713,8 @@
           "ad": "Sene başı öğretmenler kurulu",
           "aciklama": "Ders yılı başında yapılan kurul: gündem çatısı, seçimler, görevlendirmeler, haftalık ders programı, nöbet, okul kuralları ve bilişim araçları kararı.",
           "dosya": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 81398,
-          "sha256": "3780e01f74a1b6a37852b5335ac77d162d65b112ed53bbefdc3b6e4ff2f0935c",
+          "boyut": 82265,
+          "sha256": "1021de18f28c6460720a701e7966c5c7f61f7ef58d447f426ae2ef8f01d52954",
           "pdf": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 26
         },
@@ -724,8 +724,8 @@
           "ad": "İkinci dönem başı öğretmenler kurulu",
           "aciklama": "Birinci dönemin değerlendirilmesi, ikinci dönem planlaması, kıyafet görüşü ve puan iadesi gibi dönem başı işleri.",
           "dosya": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 48112,
-          "sha256": "db4953af7235649f93d858c5d44133084b6dd6a746761ee56a756982e1b6c79f",
+          "boyut": 48149,
+          "sha256": "73acd7e39866c18e689fb3c73b8f572746b30d4c1ac0f84804c0f98ff5a2bbd0",
           "pdf": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
         },
@@ -735,8 +735,8 @@
           "ad": "Yıl sonu öğretmenler kurulu",
           "aciklama": "Yıl sonu değerlendirmesi: karar-sonuç tablosu, okul birincisi, gelecek yıla ilişkin öneriler.",
           "dosya": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 47790,
-          "sha256": "03e0654d276ef51e68d644b738b95baf6491dfb5130f932e4493319642da45d4",
+          "boyut": 47793,
+          "sha256": "952d094e7e926627491a7b3b9ba515cf35e1f550fcebad709dbe1464f4e4a672",
           "pdf": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
         }
