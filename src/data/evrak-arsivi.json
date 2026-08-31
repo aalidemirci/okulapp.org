@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-08-29",
+  "guncelleme": "2026-08-31",
   "setler": [
     {
       "slug": "cografya-yillik-planlari",
@@ -704,13 +704,18 @@
     {
       "slug": "zumre-tutanaklari",
       "ad": "Zümre tutanakları",
-      "ozet": "Beş olağan zümre toplantısının branştan bağımsız çerçeve tutanakları ve bir branşta doldurulmuş örneği.",
+      "ozet": "Zümre çalışma kılavuzu ve tek sayfalık çizelgesi (başkan seçimi, toplantı takvimi, karar usulü) ile beş olağan zümre toplantısının branştan bağımsız çerçeve tutanakları ve bir branşta doldurulmuş örneği.",
       "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir.",
-      "surum": "2026.08.1",
-      "tarih": "2026-08-29",
+      "surum": "2026.08.2",
+      "tarih": "2026-08-31",
       "mevzuat_teyit_tarihi": "28.08.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
+        {
+          "anahtar": "rehber",
+          "ad": "Çalışma kılavuzu ve çizelgesi",
+          "aciklama": "Zümre başkanı ile yedek başkanın ne zaman ve hangi usulle seçileceği, beş olağan toplantının takvimi, toplantı ve karar usulü ile gündem havuzu. Kılavuz metin belgesi, çizelge ise öğretmenler odasına asılabilecek A4 tek sayfalık özetidir."
+        },
         {
           "anahtar": "cerceve",
           "ad": "Çerçeve tutanaklar",
@@ -723,19 +728,41 @@
         }
       ],
       "paket": {
-        "dosya": "Zumre-Tutanak-Sablonlari-2026.08.1.zip",
-        "boyut": 924631,
-        "sha256": "35e81085c78b1ca8b998293ad8d92cea23e9df24b9a1ca170be085a64efc7da2"
+        "dosya": "Zumre-Tutanak-Sablonlari-2026.08.2.zip",
+        "boyut": 1165600,
+        "sha256": "acc7f5690a17726c39133f750d7023f832ee9f62bad455076b07d14cd286ee52"
       },
       "belgeler": [
+        {
+          "kod": "GNL-ZMR-RH-001",
+          "grup": "rehber",
+          "ad": "Zümre çalışma kılavuzu",
+          "aciklama": "Zümrenin oluşumu, başkan ve yedek başkan seçiminin zamanı ve usulü (haziran toplantısı, iki yıl, istekli–doktora–başöğretmen sırası), başkanın yıl içindeki görevleri, zümre başkanları kurulu, beş olağan toplantının takvimi, ara toplantı, karar usulü, gündem havuzu ve sık yapılan hatalar.",
+          "dosya": "GNL-ZMR-RH-001_Zumre_Calisma_Kilavuzu_2026-2027_v1.0.docx",
+          "boyut": 46672,
+          "sha256": "bf34bfedde70eab60fdb4fb6a5e2177ec3ae87d75e8d558ee62af00a97a2d075",
+          "pdf": "GNL-ZMR-RH-001_Zumre_Calisma_Kilavuzu_2026-2027_v1.0.pdf",
+          "sayfa": 5
+        },
+        {
+          "kod": "GNL-ZMR-CP-001",
+          "grup": "rehber",
+          "ad": "Zümre çalışma çizelgesi (A4 tek sayfa)",
+          "aciklama": "Kılavuzun öğretmenler odasına asılabilecek tek sayfalık özeti: beş olağan toplantı, kurul–zümre–başkanlar kurulu zinciri, başkan seçimi, karar usulü ve sık yapılan hatalar.",
+          "dosya": "GNL-ZMR-CP-001_Zumre_Calisma_Cizelgesi_2026-2027_v1.0.docx",
+          "boyut": 40474,
+          "sha256": "f9247b066339b56fd200f347630af06f2391ba8e135e8f2686d5fcc2803dab5d",
+          "pdf": "GNL-ZMR-CP-001_Zumre_Calisma_Cizelgesi_2026-2027_v1.0.pdf",
+          "sayfa": 1
+        },
         {
           "kod": "GNL-ZMR-ZT-001",
           "grup": "cerceve",
           "ad": "Ders yılı başı zümre toplantısı",
           "aciklama": "Yıl geneli çerçeveyi kuran toplantı: planlama, sınav ve performans usulü, iş bölümü, ölçme değerlendirme kararları.",
           "dosya": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 58531,
-          "sha256": "daa025a3395f2c50dbcb42e0c117282d509e295dff0db324e3cabe3ddb880484",
+          "boyut": 58532,
+          "sha256": "67267563272cac1a7dcdb9148a9c1dd22d9decad18cd4d1d1cfcedd52cedcee2",
           "pdf": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 13
         },
@@ -745,8 +772,8 @@
           "ad": "Kasım ara zümre toplantısı",
           "aciklama": "Birinci dönem ortası izleme: plan uyumu, sınav analizleri, öğrenme eksiklerine yönelik tedbirler.",
           "dosya": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 44736,
-          "sha256": "17a4d119a7439512a27066c603b03e65fe3cdd229a4395d0134e8a2e7d65b61c",
+          "boyut": 44735,
+          "sha256": "88e0535edbb85e8ccd66fd7651970856f8a08346ecb6acc88dcbb7cd62deab77",
           "pdf": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
@@ -757,7 +784,7 @@
           "aciklama": "Birinci dönemin değerlendirilmesi ve ikinci dönem planlaması.",
           "dosya": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 44199,
-          "sha256": "61cf6d75da37160f564aea557988f28e99f3fd643437d5c0a653b624357b5719",
+          "sha256": "9b723f1615a47be830f8ca4687c1efb53d2cb1bbdd23e3716935d29b391f3a95",
           "pdf": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
@@ -768,7 +795,7 @@
           "aciklama": "İkinci dönem ortası izleme ve yıl sonu hazırlığı.",
           "dosya": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 43680,
-          "sha256": "9364622543c8af80f36a777344185feb49e5b7712361112e4f0c45343b6edf0b",
+          "sha256": "6e3a4926ca8ec67fc980865b1599938e2a77e4419959baebe13966788d5359a3",
           "pdf": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
@@ -779,7 +806,7 @@
           "aciklama": "Yıl boyunca alınan kararların sonuçlarıyla kapatılması ve gelecek yıla devredilen hususlar.",
           "dosya": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 43025,
-          "sha256": "10fd879c05f527bc2136004ef52895ad138b98c07c420be2855864c0b8acfba5",
+          "sha256": "2781cdbd5086f4a9c652ae12211ea2a504682540211bddec4cd68ceca08daf24",
           "pdf": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 4
         },
@@ -790,7 +817,7 @@
           "aciklama": "Ders yılı başı çerçevesinin bir branşta somutlaşmış hâli: coğrafya öğretim programlarıyla doldurulmuş görüşmeler, 22 tam metinli karar, sınav çizelgesi, performans ölçekleri ve proje konu havuzu. Üye adları rol yer tutucusudur.",
           "dosya": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.docx",
           "boyut": 66625,
-          "sha256": "31076383ab3bda21f8008c87cc0297f8347b2250f423839c8898520ba7f37545",
+          "sha256": "3f49d9d675d15101fbffc49c34a78bc60cc47ca5ef12e4bf6be1d6a87c13e0df",
           "pdf": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 18
         }
