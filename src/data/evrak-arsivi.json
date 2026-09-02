@@ -1,13 +1,13 @@
 {
-  "guncelleme": "2026-08-31",
+  "guncelleme": "2026-09-02",
   "setler": [
     {
       "slug": "cografya-yillik-planlari",
       "ad": "Coğrafya yıllık planları",
       "ozet": "MEB 2026-2027 coğrafya çerçeve yıllık planlarının okula uyarlanmış, A4 yatay ve doldurulmaya hazır sürümleri (6 plan: 9-12. sınıf, seçmeli varyantlarıyla) + diğer branşların aynı dönüşümü yapabilmesi için yapay zekâ komutlu uyarlama rehberi.",
       "kapsam": "Planlar, Bakanlığın tymm.meb.gov.tr adresinde yayımladığı 2026-2027 Anadolu lisesi coğrafya taslak çerçeve yıllık planından İÇERİK DEĞİŞTİRİLMEDEN, A4 yatay sayfaya yeniden yerleştirilerek üretilmiştir; Anadolu liseleri ile aynı çerçeve planı kullanan genel ortaöğretim kurumları içindir. 9, 10 ve 11. sınıflar Türkiye Yüzyılı Maarif Modeli programına, 12. sınıflar 2018 programına göredir; 11 ve 12. sınıflarda iki ve dört saatlik seçmeli varyantların ikisi de vardır. Fen ve sosyal bilimler liseleri ile diğer branşlar, kendi çerçeve planlarını rehberdeki yöntemle uyarlayabilir.",
-      "surum": "2026.08.3",
-      "tarih": "2026-08-29",
+      "surum": "2026.08.4",
+      "tarih": "2026-09-02",
       "mevzuat_teyit_tarihi": "29.08.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
@@ -28,9 +28,9 @@
         }
       ],
       "paket": {
-        "dosya": "Cografya-Yillik-Plan-Seti-2026.08.3.zip",
-        "boyut": 771425,
-        "sha256": "920c8bc9cdff7acca06276822c303aed58708189aef5c9741da9019f98d7a2d4"
+        "dosya": "Cografya-Yillik-Plan-Seti-2026.08.4.zip",
+        "boyut": 776408,
+        "sha256": "8003c1729db365038ed64e1eb12bd5e2a39769b6307b46622cf0e9eb1f4236f1"
       },
       "belgeler": [
         {
@@ -39,8 +39,8 @@
           "ad": "Çerçeve yıllık planı okula uyarlama rehberi",
           "aciklama": "Çerçeve planların indirme adresi (tymm.meb.gov.tr), okula uyarlama esasları ve diğer branşlar için kopyalanabilir örnek yapay zekâ komutu (prompt).",
           "dosya": "GNL-CYP-RH-001_Cerceve_Yillik_Plani_Okula_Uyarlama_Rehberi_v1.0.docx",
-          "boyut": 39893,
-          "sha256": "888bae35825ab4a58363c8ec18b8f107a450eae4db785179062f387bc11ae345",
+          "boyut": 39896,
+          "sha256": "867a3030ac4608ab99c8b0cf8a221bc0f2877c66c354754188fa2feb35d57fab",
           "pdf": "GNL-CYP-RH-001_Cerceve_Yillik_Plani_Okula_Uyarlama_Rehberi_v1.0.pdf",
           "sayfa": 2
         },
@@ -50,8 +50,8 @@
           "ad": "9. sınıf coğrafya yıllık planı",
           "aciklama": "MEB 2026-2027 çerçeve planından içerik değiştirilmeden A4 yatay kurulmuş yıllık plan; ünite bazlı öğrenme kanıtları ve programlar arası bileşenler çizelge altındadır.",
           "dosya": "GNL-CYP-CP-001_Cografya_9_Sinif_Yillik_Plani_v1.0.xlsx",
-          "boyut": 18267,
-          "sha256": "dca1d6f6a3be8460859274628ebb314f62a7b3d065fcdeddfc69572c4874bfbc",
+          "boyut": 18516,
+          "sha256": "497b49e66550af1c70e19f022c2438d97238c1797441ea854b4f3d217972d90d",
           "pdf": "GNL-CYP-CP-001_Cografya_9_Sinif_Yillik_Plani_v1.0.pdf",
           "sayfa": 10
         },
@@ -61,8 +61,8 @@
           "ad": "10. sınıf coğrafya yıllık planı",
           "aciklama": "MEB 2026-2027 çerçeve planından içerik değiştirilmeden kurulmuş yıllık plan; okul temelli planlama, program gereği meslek seçimi ve kariyer rehberliği ağırlıklıdır.",
           "dosya": "GNL-CYP-CP-002_Cografya_10_Sinif_Yillik_Plani_v1.0.xlsx",
-          "boyut": 18414,
-          "sha256": "231f87d1e3fdf60d387f72dbade1a86818b688f5da625808bdcea1616e8106a0",
+          "boyut": 18653,
+          "sha256": "db3dd9f1a3c5af41b53f2758b2253aecbf35e678a897266595938cd14946cf34",
           "pdf": "GNL-CYP-CP-002_Cografya_10_Sinif_Yillik_Plani_v1.0.pdf",
           "sayfa": 10
         },
@@ -72,8 +72,8 @@
           "ad": "11. sınıf seçmeli coğrafya (haftada 4 saat) yıllık planı",
           "aciklama": "Öğrenme çıktılarının tamamını kapsayan dört saatlik seçmeli varyant.",
           "dosya": "GNL-CYP-CP-003_Cografya_11_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 19403,
-          "sha256": "09c7f8f5ef4782604c97ce46ac09327b451b6783a37026566bfb333b5a3f37bf",
+          "boyut": 19644,
+          "sha256": "0d77348cbb0895e9054110103b9703aba2bdabb9e79ff1dfb11783d39150ae3a",
           "pdf": "GNL-CYP-CP-003_Cografya_11_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.pdf",
           "sayfa": 13
         },
@@ -83,8 +83,8 @@
           "ad": "11. sınıf seçmeli coğrafya (haftada 2 saat) yıllık planı",
           "aciklama": "Programın 1.4 bölümündeki çıktı listesiyle sınırlı iki saatlik seçmeli varyant (örneğin yabancı dil hazırlanan gruplar).",
           "dosya": "GNL-CYP-CP-004_Cografya_11_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 17452,
-          "sha256": "57c169b5e01e24d3648223c08cbc14df1c172867b2828e8b4978127cd8e12e76",
+          "boyut": 17844,
+          "sha256": "91541739e0a00176496e630913a9566eb7e7e7b819ef8cae97bc347b04832829",
           "pdf": "GNL-CYP-CP-004_Cografya_11_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.pdf",
           "sayfa": 9
         },
@@ -94,8 +94,8 @@
           "ad": "12. sınıf seçmeli coğrafya (haftada 4 saat) yıllık planı",
           "aciklama": "2018 programına göre son uygulama yılı planı; kazanım ve açıklamalar birebir korunmuştur.",
           "dosya": "GNL-CYP-CP-005_Cografya_12_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 15650,
-          "sha256": "c4444e98de4017d97bf70279d17ed0b8bbf2538cf551565f82dbc7f97770ba3a",
+          "boyut": 15897,
+          "sha256": "ceb154cd268f09a507b14683c1de7db39540d9203f18aa629d13a1d5b5f360da",
           "pdf": "GNL-CYP-CP-005_Cografya_12_Sinif_Secmeli_4_Saat_Yillik_Plani_v1.0.pdf",
           "sayfa": 7
         },
@@ -105,8 +105,8 @@
           "ad": "12. sınıf seçmeli coğrafya (haftada 2 saat) yıllık planı",
           "aciklama": "2018 programının iki ders saati bölümüne göre kurulmuş plan.",
           "dosya": "GNL-CYP-CP-006_Cografya_12_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.xlsx",
-          "boyut": 14702,
-          "sha256": "6e496d227ab1557f32f2419531151daabf58c310f798e73e3ff79e27dc08c89e",
+          "boyut": 14949,
+          "sha256": "da7c0b491940f74188ff1e0d1d82657f76426466854c8451572fdebbbe71f9ec",
           "pdf": "GNL-CYP-CP-006_Cografya_12_Sinif_Secmeli_2_Saat_Yillik_Plani_v1.0.pdf",
           "sayfa": 6
         }
@@ -706,8 +706,8 @@
       "ad": "Zümre tutanakları",
       "ozet": "Zümre çalışma kılavuzu ve tek sayfalık çizelgesi (başkan seçimi, toplantı takvimi, karar usulü) ile beş olağan zümre toplantısının branştan bağımsız çerçeve tutanakları ve bir branşta doldurulmuş örneği.",
       "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir.",
-      "surum": "2026.08.2",
-      "tarih": "2026-08-31",
+      "surum": "2026.08.3",
+      "tarih": "2026-09-02",
       "mevzuat_teyit_tarihi": "28.08.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
@@ -728,9 +728,9 @@
         }
       ],
       "paket": {
-        "dosya": "Zumre-Tutanak-Sablonlari-2026.08.2.zip",
-        "boyut": 1165600,
-        "sha256": "acc7f5690a17726c39133f750d7023f832ee9f62bad455076b07d14cd286ee52"
+        "dosya": "Zumre-Tutanak-Sablonlari-2026.08.3.zip",
+        "boyut": 1179013,
+        "sha256": "db42d478aa85fbb62f6d80fa56a4c4d35d7cd3efc9bdd35fc7ad82d364b0a2ee"
       },
       "belgeler": [
         {
@@ -739,8 +739,8 @@
           "ad": "Zümre çalışma kılavuzu",
           "aciklama": "Zümrenin oluşumu, başkan ve yedek başkan seçiminin zamanı ve usulü (haziran toplantısı, iki yıl, istekli–doktora–başöğretmen sırası), başkanın yıl içindeki görevleri, zümre başkanları kurulu, beş olağan toplantının takvimi, ara toplantı, karar usulü, gündem havuzu ve sık yapılan hatalar.",
           "dosya": "GNL-ZMR-RH-001_Zumre_Calisma_Kilavuzu_2026-2027_v1.0.docx",
-          "boyut": 46672,
-          "sha256": "bf34bfedde70eab60fdb4fb6a5e2177ec3ae87d75e8d558ee62af00a97a2d075",
+          "boyut": 46678,
+          "sha256": "1c0e5a4a134848a17805267b706f08f9733c50985d0731160b994099b28e8508",
           "pdf": "GNL-ZMR-RH-001_Zumre_Calisma_Kilavuzu_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
@@ -750,8 +750,8 @@
           "ad": "Zümre çalışma çizelgesi (A4 tek sayfa)",
           "aciklama": "Kılavuzun öğretmenler odasına asılabilecek tek sayfalık özeti: beş olağan toplantı, kurul–zümre–başkanlar kurulu zinciri, başkan seçimi, karar usulü ve sık yapılan hatalar.",
           "dosya": "GNL-ZMR-CP-001_Zumre_Calisma_Cizelgesi_2026-2027_v1.0.docx",
-          "boyut": 40474,
-          "sha256": "f9247b066339b56fd200f347630af06f2391ba8e135e8f2686d5fcc2803dab5d",
+          "boyut": 40479,
+          "sha256": "0d8b2e003bd99ef44e0faa2e86acb4fe51952c1387c56af9f655a4735872df22",
           "pdf": "GNL-ZMR-CP-001_Zumre_Calisma_Cizelgesi_2026-2027_v1.0.pdf",
           "sayfa": 1
         },
@@ -761,8 +761,8 @@
           "ad": "Ders yılı başı zümre toplantısı",
           "aciklama": "Yıl geneli çerçeveyi kuran toplantı: planlama, sınav ve performans usulü, iş bölümü, ölçme değerlendirme kararları.",
           "dosya": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 58532,
-          "sha256": "67267563272cac1a7dcdb9148a9c1dd22d9decad18cd4d1d1cfcedd52cedcee2",
+          "boyut": 59732,
+          "sha256": "8c3bcc7324d19b6efb557fddaa5121b7769dc4c52e5454d3de1885b9f1d6b96b",
           "pdf": "GNL-ZMR-ZT-001_Ders_Yili_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 13
         },
@@ -772,8 +772,8 @@
           "ad": "Kasım ara zümre toplantısı",
           "aciklama": "Birinci dönem ortası izleme: plan uyumu, sınav analizleri, öğrenme eksiklerine yönelik tedbirler.",
           "dosya": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 44735,
-          "sha256": "88e0535edbb85e8ccd66fd7651970856f8a08346ecb6acc88dcbb7cd62deab77",
+          "boyut": 44739,
+          "sha256": "a5cfb5108928e4559db04037d477ba81d31fe25a46eab95f8ad02ce973a6e2dd",
           "pdf": "GNL-ZMR-ZT-002_Kasim_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
@@ -783,8 +783,8 @@
           "ad": "İkinci dönem başı zümre toplantısı",
           "aciklama": "Birinci dönemin değerlendirilmesi ve ikinci dönem planlaması.",
           "dosya": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 44199,
-          "sha256": "9b723f1615a47be830f8ca4687c1efb53d2cb1bbdd23e3716935d29b391f3a95",
+          "boyut": 44202,
+          "sha256": "ee964d4992473c7c6481d32e4125029272a663796ba0246d5ede8ce0cf2cd842",
           "pdf": "GNL-ZMR-ZT-003_Ikinci_Donem_Basi_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
@@ -794,8 +794,8 @@
           "ad": "Nisan ara zümre toplantısı",
           "aciklama": "İkinci dönem ortası izleme ve yıl sonu hazırlığı.",
           "dosya": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 43680,
-          "sha256": "6e3a4926ca8ec67fc980865b1599938e2a77e4419959baebe13966788d5359a3",
+          "boyut": 43684,
+          "sha256": "d4d3a247ae93ffe50be421e880f6db8ef4e9bf9c48139568713aedb8f0096935",
           "pdf": "GNL-ZMR-ZT-004_Nisan_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 5
         },
@@ -805,8 +805,8 @@
           "ad": "Ders yılı sonu zümre toplantısı",
           "aciklama": "Yıl boyunca alınan kararların sonuçlarıyla kapatılması ve gelecek yıla devredilen hususlar.",
           "dosya": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 43025,
-          "sha256": "2781cdbd5086f4a9c652ae12211ea2a504682540211bddec4cd68ceca08daf24",
+          "boyut": 43027,
+          "sha256": "565394fcb40d850e0ca9734212137797cfc64eb92e5ef1e4bcbdf426aa9698de",
           "pdf": "GNL-ZMR-ZT-005_Ders_Yili_Sonu_Cerceve_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 4
         },
@@ -816,8 +816,8 @@
           "ad": "Doldurulmuş örnek: coğrafya zümresi",
           "aciklama": "Ders yılı başı çerçevesinin bir branşta somutlaşmış hâli: coğrafya öğretim programlarıyla doldurulmuş görüşmeler, 22 tam metinli karar, sınav çizelgesi, performans ölçekleri ve proje konu havuzu. Üye adları rol yer tutucusudur.",
           "dosya": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 66625,
-          "sha256": "3f49d9d675d15101fbffc49c34a78bc60cc47ca5ef12e4bf6be1d6a87c13e0df",
+          "boyut": 68485,
+          "sha256": "a79327eabad73240763e380639d6c323f3e348ec0af5ffb86a56e2dac06052c4",
           "pdf": "GNL-ZMR-ZT-001-COG_Cografya_Ders_Yili_Basi_Zumre_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 18
         }
