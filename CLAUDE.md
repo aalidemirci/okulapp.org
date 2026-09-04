@@ -30,6 +30,7 @@ Site içeriği uygulama depolarından beslenir; bu depolar yan yana durur:
 .claude/apps/disiplin-defteri-codex/  Disiplin Defteri uygulaması
 .claude/apps/sorumluluk-sinavi/    Sorumluluk Sınavı uygulaması
 .claude/apps/evrakmotoru/          Evrak motoru (evrak şablonları buradan üretilir)
+.claude/apps/kelebek-sinav/        Kelebek Sınav uygulaması
 ```
 
 Bir projenin özelliği veya kılavuzu değiştiyse kaynağı `../<depo>` içindeki
@@ -53,6 +54,7 @@ dal canlıyı geri sardı (belge arşivi 5 setten 3'e düştü); kurallar bu vak
    | `src/data/oz-release.json` | okulzili | sürüm çıkınca elle güncellenir |
    | `src/data/dd-release.json` | disiplin-defteri-codex | sürüm çıkınca elle güncellenir |
    | `src/data/ss-release.json` | sorumluluk-sinavi | sürüm çıkınca elle güncellenir |
+   | `src/data/ks-release.json` + `src/pages/kelebek-sinav/**` | kelebek-sinav | sürüm çıkınca elle güncellenir |
    | sayfalar, layout, stil, bileşenler | bu deponun kendi oturumları | normal geliştirme |
 
 2. **Taze taban.** Siteye dokunan her oturum işe `git fetch origin` yapıp
@@ -69,7 +71,8 @@ dal canlıyı geri sardı (belge arşivi 5 setten 3'e düştü); kurallar bu vak
 
 4. **Commit dili.** Commit başlığı hangi alandan geldiğini söyler:
    "Belge arşivi: …", "Okul Zili: …", "Disiplin Defteri: …",
-   "Sorumluluk Sınavı: …", site geneli için "Site: …" / sayfa adı.
+   "Sorumluluk Sınavı: …", "Kelebek Sınav: …", site geneli için "Site: …" /
+   sayfa adı.
 
 5. **Yayın sonrası kontrol.** main'e push'tan 1-2 dakika sonra canlıda
    ilgili sayfa doğrulanır (ör. `/belge-arsivi/` üzerindeki set ve belge

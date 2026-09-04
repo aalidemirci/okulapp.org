@@ -1,0 +1,48 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noReferrer palette="ks">
+  <Fragment slot="header">
+    <header class="site-header">
+      <a class="brand" href="/kelebek-sinav/" aria-label="Kelebek Sınav ana sayfa">
+        <img class="brand-logo" src="/kelebek-sinav.png" width="42" height="42" alt="" />
+        <span>Kelebek Sınav</span>
+      </a>
+      <nav aria-label="Kelebek Sınav menüsü">
+        <a class="hub-link" href="/"><span aria-hidden="true">←</span> okulapp.org</a>
+        <a href="/kelebek-sinav/#ozellikler">Özellikler</a>
+        <a href="/kelebek-sinav/#indir">İndir</a>
+        <a href="/kelebek-sinav/kilavuz/">Kılavuz</a>
+        <a href="/kelebek-sinav/#guncellemeler">Güncellemeler</a>
+        <a href="/kelebek-sinav/#iletisim">İletişim</a>
+        <button class="theme-toggle" type="button" aria-label="Açık/koyu tema değiştir">◐</button>
+      </nav>
+    </header>
+  </Fragment>
+
+  <slot />
+
+  <Fragment slot="footer">
+    <footer class="site-footer">
+      <div>
+        <strong>Kelebek Sınav</strong>
+        <p>Ticari olmayan kullanım için ücretsiz masaüstü uygulaması.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/kelebek-sinav/kilavuz/">Kılavuz</a>
+        <a href="/kelebek-sinav/gizlilik/">Gizlilik ve KVKK</a>
+        <a href="https://github.com/aalidemirci/kelebek-sinav/blob/main/LICENSE" rel="noopener">Lisans</a>
+        <a href="https://github.com/aalidemirci/kelebek-sinav" rel="noopener">GitHub</a>
+        <a href="/">okulapp.org'a dön</a>
+      </div>
+    </footer>
+  </Fragment>
+</BaseLayout>

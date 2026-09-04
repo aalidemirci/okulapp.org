@@ -1,0 +1,35 @@
+{
+  "available": true,
+  "version": "2026.9.0-beta.4",
+  "name": "Kelebek Sınav v2026.9.0-beta.4",
+  "published_at": "2026-09-04T05:10:59Z",
+  "prerelease": true,
+  "releaseUrl": "https://github.com/aalidemirci/kelebek-sinav/releases",
+  "assets": [
+    {
+      "kind": "windows_installer",
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.4-win64-setup.exe",
+      "size": 44568005
+    },
+    {
+      "kind": "windows_portable",
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.4-win64-portable.zip",
+      "size": 57954035
+    },
+    {
+      "kind": "linux_deb",
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav_2026.9.0.beta.4_amd64.deb",
+      "size": 154444368
+    },
+    {
+      "kind": "linux_archive",
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.4-linux-x64.tar.gz",
+      "size": 216976778
+    },
+    {
+      "kind": "checksums",
+      "url": "https://indir.okulapp.org/kelebek-sinav/SHA256SUMS-2026.9.0-beta.4.txt",
+      "size": 446
+    }
+  ]
+}

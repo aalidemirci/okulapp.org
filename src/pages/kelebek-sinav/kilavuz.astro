@@ -1,0 +1,164 @@
+---
+import KSLayout from '../../layouts/KSLayout.astro';
+---
+
+<KSLayout
+  title="Kullanım Kılavuzu — Kelebek Sınav"
+  description="Kelebek Sınav kurulum, ilk kullanım, ilk sınavın hazırlanması, yedekleme ve sorun giderme kılavuzu."
+>
+  <div class="document-layout">
+    <aside class="document-nav" aria-label="Kılavuz içindekiler">
+      <strong>İçindekiler</strong>
+      <a href="#paket-secimi">Paket seçimi</a>
+      <a href="#windows">Windows kurulumu</a>
+      <a href="#pardus">Pardus / Linux</a>
+      <a href="#ilk-acilis">İlk açılış</a>
+      <a href="#ilk-sinav">İlk sınavınız</a>
+      <a href="#yedekleme">Yedekleme</a>
+      <a href="#dosya-dogrulama">Dosya doğrulama</a>
+      <a href="#sorun-giderme">Sorun giderme</a>
+    </aside>
+    <article class="document">
+      <p class="eyebrow">Kullanım kılavuzu</p>
+      <h1>Kurulumdan ilk salon evrakınıza kadar</h1>
+      <div class="info-box">
+        <strong>İnternet bağlantısı gerekmez.</strong>
+        <p>
+          Program kurulduktan sonra kayıtlar yalnızca kullandığınız bilgisayarda tutulur.
+          Programın içinde adım adım bir kullanım kılavuzu da vardır; bu sayfa kurulum ve
+          ilk çalıştırma içindir.
+        </p>
+      </div>
+
+      <h2 id="paket-secimi">Hangi paketi seçmeliyim?</h2>
+      <div class="guide-table" role="table" aria-label="Kurulum paketi seçenekleri">
+        <div role="row"><strong role="cell">Windows kurulum</strong><span role="cell">Normal kullanım için önerilen seçenek; yönetici parolası gerekmez.</span></div>
+        <div role="row"><strong role="cell">Windows taşınabilir</strong><span role="cell">Kurulumun engellendiği bilgisayarlar veya USB kullanımı için.</span></div>
+        <div role="row"><strong role="cell">Pardus / Debian paketi</strong><span role="cell">Normal Linux kurulumu; yönetici parolası gerekir.</span></div>
+        <div role="row"><strong role="cell">Linux arşivi</strong><span role="cell">Yönetici parolası olmadan kullanıcı hesabına kurulum için.</span></div>
+      </div>
+
+      <h2 id="windows">Windows kurulumu</h2>
+      <ol>
+        <li>İndirdiğiniz <code>win64-setup.exe</code> dosyasına çift tıklayın.</li>
+        <li>Windows koruma uyarısı gösterirse dosyayı bu sitenin indirme alanından (indir.okulapp.org) veya resmî GitHub sürümünden indirdiğinizi doğrulayın; paketler imzasızdır, aşağıdaki SHA-256 adımıyla kontrol edebilirsiniz.</li>
+        <li>Kurulum sihirbazında ilerleyin ve Başlat menüsünden uygulamayı açın.</li>
+      </ol>
+
+      <h2 id="pardus">Pardus / Linux kurulumu</h2>
+      <p>
+        <code>.deb</code> dosyasına çift tıklayıp yazılım yükleyicisinde <strong>Kur</strong>
+        seçeneğini kullanın. Yönetici erişiminiz yoksa Linux taşınabilir arşivini indirip
+        içindeki açıklamaları izleyin.
+      </p>
+
+      <h2 id="ilk-acilis">İlk açılış</h2>
+      <p>Program ilk açıldığında kurulum sihirbazı çalışır:</p>
+      <ol>
+        <li>Okul adı, il/ilçe ve okul müdürünün adını girin; bu bilgiler bütün resmî evrakın antedinde kullanılır.</li>
+        <li>
+          Okul türünü ve hazırlık sınıfı olup olmadığını seçin. Bu seçim, ders havuzunun
+          hangi Talim ve Terbiye Kurulu haftalık ders çizelgesinden türetileceğini belirler.
+        </li>
+        <li>
+          Günlük ders saati sayısını ve sınav yapılabilecek ders saatlerini işaretleyin.
+          Genel liselerde gün sekiz ders saatidir; mesleki ve teknik programlarda atölye
+          günleriyle değişebilir.
+        </li>
+        <li>Ders yılını ve iki dönemin tarihlerini girin, ders yılını <strong>aktif</strong> yapın.</li>
+        <li>Öğrenci ve personel listesini e-Okul raporundan (Excel) veya panodan aktarın.</li>
+      </ol>
+      <div class="warning-card">
+        <strong>Gerçek verileri destek talebine eklemeyin</strong>
+        <p>
+          İçe aktardığınız öğrenci/personel dosyalarını, oluşturulan evrakları, uygulama
+          yedeğini veya ekran görüntülerini e-posta ve GitHub üzerinden paylaşmayın.
+        </p>
+      </div>
+
+      <h2 id="ilk-sinav">İlk sınavınız</h2>
+      <ol>
+        <li>
+          <strong>Salonları tanımlayın.</strong> Her salon için sıra düzenini (kaç sütun, kaç
+          sıra, tekli/ikili) girin. Varsayılan şablon dört sütun × beş ikili sıradır;
+          numaralandırma öğretmen masasının önünden başlar.
+        </li>
+        <li>
+          <strong>Ders havuzunu gözden geçirin.</strong> Liste okul türünüzün çizelgesinden
+          gelir. Okulunuzda okutulmayan dersi pasifleştirin; seçmeli derslerde "Şubeler"
+          sütunundan o dersi hangi şubelerin aldığını işaretleyin.
+        </li>
+        <li>
+          <strong>Sınav takvimini kurun.</strong> "Ön tanımlı takvimleri üret" dediğinizde
+          mevzuattaki dört sınav penceresi için dört takvim açılır ve havuzları dolar.
+          Yerleştirme sekmesinde "Otomatik yerleştir" sınavları günlere dağıtır; elle
+          koyduklarınız sabit kalır. Takvimi onaylayın.
+        </li>
+        <li>
+          <strong>Oturum üretin.</strong> Onaylı takvimde her sınav slotu için "Oturum Üret"
+          düğmesi çıkar. Oturum sihirbazında dersleri, şubeleri ve salonları seçip dağıtımı
+          çalıştırın; program planı üretir ve bağımsız doğrulayıcıdan geçirir.
+        </li>
+        <li>
+          <strong>Evrakı basın.</strong> Salon evrakı (kroki + yoklama + sayım + teslim),
+          şube duyurusu, ihlal tutanağı ve varsa görevlendirme yazısı PDF olarak çıkar;
+          hepsini tek ZIP hâlinde de alabilirsiniz.
+        </li>
+      </ol>
+
+      <h2 id="yedekleme">Yedekleme</h2>
+      <p>
+        Ayarlar → Güvenlik ekranından uygulama parolası kurabilir ve şifreli
+        <code>.ksbak</code> yedeği oluşturabilirsiniz. Parola kurulduğunda öğrenci ve
+        personel adları diskte şifreli tutulur. Yedek cihazda şifrelenir ve herhangi bir
+        bulut hesabına otomatik gönderilmez; disk arızasına karşı kurumunuzun onayladığı
+        güvenli bir ortama ayrıca kopyalayın. Kurtarma anahtarını mutlaka not edin.
+      </p>
+
+      <h2 id="dosya-dogrulama">İndirilen dosyayı doğrulama</h2>
+      <p>
+        Sürümle birlikte yayımlanan <code>SHA256SUMS-&lt;sürüm&gt;.txt</code> dosyasındaki
+        değer ile indirdiğiniz dosyanın özetini karşılaştırın.
+      </p>
+      <h3>Windows PowerShell</h3>
+      <pre><code>Get-FileHash .\kelebek-sinav-&lt;sürüm&gt;-win64-setup.exe -Algorithm SHA256</code></pre>
+      <h3>Pardus / Linux</h3>
+      <pre><code>sha256sum -c SHA256SUMS-&lt;sürüm&gt;.txt</code></pre>
+
+      <h2 id="sorun-giderme">Sık karşılaşılan sorunlar</h2>
+      <h3>WebView2 bulunamadı</h3>
+      <p>
+        Windows 10 kullanılan bazı bilgisayarlarda Microsoft Edge WebView2 bileşeninin kurum
+        bilişim sorumlusu tarafından kurulması gerekebilir.
+      </p>
+      <h3>Program zaten çalışıyor</h3>
+      <p>
+        Aynı anda yalnızca bir kopya çalışır. Görev çubuğundaki açık pencereyi bulun veya
+        bilgisayarı yeniden başlatın.
+      </p>
+      <h3>Ders havuzu boş geldi</h3>
+      <p>
+        Okul türünüz için çizelge verisi henüz gelmemiş olabilir; bu durumda havuz boş
+        başlar ve dersleri elle ekleyebilirsiniz. Ayrıca ders havuzu yalnızca öğrencisi olan
+        sınıf düzeyleri için dolar — öğrenci listesini aktardığınızdan emin olun.
+      </p>
+      <h3>Oturum onaylanmıyor</h3>
+      <p>
+        Dağıtım doğrulayıcısı bir kural ihlali bulduysa oturum onaylanmaz. Salon sayısı ya
+        da koltuk düzeni, aynı sınava giren öğrencileri ayırmaya yetmiyor olabilir; salon
+        ekleyin veya sınavı ikiye bölün.
+      </p>
+      <h3>Veritabanı bozuk uyarısı</h3>
+      <p>
+        Programı kapatın ve en son sağlam şifreli yedekten dönün. Bozuk veritabanını veya
+        yedeği destek talebine eklemeyin.
+      </p>
+
+      <p class="document-source">
+        Ayrıntılı teknik kılavuz için
+        <a href="https://github.com/aalidemirci/kelebek-sinav/blob/main/docs/kurulum.md" rel="noopener">depodaki güncel kurulum belgesine</a>
+        bakabilirsiniz.
+      </p>
+    </article>
+  </div>
+</KSLayout>
