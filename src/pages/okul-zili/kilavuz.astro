@@ -98,7 +98,10 @@ import OZLayout from '../../layouts/OZLayout.astro';
         bilgisayar açıldığında PIN girilmese de zil düzeni sürer. Ayar
         değiştirmek için giriş penceresini veya üst çubuktaki
         <strong>Giriş</strong> düğmesini kullanın. Art arda hatalı PIN
-        girişleri artan bekleme süresiyle yavaşlatılır.
+        girişleri artan bekleme süresiyle yavaşlatılır. Bilgisayarın başından
+        ayrılırken üst çubuktaki <strong>Kilitle</strong> düğmesi oturumu tek
+        tıkla salt görüntülemeye indirir; ziller çalmaya devam eder, yönetim
+        işlevleri yeniden PIN ister.
       </p>
 
       <h2 id="program">Ders programını hazırlama</h2>
@@ -157,13 +160,23 @@ import OZLayout from '../../layouts/OZLayout.astro';
           Tatil ve törenler ekranına ekleyin.
         </p>
       </div>
+      <p>
+        Tören kuralları günün programının <strong>üzerine biner</strong>: aynı güne
+        birden çok tören ekleyebilirsiniz (ikili eğitimde sabah ve öğle İstiklâl
+        Marşı gibi), tören o günün normal, kısaltılmış, sınav ya da telafi
+        programını silmez, yalnız aynı saatteki zilin yerine geçer. Tatil kuralı
+        olan günde yalnız tören çalar. Gün içinde eklenen ya da adı değiştirilen
+        bir kural, o gün çoktan çalmış zilleri yeniden çaldırmaz.
+      </p>
 
       <h2 id="ses">Ses ve yayın güvenliği</h2>
       <ul>
         <li>Ses önizlemesini istediğiniz an <strong>Sesi durdur</strong> düğmesiyle kesin.</li>
         <li>Tören ve tatbikat yayınları başlamadan önce onay penceresini dikkatle okuyun.</li>
-        <li>Ses cihazını değiştirdikten sonra Sistem kontrolü ekranını çalıştırın.</li>
+        <li>Ses cihazını değiştirdikten sonra Sistem kontrolü ekranını çalıştırın; program cihazı beş dakikada bir arka planda da denetler ve USB ses kartı çekilirse genel durum paneli kritik uyarıya geçer.</li>
         <li>Okulda kullanım hakkı bulunmayan müzik veya anons dosyalarını programa eklemeyin.</li>
+        <li>Genel durum panelindeki <strong>UYARI</strong> satırları kaçırılan, bekletilen, sessize alınan ya da duraklatma sırasında atlanan zilleri saatiyle gösterir; aynı uyarı sistem tepsisinden de bildirilir. Durumu gördükten sonra <strong>Uyarıları onayla</strong> ile kutuyu temizleyin.</li>
+        <li>Uzun bir yayın (AFAD ikazı, 10 Kasım akışı, elle başlatılan tören) sürerken saati gelen zil kaçırılmaz; yayın bitince çalar. Zilleri duraklattığınız sürede vadesi gelen ziller ise çalmaz ve sürdürünce topluca çalmaz.</li>
       </ul>
       <p>
         Zil, marş, anons ve ikaz kayıtları kurulum paketinin içinde gelir; program
@@ -228,8 +241,25 @@ import OZLayout from '../../layouts/OZLayout.astro';
       </p>
       <h3>Zil çalmadı</h3>
       <p>
-        Sistem kontrolü ekranında cihaz, ses dosyası, etkin program ve takvim
-        denetimlerinin sonucunu inceleyin. Olay günlüğü teknik nedeni gösterir.
+        Önce genel durum panelindeki UYARI satırına bakın: zilin kaçırıldığı,
+        bekletildiği ya da sessize alındığı orada saatiyle yazar. Sistem kontrolü
+        ekranında cihaz, ses dosyası, etkin program ve takvim denetimlerinin
+        sonucunu inceleyin. Olay günlüğü sayfası her kaydın açıklamasını gösterir.
+      </p>
+      <h3>Yönetici PIN'i unutuldu</h3>
+      <p>
+        PIN'ler geri okunamaz. Uygulamayı tepsi menüsünden kapatın, veri
+        dizinindeki (<code>%LOCALAPPDATA%\OkulZili</code>) <code>profiller.json</code>
+        dosyasının adını değiştirin ve uygulamayı yeniden açın; ilk kurulumdaki gibi
+        yeni yönetici PIN'i istenir. Zil programı, sesler ve günlükler etkilenmez;
+        nöbetçi ve görüntüleme PIN'lerini yeniden tanımlayın.
+      </p>
+      <h3>Pencere kayboldu</h3>
+      <p>
+        Çarpı düğmesi programı kapatmaz. Windows'ta görev çubuğundaki gizli
+        simgeler okundan Okul Zili simgesine çift tıklayın; Pardus'ta pencere görev
+        çubuğuna küçültülür. Programı menüden ikinci kez başlatmak yeni kopya açmaz,
+        çalışan pencereyi öne getirir.
       </p>
 
       <p class="document-source">

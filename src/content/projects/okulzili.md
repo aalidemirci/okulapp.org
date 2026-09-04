@@ -8,7 +8,7 @@ featured: true
 order: 2
 siteUrl: /okul-zili/
 accent: '#0d6b7b'
-badge: Sürüm 0.7.1
+badge: Sürüm 0.8.0
 ---
 
 Okul Zili, okulun ders zilini bir kişinin saate bakıp düğmeye basmasına ya da
