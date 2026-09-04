@@ -1,30 +1,30 @@
 {
   "available": true,
-  "version": "0.7.0",
-  "name": "Okul Zili 0.7.0",
-  "published_at": "2026-08-12T06:10:20Z",
+  "version": "0.7.1",
+  "name": "Okul Zili 0.7.1",
+  "published_at": "2026-09-04T10:38:23Z",
   "prerelease": false,
   "releaseUrl": "https://github.com/aalidemirci/okulzili/releases",
   "assets": [
     {
       "kind": "windows_installer",
-      "url": "https://indir.okulapp.org/okul-zili/OkulZili-Kurulum-0.7.0.exe",
-      "size": 69113183
+      "url": "https://indir.okulapp.org/okul-zili/OkulZili-Kurulum-0.7.1.exe",
+      "size": 69477222
     },
     {
       "kind": "windows_portable",
-      "url": "https://indir.okulapp.org/okul-zili/OkulZili-Tasinabilir-0.7.0.zip",
-      "size": 80527243
+      "url": "https://indir.okulapp.org/okul-zili/OkulZili-Tasinabilir-0.7.1.zip",
+      "size": 80899707
     },
     {
       "kind": "linux_deb",
-      "url": "https://indir.okulapp.org/okul-zili/okul-zili_0.7.0_all.deb",
-      "size": 52887624
+      "url": "https://indir.okulapp.org/okul-zili/okul-zili_0.7.1_all.deb",
+      "size": 52888940
     },
     {
       "kind": "checksums",
-      "url": "https://indir.okulapp.org/okul-zili/SHA256SUMS-0.7.0.txt",
-      "size": 281
+      "url": "https://indir.okulapp.org/okul-zili/SHA256SUMS-0.7.1.txt",
+      "size": 280
     }
   ]
 }

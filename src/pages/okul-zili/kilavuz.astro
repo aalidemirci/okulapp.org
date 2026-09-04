@@ -79,8 +79,14 @@ import OZLayout from '../../layouts/OZLayout.astro';
       <h2 id="ilk-acilis">İlk açılış</h2>
       <ol>
         <li>6–12 rakamdan oluşan yönetici PIN'i belirleyin.</li>
-        <li>Okul adını, ilk ders saatini, ders sayısını ve süreleri girin.</li>
-        <li>Zil ve anons için kullanılacak ses cihazını seçin.</li>
+        <li>Okul adını ve zil ses çıkışını girin; başka bir şey sorulmaz.</li>
+        <li>
+          Uygulama, 08:20'de başlayan 8 derslik hazır bir programla doğrudan
+          <strong>Ders zilleri</strong> sayfasında açılır. Okulunuzun düzenini
+          orada tam gün ya da ikili eğitim seçerek kurun; varsayılan saatleri
+          tümüyle silmek için <strong>Sıfırla ve yeniden oluştur</strong>
+          düğmesini kullanın.
+        </li>
         <li>
           Örnek sesleri test edin; yanlış bir yayında üst bölümdeki
           <strong>Sesi durdur</strong> düğmesini kullanın.
@@ -98,10 +104,12 @@ import OZLayout from '../../layouts/OZLayout.astro';
       <h2 id="program">Ders programını hazırlama</h2>
       <p>
         <strong>Haftalık program</strong> ekranında günü seçin ve
-        <strong>Eğitim modeli</strong> alanından tekli ya da ikili eğitimi belirleyin.
+        <strong>Eğitim modeli</strong> alanından tam gün ya da ikili eğitimi belirleyin.
         İkili eğitimde önce <strong>Sabah</strong>, sonra <strong>Öğleden sonra</strong>
         oturumunu düzenlersiniz; her oturumun ilk ders saati, ders sayısı, süreleri ve
-        öğrenci zili farkı birbirinden bağımsızdır.
+        öğrenci zili farkı birbirinden bağımsızdır. Oturumlar arasında geçerken
+        girdikleriniz korunur; kaydederken oturumlar çakışırsa uygulama öğleden
+        sonrayı sabahın bitişinden sonraya taşımayı önerir.
       </p>
       <p>
         Normal derslerde <strong>Blok düzeni</strong> alanını boş bırakın. Blok ders
