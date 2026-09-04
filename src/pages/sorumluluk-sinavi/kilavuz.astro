@@ -11,6 +11,7 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <strong>İçindekiler</strong>
       <a href="#paket-secimi">Paket seçimi</a>
       <a href="#windows">Windows kurulumu</a>
+      <a href="#pardus">Pardus kurulumu</a>
       <a href="#guncelleme">Kurulu makineyi güncelleme</a>
       <a href="#raporlar">e-Okul raporlarını indirme</a>
       <a href="#kullanim-sirasi">Kullanım sırası</a>
@@ -37,11 +38,13 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <div class="guide-table" role="table" aria-label="Kurulum paketi seçenekleri">
         <div role="row"><strong role="cell">Windows kurulum</strong><span role="cell">Normal kullanım için önerilen seçenek; yönetici parolası gerekmez, Program Files'a yazmaz.</span></div>
         <div role="row"><strong role="cell">Windows taşınabilir</strong><span role="cell">Kurulumun engellendiği bilgisayarlar veya USB kullanımı için. Klasörün tamamını taşıyın; <code>_internal</code> olmadan çalışmaz.</span></div>
+        <div role="row"><strong role="cell">Pardus / Debian</strong><span role="cell">Pardus 23 ve üzeri için <code>.deb</code> paketi. Kurulum yönetici parolası ister; Python kurulu olmasına gerek yoktur.</span></div>
         <div role="row"><strong role="cell">SHA-256 özetleri</strong><span role="cell">İndirdiğiniz dosyanın bozulmadığını doğrulamak için.</span></div>
       </div>
       <p>
-        Pardus / Linux paketi henüz üretilmiyor. Program Linux'ta çalışacak biçimde
-        yazılmıştır ancak dağıtılan paket şimdilik yalnız Windows içindir.
+        Paketler imzasız dağıtılır; her ikisi de bu sitenin indirme alanından ve
+        GitHub sürüm sayfasından aynı içerikle sunulur. Hangi işletim sistemini
+        kullanırsanız kullanın veri okulun kendi bilgisayarında kalır.
       </p>
 
       <h2 id="windows">Windows kurulumu</h2>
@@ -59,6 +62,24 @@ import SSLayout from '../../layouts/SSLayout.astro';
         </p>
       </div>
 
+      <h2 id="pardus">Pardus kurulumu</h2>
+      <p>
+        Paket <strong>Pardus 23 ve üzerinde</strong> (Debian 12 tabanlı dağıtımlar)
+        çalışır. İndirdiğiniz dosyanın bulunduğu klasörde:
+      </p>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.5.0_amd64.deb</code></pre>
+      <ul>
+        <li>Yorumlayıcı ve bütün kitaplıklar paketin içindedir; <strong>Python kurulu
+          olmasına gerek yoktur</strong> ve kurulum internet istemez.</li>
+        <li>Uygulama menüde <strong>Ofis</strong> ve <strong>Eğitim</strong> altında
+          görünür; uçbirimden <code>sorumluluk-sinavi</code> komutuyla da açılır.</li>
+        <li>Veritabanı kullanıcının ev klasöründedir
+          (<code>~/.local/share/sorumluluk-sinavi/plan</code>); veri kullanıcı
+          başınadır.</li>
+        <li>Kaldırmak için <code>sudo apt remove sorumluluk-sinavi</code>. Kaldırma
+          veritabanına dokunmaz.</li>
+      </ul>
+
       <h2 id="guncelleme">Kurulu makineyi güncelleme</h2>
       <p>
         Yeni sürüm eskisinin üzerine kurulur; önce kaldırmaya gerek yoktur. Veritabanı
@@ -66,8 +87,10 @@ import SSLayout from '../../layouts/SSLayout.astro';
         dokunmaz</strong>: ilk açılışta gereken şema göçü uygulanır, öncesinde otomatik
         yedek alınır.
       </p>
-      <h3>Soru sormadan kurmak</h3>
-      <pre><code>.\SorumlulukSinavi-Kurulum-0.4.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
+      <h3>Pardus'ta güncellemek</h3>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.5.0_amd64.deb</code></pre>
+      <h3>Windows'ta soru sormadan kurmak</h3>
+      <pre><code>.\SorumlulukSinavi-Kurulum-0.5.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
       <h3>Kurulu sürümü doğrulamak</h3>
       <pre><code>(Get-Item "$env:LOCALAPPDATA\SorumlulukSinavi\uygulama\SorumlulukSinavi.exe").VersionInfo.FileVersion</code></pre>
       <p>
@@ -191,7 +214,8 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <p>
         Uygulamayı kapatın ve veri klasöründeki <code>sorumluluk.db</code> dosyasını kurumun
         yedek ortamına kopyalayın. Veri klasörü Windows'ta
-        <code>%LOCALAPPDATA%\SorumlulukSinavi\plan</code> altındadır. Şema yükseltmelerinde
+        <code>%LOCALAPPDATA%\SorumlulukSinavi\plan</code>, Pardus'ta
+        <code>~/.local/share/sorumluluk-sinavi/plan</code> altındadır. Şema yükseltmelerinde
         uygulama göç öncesi otomatik yedek alır.
       </p>
       <div class="warning-card">
@@ -208,7 +232,9 @@ import SSLayout from '../../layouts/SSLayout.astro';
         değer ile indirdiğiniz dosyanın özetini karşılaştırın.
       </p>
       <h3>Windows PowerShell</h3>
-      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.4.0.exe -Algorithm SHA256</code></pre>
+      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.5.0.exe -Algorithm SHA256</code></pre>
+      <h3>Pardus / Linux</h3>
+      <pre><code>sha256sum -c SHA256SUMS-0.5.0.txt</code></pre>
 
       <h2 id="sorun-giderme">Sık karşılaşılan sorunlar</h2>
       <h3>İçe aktarma "başlık bulunamadı" diyerek duruyor</h3>
