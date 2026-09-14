@@ -117,7 +117,7 @@
       "ad": "Okul kantini belgeleri",
       "ozet": "Okul kantini (gıda işletmesi) için okul yönetiminin takip-denetim seti (7 form): işlem dosyası, işletmeci-çalışan belgeleri, aylık denetim komisyonu ve izleme, uygunsuzluk bildirimi, satış listesi-fiyat kontrolü, teslim/tahliye tutanağı.",
       "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir. Set, kantinin okul-aile birliğince KİRAYA VERİLMESİ senaryosuna göre okul yönetiminin denetim-izleme tarafını düzenler; kiralama, kira ve arz bedeli takibi belgeleri okul-aile birliği setindedir. Aylık denetim, Kılavuz ekindeki resmî EK-1 formu ile yapılır; bu set resmî formların yerine geçmez.",
-      "surum": "2026.09",
+      "surum": "2026.09.1",
       "tarih": "2026-09-14",
       "mevzuat_teyit_tarihi": "14.09.2026",
       "lisans": "CC BY 4.0",
@@ -144,9 +144,9 @@
         }
       ],
       "paket": {
-        "dosya": "Okul-Kantini-Belge-Seti-2026.09.zip",
-        "boyut": 957916,
-        "sha256": "55f5991631a1f979290d63538a72f5f2bc7ef263cec11e6d5779a33372d7e075"
+        "dosya": "Okul-Kantini-Belge-Seti-2026.09.1.zip",
+        "boyut": 959154,
+        "sha256": "c396e180871caa8dd4df0fffb3d363196bb7138557077d553b256e06590e2f5e"
       },
       "belgeler": [
         {
@@ -155,8 +155,8 @@
           "ad": "İşlem dosyası kapak ve kontrol listesi",
           "aciklama": "Yıllık kantin dosyasının eksiksizliği: sözleşme, işletmeci belgeleri, denetim arşivi, plan-kayıt ve TEFBİS kalemlerini 22 kalemde izleyen kontrol listesi.",
           "dosya": "GNL-KNT-FR-001_Kantin_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.docx",
-          "boyut": 42251,
-          "sha256": "af98d0c374c97db5b2f6b65d56389460d985e8041e74dd7bbdc036247e3112e0",
+          "boyut": 42285,
+          "sha256": "9e20f244b613dccee4e3824147f086bce04d31999e914343bcb9092ecd4e39d8",
           "pdf": "GNL-KNT-FR-001_Kantin_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.pdf",
           "sayfa": 2
         },
@@ -166,8 +166,8 @@
           "ad": "İşletmeci ve çalışan belge kontrol formu",
           "aciklama": "Kişi başına hijyen eğitimi belgesi, sağlık muayenesi, adli sicil ve mesleki belge kontrolü; yıllık yenileme ve sağlık engeli sonuç bölümüyle.",
           "dosya": "GNL-KNT-FR-002_Kantin_Isletmecisi_ve_Calisani_Belge_Kontrol_Formu_v1.0.docx",
-          "boyut": 41709,
-          "sha256": "c09d21f5666847479754c5a7b623354328d35a29c4f6461134cd5836cd4218fc",
+          "boyut": 41710,
+          "sha256": "56b0516f999f9460d1966662aa6b16f656dfe2b818f520960b61539ebf514214",
           "pdf": "GNL-KNT-FR-002_Kantin_Isletmecisi_ve_Calisani_Belge_Kontrol_Formu_v1.0.pdf",
           "sayfa": 1
         },
@@ -177,8 +177,8 @@
           "ad": "Denetim komisyonu görevlendirme ve eğitim çizelgesi",
           "aciklama": "Gıda İşletmeleri Denetim Komisyonunun kuruluşu (50 ve üzeri / 50'den az çalışan varyantları), üye eğitimleri ve görevlendirme kaydı.",
           "dosya": "GNL-KNT-FR-003_Gida_Isletmeleri_Denetim_Komisyonu_Gorevlendirme_ve_Egitim_Cizelgesi_v1.0.docx",
-          "boyut": 41456,
-          "sha256": "9a2532e7122124c6c288489af394e7f69d761ead2c20f82d3f6ee82c62c5744a",
+          "boyut": 41457,
+          "sha256": "b1afab126d3223b7bcfd7df50ca21c97a3d202ead1b64681babddd5fd5370635",
           "pdf": "GNL-KNT-FR-003_Gida_Isletmeleri_Denetim_Komisyonu_Gorevlendirme_ve_Egitim_Cizelgesi_v1.0.pdf",
           "sayfa": 1
         },
@@ -186,10 +186,10 @@
           "kod": "GNL-KNT-FR-004",
           "grup": "denetim",
           "ad": "Aylık denetim izleme çizelgesi",
-          "aciklama": "Resmî EK-1 formuyla yapılan aylık denetim döngüsünün yıllık izlenmesi ve bildirim süreleri özeti (A4 yatay).",
+          "aciklama": "Resmî EK-1 formuyla (merkezisgb.meb.gov.tr'den indirilir) yapılan aylık denetim döngüsünün yıllık izlenmesi ve bildirim süreleri özeti (A4 yatay).",
           "dosya": "GNL-KNT-FR-004_Kantin_Aylik_Denetim_Izleme_Cizelgesi_v1.0.docx",
-          "boyut": 41699,
-          "sha256": "f5a3a42eaa7cd1bff39a29721697993ba8d0ce86afadb1886968f77dd27af8fd",
+          "boyut": 41726,
+          "sha256": "d0eded0e403bc0372e4a88d70273f27bd24941733c9ce62c5fddf073723747fa",
           "pdf": "GNL-KNT-FR-004_Kantin_Aylik_Denetim_Izleme_Cizelgesi_v1.0.pdf",
           "sayfa": 1
         },
@@ -199,8 +199,8 @@
           "ad": "Uygunsuzluk bildirim ve takip kayıt formu",
           "aciklama": "Büyük/küçük uygunsuzluk bildirimlerinin (aynı gün / 3 iş günü) ve giderilme-fesih sürecinin uygunsuzluk başına kaydı.",
           "dosya": "GNL-KNT-FR-005_Kantin_Uygunsuzluk_Bildirim_ve_Takip_Kayit_Formu_v1.0.docx",
-          "boyut": 41593,
-          "sha256": "36724c2ac0856b761279b888df977ae3ce94144bd16de3d429690ffd6054e460",
+          "boyut": 41592,
+          "sha256": "1c8cb889f222295190b9621392ffa1cd0f27de1b39d8d0de2a40903d40bf69d7",
           "pdf": "GNL-KNT-FR-005_Kantin_Uygunsuzluk_Bildirim_ve_Takip_Kayit_Formu_v1.0.pdf",
           "sayfa": 1
         },
@@ -210,8 +210,8 @@
           "ad": "Satış listesi ve fiyat tarifesi uygunluk kontrolü",
           "aciklama": "Bilim Kurulu kararına (17.08.2026) göre yasaklı ürün kontrolü, kriterli ürün spot kontrolü, okul gıdası logosu ve tavan fiyat kontrolü.",
           "dosya": "GNL-KNT-FR-006_Satisa_Sunulan_Urunler_ve_Fiyat_Tarifesi_Uygunluk_Kontrol_Cizelgesi_v1.0.docx",
-          "boyut": 43653,
-          "sha256": "5de392b3a18e44ba058af05adb84b3f96553a2cfe55d4d9087399084be7f5756",
+          "boyut": 43734,
+          "sha256": "016f3e1810765b17845c4cbc3f07837d09fb5c838f01197768b2d95632554586",
           "pdf": "GNL-KNT-FR-006_Satisa_Sunulan_Urunler_ve_Fiyat_Tarifesi_Uygunluk_Kontrol_Cizelgesi_v1.0.pdf",
           "sayfa": 2
         },
@@ -221,8 +221,8 @@
           "ad": "Kantin yeri teslim / tahliye-teslim tutanağı",
           "aciklama": "Kiralanan yerin sözleşmeden itibaren 15 gün içinde teslimi ve işletme sonunda tahliye-teslimi; demirbaş ve sayaç kayıtlarıyla.",
           "dosya": "GNL-KNT-FR-007_Kantin_Yeri_Teslim_Tahliye_Teslim_Tutanagi_v1.0.docx",
-          "boyut": 41452,
-          "sha256": "ae0b6feaf2ba9f23cb628891c60cf4f258a08c62f6e0f1c2e18338ee9f72e3c4",
+          "boyut": 41453,
+          "sha256": "73c502cf97e01af41fee867f6240a9ed380cc7c9fcb21dea9dfb19b7eb6144dd",
           "pdf": "GNL-KNT-FR-007_Kantin_Yeri_Teslim_Tahliye_Teslim_Tutanagi_v1.0.pdf",
           "sayfa": 1
         }
