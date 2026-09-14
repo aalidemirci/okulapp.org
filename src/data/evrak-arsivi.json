@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-09-02",
+  "guncelleme": "2026-09-14",
   "setler": [
     {
       "slug": "cografya-yillik-planlari",
@@ -117,9 +117,9 @@
       "ad": "Okul kantini belgeleri",
       "ozet": "Okul kantini (gıda işletmesi) için okul yönetiminin takip-denetim seti (7 form): işlem dosyası, işletmeci-çalışan belgeleri, aylık denetim komisyonu ve izleme, uygunsuzluk bildirimi, satış listesi-fiyat kontrolü, teslim/tahliye tutanağı.",
       "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir. Set, kantinin okul-aile birliğince KİRAYA VERİLMESİ senaryosuna göre okul yönetiminin denetim-izleme tarafını düzenler; kiralama, kira ve arz bedeli takibi belgeleri okul-aile birliği setindedir. Aylık denetim, Kılavuz ekindeki resmî EK-1 formu ile yapılır; bu set resmî formların yerine geçmez.",
-      "surum": "2026.08",
-      "tarih": "2026-08-29",
-      "mevzuat_teyit_tarihi": "17.08.2026",
+      "surum": "2026.09",
+      "tarih": "2026-09-14",
+      "mevzuat_teyit_tarihi": "14.09.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
         {
@@ -144,9 +144,9 @@
         }
       ],
       "paket": {
-        "dosya": "Okul-Kantini-Belge-Seti-2026.08.zip",
-        "boyut": 952214,
-        "sha256": "c32062811019b0530a33d81b6dcc4a092f1c426b5352993c1dbead47e3a5f8d5"
+        "dosya": "Okul-Kantini-Belge-Seti-2026.09.zip",
+        "boyut": 957916,
+        "sha256": "55f5991631a1f979290d63538a72f5f2bc7ef263cec11e6d5779a33372d7e075"
       },
       "belgeler": [
         {
@@ -155,8 +155,8 @@
           "ad": "İşlem dosyası kapak ve kontrol listesi",
           "aciklama": "Yıllık kantin dosyasının eksiksizliği: sözleşme, işletmeci belgeleri, denetim arşivi, plan-kayıt ve TEFBİS kalemlerini 22 kalemde izleyen kontrol listesi.",
           "dosya": "GNL-KNT-FR-001_Kantin_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.docx",
-          "boyut": 42217,
-          "sha256": "bdeaa29b024d0001090636d9d718be2557cc6eb0bc5b23f39dd3566e472045d3",
+          "boyut": 42251,
+          "sha256": "af98d0c374c97db5b2f6b65d56389460d985e8041e74dd7bbdc036247e3112e0",
           "pdf": "GNL-KNT-FR-001_Kantin_Islem_Dosyasi_Kapak_ve_Kontrol_Listesi_v1.0.pdf",
           "sayfa": 2
         },
@@ -166,8 +166,8 @@
           "ad": "İşletmeci ve çalışan belge kontrol formu",
           "aciklama": "Kişi başına hijyen eğitimi belgesi, sağlık muayenesi, adli sicil ve mesleki belge kontrolü; yıllık yenileme ve sağlık engeli sonuç bölümüyle.",
           "dosya": "GNL-KNT-FR-002_Kantin_Isletmecisi_ve_Calisani_Belge_Kontrol_Formu_v1.0.docx",
-          "boyut": 41680,
-          "sha256": "24b5d1b8cf3ab17bf9dc3b8a3bc783d4d280d861e20fdac664854ee75875bd0e",
+          "boyut": 41709,
+          "sha256": "c09d21f5666847479754c5a7b623354328d35a29c4f6461134cd5836cd4218fc",
           "pdf": "GNL-KNT-FR-002_Kantin_Isletmecisi_ve_Calisani_Belge_Kontrol_Formu_v1.0.pdf",
           "sayfa": 1
         },
@@ -177,8 +177,8 @@
           "ad": "Denetim komisyonu görevlendirme ve eğitim çizelgesi",
           "aciklama": "Gıda İşletmeleri Denetim Komisyonunun kuruluşu (50 ve üzeri / 50'den az çalışan varyantları), üye eğitimleri ve görevlendirme kaydı.",
           "dosya": "GNL-KNT-FR-003_Gida_Isletmeleri_Denetim_Komisyonu_Gorevlendirme_ve_Egitim_Cizelgesi_v1.0.docx",
-          "boyut": 41427,
-          "sha256": "f635fed9f5fbae70eba6270b40e0dee55d4bd05fc3487b5f8bfa7cc09d7c87f5",
+          "boyut": 41456,
+          "sha256": "9a2532e7122124c6c288489af394e7f69d761ead2c20f82d3f6ee82c62c5744a",
           "pdf": "GNL-KNT-FR-003_Gida_Isletmeleri_Denetim_Komisyonu_Gorevlendirme_ve_Egitim_Cizelgesi_v1.0.pdf",
           "sayfa": 1
         },
@@ -188,8 +188,8 @@
           "ad": "Aylık denetim izleme çizelgesi",
           "aciklama": "Resmî EK-1 formuyla yapılan aylık denetim döngüsünün yıllık izlenmesi ve bildirim süreleri özeti (A4 yatay).",
           "dosya": "GNL-KNT-FR-004_Kantin_Aylik_Denetim_Izleme_Cizelgesi_v1.0.docx",
-          "boyut": 41669,
-          "sha256": "646e4fa0d665f837f8fd2227e4aaa5595c501906f4759ba73443e31fe835574f",
+          "boyut": 41699,
+          "sha256": "f5a3a42eaa7cd1bff39a29721697993ba8d0ce86afadb1886968f77dd27af8fd",
           "pdf": "GNL-KNT-FR-004_Kantin_Aylik_Denetim_Izleme_Cizelgesi_v1.0.pdf",
           "sayfa": 1
         },
@@ -199,8 +199,8 @@
           "ad": "Uygunsuzluk bildirim ve takip kayıt formu",
           "aciklama": "Büyük/küçük uygunsuzluk bildirimlerinin (aynı gün / 3 iş günü) ve giderilme-fesih sürecinin uygunsuzluk başına kaydı.",
           "dosya": "GNL-KNT-FR-005_Kantin_Uygunsuzluk_Bildirim_ve_Takip_Kayit_Formu_v1.0.docx",
-          "boyut": 41565,
-          "sha256": "5565fb63ea176afcc85f0c49c0e02a442c3c52a17638df2c6468865e1b4029f3",
+          "boyut": 41593,
+          "sha256": "36724c2ac0856b761279b888df977ae3ce94144bd16de3d429690ffd6054e460",
           "pdf": "GNL-KNT-FR-005_Kantin_Uygunsuzluk_Bildirim_ve_Takip_Kayit_Formu_v1.0.pdf",
           "sayfa": 1
         },
@@ -208,10 +208,10 @@
           "kod": "GNL-KNT-FR-006",
           "grup": "urun",
           "ad": "Satış listesi ve fiyat tarifesi uygunluk kontrolü",
-          "aciklama": "Bilim Kurulu kararına (06.03.2025) göre yasaklı ürün kontrolü, kriterli ürün spot kontrolü, okul gıdası logosu ve tavan fiyat kontrolü.",
+          "aciklama": "Bilim Kurulu kararına (17.08.2026) göre yasaklı ürün kontrolü, kriterli ürün spot kontrolü, okul gıdası logosu ve tavan fiyat kontrolü.",
           "dosya": "GNL-KNT-FR-006_Satisa_Sunulan_Urunler_ve_Fiyat_Tarifesi_Uygunluk_Kontrol_Cizelgesi_v1.0.docx",
-          "boyut": 42638,
-          "sha256": "dc5f16aacc0c405943fb90c82951e9ed7ed489fc64e5e1a760726794bd071aa8",
+          "boyut": 43653,
+          "sha256": "5de392b3a18e44ba058af05adb84b3f96553a2cfe55d4d9087399084be7f5756",
           "pdf": "GNL-KNT-FR-006_Satisa_Sunulan_Urunler_ve_Fiyat_Tarifesi_Uygunluk_Kontrol_Cizelgesi_v1.0.pdf",
           "sayfa": 2
         },
@@ -221,8 +221,8 @@
           "ad": "Kantin yeri teslim / tahliye-teslim tutanağı",
           "aciklama": "Kiralanan yerin sözleşmeden itibaren 15 gün içinde teslimi ve işletme sonunda tahliye-teslimi; demirbaş ve sayaç kayıtlarıyla.",
           "dosya": "GNL-KNT-FR-007_Kantin_Yeri_Teslim_Tahliye_Teslim_Tutanagi_v1.0.docx",
-          "boyut": 41420,
-          "sha256": "43dae6b3b27545a97d802004d0defec6f8297bd910e8266bff5b647cd6e35feb",
+          "boyut": 41452,
+          "sha256": "ae0b6feaf2ba9f23cb628891c60cf4f258a08c62f6e0f1c2e18338ee9f72e3c4",
           "pdf": "GNL-KNT-FR-007_Kantin_Yeri_Teslim_Tahliye_Teslim_Tutanagi_v1.0.pdf",
           "sayfa": 1
         }
@@ -826,10 +826,10 @@
     {
       "slug": "ogretmenler-kurulu-tutanaklari",
       "ad": "Öğretmenler kurulu tutanakları",
-      "ozet": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısının doldurulmaya hazır çerçeve tutanakları.",
+      "ozet": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısının doldurulmaya hazır çerçeve tutanakları ve Bakanlığın 2026 sosyal etkinlikler seti için eylül ara toplantısı tutanağı.",
       "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir.",
-      "surum": "2026.08.4",
-      "tarih": "2026-08-29",
+      "surum": "2026.09",
+      "tarih": "2026-09-14",
       "mevzuat_teyit_tarihi": "28.08.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
@@ -837,12 +837,17 @@
           "anahtar": "olagan",
           "ad": "Olağan kurul toplantıları",
           "aciklama": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısı. Gündem çatısı Eğitim Kurulları ve Zümreleri Yönergesinin 9 uncu maddesindeki havuzdan, kurula görev veren Ortaöğretim Kurumları Yönetmeliği hükümleriyle tamamlanarak kurulmuştur."
+        },
+        {
+          "anahtar": "ara",
+          "ad": "Ara toplantı — sosyal etkinlikler eylem planı (Eylül 2026)",
+          "aciklama": "Bakanlığın 10.09.2026 tarihli yazısıyla dağıtılan Okul Temelli Sosyal Etkinlikler Eylem Planı Kılavuzunun öğretmenler kuruluna verdiği kararlar: öncelikli temalar, sekiz zorunlu kulüp ve tema kulüpleri, danışman görevlendirmesi, eylem planı takvimi."
         }
       ],
       "paket": {
-        "dosya": "Ogretmenler-Kurulu-Tutanak-Sablonlari-2026.08.4.zip",
-        "boyut": 644241,
-        "sha256": "45759047c1e3361574eb8868d0bb1f23f37236db473e99f09a8893ee9450756a"
+        "dosya": "Ogretmenler-Kurulu-Tutanak-Sablonlari-2026.09.zip",
+        "boyut": 841429,
+        "sha256": "90874eae275269a2159ed3d0c38581b6500454890b3c66663fa5147e376981cc"
       },
       "belgeler": [
         {
@@ -851,10 +856,10 @@
           "ad": "Sene başı öğretmenler kurulu",
           "aciklama": "Ders yılı başında yapılan kurul: gündem çatısı, seçimler, görevlendirmeler, haftalık ders programı, nöbet, okul kuralları ve bilişim araçları kararı.",
           "dosya": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 84981,
-          "sha256": "5cd0e0e997fef59a5235468f6107b81fb3ee5d263349626a7144c72522f9c296",
+          "boyut": 92853,
+          "sha256": "eba68b7caddd76853bf3bdcae5fa4178c971b4f60f33f740925595aaf6032efb",
           "pdf": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
-          "sayfa": 28
+          "sayfa": 31
         },
         {
           "kod": "GNL-OKR-OKT-002",
@@ -862,8 +867,8 @@
           "ad": "İkinci dönem başı öğretmenler kurulu",
           "aciklama": "Birinci dönemin değerlendirilmesi, ikinci dönem planlaması, kıyafet görüşü ve puan iadesi gibi dönem başı işleri.",
           "dosya": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 48149,
-          "sha256": "d130e525253960972b84181208cd401e7cca56a34c5d380b9fc44df7cbc0936b",
+          "boyut": 49141,
+          "sha256": "434c94939a61802b5150707f667896db5461b23f67e4b4f8f90c1f55d2063488",
           "pdf": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
         },
@@ -873,10 +878,21 @@
           "ad": "Yıl sonu öğretmenler kurulu",
           "aciklama": "Yıl sonu değerlendirmesi: karar-sonuç tablosu, okul birincisi, gelecek yıla ilişkin öneriler.",
           "dosya": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 47793,
-          "sha256": "667cce811f1b2a850be7a81fef7f80da22776e22303297c0ab4621d4f54777b7",
+          "boyut": 48741,
+          "sha256": "723ccc2eeafcfaf6f00271446ac2448ea663ce0587613e7a92475d25ea4969d3",
           "pdf": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
+        },
+        {
+          "kod": "GNL-OKR-OKT-004",
+          "grup": "ara",
+          "ad": "Ara toplantı — Okul Temelli Sosyal Etkinlikler Eylem Planı",
+          "aciklama": "Kılavuz 2026 (OGM 10.09.2026) gereği eylül ara toplantısı: Politika Belgesi ve Kılavuzun tebliği, ihtiyaç analizi ve öncelikli temalar, sekiz zorunlu kulüp ile tema kulüplerinin belirlenmesi, danışman görevlendirmesi, eylem planı takvimi.",
+          "dosya": "GNL-OKR-OKT-004_Ara_Toplanti_Sosyal_Etkinlikler_Eylem_Plani_Ogretmenler_Kurulu_Tutanagi_2026-2027_v1.0.docx",
+          "boyut": 50582,
+          "sha256": "6db0c7bba87b5b88e1b72a43dd5429d60946d9cb6689f8aa76815ef5d3120ecb",
+          "pdf": "GNL-OKR-OKT-004_Ara_Toplanti_Sosyal_Etkinlikler_Eylem_Plani_Ogretmenler_Kurulu_Tutanagi_2026-2027_v1.0.pdf",
+          "sayfa": 8
         }
       ]
     }
