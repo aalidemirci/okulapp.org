@@ -31,14 +31,20 @@ const normalize = (value) => String(value ?? '').replace(/^v/, '').trim();
 
 async function latestRelease(repo) {
   // /releases/latest ön sürümleri atlar; ön sürümde olan projeleri de
-  // yakalayabilmek için tüm listeyi alıp taslak olmayan ilkini kullanıyoruz.
-  const response = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=10`, {
+  // yakalayabilmek için tüm listeyi alıp taslak olmayanların en YENİSİNİ seçiyoruz.
+  //
+  // Listenin SIRASINA güvenilmez: GitHub bu ucu etiket adına göre sıralar, yani
+  // "beta.9" metin olarak "beta.10"dan büyüktür ve onuncu ön sürüm listenin
+  // ortasına düşer (19.09.2026'da yaşandı: site beta.10'u gösterirken denetleyici
+  // "depoda beta.9 var" diyordu). Seçim tarihe göre yapılır.
+  const response = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=30`, {
     headers: { accept: 'application/vnd.github+json', 'user-agent': 'okulapp.org-check-releases' },
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
   if (!response.ok) throw new Error(`GitHub API ${response.status}`);
   const releases = await response.json();
-  return releases.find((release) => !release.draft) ?? null;
+  const zaman = (release) => Date.parse(release.published_at ?? release.created_at ?? '') || 0;
+  return releases.filter((release) => !release.draft).sort((a, b) => zaman(b) - zaman(a))[0] ?? null;
 }
 
 const files = (await readdir(dataDir)).filter((name) => name.endsWith('-release.json')).sort();
