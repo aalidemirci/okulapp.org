@@ -68,6 +68,86 @@ const releaseDate =
       <article class="card"><span class="card-number">04</span><h3>Sınav günü evrakı</h3><p>Oturma planı krokisi, yoklama, evrak sayımı ve teslim zinciri tek belgede; şube duyurusu, tutanak ve görevlendirme yazısı ayrıca.</p></article>
       <article class="card"><span class="card-number">05</span><h3>Ders havuzu ve şubeler</h3><p>Ders listesi okul türünüzün yürürlükteki haftalık ders çizelgesinden türetilir; seçmeliyi hangi şubelerin aldığı bir kez tanımlanır.</p></article>
       <article class="card"><span class="card-number">06</span><h3>Çevrimdışı ve şifreli</h3><p>Veriler tek bir yerel dosyada durur. Uygulama parolası kurulursa ad alanları diskte şifrelenir; yedek de şifreli alınır.</p></article>
+      <article class="card"><span class="card-number">07</span><h3>Mazeret takibi</h3><p>Sınava girmeyenler dönem boyunca tek listede izlenir; mazereti kabul edilenler toplu seçilip mazeret sınavına alınır, takip çizelgesi PDF ve Excel olarak alınır.</p></article>
+      <article class="card"><span class="card-number">08</span><h3>Fotoğraflı oturma planı</h3><p>e-Okul fotoğraflı listesinden alınan fotoğraflar plana işlenir; yoklama, basılı evraktakiyle aynı düzende ekrandan alınır.</p></article>
+      <article class="card"><span class="card-number">09</span><h3>Bakanlık sınav takvimi</h3><p>Ülke geneli ortak yazılı sınavlar, Bakanlığın ilan ettiği günlere kendiliğinden yerleşir; o gün aynı sınıf düzeyine okul sınavı konmaz.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="ekranlar">
+    <div class="section-heading">
+      <p class="eyebrow">Ekranlar</p>
+      <h2>Programdan görünümler</h2>
+    </div>
+    <p class="shots-note">
+      Görüntülerdeki okul adı, öğrenci adları ve numaraları <b>örnektir</b>; tanıtım için
+      üretilmiş kurgu verilerdir. Programın kendisi verilerinizi yalnız okul bilgisayarında
+      tutar.
+    </p>
+    <div class="shots-grid">
+      <figure class="shot">
+        <img
+          src="/kelebek-sinav/ekran-oturma-plani.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Sınav oturumunun yerleşim ekranı: salon sekmeleri, doluluk oranları, dağıtım numarası ve koltuk koltuk oturma planı."
+        />
+        <figcaption>
+          <strong>Oturma planı</strong>
+          Öğrenciler salonlara kelebek düzeninde dağıtılır; her koltukta ad, okul numarası ve
+          şube görünür. Plan bağımsız doğrulayıcıdan geçer, kural ihlali kalırsa oturum
+          onaylanmaz.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kelebek-sinav/ekran-sinav-takvimi.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Sınav takvimi ekranı: Bakanlığın ülke geneli sınavlarını gösteren bilgi bandı ve ders havuzu tablosu."
+        />
+        <figcaption>
+          <strong>Sınav takvimi</strong>
+          Dönemin sınavları havuzda toplanır, hafta içi günlere ve okulun sınav saatlerine
+          dağıtılır. Bakanlığın ülke geneli sınavları resmî günleriyle ayrıca gösterilir.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kelebek-sinav/ekran-mazeret-takibi.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Mazeret takibi ekranı: sınava girmeyen öğrencilerin durum, belge notu ve mazeret sınavı bilgileri."
+        />
+        <figcaption>
+          <strong>Mazeret takibi</strong>
+          Sınava girmeyenler tek listede; mazeret durumu ve belge notu buradan işlenir.
+          Mazereti kabul edilenler seçilip mazeret sınavına alınır, takip çizelgesi PDF ve
+          Excel olarak indirilir.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kelebek-sinav/ekran-ders-havuzu.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Ders havuzu ekranı: yürürlükteki haftalık ders çizelgesinden türetilen ders listesi."
+        />
+        <figcaption>
+          <strong>Ders havuzu</strong>
+          Ders listesi, okul türünüzün yürürlükteki haftalık ders çizelgesinden türetilir;
+          hangi dersin yazılı, hangisinin uygulama sınavı olduğu ve seçmeliyi hangi şubelerin
+          aldığı burada tanımlanır.
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -170,3 +250,54 @@ const releaseDate =
     </aside>
   </section>
 </KSLayout>
+
+<style>
+  /* Ekran görüntüsü bölümü — sayfaya özgü (ortak stil dosyasına dokunulmaz). */
+  .shots-note {
+    margin: 0 0 1.4rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 62ch;
+  }
+
+  .shots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+
+  .shot {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .shot figcaption {
+    padding: 1rem 1.2rem 1.2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .shot figcaption strong {
+    display: block;
+    color: var(--ink);
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+  }
+
+  @media (max-width: 860px) {
+    .shots-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
