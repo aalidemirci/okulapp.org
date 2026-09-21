@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-09-14",
+  "guncelleme": "2026-09-22",
   "setler": [
     {
       "slug": "cografya-yillik-planlari",
@@ -828,8 +828,8 @@
       "ad": "Öğretmenler kurulu tutanakları",
       "ozet": "Ders yılı içindeki üç olağan öğretmenler kurulu toplantısının doldurulmaya hazır çerçeve tutanakları ve Bakanlığın 2026 sosyal etkinlikler seti için eylül ara toplantısı tutanağı.",
       "kapsam": "Belgeler başta ANADOLU LİSELERİ olmak üzere, hazırlık sınıfı ve pansiyonu bulunmayan, normal (tam gün) öğretim yapan genel ortaöğretim kurumları dikkate alınarak hazırlanmıştır. İkili öğretim, pansiyon, hazırlık sınıfı veya mesleki eğitim bulunan okullarda bunlara ilişkin hususlar ayrıca eklenir.",
-      "surum": "2026.09",
-      "tarih": "2026-09-14",
+      "surum": "2026.09.1",
+      "tarih": "2026-09-22",
       "mevzuat_teyit_tarihi": "28.08.2026",
       "lisans": "CC BY 4.0",
       "gruplar": [
@@ -845,9 +845,9 @@
         }
       ],
       "paket": {
-        "dosya": "Ogretmenler-Kurulu-Tutanak-Sablonlari-2026.09.zip",
-        "boyut": 841429,
-        "sha256": "90874eae275269a2159ed3d0c38581b6500454890b3c66663fa5147e376981cc"
+        "dosya": "Ogretmenler-Kurulu-Tutanak-Sablonlari-2026.09.1.zip",
+        "boyut": 841126,
+        "sha256": "41568d80100df7bc52146d66849b55d20c410e12534e46e6f614aff0624aa4ae"
       },
       "belgeler": [
         {
@@ -856,8 +856,8 @@
           "ad": "Sene başı öğretmenler kurulu",
           "aciklama": "Ders yılı başında yapılan kurul: gündem çatısı, seçimler, görevlendirmeler, haftalık ders programı, nöbet, okul kuralları ve bilişim araçları kararı.",
           "dosya": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 92853,
-          "sha256": "eba68b7caddd76853bf3bdcae5fa4178c971b4f60f33f740925595aaf6032efb",
+          "boyut": 92734,
+          "sha256": "6b0758ef7887502fa077cbfd8f00e1757617722ceadb69e061209658aeae50fb",
           "pdf": "GNL-OKR-OKT-001_Sene_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 31
         },
@@ -867,8 +867,8 @@
           "ad": "İkinci dönem başı öğretmenler kurulu",
           "aciklama": "Birinci dönemin değerlendirilmesi, ikinci dönem planlaması, kıyafet görüşü ve puan iadesi gibi dönem başı işleri.",
           "dosya": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 49141,
-          "sha256": "434c94939a61802b5150707f667896db5461b23f67e4b4f8f90c1f55d2063488",
+          "boyut": 49142,
+          "sha256": "e4c7486e34e4f83ab7aa8fe8267dd268c00bdc914fe0ca2e367c4451c25a0964",
           "pdf": "GNL-OKR-OKT-002_Ikinci_Donem_Basi_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
         },
@@ -878,8 +878,8 @@
           "ad": "Yıl sonu öğretmenler kurulu",
           "aciklama": "Yıl sonu değerlendirmesi: karar-sonuç tablosu, okul birincisi, gelecek yıla ilişkin öneriler.",
           "dosya": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 48741,
-          "sha256": "723ccc2eeafcfaf6f00271446ac2448ea663ce0587613e7a92475d25ea4969d3",
+          "boyut": 48743,
+          "sha256": "2f24c6355339972e3d76e69829c1dac799a7b319c10105b78925b62ae222f785",
           "pdf": "GNL-OKR-OKT-003_Yil_Sonu_Ogretmenler_Kurulu_Cerceve_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 7
         },
@@ -889,8 +889,8 @@
           "ad": "Ara toplantı — Okul Temelli Sosyal Etkinlikler Eylem Planı",
           "aciklama": "Kılavuz 2026 (OGM 10.09.2026) gereği eylül ara toplantısı: Politika Belgesi ve Kılavuzun tebliği, ihtiyaç analizi ve öncelikli temalar, sekiz zorunlu kulüp ile tema kulüplerinin belirlenmesi, danışman görevlendirmesi, eylem planı takvimi.",
           "dosya": "GNL-OKR-OKT-004_Ara_Toplanti_Sosyal_Etkinlikler_Eylem_Plani_Ogretmenler_Kurulu_Tutanagi_2026-2027_v1.0.docx",
-          "boyut": 50582,
-          "sha256": "6db0c7bba87b5b88e1b72a43dd5429d60946d9cb6689f8aa76815ef5d3120ecb",
+          "boyut": 50583,
+          "sha256": "db61f8849a0a1b9450527a5072360bc13d7411ca7a4c6af1201c7e49adb2855d",
           "pdf": "GNL-OKR-OKT-004_Ara_Toplanti_Sosyal_Etkinlikler_Eylem_Plani_Ogretmenler_Kurulu_Tutanagi_2026-2027_v1.0.pdf",
           "sayfa": 8
         }
