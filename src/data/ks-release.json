@@ -1,34 +1,34 @@
 {
   "available": true,
-  "version": "2026.9.0-beta.12",
-  "name": "Kelebek Sınav v2026.9.0-beta.12",
-  "published_at": "2026-09-21T05:01:55Z",
+  "version": "2026.9.0-beta.13",
+  "name": "Kelebek Sınav v2026.9.0-beta.13",
+  "published_at": "2026-09-24T05:40:05Z",
   "prerelease": true,
   "releaseUrl": "https://github.com/aalidemirci/kelebek-sinav/releases",
   "assets": [
     {
       "kind": "windows_installer",
-      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.12-win64-setup.exe",
-      "size": 44780447
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.13-win64-setup.exe",
+      "size": 44801671
     },
     {
       "kind": "windows_portable",
-      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.12-win64-portable.zip",
-      "size": 58192269
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.13-win64-portable.zip",
+      "size": 58269268
     },
     {
       "kind": "linux_deb",
-      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav_2026.9.0.beta.12_amd64.deb",
-      "size": 154620824
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav_2026.9.0.beta.13_amd64.deb",
+      "size": 154621568
     },
     {
       "kind": "linux_archive",
-      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.12-linux-x64.tar.gz",
-      "size": 217211841
+      "url": "https://indir.okulapp.org/kelebek-sinav/kelebek-sinav-2026.9.0-beta.13-linux-x64.tar.gz",
+      "size": 217204336
     },
     {
       "kind": "checksums",
-      "url": "https://indir.okulapp.org/kelebek-sinav/SHA256SUMS-2026.9.0-beta.12.txt",
+      "url": "https://indir.okulapp.org/kelebek-sinav/SHA256SUMS-2026.9.0-beta.13.txt",
       "size": 450
     }
   ]
