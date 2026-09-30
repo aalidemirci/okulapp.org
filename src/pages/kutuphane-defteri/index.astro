@@ -1,0 +1,606 @@
+---
+import KDLayout from '../../layouts/KDLayout.astro';
+import release from '../../data/kd-release.json';
+
+// Release'ten gelecek alanlar (boyut, yayım tarihi) sürüm yayımlanana dek bu
+// değerle tutulur. "available": true iken tek bir yer tutucu kalırsa derleme
+// DURUR: eksik veriyle indirme kartı yayımlanmasın.
+//
+// "version" da dosya doldurulana dek BOŞ kalır; bekleyen sürümün adı "name"dedir.
+// Sebep: scripts/check-releases.mjs yalnız sürümü karşılaştırır. Sürüm baştan
+// yazılı olsaydı Release çıktığında denetleyici yer tutucuları görmeden "güncel"
+// derdi; boşken "sitede (boş), depoda …" diye uyarır (katı kipte hata verir).
+const YER_TUTUCU = 'YER_TUTUCU';
+
+// Linux paketindeki Qt ve PySide6'nın sürümü. Sürümün lisans listesindeki
+// (uygulama deposu THIRD_PARTY_LICENSES/bilesenler.json) değerle aynı olmalıdır;
+// Qt yükselirse burası da güncellenir.
+const QT_SURUMU = '6.8.3';
+const QT_DALI = QT_SURUMU.split('.').slice(0, 2).join('.');
+
+const DEPO = 'https://github.com/aalidemirci/kutuphane-defteri';
+
+// İletişim kardeş projelerle aynıdır (29.09.2026 kullanıcı kararı): e-posta birincil
+// yol, GitHub Issues ikincil. Unvan ve kurum adı yazılmaz.
+const EPOSTA = 'aalidemirci@gmail.com';
+const epostaBaglantisi = (konu: string) => `mailto:${EPOSTA}?subject=${encodeURIComponent(konu)}`;
+
+const packageLabels: Record<string, [string, string]> = {
+  windows_installer: ['Windows kurulum', 'Windows 10/11 · Önerilen · Yönetici onayı ister'],
+  windows_portable: ['Windows taşınabilir', 'Kurulumsuz · Ağ Kataloğu ve otomatik başlatma yok'],
+  linux_deb: ['Pardus / Debian', '.deb paketi · Önerilen · Kurulum sudo ister'],
+  linux_archive: ['Pardus / Linux taşınabilir', 'Kurulum için sudo gerekmez · Ağ Kataloğu yok'],
+  checksums: ['SHA-256 özetleri', 'İndirilen dosyaları doğrulamak için'],
+};
+
+type ReleaseAsset = { kind: string; url: string; size?: number | string };
+const releaseAssets = release.assets as ReleaseAsset[];
+const publishedAt = Date.parse(String(release.published_at));
+
+const eksikAlanlar = [
+  release.version ? null : 'version',
+  release.version && !release.name.endsWith(`v${release.version}`) ? 'name (sürümle uyuşmuyor)' : null,
+  Number.isFinite(publishedAt) ? null : 'published_at',
+  ...releaseAssets.map((asset) => (typeof asset.size === 'number' ? null : `assets[${asset.kind}].size`)),
+].filter((alan): alan is string => alan !== null);
+
+if (release.available && eksikAlanlar.length > 0) {
+  throw new Error(
+    `kd-release.json: "available": true, ama Release'ten doldurulacak alanlar eksik ya da tutarsız (boş, ${YER_TUTUCU} ya da sürümle uyuşmuyor): ${eksikAlanlar.join(', ')}`,
+  );
+}
+
+function formatBytes(bytes: number): string {
+  if (!Number.isFinite(bytes) || bytes <= 0) return '';
+  const units = ['B', 'KB', 'MB', 'GB'];
+  const index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+  return `${(bytes / 1024 ** index).toFixed(index > 1 ? 1 : 0).replace('.', ',')} ${units[index]}`;
+}
+
+const fileName = (url: string) => url.split('/').pop() ?? url;
+
+const assets = release.available ? releaseAssets.filter((asset) => packageLabels[asset.kind]) : [];
+const releaseDate =
+  release.available && Number.isFinite(publishedAt)
+    ? new Intl.DateTimeFormat('tr-TR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        timeZone: 'Europe/Istanbul',
+      }).format(new Date(publishedAt))
+    : '';
+const surumTuru = release.prerelease ? 'Beta sürüm' : 'En yeni sürüm';
+---
+
+<KDLayout
+  title="Kütüphane Defteri — Okul kütüphanesi için çevrimdışı masaüstü aracı"
+  description="Kütüphane Defteri; okulun kütüphane işlerini — katalog ve etiket, ödünç masası, sınıf kitaplığına teslim, sayım ve ayıklama — tek bilgisayarda yürüten ücretsiz, çevrimdışı, yerel masaüstü aracıdır."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Okul bilgisayarında çalışır · Veri okulda kalır</p>
+      <h1>Katalogdan ödünç masasına, okul kütüphanesi tek bilgisayarda.</h1>
+      <p class="lead">
+        Kütüphane Defteri, okulun kütüphane işlerini yürüttüğü çevrimdışı, yerel bir masaüstü
+        aracıdır. Katalog ve etiketten ödünç masasına, sınıf kitaplığına teslimden sayım ve
+        ayıklamaya kadar günlük işler internete bağlı kalmadan yürür; veriler okulun kendi
+        bilgisayarında, şifreli durur.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#indir">Uygulamayı indir</a>
+        <a class="button button-secondary" href="/kutuphane-defteri/kilavuz/">Kurulum ve ilk adımlar</a>
+      </div>
+      <p class="privacy-promise">
+        Öğrenci ve personel kayıtları okulun bilgisayarından çıkmaz. Site; çerez, reklam ve
+        ziyaretçi analizi kullanmaz.
+      </p>
+    </div>
+    <aside class="hero-panel" aria-label="Program özeti">
+      <div class="status-line"><span></span> {release.prerelease ? 'Çevrimdışı · Ön sürüm (beta)' : 'Çevrimdışı çalışma'}</div>
+      <div class="metric">
+        <strong>15 gün · 3 / 5 kitap</strong>
+        <span>ödünç süresi; öğrenciye üç, öğretmene beş kitap (Okul Kütüphaneleri Yönetmeliği)</span>
+      </div>
+      <div class="metric">
+        <strong>Ağ Kataloğu</strong>
+        <span>okul ağından ve tahtalardan salt okur arama · varsayılan kapalı</span>
+      </div>
+      <div class="metric">
+        <strong>Windows + Pardus</strong>
+        <span>Windows 10/11 · Pardus 21 ve 23</span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section" id="ozellikler">
+    <div class="section-heading">
+      <p class="eyebrow">Özellikler</p>
+      <h2>Program neler yapar?</h2>
+      <p>
+        Kurallar Okul Kütüphaneleri Yönetmeliği'ne göre yazılmıştır: on beş günlük ödünç
+        süresi, öğrenciye üç, öğretmene beş kitap sınırı, ödünç verilmeyen kaynaklar. Program
+        bunları masada kendisi uygular; süre uzatma, ceza ya da harç yoktur.
+      </p>
+    </div>
+    <div class="feature-grid">
+      <article class="card"><span class="card-number">01</span><h3>Katalog</h3><p>Excel şablonuyla toplu aktarım; önizleme kayıt yazmadan sonucu gösterir, aynı dosya iki kez uygulanamaz. Hazır liste yoksa önce barkod etiketi yapıştırılır, kitap elde okutularak kaydedilir. Türkçe harflere duyarlı arama; ada, yazara ve konuya göre Türkçe sıralama; ISBN denetimi.</p></article>
+      <article class="card"><span class="card-number">02</span><h3>Etiketler</h3><p>Sırt ve barkod etiketi, boş barkod etiketi; yazıcıya göre kalibrasyon. Basım kaydı geri alınabilir; yapıştırılan etiket okutularak doğrulanır.</p></article>
+      <article class="card"><span class="card-number">03</span><h3>Dolaşım masası</h3><p>Üye kartı ve barkod okuyucuyla ödünç ve iade. Öğrenci görevliler için yalnız masa işlerini açan görevli kipi, iade hatırlatma pusulası, beklenmedik kapanıştan sonra son işlemleri gözden geçirme.</p></article>
+      <article class="card"><span class="card-number">04</span><h3>Sınıf kitaplığı ve öğretmene teslim</h3><p>Şubenin sınıf kitaplığına ya da öğretmene tek işlemde toplu teslim, okutarak geri alma ve teslim listesi.</p></article>
+      <article class="card"><span class="card-number">05</span><h3>Kayıp, hasar ve ilişik</h3><p>Kayıp ve hasar tutanağı, “Kütüphaneden ilişiği yoktur” belgesi, yıl sonu ve yıl başı adımları.</p></article>
+      <article class="card"><span class="card-number">06</span><h3>Sayım, komisyon ve ayıklama</h3><p>Sayım tutanağı ve Taşınır Mal Yönetmeliği'ne hazırlık dökümleri, ayıklama belgeleri, nadir eserler listesi, bağış değerlendirmesi, yıl sonu kütüphane raporu. Resmî taşınır kayıtları TKYS'de kalır; program hazırlık çıktısı verir.</p></article>
+      <article class="card"><span class="card-number">07</span><h3>Raporlar ve dışa aktarım</h3><p>Kişisiz istatistik, sayı göstermeden çok okunanlar, alfabetik katalog dökümü; verinin açık, belgelenmiş biçimde dışa aktarımı.</p></article>
+      <article class="card"><span class="card-number">08</span><h3>Ağ Kataloğu</h3><p>Okul ağındaki bilgisayarlar ve etkileşimli tahtalar için salt okur katalog sayfaları; tahtalar için büyük dokunma düzeni. Varsayılan olarak kapalıdır ve kişisel veri göstermez.</p></article>
+      <article class="card"><span class="card-number">09</span><h3>Güvenlik ve yedek</h3><p>Zorunlu yönetici parolası ve kurtarma anahtarı; kişi adları, okul ve kart numaraları şifreli. Her gün şifreli otomatik yedek, USB belleğe yedek hatırlatması, başka bilgisayara geri yükleme, görev devri.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="ekranlar">
+    <div class="section-heading">
+      <p class="eyebrow">Ekranlar</p>
+      <h2>Programdan görünümler</h2>
+    </div>
+    <p class="shots-note">
+      Görüntülerdeki okul adı, üye adı, barkodlar ve katalog kayıtları <b>örnektir</b>; tanıtım
+      için üretilmiş kurgu verilerdir. Programın kendisi verilerinizi yalnız okulun bilgisayarında
+      tutar.
+    </p>
+    <div class="shots-grid">
+      <figure class="shot">
+        <img
+          src="/kutuphane-defteri/ekran-genel-bakis.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Genel Bakış ekranı: iade tarihi geçmiş ödünç sayısı, sayımın durumu, dönemin ve ayın çok okunanları ile şifreli yedeği USB belleğe alma hatırlatması."
+        />
+        <figcaption>
+          <strong>Genel Bakış</strong>
+          Günün işleri tek bakışta: iade tarihi geçmiş ödünçler, sayımın durumu, çok okunanlar ve
+          şifreli yedeği USB belleğe alma hatırlatması. Çok okunanlar farklı üye sayısına göre
+          sıralanır; sayı gösterilmez.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kutuphane-defteri/ekran-dolasim-masasi.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Dolaşım Masası ekranı: okutulan üye kartıyla açılan üye bilgisi, kalan ödünç hakkı, açık ödünçler ve “Ödünç verildi” bildirimi."
+        />
+        <figcaption>
+          <strong>Dolaşım Masası</strong>
+          Önce üye kartı, sonra kitabın kütüphane etiketi okutulur; kalan ödünç hakkı ve açık
+          ödünçler aynı ekranda görünür. Ödünç süresi on beş gündür. Kart okutmadan okutulan
+          kitabın iadesi alınır. Öğrenci görevliler aynı masada, yalnız masa işlerinin açık olduğu
+          görevli kipinde çalışır.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kutuphane-defteri/ekran-katalog.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Katalog ekranı: “roman” araması, bölüm, kaynak türü ve sıralama seçimleri, Türkçe sıralı eser listesi ile nüsha ve raftaki nüsha sayıları."
+        />
+        <figcaption>
+          <strong>Katalog</strong>
+          Arama kaynak adı, yazar, konu ve ISBN üzerinde çalışır. Büyük-küçük harf ve düzeltme
+          işareti aramayı etkilemez, “ı” ile “i” ayrı harf sayılır; liste Türkçe alfabeye göre
+          sıralanır. Her eserin nüsha sayısı ve raftaki nüshası yanında görünür.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kutuphane-defteri/ekran-etiketler.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Etiketler ekranı: sırt ve barkod etiketi bekleyen nüsha sayıları, etiket içeriği, basım sırası ve süzgeçler, basım kuyruğundaki nüshalar."
+        />
+        <figcaption>
+          <strong>Etiketler</strong>
+          Sırt ve barkod etiketleri yer numarası sırasıyla basılabilir; raf raf yapıştırmak
+          kolaylaşır. PDF'i almak “basıldı” saymaz: tabaka denetlenip işaretlenince nüshalar
+          kuyruktan çıkar ve bu işaret geri alınabilir. Yapıştırılan etiket okutularak doğrulanır.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kutuphane-defteri/ekran-ag-katalogu-vitrin.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Ağ Kataloğu'nun tahtalar için büyük düzeni: katalog araması, kaynak adı, yazar ve konu dizinleri, yeni gelenler ve çok okunanlar."
+        />
+        <figcaption>
+          <strong>Ağ Kataloğu</strong>
+          Açılırsa okul ağındaki bilgisayarlar ve etkileşimli tahtalar kataloğu tarayıcıdan, salt
+          okur olarak tarar; tahtalarda büyük düzen ve dizinlerle klavyesiz gezinme vardır. Üye,
+          ödünç kaydı ve iade tarihi bu sayfalarda yer almaz. Varsayılan olarak kapalıdır.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kutuphane-defteri/ekran-raporlar.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Raporlar ekranı, İstatistik sekmesi: koleksiyon sayıları ile kaynak türüne, nüsha durumuna ve bölüme göre dağılım."
+        />
+        <figcaption>
+          <strong>Raporlar</strong>
+          İstatistik kişisizdir: üye bazında bilgi, adlı sıralama ve konuya göre ödünç dağılımı
+          yoktur; ödünç kaydı okunan kitabı göstermez. Çok okunanlar, katalog dökümleri ve verinin
+          belgelenmiş biçimde dışa aktarımı da buradadır.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section safety" id="guvenceler">
+    <div>
+      <p class="eyebrow">Veri nerede durur?</p>
+      <h2>Okulun kütüphanesi, okulun bilgisayarında.</h2>
+      <p class="muted">
+        Program okulun bilgisayarındaki tek bir yerel veritabanıyla çalışır. Ayrıntılar
+        <a href="/kutuphane-defteri/gizlilik/">gizlilik ve KVKK bilgilendirmesinde</a>.
+      </p>
+    </div>
+    <div class="safety-list">
+      <p><strong>Bulut, hesap ve telemetri yok</strong><span>Program açılışta internete çıkmaz; veriler okulun bilgisayarında, yedekler şifreli.</span></p>
+      <p><strong>İnternete yalnız sizin başlattığınız iki istek</strong><span>“Şimdi denetle” ile güncelleme denetimi ve açarsanız ISBN ile künye getirme. İkisi de kişisel veri taşımaz.</span></p>
+      <p><strong>Toplanmayan veriler</strong><span>T.C. kimlik numarası, veli bilgisi, cinsiyet, personelin unvanı ve branşı programa alınmaz.</span></p>
+      <p><strong>Masadaki görevli kişi listelerini görmez</strong><span>Görevli kipinde yalnız masa işleri açıktır; yönetici işleri parolayla açılır.</span></p>
+    </div>
+  </section>
+
+  <section class="section download-section" id="indir">
+    <div class="section-heading two-column-heading">
+      <div>
+        <p class="eyebrow">İndirme</p>
+        <h2>Uygulamayı indirin</h2>
+      </div>
+      <p class="release-summary">
+        {release.available
+          ? `${surumTuru}: ${release.version}`
+          : `${release.name} hazırlanıyor; paketler yayımlanınca burada görünür.`}
+      </p>
+    </div>
+
+    {release.prerelease && (
+      <div class="info-box beta-box">
+        <p>
+          <b>Ön sürüm (beta).</b> Bu sürüm bir ön sürümdür. Gerçek okul verisiyle kullanmadan önce
+          okulda bir deneme kurulumu yapmanızı ve şifreli yedek almanızı öneririz. Güncelleme,
+          programın Ayarlar → Güncelleme ekranındaki “Şimdi denetle” düğmesiyle denetlenir; okul
+          ağında GitHub'a erişim yoksa yeni sürüm bu sayfadan elle indirilir.
+        </p>
+      </div>
+    )}
+
+    {assets.length > 0 ? (
+      <>
+        <div class="download-grid">
+          {assets.map((asset) => (
+            <article class="download-card">
+              <h3>{packageLabels[asset.kind][0]}</h3>
+              <p class="download-meta">
+                {packageLabels[asset.kind][1]}
+                {typeof asset.size === 'number' ? ` · ${formatBytes(asset.size)}` : ''}
+              </p>
+              <p class="download-file"><code>{fileName(asset.url)}</code></p>
+              <a class="button" href={asset.url} rel="noopener" aria-label={`${packageLabels[asset.kind][0]} paketini indir`}>
+                İndir
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="source-note" id="acik-kaynak-bilesenler">
+          <strong>Açık kaynak bileşenlerin kaynağı</strong>
+          <p>
+            Programla gelen LGPL lisanslı bileşenlerin kaynak adresleri ve kaynak kodu için yazılı
+            teklif her paketteki <code>THIRD_PARTY_LICENSES/BENIOKU.txt</code> dosyasındadır
+            (<a href={`${DEPO}/blob/v${release.version}/THIRD_PARTY_LICENSES/BENIOKU.txt`} rel="noopener">bu sürümün dosyası GitHub'da</a>).
+            Linux paketindeki Qt ve PySide6'nın ({QT_SURUMU}) kaynak arşivleri download.qt.io'dadır:
+            <a href={`https://download.qt.io/archive/qt/${QT_DALI}/${QT_SURUMU}/single/`} rel="noopener">Qt {QT_SURUMU}</a> ·
+            <a href={`https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-${QT_SURUMU}-src/`} rel="noopener">PySide6 {QT_SURUMU}</a>.
+            Windows paketindeki pystray'in kaynak dosyaları paketin içindedir. Kaynak kodu isteği
+            programın <a href={`${DEPO}/issues`} rel="noopener">GitHub Issues</a> sayfasından ya da
+            <a href={epostaBaglantisi('Kütüphane Defteri: LGPL kaynak kodu isteği')}>{EPOSTA}</a>
+            adresine e-postayla iletilir.
+          </p>
+        </div>
+      </>
+    ) : (
+      <div class="drive-card pending-card">
+        <div>
+          <h3>Paketler hazırlanıyor</h3>
+          <p>
+            {release.prerelease ? 'Beta sürüm' : 'Sürüm'} yayımlandığında Windows kurulum ve taşınabilir paketleri, Pardus / Debian
+            için <code>.deb</code> paketi, Linux taşınabilir arşivi ve SHA-256 özet dosyası bu
+            bölümden iner. Hangi paketin kime uygun olduğu kılavuzda yazılıdır.
+          </p>
+        </div>
+        <a class="button button-outline" href="/kutuphane-defteri/kilavuz/#paket-secimi">Paket seçimi →</a>
+      </div>
+    )}
+
+    <div class="security-note">
+      <strong>Dosya güvenliği</strong>
+      <p>
+        Dosyalar bu sitenin kendi indirme alanından (indir.okulapp.org) sunulur; aynı dosyalar
+        GitHub Releases sayfasında da yayımlanır. Paketler imzasızdır: Windows “tanınmayan
+        uygulama” uyarısı verebilir (“Ek bilgi” → “Yine de çalıştır”). Kurmadan önce dosyanın
+        SHA-256 özetini özet dosyasındaki satırla karşılaştırın.
+      </p>
+      <a href="/kutuphane-defteri/kilavuz/#dosya-dogrulama">Dosya doğrulama adımları →</a>
+    </div>
+
+    <div class="info-box disclaimer-box">
+      <p>
+        <b>Kişisel bir çalışmadır.</b> Kütüphane Defteri, Millî Eğitim Bakanlığının resmî yazılımı
+        değildir; okulun kütüphane işlerini yürüttüğü yerel bir araçtır, Bakanlık otomasyon
+        sistemine bağlanmaz ve ona veri göndermez. Ürettiği belgeleri, dayandığı mevzuat
+        hükümlerini bilmiyorsanız araştırarak, biliyorsanız kontrol ederek kullanın; sorumluluk
+        belgeyi imzalayandadır.
+      </p>
+    </div>
+
+    <p class="github-fallback">
+      İndirme bağlantıları MEB ağı gibi GitHub'ın engelli olduğu bağlantılarda da çalışır.
+      GitHub'a erişebiliyorsanız paketleri
+      <a href={release.releaseUrl} rel="noopener">GitHub Releases</a> sayfasından da
+      indirebilirsiniz; orada özet dosyasının adı <code>SHA256SUMS.txt</code>'dir.
+    </p>
+  </section>
+
+  <section class="section" id="sss">
+    <div class="section-heading">
+      <p class="eyebrow">Sık sorulanlar</p>
+      <h2>Kurmadan önce merak edilenler</h2>
+    </div>
+    <div class="faq">
+      <article>
+        <h3>Bakanlık otomasyon sisteminin yerine mi geçer?</h3>
+        <p>
+          Hayır. Kütüphane Defteri okulun kütüphane işlerini yürüttüğü yerel bir araçtır; Bakanlık
+          otomasyon sistemine bağlanmaz ve ona veri göndermez. Kataloğunu açık, belgelenmiş bir
+          biçimde dışa aktarabilir.
+        </p>
+      </article>
+      <article>
+        <h3>İnternet gerekir mi?</h3>
+        <p>
+          Hayır. Program çevrimdışı çalışır. İnternet yalnız güncellemeyi denetlemek ve (açıksa)
+          ISBN ile künye getirmek için kullanılır; ikisini de kullanıcı başlatır.
+        </p>
+      </article>
+      <article>
+        <h3>Öğrenci verisi nereye gider?</h3>
+        <p>
+          Hiçbir yere. Veriler okulun bilgisayarındadır; yedekler şifrelidir; program dışarıya
+          kişisel veri göndermez.
+        </p>
+      </article>
+      <article>
+        <h3>Ağ Kataloğunu açmak zorunlu mu?</h3>
+        <p>Hayır. Varsayılan olarak kapalıdır; program onsuz tam çalışır.</p>
+      </article>
+      <article>
+        <h3>Hangi donanım gerekir?</h3>
+        <p>
+          Programın çalıştığı bir Windows 10/11 ya da Pardus bilgisayar. Ödünç masası için USB
+          barkod okuyucu (2D önerilir), etiket basımı için lazer yazıcı ve etiket tabakası
+          (varsayılan 38,1 × 21,2 mm, 65'li) önerilir.
+        </p>
+      </article>
+      <article>
+        <h3>Ücretli mi?</h3>
+        <p>
+          Program PolyForm Noncommercial lisansıyla dağıtılır: ticari olmayan kullanım serbesttir;
+          ticari satış, ücretli dağıtım ya da barındırılan hizmet olarak sunum için ayrı yazılı izin
+          gerekir. Pakete giren üçüncü taraf bileşenlerin lisans metinleri paketle birlikte gelir;
+          LGPL lisanslı bileşenlerin kaynak kodu için yazılı teklif de oradadır
+          (<code>BENIOKU.txt</code>). İstek programın GitHub deposundaki Issues sayfasından ya da
+          <a href="#iletisim">e-postayla</a> iletilir.
+        </p>
+      </article>
+      <article>
+        <h3>Bilgisayar değişirse?</h3>
+        <p>
+          Eski bilgisayardan şifreli yedek alınır, yeni bilgisayara program kurulur ve yedek geri
+          yüklenir; adımlar <a href="/kutuphane-defteri/kilavuz/#yedekleme">kılavuzda</a> bir
+          kontrol listesi olarak yazılıdır.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section updates" id="guncellemeler">
+    <div class="section-heading">
+      <p class="eyebrow">Güncellemeler</p>
+      <h2>Sürüm notları</h2>
+    </div>
+    <div class="update-layout">
+      <div>
+        <p class="release-title">
+          {release.available ? release.name || `Kütüphane Defteri ${release.version}` : `${release.name} — hazırlanıyor`}
+        </p>
+        <p class="muted">
+          {release.available && releaseDate
+            ? `Yayım tarihi: ${releaseDate}${release.prerelease ? ' · ön sürüm (beta)' : ''}`
+            : 'Paketler güvenlik denetimlerinden sonra burada görünür.'}
+        </p>
+      </div>
+      <div>
+        <p>
+          Program yeni sürümü yalnız siz Ayarlar → Güncelleme → “Şimdi denetle” düğmesine
+          bastığınızda GitHub'dan sorar; açılışta kendiliğinden sormaz. Okul ağında GitHub'a
+          erişim yoksa yeni sürüm bu sayfadan elle indirilir. Yeni özellikler, düzeltmeler ve
+          bilinen sorunlar sürüm sayfasında yayımlanır.
+        </p>
+        <a class="text-link" href={release.releaseUrl} rel="noopener">Tüm sürüm notlarını görüntüle →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="iletisim">
+    <div>
+      <p class="eyebrow">İletişim</p>
+      <h2>Bir sorun veya öneriniz mi var?</h2>
+      <p>
+        Teknik destek, öneri ve hata bildirimleri için e-posta gönderebilir ya da GitHub'a
+        erişebiliyorsanız programın deposundaki Issues (sorun kayıtları) sayfasında kayıt
+        açabilirsiniz. LGPL lisanslı bileşenlerin kaynak kodu isteği de bu iki yoldan iletilir.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={epostaBaglantisi('Kütüphane Defteri hakkında')}>E-posta gönder</a>
+        <a class="button button-outline" href={`${DEPO}/issues`} rel="noopener">GitHub Issues</a>
+      </div>
+    </div>
+    <aside class="warning-card">
+      <strong>Kişisel veri göndermeyin</strong>
+      <p>
+        E-postaya ya da herkese açık GitHub kayıtlarına öğrenci, veli ya da personel adı, okul
+        numarası, kart numarası, okul adı, ekran görüntüsü, yedek (<code>.kdbak</code>), veritabanı
+        ya da günlük dosyası eklemeyin. Programın sürümünü (Hakkında ekranında yazar), platformu ve
+        adımları yazmanız yeterlidir.
+      </p>
+      <a href="/kutuphane-defteri/gizlilik/">Gizlilik ve KVKK bilgilendirmesi →</a>
+    </aside>
+  </section>
+</KDLayout>
+
+<style>
+  /* Sayfaya özgü stiller (ortak stil dosyasına yalnız palet blokları girer). */
+
+  /* Koyu blok içinde klavye odak halkası. Ortak kural halkayı --focus-ring ile çizer;
+     açık temada o renk --deep ile aynıdır ve halka koyu zeminde görünmez (1:1). Burada
+     koyu bloktaki odaklanabilir öğeler --on-deep alır. Site geneli düzeltme (bütün
+     projelerin koyu blokları) sitenin kendi oturumunun işidir. */
+  .hero a:focus-visible,
+  .hero button:focus-visible,
+  .security-note a:focus-visible {
+    outline-color: var(--on-deep);
+  }
+
+  .download-file {
+    margin: 0 0 1rem;
+    font-size: 0.85rem;
+  }
+
+  .beta-box,
+  .disclaimer-box {
+    margin: 0 0 1rem;
+  }
+
+  .disclaimer-box {
+    margin-top: 1rem;
+  }
+
+  .source-note {
+    margin-top: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .source-note p {
+    color: var(--muted);
+    margin: 0.35rem 0 0;
+    font-size: 0.95rem;
+  }
+
+  .pending-card {
+    margin-top: 1rem;
+  }
+
+  .faq {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .faq article {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.3rem 1.4rem;
+  }
+
+  .faq h3 {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .faq p {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  @media (max-width: 800px) {
+    .faq {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Ekran görüntüsü bölümü (Kelebek Sınav sayfasındaki bölümün eşi). */
+  .shots-note {
+    margin: 0 0 1.4rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 62ch;
+  }
+
+  .shots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+
+  .shot {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .shot figcaption {
+    padding: 1rem 1.2rem 1.2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .shot figcaption strong {
+    display: block;
+    color: var(--ink);
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+  }
+
+  @media (max-width: 860px) {
+    .shots-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

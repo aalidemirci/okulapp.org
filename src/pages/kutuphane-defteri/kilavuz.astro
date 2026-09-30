@@ -1,0 +1,425 @@
+---
+import KDLayout from '../../layouts/KDLayout.astro';
+import release from '../../data/kd-release.json';
+
+const DEPO = 'https://github.com/aalidemirci/kutuphane-defteri';
+---
+
+<KDLayout
+  title="Kurulum ve İlk Adımlar — Kütüphane Defteri"
+  description="Kütüphane Defteri kurulum hazırlığı, Windows ve Pardus kurulumu, ilk açılış, e-Okul listeleri, katalog, ödünç masası, yedekleme, Ağ Kataloğu, güncelleme ve sorun giderme kılavuzu."
+>
+  <div class="document-layout">
+    <aside class="document-nav" aria-label="Kılavuz içindekiler">
+      <strong>İçindekiler</strong>
+      <a href="#paket-secimi">Paket seçimi</a>
+      <a href="#hazirlik">Kurulumdan önce</a>
+      <a href="#windows">Windows kurulumu</a>
+      <a href="#pardus">Pardus / Linux</a>
+      <a href="#ilk-acilis">İlk açılış</a>
+      <a href="#ilk-adimlar">İlk adımlar</a>
+      <a href="#yedekleme">Yedekleme ve taşıma</a>
+      <a href="#ag-katalogu">Ağ Kataloğu</a>
+      <a href="#guncelleme">Güncelleme</a>
+      <a href="#dosya-dogrulama">Dosya doğrulama</a>
+      <a href="#sorun-giderme">Sorun giderme</a>
+      <a href="#kaldirma">Kaldırma</a>
+    </aside>
+    <article class="document">
+      <p class="eyebrow">Kurulum ve ilk adımlar</p>
+      <h1>Kurulumdan ilk ödünç kaydına kadar</h1>
+      <div class="info-box">
+        <strong>İnternet bağlantısı gerekmez.</strong>
+        <p>
+          Program kurulduktan sonra kayıtlar yalnız okulun bilgisayarında tutulur. Bu sayfa
+          kurulum ve ilk adımlar içindir; her ekranın ayrıntısı programın içindeki
+          <b>Kullanım Kılavuzu</b>'ndadır.
+        </p>
+        {release.prerelease && (
+          <p>
+            <b>Ön sürüm (beta):</b> gerçek okul verisiyle kullanmadan önce okulda bir deneme
+            kurulumu yapmanızı ve şifreli yedek almanızı öneririz. Denemede gerçek öğrenci listesi
+            kullanmayın.
+          </p>
+        )}
+      </div>
+
+      <h2 id="paket-secimi">Hangi paketi seçmeliyim?</h2>
+      <div class="guide-table" role="table" aria-label="Kurulum paketi seçenekleri">
+        <div role="row"><strong role="cell">Windows kurulum</strong><span role="cell"><code>kutuphane-defteri-&lt;sürüm&gt;-win64-setup.exe</code> — Windows 10/11 için önerilen seçenek. Yönetici onayı ister; Windows'ta Ağ Kataloğu ve oturum açılınca başlatma yalnız bu pakette vardır.</span></div>
+        <div role="row"><strong role="cell">Windows taşınabilir</strong><span role="cell"><code>kutuphane-defteri-&lt;sürüm&gt;-win64-portable.zip</code> — kurulumsuz kullanım. Ağ Kataloğu sunulmaz, otomatik başlatma yoktur.</span></div>
+        <div role="row"><strong role="cell">Pardus / Debian paketi</strong><span role="cell"><code>kutuphane-defteri_&lt;sürüm&gt;_amd64.deb</code> — Pardus 21 ve 23 (Debian 11 ve 12) için önerilen seçenek. Kurulum sudo ister; Linux'ta Ağ Kataloğu yalnız bu pakette açılabilir.</span></div>
+        <div role="row"><strong role="cell">Linux taşınabilir arşivi</strong><span role="cell"><code>kutuphane-defteri-&lt;sürüm&gt;-linux-x64.tar.gz</code> — kurulum için sistem yöneticisi (sudo) yetkisi gerekmez. Ağ Kataloğu açılmaz.</span></div>
+        <div role="row"><strong role="cell">SHA-256 özetleri</strong><span role="cell"><code>SHA256SUMS-&lt;sürüm&gt;.txt</code> — indirilen dosyayı doğrulamak için (GitHub'daki adı <code>SHA256SUMS.txt</code>).</span></div>
+      </div>
+      <p>
+        Beta sürümlerde <code>.deb</code> dosyasının adında sürümdeki <code>-</code> yerine
+        <code>.</code> bulunur (ör. <code>kutuphane-defteri_2026.10.0.beta.1_amd64.deb</code>).
+      </p>
+
+      <h2 id="hazirlik">Kurulumdan önce</h2>
+      <p>Bu hazırlıkları kurulumdan önce yapın; sonradan değiştirmek zahmetlidir.</p>
+      <ul>
+        <li>
+          <strong>Bilgisayar okul demirbaşı olmalı.</strong> Program yalnız kurum demirbaşı bir
+          bilgisayara kurulur (Bilgi ve Sistem Güvenliği Yönergesi md. 11/8, 11/23); kurulum
+          sihirbazı bunun onayını ister. Kişisel bilgisayara kurmayın.
+        </li>
+        <li>
+          <strong>Kütüphane masası için ayrı Windows hesabı (önerilir).</strong> Masada öğrenci
+          görevliler çalışacağı için yönetici yetkisi olmayan, ayrı bir “kütüphane masası”
+          hesabını okulun bilişim teknolojileri rehber öğretmeni (BTR) açar. Bu hesapta e-Okul,
+          MEBBİS, e-posta ve kişisel oturumlar açılmaz. Programın verisi, programı çalıştıran
+          hesabın klasöründe durur.
+        </li>
+        <li>
+          <strong>Disk şifrelemesi (önerilir).</strong> Program kişi adlarını ve numaraları
+          şifreler; eser adları, şube ve ödünç tarihleri şifresizdir. Bilgisayarın diskini
+          BitLocker ile (Pardus'ta işletim sistemi kurulurken) şifreleyin.
+        </li>
+        <li>
+          <strong>Parola ve kurtarma anahtarı.</strong> Yönetici parolası zorunludur ve en az iki
+          görevlendirilmiş kişide bulunması önerilir. Sihirbazın verdiği tek seferlik kurtarma
+          anahtarı yazdırılır ya da PDF olarak USB belleğe alınır ve müdürlükte kapalı zarfta
+          saklanır. Parola da anahtar da kaybolursa şifreli veri açılamaz.
+        </li>
+        <li>
+          <strong>Elektrik kesintisi.</strong> Kütüphane bilgisayarı için kesintisiz güç kaynağı
+          (UPS) önerilir.
+        </li>
+      </ul>
+
+      <h2 id="windows">Windows kurulumu</h2>
+      <p>
+        Kurulum <strong>yönetici yetkisi ister</strong>: program <code>Program Files</code> altına
+        kurulur ve Ağ Kataloğu için güvenlik duvarı kuralı kurulum sırasında eklenir.
+      </p>
+      <ol>
+        <li>Kütüphane masası hesabında oturum açın.</li>
+        <li><code>kutuphane-defteri-&lt;sürüm&gt;-win64-setup.exe</code> dosyasını <strong>bu hesapta</strong> çalıştırın.</li>
+        <li>
+          Windows'un yönetici onay penceresi (UAC) açılınca BTR yönetici hesabının kullanıcı adını
+          ve parolasını girer. Kurulumu BTR kendi oturumunda başlatmasın: oturum açılınca başlatma
+          görevi kurulum dosyasını başlatan hesaba yazılır.
+        </li>
+        <li>
+          Kurulum önce lisans sözleşmesini (PolyForm Noncommercial) gösterir, ardından iki seçenek
+          sunar: <strong>Oturum açılınca Kütüphane Defteri'ni başlat</strong> (isteğe bağlı olarak
+          pencereyi açmadan tepside) ve <strong>Yerel ağdan katalog taramasına izin ver</strong>
+          (yalnız yerel alt ağdan gelen bağlantılara izin veren güvenlik duvarı kuralı). Kural tek
+          başına bir şey açmaz; Ağ Kataloğu program içinden ayrıca açılır.
+        </li>
+        <li>
+          Bilgisayarda Microsoft Edge WebView2 yoksa kurulum onu da kurar; bunun için internet
+          gerekir. Ağı kısıtlı bilgisayarda WebView2'yi önceden kurun.
+        </li>
+      </ol>
+      <p>
+        Paketler imzasızdır; SmartScreen “tanınmayan uygulama” uyarısı verebilir (“Ek bilgi” →
+        “Yine de çalıştır”). Önce aşağıdaki <a href="#dosya-dogrulama">SHA-256 doğrulamasını</a>
+        yapın. Program açıkken kurulum başlatılırsa kurulum programa kapanma isteği gönderir;
+        program düzenli kapanır.
+      </p>
+      <h3>Taşınabilir sürüm</h3>
+      <p>
+        <code>…-win64-portable.zip</code> dosyasını bir klasöre açıp
+        <code>kutuphane-defteri.exe</code>'yi çalıştırın. Veriler yine
+        <code>%LOCALAPPDATA%\KutuphaneDefteri</code> altına yazılır; klasörü silmek verileri
+        silmez. Taşınabilir sürümde Ağ Kataloğu sunulmaz ve otomatik başlatma yoktur. Ağ Kataloğu
+        gerekiyorsa programı kurulum dosyasıyla kurun; taşınabilir sürümde Ağ Doktoru'ndaki
+        “Kuralı ekle/güncelle” düğmesini kullanmayın.
+      </p>
+
+      <h2 id="pardus">Pardus / Linux kurulumu</h2>
+      <p>
+        Paket Pardus 21 ve Pardus 23 ile bu sürümlerin dayandığı Debian 11 ve 12 üzerinde
+        çalışacak biçimde üretilir.
+      </p>
+      <h3><code>.deb</code> paketi ile (önerilen)</h3>
+      <pre><code>sudo apt install ./kutuphane-defteri_&lt;sürüm&gt;_amd64.deb</code></pre>
+      <p>
+        Bağımlılıklar dağıtımın deposundan kurulur; kurulum sırasında bilgisayarın depoya
+        erişimi olmalıdır. Program menüde “Kütüphane Defteri” olarak görünür. Güncellemeden ve
+        kaldırmadan önce programdan <strong>Çık</strong>; Pardus paketi açık programı kendisi
+        kapatmaz.
+      </p>
+      <h3>Taşınabilir arşiv ile (sudo gerekmez)</h3>
+      <pre><code>tar -xzf kutuphane-defteri-&lt;sürüm&gt;-linux-x64.tar.gz
+cd kutuphane-defteri-&lt;sürüm&gt;
+./kur.sh</code></pre>
+      <p>
+        <code>kur.sh</code> programı kullanıcı klasörüne kurar ve menü kaydını ekler; kaldırmak
+        için <code>./kaldir.sh</code>. Taşınabilir arşivde Ağ Kataloğu açılamaz. Sonradan
+        <code>.deb</code> paketine geçecekseniz önce programdan çıkıp arşivdeki
+        <code>./kaldir.sh</code> ile taşınabilir sürümü kaldırın; iki sürüm aynı veri klasörünü
+        kullanır ve <code>kaldir.sh</code> verilere dokunmaz.
+      </p>
+
+      <h2 id="ilk-acilis">İlk açılış</h2>
+      <p>
+        Program ilk açıldığında <strong>Kurulum Sihirbazı</strong> gelir; üç adım tamamlanmadan
+        diğer ekranlar açılmaz:
+      </p>
+      <ol>
+        <li>
+          <strong>Yönetici parolası ve kurtarma anahtarı.</strong> Parola en az 8 karakterdir.
+          Anahtar bir kez gösterilir; yazdırın, PDF olarak kaydedin ya da elle yazın, sonra
+          sakladığınız kopyadan istenen iki grubu geri yazarak doğrulayın. Kurulum bu doğrulama
+          yapılmadan tamamlanmaz.
+        </li>
+        <li>
+          <strong>Okul bilgileri.</strong> Okul adı, kademe ve etiketlerde basılan kısa ad; il,
+          ilçe ve okul müdürü evrakta kullanılır. “Bu bilgisayar okul demirbaşıdır” onayı
+          zorunludur.
+        </li>
+        <li>
+          <strong>Ders yılı ve kapalı günler.</strong> Ders yılının ve dönemlerin tarihleri girilir.
+          Resmî tatiller ve dini bayramlar kendiliğinden eklenir; ara tatil ve yarıyılı
+          “öğrenciye kapalı gün” olarak siz girersiniz.
+        </li>
+      </ol>
+      <p>
+        Kurulum bitince Genel Bakış'taki <strong>Başlangıç Yol Haritası</strong> sıradaki işleri
+        gösterir: e-Okul öğrenci ve personel listelerinin aktarımı, kapalı günler, katalog
+        şablonu, kurtarma anahtarının saklanması, parolanın ikinci görevliyle paylaşılması ve Ağ
+        Kataloğu için BTR görüşmesi.
+      </p>
+
+      <h2 id="ilk-adimlar">İlk adımlar</h2>
+      <h3>Aydınlatma metni</h3>
+      <p>
+        Veri sorumlusu okuldur. Program okulun duyurması için bir kütüphane aydınlatma metni basar
+        (Kişiler → Üyeler → Üyelik Belgeleri); metin e-Okul listeleri aktarılmadan önce duyurulur.
+      </p>
+      <h3>Kişiler: e-Okul listeleri</h3>
+      <p>
+        Öğrenci ve personel listeleri e-Okul'un Excel raporlarından, dosya değiştirilmeden
+        aktarılır: öğrenci için <em>OOG01001R020 — Sınıf/Şube Öğrenci Listesi</em>, personel için
+        <em>OOK01001R1 — Personel Listesi</em>. <strong>Önizle</strong> hiçbir şey yazmadan
+        aktarımın etkisini gösterir. T.C. kimlik numarası istenmez ve tutulmaz. Aktarım kimseyi
+        silmez: listede bulunmayanlar <strong>Ayrılış Havuzu</strong>'nda kararınızı bekler.
+      </p>
+      <h3>Katalog: önce liste ya da önce etiket</h3>
+      <ul>
+        <li>
+          <strong>Önce liste:</strong> kitap listeniz varsa programın Excel şablonuyla toplu
+          aktarılır, sonra etiketler basılıp raf raf yapıştırılır.
+        </li>
+        <li>
+          <strong>Önce etiket (çoğu okulun yolu):</strong> hazır liste yoksa boş barkod etiketleri
+          basılıp kitaplara yapıştırılır; kitap <strong>Katalog → Hızlı Kayıt</strong>'ta ISBN
+          barkodundan okutulur, künye yazılır ve kitaptaki etiket okutularak nüsha o numarayla
+          açılır.
+        </li>
+      </ul>
+      <p>
+        Geçiş döneminde ödünç istenen etiketsiz bir kitabı bekletmeyin: Hızlı Kayıt'ta “Etiket
+        yok — yeni numara ver” ile o an kaydedip tek etiketini basın.
+      </p>
+      <h3>Masa: üye kartı, ödünç ve iade</h3>
+      <ol>
+        <li>Üyelikleri açın ve üye kartlarını basın (Kişiler → Üyeler, Kart Basımı).</li>
+        <li>
+          <strong>Dolaşım Masası</strong>'nda üye kartını okutun; ekranda üyenin adı ve kalan ödünç
+          hakkı görünür. Kitabın kütüphane etiketini (ISBN barkodunu değil) okutun; iş bitince
+          “Bitti”ye basın. İade için üye kartı okutmadan kitabın etiketini okutmanız yeter; iade
+          hiçbir durumda kilitlenmez.
+        </li>
+        <li>
+          Masada öğrenci görevli çalışacaksa <strong>Görevli kipine geç</strong>in: yönetici işleri
+          kapanır, yalnız masa işleri açık kalır. Yönetici kipi işlem yapılmazsa varsayılan olarak
+          3 dakikada, işlem yapılsa da en geç 30 dakikada kendiliğinden görevli kipine iner
+          (süreler Ayarlar → Kütüphane Politikası'ndan değiştirilebilir).
+        </li>
+      </ol>
+      <p>
+        Pencerenin çarpı düğmesi programı kapatmaz, pencereyi tepsiye gizler. Programı kapatmak
+        için üst çubuktaki ya da tepsi menüsündeki <strong>Çık</strong>'ı kullanın; görevli
+        kipinde Çık yönetici parolası ister.
+      </p>
+      <div class="warning-card">
+        <strong>Gerçek verileri destek talebine eklemeyin</strong>
+        <p>
+          e-Okul dosyalarını, üye listelerini, basılan belgeleri, program yedeğini, günlük
+          dosyalarını ya da ekran görüntülerini GitHub kayıtlarında ve e-postada paylaşmayın.
+        </p>
+      </div>
+
+      <h2 id="yedekleme">Yedekleme ve yeni bilgisayara taşıma</h2>
+      <p>
+        Program her gün şifreli bir otomatik yedek alır (<code>gunluk-&lt;tarih&gt;.kdbak</code>)
+        ve 14 gün saklar; her sürüm güncellemesinden önce de ayrıca yedek bırakır (son beş).
+        Yedekler şifrelidir ve yalnız yönetici parolası ya da kurtarma anahtarıyla açılır.
+      </p>
+      <div class="guide-table" role="table" aria-label="Veri klasörleri">
+        <div role="row"><strong role="cell">Windows</strong><span role="cell">Veri <code>%LOCALAPPDATA%\KutuphaneDefteri\data</code>, yedekler <code>…\backups</code>, günlükler <code>…\logs</code></span></div>
+        <div role="row"><strong role="cell">Pardus / Linux</strong><span role="cell">Veri <code>~/.local/share/kutuphane-defteri/data</code>, yedekler <code>…/backups</code>, günlükler <code>~/.local/state/kutuphane-defteri/logs</code></span></div>
+      </div>
+      <p>
+        Yedekler bilgisayarın kendisindedir; disk bozulursa onlar da gider. <strong>Ayda bir</strong>
+        Ayarlar → Güvenlik'ten şifreli yedek indirip USB belleğe taşıyın, belleği bilgisayardan
+        ayrı saklayın. USB'de son iki yedeği tutun, bilgisayarda kopya bırakmayın; yedeği
+        e-postayla göndermeyin, bulut depolamaya koymayın. Program son indirmeden 30 gün sonra
+        Genel Bakış'ta hatırlatır.
+      </p>
+      <h3>Yedekten geri dönme</h3>
+      <p>
+        Windows'ta Başlat menüsündeki <strong>“Kütüphane Defteri — Yedekten Geri Yükle”</strong>
+        kısayolunu, Pardus'ta <code>kutuphane-defteri --geri-yukle</code> komutunu çalıştırın.
+        Program tepsideyse önce Çık'ı seçin. Mevcut veritabanı silinmez, kenara alınır.
+      </p>
+      <h3>Yeni bilgisayara taşıma</h3>
+      <ol>
+        <li>
+          Eski bilgisayarda şifreli yedek indirip USB'ye alın; aynı belleğe <code>data</code>
+          klasöründeki <code>verilmis-kartlar.txt</code> dosyasını da kopyalayın (verilmiş kart
+          numaralarının kişisiz listesidir, kart numarasının yeniden verilmesini önler).
+        </li>
+        <li>Yeni bilgisayarın okul demirbaşı olduğunu doğrulayın, masa hesabını açın ve programı kurun.</li>
+        <li>
+          Yedeği geri yükleyin (eski bilgisayarın parolası ya da kurtarma anahtarıyla), programı
+          açmadan önce <code>verilmis-kartlar.txt</code>'yi yeni <code>data</code> klasörüne koyun.
+        </li>
+        <li>Programı açın; kitap, üye ve açık ödünç sayılarını eski bilgisayarla karşılaştırın.</li>
+        <li>
+          Ağ Kataloğu kullanılıyorsa Ağ Doktoru'nda güvenlik duvarı denetimini görün, BTR'den sabit
+          adres ayırmayı yeni bilgisayara taşımasını isteyin; adres değiştiyse afişi ve yer
+          imlerini yenileyin.
+        </li>
+        <li>Yeni kurulum çalışınca eski bilgisayardaki veri, yedek ve günlük klasörlerini silin.</li>
+      </ol>
+      <p>
+        Kütüphane yöneticisi değişince Ayarlar → Güvenlik → <strong>Görev Devri</strong>
+        kullanılır: parola ve kurtarma anahtarı birlikte yenilenir, görev devri notu basılır.
+        Masa hesabının Windows parolasını da değiştirin.
+      </p>
+
+      <h2 id="ag-katalogu">Ağ Kataloğu (isteğe bağlı)</h2>
+      <p>
+        Ağ Kataloğu, okul ağındaki bilgisayarların ve etkileşimli tahtaların kütüphane kataloğunu
+        tarayıcıyla, salt okur olarak taramasını sağlar. <strong>Kişisel veri göstermez</strong>:
+        künye, yer numarası, bölüm ve nüshaların durumu görünür; bir nüshanın ödünçte olduğu
+        görünür, kimde olduğu ve ne zaman döneceği görünmez. Varsayılan olarak kapalıdır, yalnız
+        yönetici kipinde açılır ve internete hiç çıkmaz. Yalnız kurulu programda (Windows kurulum
+        dosyası ya da Pardus <code>.deb</code> paketi) sunulur, taşınabilir sürümlerde sunulmaz.
+      </p>
+      <ol>
+        <li>
+          Ayarlar → <strong>Ağ Kataloğu</strong>'nu açın. Önce BTR'yle görüşün: port (varsayılan
+          8765), güvenlik duvarı kuralı ve bilgisayarın adresinin sabit kalması (sabit adres
+          ayırma) konuşulur. Program BTR'nin ve okul müdürünün imzalayacağı bir <strong>Ağ Hizmeti
+          Bilgi Notu</strong> basar.
+        </li>
+        <li>
+          Windows'ta <strong>Ağ Doktoru</strong> güvenlik duvarı kuralını beş maddede denetler;
+          biri tutmazsa katalog hiç dinlemez. Pardus'ta kuralı BTR açar; Ağ Doktoru yalnız yerel
+          ağa ve tahta ağına izin veren komutu hazır verir.
+        </li>
+        <li>
+          <strong>Ağ Kataloğunu aç</strong> düğmesine basın, Ağ Doktoru'ndan afişi basın ve
+          tahtalar için yer imi dosyalarını üretip BTR'ye verin.
+        </li>
+        <li>
+          Erişimi okul ağındaki başka bir bilgisayardan sınayın; Ağ Doktoru gereken komutu gerçek
+          adresle hazır verir (Windows'ta <code>Test-NetConnection &lt;IP&gt; -Port &lt;port&gt;</code>).
+        </li>
+      </ol>
+
+      <h2 id="guncelleme">Güncelleme</h2>
+      <p>
+        Program yeni sürümü yalnız siz Ayarlar → Güncelleme → <strong>Şimdi denetle</strong>
+        düğmesine bastığınızda GitHub'dan sorar; açılışta internete çıkmaz. Windows'ta kurulum
+        dosyası da GitHub'dan, SHA-256 özetiyle doğrulanarak iner. Windows'ta her güncelleme
+        yönetici onayı ister (UAC'ye BTR kimliği girilir); güvenlik duvarı kuralı ve port
+        korunur. Program her sürüm geçişinden önce kendiliğinden yedek alır.
+      </p>
+      <p>
+        MEB ağında GitHub'a erişim kapalı olabilir. O zaman program bunu söyler ve bu sitedeki
+        program sayfasının bağlantısını verir (bağlantıyı tarayıcı açar; program bu siteye ve
+        indirme alanına kendisi istek atmaz): yeni sürümü buradan indirip
+        <a href="#dosya-dogrulama">doğrulayın</a> ve masa hesabında kurun. Pardus'ta yeni <code>.deb</code> dosyasını programdan çıktıktan sonra
+        aynı komutla kurun.
+      </p>
+      <p>
+        Adında <code>-beta.</code> geçen sürümler ön sürümdür. Ön sürüm kullanan bilgisayar hem
+        sonraki ön sürümü hem kararlı sürümü görür; kararlı sürüm kullanan bilgisayara ön sürüm
+        önerilmez. “GitHub ile güvenli bağlantı doğrulanamadı” iletisi ağ engeli değildir: önce
+        bilgisayarın tarih ve saatini denetleyin, saat doğruysa BTR'ye bildirin.
+      </p>
+
+      <h2 id="dosya-dogrulama">İndirilen dosyayı doğrulama</h2>
+      <p>
+        Paketler imzasızdır. Kurmadan önce indirdiğiniz dosyanın SHA-256 özetini, sürümle
+        yayımlanan <code>SHA256SUMS-&lt;sürüm&gt;.txt</code> dosyasındaki satırla karşılaştırın
+        (GitHub'dan indirdiyseniz özet dosyasının adı <code>SHA256SUMS.txt</code>'dir).
+      </p>
+      <h3>Windows PowerShell</h3>
+      <pre><code>Get-FileHash .\kutuphane-defteri-&lt;sürüm&gt;-win64-setup.exe -Algorithm SHA256</code></pre>
+      <h3>Pardus / Linux</h3>
+      <pre><code>sha256sum -c SHA256SUMS-&lt;sürüm&gt;.txt --ignore-missing</code></pre>
+      <p>
+        <code>--ignore-missing</code> indirmediğiniz paketlerin satırlarını atlar. Çıkan özet
+        dosyadaki satırla birebir aynı olmalıdır.
+      </p>
+
+      <h2 id="sorun-giderme">Sık karşılaşılan sorunlar</h2>
+      <h3>“Pencere açılamadı: Microsoft Edge WebView2 Çalışma Zamanı bulunamadı” (Windows)</h3>
+      <p>
+        Kurulum paketi WebView2'yi kurar; ağı kısıtlı bilgisayarda ya da taşınabilir sürümde
+        eksik kalabilir. Kurulu programda, programın kurulum klasöründeki
+        <code>MicrosoftEdgeWebView2Setup.exe</code> dosyasını çalıştırın (internet ister).
+        Taşınabilir sürümde bu dosya yoktur; Microsoft'un WebView2 “Evergreen” kurulum dosyasını
+        kurun. Kurulum yetkiniz yoksa BTR'den isteyin, sonra programı yeniden açın.
+      </p>
+      <h3>“Kütüphane Defteri zaten çalışıyor”</h3>
+      <p>
+        Program tek kopya çalışır ve çoğu zaman tepsidedir. Saatin yanındaki simge alanına bakın;
+        simgeden pencereyi açın ya da Çık'ı seçin.
+      </p>
+      <h3>“Veri dosyası bozuk görünüyor”</h3>
+      <p>
+        Program veriyi korumak için açılmamıştır. Yedekten geri dönme adımlarıyla son sağlam
+        yedeğe dönün; bozuk dosyayı silmeyin ve destek kaydına eklemeyin.
+      </p>
+      <h3>“Güvenlik dosyası bulunamadı ya da okunamıyor”</h3>
+      <p>
+        Kayıtların anahtarı <code>data</code> klasöründeki <code>guvenlik.json</code> dosyasındadır.
+        Sağlam bir kopyası varsa geri koyup “Yeniden denetle”ye basın; yoksa aynı ekrandan bir
+        yedeği geri yükleyin. Her yedek güvenlik dosyasını da taşır.
+      </p>
+      <h3>“Program sürümü eski”</h3>
+      <p>
+        Veri, bilgisayardaki programdan daha yeni bir sürümle açılmış ya da daha yeni bir sürümün
+        yedeği geri yüklenmiştir. Program veriyi korumak için açılmaz; programı son sürüme
+        güncelleyin, veri dosyasına dokunmayın.
+      </p>
+      <h3>PDF üretilmiyor ya da Türkçe karakterler bozuk</h3>
+      <p>
+        Komut isteminden ya da uçbirimden <code>kutuphane-defteri --pdf-duman deneme.pdf</code>
+        teşhis kipini çalıştırın. Çıkış kodu 0 değilse <code>logs</code> klasöründeki günlük
+        dosyasıyla birlikte BTR'ye iletin.
+      </p>
+
+      <h2 id="kaldirma">Programı kaldırma</h2>
+      <ul>
+        <li><strong>Windows (kurulum):</strong> Ayarlar → Uygulamalar → Kütüphane Defteri → Kaldır (UAC'ye BTR kimliği girilir). Güvenlik duvarı kuralı ve başlatma görevi de silinir.</li>
+        <li><strong>Windows (taşınabilir):</strong> klasörü silin.</li>
+        <li><strong>Pardus (.deb):</strong> BTR açtığı güvenlik duvarı kurallarını kaldırır, sonra <code>sudo apt remove kutuphane-defteri</code>.</li>
+        <li><strong>Linux (taşınabilir):</strong> arşivdeki <code>./kaldir.sh</code>.</li>
+      </ul>
+      <p>
+        Kaldırma <strong>verilerinizi silmez</strong>: katalog, üyeler ve yedekler veri
+        klasörlerinde kalır. Bilgisayar okuldan çıkacaksa önce şifreli bir yedeği USB'ye alın,
+        sonra veri klasörünü ve yedekleri silin.
+      </p>
+
+      <p class="document-source">
+        Ayrıntılı kurulum ve sorun giderme kılavuzu (BTR için çıkış kodları dahil) depodaki
+        <a href={`${DEPO}/blob/main/docs/kurulum.md`} rel="noopener">kurulum belgesinde</a>, okul
+        ağı ayarları <a href={`${DEPO}/blob/main/docs/ag-kurulumu.md`} rel="noopener">ağ kurulumu
+        belgesindedir</a>. Okul ağında GitHub'a erişilemiyorsa aynı bilgiler programın içindeki
+        Kullanım Kılavuzu'nda da vardır.
+      </p>
+    </article>
+  </div>
+</KDLayout>

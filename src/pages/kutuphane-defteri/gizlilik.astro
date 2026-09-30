@@ -1,0 +1,313 @@
+---
+import KDLayout from '../../layouts/KDLayout.astro';
+
+const DEPO = 'https://github.com/aalidemirci/kutuphane-defteri';
+// Site ve proje bakımından veri sorumlusunun iletişimi kardeş projelerle aynıdır
+// (29.09.2026 kullanıcı kararı): ad ve e-posta; unvan ve kurum adı yazılmaz.
+const EPOSTA = 'aalidemirci@gmail.com';
+---
+
+<KDLayout
+  title="Gizlilik ve KVKK — Kütüphane Defteri"
+  description="Kütüphane Defteri programının ve bu sayfaların gizlilik ve KVKK bilgilendirmesi: veri okulda kalır, Ağ Kataloğu kişisel veri göstermez."
+>
+  <div class="document-layout single-document">
+    <article class="document">
+      <p class="eyebrow">Son güncelleme: 29.09.2026</p>
+      <h1>Gizlilik ve KVKK bilgilendirmesi</h1>
+      <div class="info-box">
+        <strong>Kısa özet</strong>
+        <p>
+          Veri okulda kalır. Program okulun bilgisayarındaki tek bir yerel veritabanıyla çalışır;
+          bulut, hesap ve telemetri yoktur, program açılışta internete çıkmaz. T.C. kimlik
+          numarası ve veli bilgisi programa hiç alınmaz. Bu sitede üyelik, iletişim formu,
+          reklam, analiz aracı ya da pazarlama çerezi yoktur.
+        </p>
+      </div>
+
+      <h2 id="kapsam">1. Bu bilgilendirmenin kapsamı</h2>
+      <p>
+        Bu sayfa iki ayrı şeyi anlatır: <b>programın</b> okulun bilgisayarında işlediği veriler
+        (2-9. bölümler) ve <b>bu sitenin</b> ziyaretçilerle ve e-posta gönderenlerle ilgili
+        durumu (10-14. bölümler). Programın işlediği öğrenci ve personel verileri bakımından veri
+        sorumlusu, programı kullanan <b>okuldur</b>; program bu verileri geliştiriciye, bu siteye
+        ya da başka bir sunucuya göndermez.
+      </p>
+      <p>
+        Site ve proje bakımından veri sorumlusu Ahmet Ali Demirci'dir. KVKK kapsamındaki soru ve
+        başvurularınızı <a href={`mailto:${EPOSTA}`}>{EPOSTA}</a> adresine iletebilirsiniz.
+        Programdaki kütüphane kayıtlarınızla ilgili başvurular ise okul müdürlüğüne yapılır
+        (<a href="#aydinlatma">9. bölüm</a>).
+      </p>
+
+      <h2 id="veri-okulda">2. Veri okulda kalır</h2>
+      <p>
+        Kütüphane Defteri okulun kütüphane işlerini yürüttüğü yerel bir araçtır. Katalog, üyeler,
+        ödünç ve iade kayıtları, belgeler ve yedekler programın kurulu olduğu bilgisayarda durur.
+        Bulut, kullanıcı hesabı ve telemetri yoktur; program açılışta internete çıkmaz. Program
+        Bakanlık otomasyon sistemine bağlanmaz ve ona veri göndermez.
+      </p>
+
+      <h2 id="toplanmayan">3. Toplanmayan veriler</h2>
+      <p>
+        T.C. kimlik numarası, veli bilgisi, cinsiyet, personelin unvanı ve branşı programa
+        alınmaz; e-Okul listesindeki bu sütunlar okunmaz. Öğrencide ad, soyad, okul numarası,
+        sınıf ve şube; öğretmen ve diğer personelde ad, soyad ve üye türü tutulur. Programda not
+        ya da başarı verisi yoktur. Ödünç kaydı “okuduğu kitap” sayılmaz: öğrenci bazlı ödünç
+        sayısı öğretmene ya da e-Okul'a aktarılmaz.
+      </p>
+      <p id="okuma-odulu">
+        Ödünç kayıtlarından adlı bir sıralama yalnız bir yerde çıkar: okul isterse, yalnız
+        yönetici kipinde bir <b>okuma ödülü aday listesi</b> (programdaki adıyla okuma ödülü iç
+        çıktısı) basılabilir. Amacı, Okul Kütüphaneleri Yönetmeliği Uygulama Kılavuzu'nun 7.
+        bölümündeki okuma ödülü önerisi için adayların belirlenmesidir; öneri bağlayıcı değildir,
+        ödül verilip verilmeyeceğine okul karar verir. Hukuki sebebi programdaki öbür kütüphane
+        kayıtlarınınkiyle aynıdır: 6698 sayılı Kanun md. 5/2-ç (“Veri sorumlusunun hukuki
+        yükümlülüğünü yerine getirebilmesi için zorunlu olması”); yükümlülük burada Okul
+        Kütüphaneleri Yönetmeliği md. 8/1-c'deki okuma kültürünü oluşturmaya yönelik
+        etkinliklerden doğar. Liste yalnız öğrencileri, seçilen dönemde ödünç alıp iade ettikleri
+        farklı eserlerin sayısına göre sıralar ve yalnız sırayı, adı soyadı ve sınıfı/şubeyi basar;
+        ödünç ya da eser sayısı, okul numarası ve kitap adları basılmaz. Çıktı “İç kullanım”
+        ibarelidir ve okul içinde ödül kararı için kullanılır: asılmaz, çoğaltılmaz; Ağ Kataloğuna,
+        panoya, yıl sonu raporuna ve velilerle paylaşılan çıktılara girmez.
+      </p>
+
+      <h2 id="sifreleme">4. Şifreleme</h2>
+      <p>
+        Kişi adları, okul numaraları, kart numaraları ve kişiyle ilgili açıklamalar zorunlu
+        yönetici parolasına bağlı bir anahtarla şifrelenir; yedekler de şifrelidir. Eser adları,
+        şube ve ödünç tarihleri aramada ve sayımda kullanıldığı için şifrelenmez; bu yüzden
+        bilgisayarın diskinin şifrelenmesi (BitLocker) önerilir.
+      </p>
+
+      <h2 id="gorevli">5. Masadaki öğrenci görevli</h2>
+      <p>
+        Görevli kipinde yalnız masa işleri açıktır: üyenin adı ve kalan ödünç hakkı görünür;
+        gecikme gerekçesi ve kişi listeleri görünmez. Yönetici işleri parolayla açılır; yönetici
+        kipi bir süre işlem yapılmazsa kendiliğinden görevli kipine iner.
+      </p>
+
+      <h2 id="internet">6. İnternete giden istekler</h2>
+      <p>Program internete yalnız kullanıcının başlattığı iki durumda istek gönderir:</p>
+      <ol>
+        <li>
+          <strong>Güncelleme denetimi:</strong> Ayarlar → Güncelleme'deki “Şimdi denetle”
+          düğmesine basıldığında yayımlanan son sürüm programın GitHub sayfasına sorulur; Windows'ta
+          kurulum dosyası da oradan iner. İstek kişisel veri taşımaz. Paketlerin indirme alanı
+          indir.okulapp.org'dur. Denetim yapılamazsa (ör. okul ağında GitHub engelliyse) program
+          bunu söyler, yeni sürümün indir.okulapp.org'dan elle denetlenebileceğini yazar ve
+          programın bu sitedeki tanıtım sayfasının (okulapp.org/kutuphane-defteri/) bağlantısını
+          gösterir. Bağlantıyı tarayıcı açar; program bu siteye ve indirme alanına kendisi istek
+          atmaz.
+        </li>
+        <li>
+          <strong>ISBN ile künye getirme:</strong> varsayılan olarak kapalıdır. Açılırsa ve
+          kullanıcı bir kitap için isterse dışarı yalnız kitabın ISBN numarası gider (Kültür ve
+          Turizm Bakanlığının halk kütüphaneleri kataloğuna, orada bulunamazsa Open Library'ye).
+          Okulun adı, kitap listesi ya da kişi bilgisi gitmez.
+        </li>
+      </ol>
+      <p>Açılışta, arka planda ya da toplu içe aktarımda program internete istek atmaz.</p>
+
+      <h2 id="ag-katalogu">7. Ağ Kataloğu neyi gösterir, neyi göstermez</h2>
+      <p>
+        Ağ Kataloğu, okul ağındaki bilgisayarların ve etkileşimli tahtaların kataloğu tarayıcıyla,
+        salt okur olarak taramasını sağlar. <strong>Varsayılan olarak kapalıdır</strong>; okulun
+        kararıyla ve okulun bilişim teknolojileri rehber öğretmeninin (BTR) bilgisiyle açılır.
+        Program bunun için BTR'nin ve okul müdürünün imzalayacağı bir bilgi notu basar.
+      </p>
+      <div class="catalog-table" role="table" aria-label="Ağ Kataloğunda görünen ve görünmeyen bilgiler">
+        <div role="row" class="catalog-head">
+          <strong role="columnheader">Gösterir</strong>
+          <strong role="columnheader">Göstermez</strong>
+        </div>
+        <div role="row">
+          <span role="cell">Kaynak adı, yazar, yayınevi, yıl, konu, ISBN</span>
+          <span role="cell">Üye listesi, üye adı, sınıfı, kart numarası</span>
+        </div>
+        <div role="row">
+          <span role="cell">Yer numarası ve bölüm</span>
+          <span role="cell">Kimin ödünç aldığı, iade tarihi, ödünç geçmişi</span>
+        </div>
+        <div role="row">
+          <span role="cell">Nüsha özeti (“3 nüsha · 2 rafta · 1 ödünçte”)</span>
+          <span role="cell">Kayıp ve hasar kayıtları, bedeller, bağışçı</span>
+        </div>
+        <div role="row">
+          <span role="cell">Yeni gelenler, çok okunanlar (sayı göstermeden)</span>
+          <span role="cell">Yönetim ekranları, yedek, dışa aktarım</span>
+        </div>
+      </div>
+      <h3>Dürüst sınırlar</h3>
+      <ul>
+        <li>
+          Ağ Kataloğu yalnız okul ağında, düz HTTP ile çalışır. Kişisel veri taşımadığı için
+          şifreli bağlantı kullanılmaz.
+        </li>
+        <li>
+          Arama terimleri ve ziyaretçilerin adresleri kaydedilmez; erişim günlüğü tutulmaz, yalnız
+          kişisiz günlük sayılar tutulur.
+        </li>
+        <li>
+          Katalog, kişisel veri tablolarına hiç erişemeyen salt okur bir bağlantıyla çalışır;
+          çerez kullanmaz ve internete çıkmaz. Kişisel veri taşımadığı için program kilitliyken de
+          çalışır.
+        </li>
+        <li>
+          Çok okunanlar listesi yalnız en az belirli sayıda farklı üyenin ödünç aldığı
+          kitaplardan oluşur ve sayı göstermez; kimin ne okuduğuna dair bir bilgi Ağ Kataloğuna
+          girmez.
+        </li>
+      </ul>
+
+      <h2 id="saklama">8. Saklama ve silme</h2>
+      <p>
+        Süresi dolan kişisel veriler her gün taranır, ama program kişi kayıtlarını kendiliğinden
+        silmez: silme ve kişiyle bağın koparılması kütüphane yöneticisinin onayıyla yapılır;
+        süreler okulun ayarıdır. Bu bilgisayardaki günlük şifreli yedekler 14 gün sonra,
+        güncelleme öncesi yedekler son beş güncellemeden eskiyse kendiliğinden silinir. USB
+        belleğe alınan yedeklerin düzeni okulun sorumluluğundadır.
+      </p>
+
+      <h2 id="aydinlatma">9. Veri sorumlusu okuldur</h2>
+      <p>
+        Program, okulun duyurması için bir kütüphane aydınlatma metni basar; metin e-Okul
+        listeleri aktarılmadan önce duyurulur. Programdaki kişisel verilere ilişkin KVKK
+        başvuruları (6698 sayılı Kanun md. 11) okul müdürlüğüne yapılır; program okula kişi
+        dökümü çıkarma imkânı verir. Program geliştiricisinin okulların verisine erişimi yoktur.
+      </p>
+
+      <h2 id="site">10. Site ziyareti</h2>
+      <p>
+        Bu site ziyaretçi analizi yapmaz, reklam ağı kullanmaz ve tarayıcınıza takip amaçlı çerez
+        bırakmaz. Tarayıcının yerel depolamasında yalnız seçtiğiniz açık/koyu tema tercihi
+        tutulur; bu bilgi siteden dışarı gönderilmez. Site Cloudflare üzerinde barındırılır.
+        Sayfaya erişirken IP adresi, tarih-saat, tarayıcı bilgisi ve istenen adres gibi teknik
+        bağlantı kayıtları Cloudflare tarafından hizmetin sunulması ve güvenliğinin sağlanması
+        amacıyla işlenebilir; bu işlem Cloudflare'in kendi altyapısı ve gizlilik koşulları
+        kapsamında gerçekleşir. Site sahibi bu kayıtların saklama sürelerini belirlemez.
+      </p>
+
+      <h2 id="eposta">11. E-posta ile iletişim</h2>
+      <p>
+        E-posta gönderirseniz adınız, e-posta adresiniz ve ileti içeriğiniz; talebinizi
+        yanıtlamak, teknik sorunu incelemek, LGPL lisanslı bileşenlerin kaynak kodu isteğini
+        karşılamak ve gerektiğinde bir hakkın kurulması, kullanılması veya korunması amaçlarıyla
+        işlenir. Veriler e-posta yoluyla doğrudan sizden elde edilir. İşleme; talebin niteliğine
+        göre sözleşmenin kurulması veya ifası için gerekli olma, bir hakkın tesisi, kullanılması
+        veya korunması ya da temel haklarınıza zarar vermemek kaydıyla veri sorumlusunun meşru
+        menfaati hukuki sebeplerine dayanır. Destek yazışmaları talebin sonuçlandırılması ve olası
+        uyuşmazlıkların takibi için gerekli olan süreyle sınırlı tutulur; saklanmasını gerektiren
+        bir neden kalmadığında silinir.
+      </p>
+
+      <h2 id="aktarim">12. Aktarım ve yurt dışı hizmetler</h2>
+      <p>
+        Site ve indirme dosyaları Cloudflare, kaynak kod, sürüm paketleri ve sorun kayıtları
+        GitHub, e-posta iletişimi ise Gmail altyapısından yararlanır. Bu hizmetler kapsamında
+        teknik bağlantı kayıtları, GitHub'a yazdığınız içerik ve gönderdiğiniz e-posta içeriği,
+        hizmet sağlayıcıların yurt dışındaki sistemlerinde işlenebilir. İndirme bağlantısına
+        tıkladığınızda ya da GitHub'da kayıt açtığınızda ilgili sağlayıcının kendi koşulları
+        geçerli olur. Verileriniz reklam, pazarlama ya da veri ticareti amacıyla üçüncü kişilere
+        aktarılmaz; kanunen yetkili makamların usulüne uygun talepleri saklıdır.
+      </p>
+
+      <h2 id="haklariniz">13. Haklarınız</h2>
+      <p>
+        Site ve proje bakımından 6698 sayılı Kanun'un 11. maddesi kapsamındaki haklarınıza ilişkin
+        başvurunuzu <a href={`mailto:${EPOSTA}`}>{EPOSTA}</a> adresine gönderebilirsiniz.
+        Başvuruda talebinizi açıklayın; kimlik belgesi, öğrenci ya da personel kaydı göndermeyin.
+        Kimliğin doğrulanması zorunlu hâle gelirse yalnız gerekli ve güvenli yöntem ayrıca
+        bildirilir. Programdaki kütüphane kayıtlarınızla ilgili başvurular okul müdürlüğüne
+        yapılır (<a href="#aydinlatma">9. bölüm</a>); program geliştiricisinin bu kayıtlara
+        erişimi yoktur.
+      </p>
+
+      <h2 id="paylasmayin">14. Hata bildirirken paylaşmamanız gerekenler</h2>
+      <p>
+        Hata bildirimleri ve öneriler e-postayla ya da programın
+        <a href={`${DEPO}/issues`} rel="noopener">GitHub Issues</a> sayfasından iletilir. Şunları
+        hiçbir kayda ve iletiye eklemeyin:
+      </p>
+      <ul>
+        <li>Öğrenci, veli ya da personel adı ve iletişim bilgileri</li>
+        <li>T.C. kimlik numarası, okul numarası, kart numarası, adres</li>
+        <li>Okulun adı ve okul ağının adresleri</li>
+        <li>Basılmış belgeler, üye listeleri, e-Okul Excel dosyaları</li>
+        <li>Program ekran görüntüleri</li>
+        <li><code>.kdbak</code> yedekleri, veritabanı ve günlük dosyaları</li>
+      </ul>
+      <div class="warning-card">
+        <strong>GitHub Issues herkese açıktır</strong>
+        <p>
+          Hata bildirirken yalnız programın sürümünü, platformu ve genel adımları yazın. Gerçek
+          kurum verisini gizleseniz bile dosya ya da ekran görüntüsü yüklemeyin.
+        </p>
+      </div>
+
+      <p class="document-source">
+        Resmî kaynak:
+        <a href="https://www.kvkk.gov.tr/Icerik/2033/Aydinlatma-Yukumlulugu-" rel="noopener">Kişisel Verileri Koruma Kurumu — Aydınlatma Yükümlülüğü</a>.
+        Barındırma ve indirme için
+        <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare Gizlilik Politikası</a>,
+        kaynak kod, sürümler ve sorun kayıtları için
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Gizlilik Bildirimi</a>.
+      </p>
+      <p class="legal-note">
+        Bu metin programın ve sitenin bugünkü, veri toplamayı en aza indiren yapısını açıklar.
+        Programın internete giden istekleri, Ağ Kataloğunun gösterdikleri, iletişim yöntemi ya da
+        barındırma altyapısı değişirse yayımdan önce yeniden değerlendirilmelidir.
+      </p>
+    </article>
+  </div>
+</KDLayout>
+
+<style>
+  /* Ağ Kataloğu tablosu — sayfaya özgü (ortak stil dosyasına yalnız palet blokları girer). */
+  .catalog-table {
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .catalog-table > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    color: var(--doc-text);
+  }
+
+  .catalog-table > div:last-child {
+    border-bottom: 0;
+  }
+
+  .catalog-table .catalog-head {
+    background: var(--tint);
+    color: var(--ink);
+  }
+
+  @media (max-width: 520px) {
+    .catalog-table > div {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+
+    .catalog-table .catalog-head {
+      display: none;
+    }
+
+    .catalog-table span[role='cell']:first-child::before {
+      content: 'Gösterir: ';
+      font-weight: 750;
+    }
+
+    .catalog-table span[role='cell']:last-child::before {
+      content: 'Göstermez: ';
+      font-weight: 750;
+    }
+  }
+</style>

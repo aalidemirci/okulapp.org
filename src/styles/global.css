@@ -169,6 +169,35 @@
   --panel-line: #d3e2e0;
 }
 
+:root[data-palette='kd'] {
+  --paper: #f1f3f8;
+  --surface: #ffffff;
+  --ink: #141d2e;
+  --muted: #505c73;
+  --doc-text: #2c3850;
+  --deep: #1c3259;
+  --accent: #eea23f;
+  --accent-hover: #f3b561;
+  --accent-ink: #2e1a04;
+  --link: #2b5591;
+  --chip: #dde5f3;
+  --line: #d7dde8;
+  --tint: #e7ebf3;
+  --warn-bg: #fdf3e2;
+  --code-bg: #e4e8f1;
+  --shadow: 0 22px 60px rgba(28, 50, 89, 0.14);
+  --focus-ring: #1c3259;
+
+  --on-deep: #ffffff;
+  --on-deep-soft: #dfe6f3;
+  --on-deep-faint: #b3c3de;
+
+  --panel-bg: #ffffff;
+  --panel-ink: #141d2e;
+  --panel-muted: #505c73;
+  --panel-line: #d7dde8;
+}
+
 /* --- Koyu tema: sistem tercihi (elle "light" seçilmediyse) --------- */
 
 @media (prefers-color-scheme: dark) {
@@ -255,6 +284,23 @@
     --code-bg: #12332f;
     --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
     --focus-ring: #e08a5f;
+  }
+
+  :root[data-palette='kd']:not([data-theme='light']) {
+    --paper: #0e1524;
+    --surface: #152036;
+    --ink: #e6ecf7;
+    --muted: #9eabc4;
+    --doc-text: #c7d1e4;
+    --deep: #1c3259;
+    --link: #8fb4ee;
+    --chip: #1d2d4c;
+    --line: #26344f;
+    --tint: #111a2c;
+    --warn-bg: #33281a;
+    --code-bg: #1a2640;
+    --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+    --focus-ring: #eea23f;
   }
 }
 
@@ -343,6 +389,23 @@
   --code-bg: #12332f;
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
   --focus-ring: #e08a5f;
+}
+
+:root[data-theme='dark'][data-palette='kd'] {
+  --paper: #0e1524;
+  --surface: #152036;
+  --ink: #e6ecf7;
+  --muted: #9eabc4;
+  --doc-text: #c7d1e4;
+  --deep: #1c3259;
+  --link: #8fb4ee;
+  --chip: #1d2d4c;
+  --line: #26344f;
+  --tint: #111a2c;
+  --warn-bg: #33281a;
+  --code-bg: #1a2640;
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+  --focus-ring: #eea23f;
 }
 
 /* ------------------------------------------------------------------ */
