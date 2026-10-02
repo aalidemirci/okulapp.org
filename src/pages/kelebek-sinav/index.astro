@@ -80,9 +80,9 @@ const releaseDate =
       <h2>Programdan görünümler</h2>
     </div>
     <p class="shots-note">
-      Görüntülerdeki okul adı, öğrenci adları ve numaraları <b>örnektir</b>; tanıtım için
-      üretilmiş kurgu verilerdir. Programın kendisi verilerinizi yalnız okul bilgisayarında
-      tutar.
+      Görüntülerdeki okul adı, öğrenci adları, numaraları ve ders saatleri <b>örnektir</b>;
+      tanıtım için üretilmiş kurgu verilerdir. Programın kendisi verilerinizi yalnız okul
+      bilgisayarında tutar.
     </p>
     <div class="shots-grid">
       <figure class="shot">
@@ -147,6 +147,23 @@ const releaseDate =
           Ders listesi, okul türünüzün yürürlükteki haftalık ders çizelgesinden türetilir;
           hangi dersin yazılı, hangisinin uygulama sınavı olduğu ve seçmeliyi hangi şubelerin
           aldığı burada tanımlanır.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img
+          src="/kelebek-sinav/ekran-ders-saatleri.webp"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          alt="Ders saatleri ekranı: ikili eğitim seçili; ilk ders saati, ders sayısı, ders ve teneffüs süresi alanları ve bunlardan hesaplanan sabah çizelgesi."
+        />
+        <figcaption>
+          <strong>Ders saatleri</strong>
+          Sınav takviminin saatleri okulun ders akışından hesaplanır: ilk ders saati, ders ve
+          teneffüs süresi, uzun ara ve blok düzeni girilir, gerekirse saatler tek tek
+          düzeltilir. İkili eğitimde sabah ve öğleden sonra için ayrı çizelge tutulur; evrakta
+          saat, şubenin oturumuna göre basılır.
         </figcaption>
       </figure>
     </div>
@@ -262,9 +279,17 @@ const releaseDate =
   }
 
   .shots-grid {
+    --shots-gap: 1.4rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.4rem;
+    gap: var(--shots-gap);
+  }
+
+  /* Tek sayıda görüntüde son kare alt satırın ortasına, bir sütun genişliğinde oturur. */
+  .shot:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - var(--shots-gap)) / 2);
   }
 
   .shot {
@@ -299,6 +324,11 @@ const releaseDate =
   @media (max-width: 860px) {
     .shots-grid {
       grid-template-columns: 1fr;
+    }
+
+    .shot:last-child:nth-child(odd) {
+      justify-self: stretch;
+      width: auto;
     }
   }
 </style>
