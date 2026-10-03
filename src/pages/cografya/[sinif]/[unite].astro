@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import veri from '../../../data/cografya.json';
+
+// Veri kaynağı: evrakmotoru → `python arac/gnl_ders_yayin.py --site ../okulapp.org`
+// Dosyalar public/cografya/<sınıf>/<ünite>/ altındadır; ikisi de ÜRETİLİR, elle düzenlenmez.
+export function getStaticPaths() {
+  return veri.siniflar.flatMap((s) =>
+    s.uniteler.map((u, i) => ({
+      params: { sinif: s.slug, unite: u.slug },
+      props: { sinif: s, unite: u, onceki: s.uniteler[i - 1], sonraki: s.uniteler[i + 1] },
+    })),
+  );
+}
+
+const { sinif, unite, onceki, sonraki } = Astro.props;
+const KOK = `/cografya/${sinif.slug}/${unite.slug}`;
+
+const BICIM: Record<string, { ad: string; not: string }> = {
+  pptx: { ad: 'PowerPoint', not: '.pptx' },
+  odp: { ad: 'OpenDocument', not: '.odp · LibreOffice, Pardus' },
+  docx: { ad: 'Word', not: '.docx' },
+  odt: { ad: 'OpenDocument', not: '.odt · LibreOffice, Pardus' },
+  pdf: { ad: 'PDF', not: '.pdf' },
+};
+const boyut = (bayt: number) =>
+  bayt >= 1024 * 1024
+    ? `${(bayt / 1024 / 1024).toFixed(1).replace('.', ',')} MB`
+    : `${Math.round(bayt / 1024)} KB`;
+const tarih = new Date(sinif.tarih).toLocaleDateString('tr-TR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+const toplamSlayt = unite.bolumler.reduce((n, b) => n + b.slayt, 0);
+const ikiDeste = unite.desteler.length > 1;
+const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
+---
+
+<BaseLayout
+  title={`${unite.no}. Ünite: ${unite.ad} — ${sinif.ad} — okulapp.org`}
+  description={`${sinif.ad} ${unite.no}. ünite (${unite.ad}) ders sunumları hafta hafta ve çalışma kâğıdı: PowerPoint, OpenDocument ve PDF.`}
+>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">
+        <a href="/cografya/">Coğrafya</a> · <a href={`/cografya/${sinif.slug}/`}>{sinif.ad}</a>
+      </p>
+      <h1>{unite.no}. Ünite: {unite.ad}</h1>
+      <p class="lead">
+        {unite.haftalar}. haftalar · {unite.ders_saati} ders saati · {unite.bolumler.length}
+        {' '}bölüm, {toplamSlayt} slayt. Her bölüm o haftanın iki ders saatlik dersidir;
+        öğretmen notları slaytların konuşmacı notlarındadır.
+      </p>
+      <p class="privacy-promise">Sürüm {sinif.surum} · {tarih} · Ücretsiz</p>
+    </div>
+
+    <div class="info-box">
+      <p>
+        <b>Kitabınız yanınızda olsun.</b> Slaytlar {sinif.kitap.ad} {sinif.kitap.baski}
+        {' '}baskısının sayfalarına atıf yapar (“Kitap s. 45”); etkinliklerin bir kısmı
+        kitaba işlenir. Slayt numaraları ünitenin tam sunumuna göredir (ör. 47 / 226).
+      </p>
+      <p>
+        <b>Resmî Bakanlık materyali değildir.</b> Kullanmadan önce kendi yıllık
+        planınızla karşılaştırın; “örnek” diye işaretlenen puan ağırlıklarını ve okula
+        özgü yerleri zümrenizin kararına göre düzenleyin.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cg-bolumler">
+    <div class="section-heading">
+      <p class="eyebrow">Sunum bölümleri</p>
+      <h2>Hafta hafta sunumlar</h2>
+      <p>
+        Ünite girişi ilk haftanın dosyasında, ünite sonu ölçme ve değerlendirme
+        soruları ayrı dosyadadır. Her etkinliğin örnek cevabı hemen ardındaki
+        slayttadır.
+      </p>
+    </div>
+    <div class="download-grid">
+      {unite.bolumler.map((b) => (
+        <article class="download-card">
+          <p class="download-meta cg-ust">
+            {b.etiket}{b.tarih ? ` · ${b.tarih}` : ''}
+          </p>
+          <h3>{b.baslik}</h3>
+          <p class="download-meta">
+            {deste(b.deste)}slayt {b.slayt_ilk}-{b.slayt_son} · {b.slayt} slayt
+          </p>
+          <div class="cg-dosyalar">
+            {b.dosyalar.map((d) => (
+              <a class="button cg-dosya" href={`${KOK}/${d.dosya}`} download>
+                <span>{BICIM[d.bicim].ad}</span>
+                <small>{BICIM[d.bicim].not} · {boyut(d.boyut)}</small>
+              </a>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Çalışma kâğıdı</p>
+      <h2>Ünitenin çalışma kâğıdı</h2>
+      <p>
+        Arkalı önlü tek yaprak; bölümleri haftalara göre ayrılmıştır ve her bölüm o
+        haftanın dersinden sonra çözülür. Konu tekrarı içindir, not verilmez.
+      </p>
+    </div>
+    <div class="download-grid">
+      <article class="download-card">
+        <p class="download-meta cg-ust">{unite.calisma.kod}</p>
+        <h3>{unite.calisma.baslik}</h3>
+        <p class="download-meta">A4 · {unite.calisma.sayfa} sayfa</p>
+        <div class="cg-dosyalar">
+          {unite.calisma.dosyalar.map((d) => (
+            <a class="button cg-dosya" href={`${KOK}/${d.dosya}`} download>
+              <span>{BICIM[d.bicim].ad}</span>
+              <small>{BICIM[d.bicim].not} · {boyut(d.boyut)}</small>
+            </a>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Kullanım</p>
+      <h2>Derste kullanmak</h2>
+    </div>
+    <ul class="feature-grid">
+      <li class="card">
+        <p class="card-number">1</p>
+        <h3>Haftanın dosyasını açın</h3>
+        <p>
+          Her dosya 40 + 40 dakikalık blok derse göre kurulmuştur. Hafta ayracından
+          sonraki “Bugün neler yapacağız?” slaytı dersin aşamalarını gösterir.
+        </p>
+      </li>
+      <li class="card">
+        <p class="card-number">2</p>
+        <h3>Notları sunucu görünümünde okuyun</h3>
+        <p>
+          Konuşmacı notlarında amaç, süre, uygulama, beklenen cevap ve kaynak yazılıdır.
+          PowerPoint'te “Sunucu Görünümü”, LibreOffice Impress'te “Sunucu Konsolu” ile
+          yalnız sizin ekranınızda görünür.
+        </p>
+      </li>
+      <li class="card">
+        <p class="card-number">3</p>
+        <h3>Cevabı düşündükten sonra açın</h3>
+        <p>
+          Etkinlik ve soruların örnek cevapları hemen izleyen slayttadır; öğrenciler
+          kendi cevaplarını yazdıktan sonra geçin. Sınıf mevcuduna göre grup sayısını
+          uyarlayın (sunumlar 34 kişilik sınıfa göre planlanmıştır).
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section" id="kaynaklar">
+    <div class="section-heading">
+      <p class="eyebrow">Kaynaklar</p>
+      <h2>Kaynaklar ve haklar</h2>
+    </div>
+    <p>
+      <b>Ders kitabı:</b> {sinif.kitap.ad} ({sinif.kitap.kademe}), {sinif.kitap.baski}
+      {' '}baskısı. Yazarlar: {sinif.kitap.yazarlar.join(', ')}. {sinif.kitap.yayin} ·
+      ISBN {sinif.kitap.isbn}.
+    </p>
+    <p>
+      <b>Öğretim programı:</b> {sinif.program}. Etkinliklerin bir bölümü MEB Ortaöğretim
+      Genel Müdürlüğünün OGM Materyal platformundaki etkileşimli etkinliklerle paralel
+      kurulmuştur.
+    </p>
+    <p class="legal-note">
+      {sinif.haklar} Her dosyanın son slaytında aynı kaynakça yer alır; paylaşırken
+      silmeyin. Lisans: <b>{sinif.lisans}</b> (yalnız özgün katkılar) — kaynak olarak
+      “okulapp.org” yazmanız yeterlidir.
+    </p>
+  </section>
+
+  {(onceki || sonraki) && (
+    <nav class="section cg-gezinme" aria-label="Üniteler arası gezinme">
+      {onceki ? (
+        <a class="button button-outline" href={`/cografya/${sinif.slug}/${onceki.slug}/`}>
+          ← {onceki.no}. Ünite: {onceki.ad}
+        </a>
+      ) : <span />}
+      {sonraki && (
+        <a class="button button-outline" href={`/cografya/${sinif.slug}/${sonraki.slug}/`}>
+          {sonraki.no}. Ünite: {sonraki.ad} →
+        </a>
+      )}
+    </nav>
+  )}
+</BaseLayout>
+
+<style>
+  .cg-ust {
+    margin-bottom: 0.2rem;
+    font-weight: 750;
+  }
+
+  .cg-dosyalar {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .cg-dosya {
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .cg-dosya small {
+    font-weight: 600;
+    font-size: 0.82rem;
+    opacity: 0.85;
+  }
+
+  .cg-gezinme {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0;
+  }
+
+  .cg-gezinme .button {
+    max-width: 100%;
+  }
+</style>

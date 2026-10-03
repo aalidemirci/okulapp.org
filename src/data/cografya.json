@@ -1,0 +1,1186 @@
+{
+  "guncelleme": "2026-10-03",
+  "siniflar": [
+    {
+      "slug": "9-sinif",
+      "ad": "9. Sınıf Coğrafya",
+      "kisa": "9. Sınıf",
+      "surum": "2026.10",
+      "tarih": "2026-10-03",
+      "lisans": "CC BY 4.0",
+      "kitap": {
+        "ad": "Coğrafya 9. Sınıf Ders Kitabı",
+        "kademe": "Ortaöğretim",
+        "baski": "2026-2027",
+        "yazarlar": [
+          "Dr. Gülten İçel",
+          "Alper Soyatlar",
+          "Beyhan Polat",
+          "Bülent Akça",
+          "Cem Erdebil",
+          "Kenan Türkez",
+          "Mehmet Ekici",
+          "Mutlu Karakoç",
+          "Nihal Öztürk",
+          "Nurullah Balşen",
+          "Orhan Ekin",
+          "Ramazan Bıçaklı",
+          "Raşit Düzgün",
+          "Soner Cırık",
+          "Tuba Dirim"
+        ],
+        "yayin": "Millî Eğitim Bakanlığı Yayınları No 9606 · Ders Kitapları Dizisi No 2027 · Devlet Kitapları, 2026",
+        "isbn": "978-975-11-8046-9"
+      },
+      "program": "Coğrafya dersi öğretim programı (2026 nüshası): Talim ve Terbiye Kurulunun 23.05.2024 tarihli ve 20 sayılı kararıyla kabul edilen, 13.05.2026 tarihli ve 53 sayılı kararıyla güncellenen program",
+      "haklar": "Ders kitabından ve OGM Materyal'den alınan metin, soru ve görsellerin hakları Millî Eğitim Bakanlığına aittir; eğitim ve öğretim amacıyla, kaynak gösterilerek alıntılanmıştır (5846 sayılı Fikir ve Sanat Eserleri Kanunu md. 34). Sunumun tasarımı, ders akışı, etkinlik kurgusu, örnek cevaplar ve öğretmen notları okulapp.org'un özgün katkısıdır; yalnız bu katkılar CC BY 4.0 lisansıyla paylaşılır. Resmî bir Bakanlık materyali değildir.",
+      "uniteler": [
+        {
+          "no": 1,
+          "slug": "unite-1",
+          "ad": "Coğrafyanın Doğası",
+          "ders_saati": 6,
+          "haftalar": "1-3",
+          "desteler": [
+            "U1"
+          ],
+          "bolumler": [
+            {
+              "deste": "U1",
+              "hafta": 1,
+              "baslik": "Coğrafya Biliminin Konusu ve Bölümleri",
+              "etiket": "1. hafta",
+              "tarih": "14-18 Eylül 2026",
+              "slayt_ilk": 1,
+              "slayt_son": 43,
+              "slayt": 43,
+              "kod": "GNL-COG9-SN-U1",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-1_Cografya_Biliminin_Konusu_ve_Bolumleri_v1.0.pptx",
+                  "boyut": 4967413,
+                  "sha256": "305568bd0b62a30e0cf88bf7b6196656451521ece69afd537b4240fb80af6bae"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-1_Cografya_Biliminin_Konusu_ve_Bolumleri_v1.0.odp",
+                  "boyut": 4957716,
+                  "sha256": "570f45a19bd2e9a32cd89550a74f579f70cb3f101ee24640aa16e8ac31952060"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-1_Cografya_Biliminin_Konusu_ve_Bolumleri_v1.0.pdf",
+                  "boyut": 4462215,
+                  "sha256": "15065fbfeb6dd383c4327dc012350a0103badd42c5514a758207f3e48a0374aa",
+                  "sayfa": 44
+                }
+              ]
+            },
+            {
+              "deste": "U1",
+              "hafta": 2,
+              "baslik": "Niçin Coğrafya Öğrenmeliyiz?",
+              "etiket": "2. hafta",
+              "tarih": "21-25 Eylül 2026",
+              "slayt_ilk": 44,
+              "slayt_son": 81,
+              "slayt": 38,
+              "kod": "GNL-COG9-SN-U1",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-2_Nicin_Cografya_Ogrenmeliyiz_v1.0.pptx",
+                  "boyut": 656905,
+                  "sha256": "f2e6a8b83c67a0224767149be35d55a758609c2a03f830723d23dbe58ecb9f40"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-2_Nicin_Cografya_Ogrenmeliyiz_v1.0.odp",
+                  "boyut": 627824,
+                  "sha256": "d8c8195fd9efdd6504fc6a8f89482e3f810cf093731480ec17c404ea63bc7d07"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-2_Nicin_Cografya_Ogrenmeliyiz_v1.0.pdf",
+                  "boyut": 994980,
+                  "sha256": "56a18cd479e885c0f2df2672ef31c254fd2086f51a001fbc4be5ed229fd13767",
+                  "sayfa": 39
+                }
+              ]
+            },
+            {
+              "deste": "U1",
+              "hafta": 3,
+              "baslik": "Coğrafya Biliminin Gelişimi",
+              "etiket": "3. hafta",
+              "tarih": "28 Eylül-2 Ekim 2026",
+              "slayt_ilk": 82,
+              "slayt_son": 122,
+              "slayt": 41,
+              "kod": "GNL-COG9-SN-U1",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-3_Cografya_Biliminin_Gelisimi_v1.0.pptx",
+                  "boyut": 198214,
+                  "sha256": "2ae8b580a80555d4352b08e4ebafe1d095ea2239bd319f7976bcbe0aeb61306f"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-3_Cografya_Biliminin_Gelisimi_v1.0.odp",
+                  "boyut": 141008,
+                  "sha256": "d6e26285b02e2355718fbc8857bf59e860367a7e0a560afbb1b6b23f7a74ae73"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U1_Hafta-3_Cografya_Biliminin_Gelisimi_v1.0.pdf",
+                  "boyut": 609919,
+                  "sha256": "57da89017b20a2efdb7b8006683c46b0741480c5fdf355c9ca28c77fa7d44e29",
+                  "sayfa": 42
+                }
+              ]
+            },
+            {
+              "deste": "U1",
+              "hafta": null,
+              "baslik": "Ünite sonu ölçme ve değerlendirme",
+              "etiket": "Ünite sonu",
+              "tarih": null,
+              "slayt_ilk": 123,
+              "slayt_son": 129,
+              "slayt": 7,
+              "kod": "GNL-COG9-SN-U1",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U1_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pptx",
+                  "boyut": 1008055,
+                  "sha256": "ee18ba75dbf8f148b4e23144b4b4604fa72b690f5baac8d4da83d6789d5ea2a1"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U1_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.odp",
+                  "boyut": 1020567,
+                  "sha256": "bbb735564a56d66eccc0066023cdbb8fb7c96617c00f63d42ba5707f28085410"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U1_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pdf",
+                  "boyut": 1035663,
+                  "sha256": "73e7739582421ad4ccdbf759c0d535c26fe81a89d81b3a65c08c425636a798b1",
+                  "sayfa": 8
+                }
+              ]
+            }
+          ],
+          "calisma": {
+            "kod": "GNL-COG9-CK-U1",
+            "baslik": "Çalışma kâğıdı",
+            "sayfa": 2,
+            "dosyalar": [
+              {
+                "bicim": "docx",
+                "dosya": "GNL-COG9-CK-U1_Cografyanin_Dogasi_Calisma_Kagidi_v1.0.docx",
+                "boyut": 44576,
+                "sha256": "0d33b265f86efc9e19e0663a25adaa4908750591b03f4f21f195341b30f6e0cd"
+              },
+              {
+                "bicim": "odt",
+                "dosya": "GNL-COG9-CK-U1_Cografyanin_Dogasi_Calisma_Kagidi_v1.0.odt",
+                "boyut": 61168,
+                "sha256": "23a6c6d168d8247e18220d4ae48a612bd8dd6245fb64c18157d87bfd46b0713f"
+              },
+              {
+                "bicim": "pdf",
+                "dosya": "GNL-COG9-CK-U1_Cografyanin_Dogasi_Calisma_Kagidi_v1.0.pdf",
+                "boyut": 163124,
+                "sha256": "8edc74d675450a745653ea2c01cf4f4a1c02005cf2aabe6398474559970999cb",
+                "sayfa": 2
+              }
+            ]
+          }
+        },
+        {
+          "no": 2,
+          "slug": "unite-2",
+          "ad": "Mekânsal Bilgi Teknolojileri",
+          "ders_saati": 10,
+          "haftalar": "4-8",
+          "desteler": [
+            "U2"
+          ],
+          "bolumler": [
+            {
+              "deste": "U2",
+              "hafta": 4,
+              "baslik": "Mekânın Aynası Haritalar I: Harita, Türler ve Koordinatlar",
+              "etiket": "4. hafta",
+              "tarih": "5-9 Ekim 2026",
+              "slayt_ilk": 1,
+              "slayt_son": 46,
+              "slayt": 46,
+              "kod": "GNL-COG9-SN-U2",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-4_Haritalar_I_Harita_Turler_ve_Koordinatlar_v1.0.pptx",
+                  "boyut": 1727680,
+                  "sha256": "1ca5d12e2623cb470b42f9ebb34a06f68a11e598f5b36f24893f19c4af4dfbfd"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-4_Haritalar_I_Harita_Turler_ve_Koordinatlar_v1.0.odp",
+                  "boyut": 1788546,
+                  "sha256": "b7d17163bfc0bb95c856a8e7504a7dd95d82f946fc0a79585f686966829eef25"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-4_Haritalar_I_Harita_Turler_ve_Koordinatlar_v1.0.pdf",
+                  "boyut": 2152216,
+                  "sha256": "3546e8407e84f44c2c72eae5fbf8d86b725137afd49c917f18850a7b3e140819",
+                  "sayfa": 47
+                }
+              ]
+            },
+            {
+              "deste": "U2",
+              "hafta": 5,
+              "baslik": "Mekânın Aynası Haritalar II: Saat, Projeksiyon ve Ölçek",
+              "etiket": "5. hafta",
+              "tarih": "12-16 Ekim 2026",
+              "slayt_ilk": 47,
+              "slayt_son": 87,
+              "slayt": 41,
+              "kod": "GNL-COG9-SN-U2",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-5_Haritalar_II_Saat_Projeksiyon_ve_Olcek_v1.0.pptx",
+                  "boyut": 1276567,
+                  "sha256": "491ad4a1174d2c04f569d833c24435ad3569ab9753187c5d0edfa643a944c663"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-5_Haritalar_II_Saat_Projeksiyon_ve_Olcek_v1.0.odp",
+                  "boyut": 1270687,
+                  "sha256": "ccf913da076a248939b807545650e8b6127ac05f835c7e01dd2d52c3cc146e96"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-5_Haritalar_II_Saat_Projeksiyon_ve_Olcek_v1.0.pdf",
+                  "boyut": 1698509,
+                  "sha256": "4b44eea1332085f8f8dd892ba606cb4900e1c9be3c106cb96d279eae8c9feb79",
+                  "sayfa": 42
+                }
+              ]
+            },
+            {
+              "deste": "U2",
+              "hafta": 6,
+              "baslik": "Mekânın Aynası Haritalar III: Haritalama Teknikleri, Yükselti ve Harita Üretimi",
+              "etiket": "6. hafta",
+              "tarih": "19-23 Ekim 2026",
+              "slayt_ilk": 88,
+              "slayt_son": 135,
+              "slayt": 48,
+              "kod": "GNL-COG9-SN-U2",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-6_Haritalar_III_Dagilis_Yukselti_ve_Harita_Uretimi_v1.0.pptx",
+                  "boyut": 2578937,
+                  "sha256": "eb0f4b3661dfa38bf6696fe770450ec3bcb13ec35a6bca57041b67eb066cd462"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-6_Haritalar_III_Dagilis_Yukselti_ve_Harita_Uretimi_v1.0.odp",
+                  "boyut": 2629249,
+                  "sha256": "abde0cbebcb457d515020cd5bdef0c8d8f0f55d4241ecb758a542dce02077cb5"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-6_Haritalar_III_Dagilis_Yukselti_ve_Harita_Uretimi_v1.0.pdf",
+                  "boyut": 3614193,
+                  "sha256": "fe92b8cdcbf7256975a4fb9b8c43cef835d2c19e9f190a8cb39c202e83e15ef6",
+                  "sayfa": 49
+                }
+              ]
+            },
+            {
+              "deste": "U2",
+              "hafta": 7,
+              "baslik": "Türkiye’nin Coğrafi Konumu",
+              "etiket": "7. hafta",
+              "tarih": "26-30 Ekim 2026",
+              "slayt_ilk": 136,
+              "slayt_son": 171,
+              "slayt": 36,
+              "kod": "GNL-COG9-SN-U2",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-7_Turkiyenin_Cografi_Konumu_v1.0.pptx",
+                  "boyut": 927149,
+                  "sha256": "22fa697cfdc72adfff7c6413b0eb7318f71977c695ed4e40ba73809a0970da3f"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-7_Turkiyenin_Cografi_Konumu_v1.0.odp",
+                  "boyut": 880158,
+                  "sha256": "392874d33b32213df1bbd7aa1083111f0f9901981ee72e5c36af8dc3808ed3be"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-7_Turkiyenin_Cografi_Konumu_v1.0.pdf",
+                  "boyut": 1247442,
+                  "sha256": "e8bbcf8f992fa66158adf71e78a3a8f0fe1d1961109aa7c43099b33a8d7e9b9a",
+                  "sayfa": 37
+                }
+              ]
+            },
+            {
+              "deste": "U2",
+              "hafta": 8,
+              "baslik": "Mekânsal Bilgi Teknolojilerinin Bileşenleri",
+              "etiket": "8. hafta",
+              "tarih": "2-6 Kasım 2026",
+              "slayt_ilk": 172,
+              "slayt_son": 216,
+              "slayt": 45,
+              "kod": "GNL-COG9-SN-U2",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-8_Mekansal_Bilgi_Teknolojilerinin_Bilesenleri_v1.0.pptx",
+                  "boyut": 1608027,
+                  "sha256": "75955c8866d6817a37ab15bc784b66c809f55c452a7d2e3b54b97eb3250753f0"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-8_Mekansal_Bilgi_Teknolojilerinin_Bilesenleri_v1.0.odp",
+                  "boyut": 1610581,
+                  "sha256": "53aabc5b2943a3d9ab68d9cc13551c9ac8728d4a60a0aa33e65109dec9f895c2"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U2_Hafta-8_Mekansal_Bilgi_Teknolojilerinin_Bilesenleri_v1.0.pdf",
+                  "boyut": 2108533,
+                  "sha256": "ff3285f6b6b41386e5085063555a778cdf89c6bd2dc51d4937e40ba889781da3",
+                  "sayfa": 46
+                }
+              ]
+            },
+            {
+              "deste": "U2",
+              "hafta": null,
+              "baslik": "Ünite sonu ölçme ve değerlendirme",
+              "etiket": "Ünite sonu",
+              "tarih": null,
+              "slayt_ilk": 217,
+              "slayt_son": 226,
+              "slayt": 10,
+              "kod": "GNL-COG9-SN-U2",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U2_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pptx",
+                  "boyut": 514269,
+                  "sha256": "70a297782558677cd006271aea18183b5d643f48b535b5348f1af9a415ffd426"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U2_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.odp",
+                  "boyut": 550862,
+                  "sha256": "4d640d4f2208a377223dde48f09de70a9216af645675bee4321944562183f5de"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U2_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pdf",
+                  "boyut": 644402,
+                  "sha256": "9cdeb55f85cd5e6dfe1de94280ec8eb16cfed85382d31f6e5aea379bac80bb2a",
+                  "sayfa": 11
+                }
+              ]
+            }
+          ],
+          "calisma": {
+            "kod": "GNL-COG9-CK-U2",
+            "baslik": "Çalışma kâğıdı",
+            "sayfa": 2,
+            "dosyalar": [
+              {
+                "bicim": "docx",
+                "dosya": "GNL-COG9-CK-U2_Mekansal_Bilgi_Teknolojileri_Calisma_Kagidi_v1.0.docx",
+                "boyut": 43962,
+                "sha256": "19355589f0ff6009d71e7f301229d2e131c04f8940a876781947ed562e4b8add"
+              },
+              {
+                "bicim": "odt",
+                "dosya": "GNL-COG9-CK-U2_Mekansal_Bilgi_Teknolojileri_Calisma_Kagidi_v1.0.odt",
+                "boyut": 51906,
+                "sha256": "f68e1d47bdb9dd25787b679f85acb408268ef472126175e2333e8dc2cb5c4b17"
+              },
+              {
+                "bicim": "pdf",
+                "dosya": "GNL-COG9-CK-U2_Mekansal_Bilgi_Teknolojileri_Calisma_Kagidi_v1.0.pdf",
+                "boyut": 159296,
+                "sha256": "9a7046202edc75f04150ef2545f7535d1580b7ac2d6fc8845e875efe18097e92",
+                "sayfa": 2
+              }
+            ]
+          }
+        },
+        {
+          "no": 3,
+          "slug": "unite-3",
+          "ad": "Doğal Sistemler ve Süreçler",
+          "ders_saati": 20,
+          "haftalar": "9-19",
+          "desteler": [
+            "U3A",
+            "U3B"
+          ],
+          "bolumler": [
+            {
+              "deste": "U3A",
+              "hafta": 9,
+              "baslik": "Hava Olayları I: Hava Durumu, İklim ve Ölçüm",
+              "etiket": "9. hafta",
+              "tarih": "9-13 Kasım 2026",
+              "slayt_ilk": 1,
+              "slayt_son": 49,
+              "slayt": 49,
+              "kod": "GNL-COG9-SN-U3A",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-9_Hava_Olaylari_I_Hava_Durumu_Iklim_ve_Olcum_v1.0.pptx",
+                  "boyut": 1603302,
+                  "sha256": "350cfab1b77b8d522269bbf8294bb054876034132efb3d1334e00fcaa533ebaf"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-9_Hava_Olaylari_I_Hava_Durumu_Iklim_ve_Olcum_v1.0.odp",
+                  "boyut": 1584332,
+                  "sha256": "07958c046d6cd5806234b3085f33b0fba7c90561ca3b36e8b8d57e3837f1a541"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-9_Hava_Olaylari_I_Hava_Durumu_Iklim_ve_Olcum_v1.0.pdf",
+                  "boyut": 2144984,
+                  "sha256": "df0ff7bb86ed212ab2ad842018ed079a17968e06051b557de5edae74f5fc1fd5",
+                  "sayfa": 50
+                }
+              ]
+            },
+            {
+              "deste": "U3A",
+              "hafta": 10,
+              "baslik": "Hava Olayları II: Aşırı Hava Olayları ve Tahmin",
+              "etiket": "10. hafta",
+              "tarih": "23-27 Kasım 2026",
+              "slayt_ilk": 50,
+              "slayt_son": 93,
+              "slayt": 44,
+              "kod": "GNL-COG9-SN-U3A",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-10_Hava_Olaylari_II_Asiri_Hava_Olaylari_ve_Tahmin_v1.0.pptx",
+                  "boyut": 1363584,
+                  "sha256": "b8e20a16b81322bc4dddae780a6aa92fcbfe8c3a903ba89b7da0feb088cc33c3"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-10_Hava_Olaylari_II_Asiri_Hava_Olaylari_ve_Tahmin_v1.0.odp",
+                  "boyut": 1300138,
+                  "sha256": "797a9a27b3d4ab4ec2f6f34695470e94af0531c1c54c639d9973156660cf2b39"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-10_Hava_Olaylari_II_Asiri_Hava_Olaylari_ve_Tahmin_v1.0.pdf",
+                  "boyut": 1811964,
+                  "sha256": "ce2107ccc520e87cee154df8179a9bd19e38466750ef8f3ac59d9eb22291137c",
+                  "sayfa": 45
+                }
+              ]
+            },
+            {
+              "deste": "U3A",
+              "hafta": 11,
+              "baslik": "İklim Sistemi I: Bileşenler ve Dünya’nın Hareketleri",
+              "etiket": "11. hafta",
+              "tarih": "30 Kasım-4 Aralık 2026",
+              "slayt_ilk": 94,
+              "slayt_son": 133,
+              "slayt": 40,
+              "kod": "GNL-COG9-SN-U3A",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-11_Iklim_Sistemi_I_Bilesenler_ve_Dunyanin_Hareketleri_v1.0.pptx",
+                  "boyut": 922448,
+                  "sha256": "47d9c6d2b5598947abdf5d6201f191b64a7c1af3851fd0def2f638c3299b2a66"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-11_Iklim_Sistemi_I_Bilesenler_ve_Dunyanin_Hareketleri_v1.0.odp",
+                  "boyut": 893331,
+                  "sha256": "557bc6603752f06d0e47218d822f798228ed87aa698b70ab7c0b96aa29fcc000"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-11_Iklim_Sistemi_I_Bilesenler_ve_Dunyanin_Hareketleri_v1.0.pdf",
+                  "boyut": 1284501,
+                  "sha256": "addb2422b32a7ac89a2146a34427dbb0382cb02801da132e92a7958efa84acc4",
+                  "sayfa": 41
+                }
+              ]
+            },
+            {
+              "deste": "U3A",
+              "hafta": 12,
+              "baslik": "İklim Sistemi II: Sıcaklığın Dağılışı",
+              "etiket": "12. hafta",
+              "tarih": "7-11 Aralık 2026",
+              "slayt_ilk": 134,
+              "slayt_son": 178,
+              "slayt": 45,
+              "kod": "GNL-COG9-SN-U3A",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-12_Iklim_Sistemi_II_Sicakligin_Dagilisi_v1.0.pptx",
+                  "boyut": 1681790,
+                  "sha256": "f3240c47723e794c4b4f3d643ff467f1e13b74aeb5703a3b5b36dc48f3a02734"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-12_Iklim_Sistemi_II_Sicakligin_Dagilisi_v1.0.odp",
+                  "boyut": 1656760,
+                  "sha256": "6a0106691b0630be3216eb4e924750f003692910005a86a0f700dab7cfc9529d"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-12_Iklim_Sistemi_II_Sicakligin_Dagilisi_v1.0.pdf",
+                  "boyut": 2046797,
+                  "sha256": "a5b9adb35d0a4e25f383b9acbd74577bc6a0af1292e2549145c0ce6419f562b7",
+                  "sayfa": 46
+                }
+              ]
+            },
+            {
+              "deste": "U3A",
+              "hafta": 13,
+              "baslik": "İklim Sistemi III: Basınç ve Rüzgârlar",
+              "etiket": "13. hafta",
+              "tarih": "14-18 Aralık 2026",
+              "slayt_ilk": 179,
+              "slayt_son": 225,
+              "slayt": 47,
+              "kod": "GNL-COG9-SN-U3A",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-13_Iklim_Sistemi_III_Basinc_ve_Ruzgarlar_v1.0.pptx",
+                  "boyut": 1474305,
+                  "sha256": "de2c5a2d498a33a2c9f5a25c11714d14e77ed8d9731d14d4b9313c5fc0b2b3a5"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-13_Iklim_Sistemi_III_Basinc_ve_Ruzgarlar_v1.0.odp",
+                  "boyut": 1460242,
+                  "sha256": "4fd10c44502665e66f0393d11eb594f937bb1cdc250acc17bf719f1180bcb404"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-13_Iklim_Sistemi_III_Basinc_ve_Ruzgarlar_v1.0.pdf",
+                  "boyut": 1940703,
+                  "sha256": "ef085ba41757dd02d0ae32d7df3c1a134c1adc4100df638384728a66cccca469",
+                  "sayfa": 48
+                }
+              ]
+            },
+            {
+              "deste": "U3A",
+              "hafta": 14,
+              "baslik": "İklim Sistemi IV: Nem, Yağış ve Kentsel Isı Adası",
+              "etiket": "14. hafta",
+              "tarih": "21-25 Aralık 2026",
+              "slayt_ilk": 226,
+              "slayt_son": 268,
+              "slayt": 43,
+              "kod": "GNL-COG9-SN-U3A",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-14_Iklim_Sistemi_IV_Nem_ve_Yagis_v1.0.pptx",
+                  "boyut": 725865,
+                  "sha256": "4edebf72c3cdd5df8718cacf14fcb7febb945e5ff84ef8fae1eda47ec7653082"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-14_Iklim_Sistemi_IV_Nem_ve_Yagis_v1.0.odp",
+                  "boyut": 689538,
+                  "sha256": "e50bfffb74f414227cec28338aa113f73c68277f87eba6efa5d7be1a367d677e"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3A_Hafta-14_Iklim_Sistemi_IV_Nem_ve_Yagis_v1.0.pdf",
+                  "boyut": 1075170,
+                  "sha256": "71a9ceb7d08d9efd8224c87eebce8a559b924b85e20f36beffab1020041e5643",
+                  "sayfa": 44
+                }
+              ]
+            },
+            {
+              "deste": "U3B",
+              "hafta": 15,
+              "baslik": "İklim Türleri I: Sınıflandırma, Türkiye ve Grafik Okuma",
+              "etiket": "15. hafta",
+              "tarih": "28 Aralık 2026-1 Ocak 2027",
+              "slayt_ilk": 1,
+              "slayt_son": 46,
+              "slayt": 46,
+              "kod": "GNL-COG9-SN-U3B",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-15_Iklim_Turleri_I_Siniflandirma_ve_Grafik_Okuma_v1.0.pptx",
+                  "boyut": 1369022,
+                  "sha256": "d337a5523823df4ea8f2de61ad2445beb533f87bf49c1bd4d0c41ccfd5144827"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-15_Iklim_Turleri_I_Siniflandirma_ve_Grafik_Okuma_v1.0.odp",
+                  "boyut": 1392388,
+                  "sha256": "e125ada6fa15fa5221d292bb9d51098fa8388d4054bd07a24cb26d771d6b5488"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-15_Iklim_Turleri_I_Siniflandirma_ve_Grafik_Okuma_v1.0.pdf",
+                  "boyut": 1935630,
+                  "sha256": "7462f68c8b887c300f7263c5352ea218bf15c0b425726a5a53f8099d1fd31a78",
+                  "sayfa": 47
+                }
+              ]
+            },
+            {
+              "deste": "U3B",
+              "hafta": 16,
+              "baslik": "İklim Türleri II: Grafik Çizimi, Harita ve İnfografik",
+              "etiket": "16. hafta",
+              "tarih": "4-8 Ocak 2027",
+              "slayt_ilk": 47,
+              "slayt_son": 86,
+              "slayt": 40,
+              "kod": "GNL-COG9-SN-U3B",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-16_Iklim_Turleri_II_Grafik_Cizimi_ve_Infografik_v1.0.pptx",
+                  "boyut": 870313,
+                  "sha256": "11068cc810b55162462194c585dce418d35f2ffa5465fa56b48961bbbc31e3a8"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-16_Iklim_Turleri_II_Grafik_Cizimi_ve_Infografik_v1.0.odp",
+                  "boyut": 931800,
+                  "sha256": "a0c55c3eacf4d342450eeac087ce41a6fb4730a9f7425691bf3cb2a6778f3beb"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-16_Iklim_Turleri_II_Grafik_Cizimi_ve_Infografik_v1.0.pdf",
+                  "boyut": 1541230,
+                  "sha256": "06bad4b84ca6d6797c69a946c9269fd9cac1957865ea3b023508cd551fa31844",
+                  "sayfa": 41
+                }
+              ]
+            },
+            {
+              "deste": "U3B",
+              "hafta": 17,
+              "baslik": "İklim Sisteminde Yaşanan Değişiklikler (I)",
+              "etiket": "17. hafta",
+              "tarih": "11-15 Ocak 2027",
+              "slayt_ilk": 87,
+              "slayt_son": 126,
+              "slayt": 40,
+              "kod": "GNL-COG9-SN-U3B",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-17_Iklim_Degisiklikleri_I_Nedenler_ve_Kanitlar_v1.0.pptx",
+                  "boyut": 1237796,
+                  "sha256": "2a98d42ef77ffdffa8d8dd07e082a7541519441f5772e1bf3488f8ba7a1d8de7"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-17_Iklim_Degisiklikleri_I_Nedenler_ve_Kanitlar_v1.0.odp",
+                  "boyut": 1208013,
+                  "sha256": "f22685cb81d121d4235f9927db3aded7cdba5face1548c80161e30d08756a4b6"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-17_Iklim_Degisiklikleri_I_Nedenler_ve_Kanitlar_v1.0.pdf",
+                  "boyut": 1545955,
+                  "sha256": "7e7307df38878749f1adddda68293baeebfacc5615e3f19b0077d84438e03943",
+                  "sayfa": 41
+                }
+              ]
+            },
+            {
+              "deste": "U3B",
+              "hafta": 18,
+              "baslik": "Okul Temelli Planlama: Gözlem Günlükleri ve Coğrafya Okumaları",
+              "etiket": "18. hafta",
+              "tarih": "18-22 Ocak 2027",
+              "slayt_ilk": 127,
+              "slayt_son": 145,
+              "slayt": 19,
+              "kod": "GNL-COG9-SN-U3B",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-18_Okul_Temelli_Planlama_v1.0.pptx",
+                  "boyut": 109254,
+                  "sha256": "198e4d2231432ace13d966f48a734e33a033a5481774c1dec1177bb212b4f69a"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-18_Okul_Temelli_Planlama_v1.0.odp",
+                  "boyut": 81985,
+                  "sha256": "9f8b88afc403442fd440ae3fbe4160a369de5117f8f6ef66ec4ba673bfb448f0"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-18_Okul_Temelli_Planlama_v1.0.pdf",
+                  "boyut": 297351,
+                  "sha256": "45b5c761a5f382e75960643ebc7145529ffc4858d8af9c0e241fd62e670a11f3",
+                  "sayfa": 20
+                }
+              ]
+            },
+            {
+              "deste": "U3B",
+              "hafta": 19,
+              "baslik": "İklim Değişiklikleri II: Öngörüler ve Bilgi Görseli",
+              "etiket": "19. hafta",
+              "tarih": "8-12 Şubat 2027",
+              "slayt_ilk": 146,
+              "slayt_son": 184,
+              "slayt": 39,
+              "kod": "GNL-COG9-SN-U3B",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-19_Iklim_Degisiklikleri_II_Ongoruler_ve_Mucadele_v1.0.pptx",
+                  "boyut": 961321,
+                  "sha256": "4b94fe75c70f6e0b4207f11d769b155c51d0cb26d72f15c3bfdfeab6f8103d77"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-19_Iklim_Degisiklikleri_II_Ongoruler_ve_Mucadele_v1.0.odp",
+                  "boyut": 947593,
+                  "sha256": "a28ce011f551f304a4a8b4732321fb9bda82f3e53c22c8ccf2f2490cddd2a8b9"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3B_Hafta-19_Iklim_Degisiklikleri_II_Ongoruler_ve_Mucadele_v1.0.pdf",
+                  "boyut": 1229749,
+                  "sha256": "966cf932be16979505fd21a6274a8357b2a279a3cfd144de7f8bae135e23e761",
+                  "sayfa": 40
+                }
+              ]
+            },
+            {
+              "deste": "U3B",
+              "hafta": null,
+              "baslik": "Ünite sonu ölçme ve değerlendirme",
+              "etiket": "Ünite sonu",
+              "tarih": null,
+              "slayt_ilk": 185,
+              "slayt_son": 217,
+              "slayt": 33,
+              "kod": "GNL-COG9-SN-U3B",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U3B_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pptx",
+                  "boyut": 655668,
+                  "sha256": "6c13762166f815a2a0bb019208975357aeca9b2ddc80442645796ae38944d557"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U3B_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.odp",
+                  "boyut": 626176,
+                  "sha256": "197bf77cd7628f54d09b94973f8870486fe919e3d805de2e0539ba99ff441a12"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U3B_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pdf",
+                  "boyut": 973447,
+                  "sha256": "90f79b84d66087aee818be5e98d15d2066a5acb34ef5aeb15729c2e34f36bead",
+                  "sayfa": 34
+                }
+              ]
+            }
+          ],
+          "calisma": {
+            "kod": "GNL-COG9-CK-U3",
+            "baslik": "Çalışma kâğıdı",
+            "sayfa": 2,
+            "dosyalar": [
+              {
+                "bicim": "docx",
+                "dosya": "GNL-COG9-CK-U3_Dogal_Sistemler_ve_Surecler_Calisma_Kagidi_v1.0.docx",
+                "boyut": 44858,
+                "sha256": "d3ffea600fe7a41e1db5b53b294de0f2dd5d00268bd3410c3b661049264bfd97"
+              },
+              {
+                "bicim": "odt",
+                "dosya": "GNL-COG9-CK-U3_Dogal_Sistemler_ve_Surecler_Calisma_Kagidi_v1.0.odt",
+                "boyut": 63588,
+                "sha256": "b7e7e1576763b8382b1545e3e93452381704bfaa55b779f1366136816cf022ee"
+              },
+              {
+                "bicim": "pdf",
+                "dosya": "GNL-COG9-CK-U3_Dogal_Sistemler_ve_Surecler_Calisma_Kagidi_v1.0.pdf",
+                "boyut": 188322,
+                "sha256": "7cf86cc1c1b4aef3d6d2ffb36cd92b7c22381d9281c60eb22908bca4168a32ab",
+                "sayfa": 2
+              }
+            ]
+          }
+        },
+        {
+          "no": 4,
+          "slug": "unite-4",
+          "ad": "Beşerî Sistemler ve Süreçler",
+          "ders_saati": 16,
+          "haftalar": "20-27",
+          "desteler": [
+            "U4"
+          ],
+          "bolumler": [
+            {
+              "deste": "U4",
+              "hafta": 20,
+              "baslik": "Nüfusun Tarihsel Değişimi I: Sıçramalar ve Grafik Okuma",
+              "etiket": "20. hafta",
+              "tarih": "15-19 Şubat 2027",
+              "slayt_ilk": 1,
+              "slayt_son": 47,
+              "slayt": 47,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-20_Nufusun_Tarihsel_Degisimi_I_Sicrama_Donemleri_ve_Grafik_Okuma_v1.0.pptx",
+                  "boyut": 1158595,
+                  "sha256": "32670ef65ca080d53eafae0c4f981196571ff20d9482750111772515051237c9"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-20_Nufusun_Tarihsel_Degisimi_I_Sicrama_Donemleri_ve_Grafik_Okuma_v1.0.odp",
+                  "boyut": 1186418,
+                  "sha256": "b300f05da7bde492907d0671433782c71b854bc88320b24a0e6eb43fe9a6e4a5"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-20_Nufusun_Tarihsel_Degisimi_I_Sicrama_Donemleri_ve_Grafik_Okuma_v1.0.pdf",
+                  "boyut": 1520558,
+                  "sha256": "3fc34e218a0e68014913a18ad086f84865e5b2a7990e4bebc967de0593ef112e",
+                  "sayfa": 48
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": 21,
+              "baslik": "Nüfusun Tarihsel Değişimi II: Türkiye ve Türk Devletleri",
+              "etiket": "21. hafta",
+              "tarih": "22-26 Şubat 2027",
+              "slayt_ilk": 48,
+              "slayt_son": 90,
+              "slayt": 43,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-21_Nufusun_Tarihsel_Degisimi_II_Turkiye_ve_Turk_Devletleri_v1.0.pptx",
+                  "boyut": 373599,
+                  "sha256": "9e9edf759eb30bdf6e732533ba6725a29294c50c6cc409bd409f7c4dc857f7ed"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-21_Nufusun_Tarihsel_Degisimi_II_Turkiye_ve_Turk_Devletleri_v1.0.odp",
+                  "boyut": 352572,
+                  "sha256": "ec5a2c395d3ab96cc6c465048f3b6dbadeb7e2977af970dd0c0a4fcdb969d769"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-21_Nufusun_Tarihsel_Degisimi_II_Turkiye_ve_Turk_Devletleri_v1.0.pdf",
+                  "boyut": 760718,
+                  "sha256": "aad45d1cccf083c1d1ce7c29614290e42a8fca18a16e1a9b94281a04a6df58ef",
+                  "sayfa": 44
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": 22,
+              "baslik": "Nüfusun Dağılışı ve Hareketleri I: Dağılış",
+              "etiket": "22. hafta",
+              "tarih": "1-5 Mart 2027",
+              "slayt_ilk": 91,
+              "slayt_son": 129,
+              "slayt": 39,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-22_Nufusun_Dagilisi_ve_Hareketleri_I_Dagilis_v1.0.pptx",
+                  "boyut": 893607,
+                  "sha256": "075646fa188daddc262a2f516e8a5150dc21b81e663be709abce7ee3c70b2bd6"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-22_Nufusun_Dagilisi_ve_Hareketleri_I_Dagilis_v1.0.odp",
+                  "boyut": 855017,
+                  "sha256": "0361bda686f7546c1134ad792be5071a2ea32e017afd45e1c85531d8612441d5"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-22_Nufusun_Dagilisi_ve_Hareketleri_I_Dagilis_v1.0.pdf",
+                  "boyut": 1850337,
+                  "sha256": "7d014e7617f77ba0236293d589c46808974c802d92b6cb04ec896233b70eac84",
+                  "sayfa": 40
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": 23,
+              "baslik": "Nüfusun Dağılışı ve Hareketleri II: Göçler",
+              "etiket": "23. hafta",
+              "tarih": "15-19 Mart 2027",
+              "slayt_ilk": 130,
+              "slayt_son": 175,
+              "slayt": 46,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-23_Nufusun_Dagilisi_ve_Hareketleri_II_Gocler_v1.0.pptx",
+                  "boyut": 872750,
+                  "sha256": "1fc216adc636b81c33d4ecd93252e48765ab4b8eadd00a18e9e0832d211912d1"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-23_Nufusun_Dagilisi_ve_Hareketleri_II_Gocler_v1.0.odp",
+                  "boyut": 822929,
+                  "sha256": "37e2f0a2a4c85825a1d620c505a95bcae7aab27e4544727d045c46595347fbbd"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-23_Nufusun_Dagilisi_ve_Hareketleri_II_Gocler_v1.0.pdf",
+                  "boyut": 1205126,
+                  "sha256": "53e52f3408c628443b68a7b3ad85ceade6c4903d621b845f045fa74fe612f958",
+                  "sayfa": 47
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": 24,
+              "baslik": "Demografik Dönüşüm I: Model ve Nüfus Piramitleri",
+              "etiket": "24. hafta",
+              "tarih": "22-26 Mart 2027",
+              "slayt_ilk": 176,
+              "slayt_son": 220,
+              "slayt": 45,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-24_Demografik_Donusum_I_Model_ve_Nufus_Piramitleri_v1.0.pptx",
+                  "boyut": 528059,
+                  "sha256": "ccb2731aab99a64a6b1a4b0e52e96268a30d0be4b9192860d48527a03785d6e2"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-24_Demografik_Donusum_I_Model_ve_Nufus_Piramitleri_v1.0.odp",
+                  "boyut": 547918,
+                  "sha256": "b942001c5ff71e8189ec91bdf92f13b28c40e6b1587b78b7e020ad4beaa6186e"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-24_Demografik_Donusum_I_Model_ve_Nufus_Piramitleri_v1.0.pdf",
+                  "boyut": 969868,
+                  "sha256": "f3d80644b84fbe49862a510e548a46d3614ce073d69d8f8ad84814d5a4ee0813",
+                  "sayfa": 46
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": 25,
+              "baslik": "Demografik Dönüşüm II: Türkiye'nin Dönüşüm Süreci",
+              "etiket": "25. hafta",
+              "tarih": "29 Mart-2 Nisan 2027",
+              "slayt_ilk": 221,
+              "slayt_son": 259,
+              "slayt": 39,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-25_Demografik_Donusum_II_Turkiyenin_Donusum_Sureci_v1.0.pptx",
+                  "boyut": 765040,
+                  "sha256": "774d04965ed894a3432871fbc0109c90d7555ea5411a2306bf20381ce7b6b4bb"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-25_Demografik_Donusum_II_Turkiyenin_Donusum_Sureci_v1.0.odp",
+                  "boyut": 840888,
+                  "sha256": "b5d83e5c9e0fa4e29f9cf4f805ba5cd015ee27ebfd4adf0001490dacc2e9cedf"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-25_Demografik_Donusum_II_Turkiyenin_Donusum_Sureci_v1.0.pdf",
+                  "boyut": 1481167,
+                  "sha256": "0c57516a880f9d8dcbd9b3cecb4ee5751cf8237b5e334ac1425ca6a34825b6fe",
+                  "sayfa": 40
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": 26,
+              "baslik": "Nüfus Politikaları (I)",
+              "etiket": "26. hafta",
+              "tarih": "5-9 Nisan 2027",
+              "slayt_ilk": 260,
+              "slayt_son": 309,
+              "slayt": 50,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-26_Nufus_Politikalari_I_Firsat_Sorun_ve_Politikalar_v1.0.pptx",
+                  "boyut": 1373358,
+                  "sha256": "8daa47e47b57eb0ad204fb9f1e8768a465012cded5f22cb3abc4afb462b82ab5"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-26_Nufus_Politikalari_I_Firsat_Sorun_ve_Politikalar_v1.0.odp",
+                  "boyut": 1333579,
+                  "sha256": "67609bbcd5e1b98ed0b930ce61e3adc4daf0b31c0036cd51983de25d03ea4918"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-26_Nufus_Politikalari_I_Firsat_Sorun_ve_Politikalar_v1.0.pdf",
+                  "boyut": 1772630,
+                  "sha256": "1933da20707eb298d9d4505b2e7f529aff365a70015e2182d011b075fa960553",
+                  "sayfa": 51
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": 27,
+              "baslik": "Nüfus Politikaları (II)",
+              "etiket": "27. hafta",
+              "tarih": "12-16 Nisan 2027",
+              "slayt_ilk": 310,
+              "slayt_son": 345,
+              "slayt": 36,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-27_Nufus_Politikalari_II_Turkiye_ve_Unite_Kapanisi_v1.0.pptx",
+                  "boyut": 325748,
+                  "sha256": "57e194f36cb3549c6110cfd654c4ed1e20a9bf9680852b11f582e29d362ae4e9"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-27_Nufus_Politikalari_II_Turkiye_ve_Unite_Kapanisi_v1.0.odp",
+                  "boyut": 306446,
+                  "sha256": "9e064fc0f398882ebb4b09dd4ec9b97341069cebd540c7f8416db4a6b941f4a3"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Hafta-27_Nufus_Politikalari_II_Turkiye_ve_Unite_Kapanisi_v1.0.pdf",
+                  "boyut": 607574,
+                  "sha256": "afe3d1d8484b6f0e41cfb095ee635ed47e2a9ca7f7e106fa7afbc1f7b4d91ed4",
+                  "sayfa": 37
+                }
+              ]
+            },
+            {
+              "deste": "U4",
+              "hafta": null,
+              "baslik": "Ünite sonu ölçme ve değerlendirme",
+              "etiket": "Ünite sonu",
+              "tarih": null,
+              "slayt_ilk": 346,
+              "slayt_son": 379,
+              "slayt": 34,
+              "kod": "GNL-COG9-SN-U4",
+              "dosyalar": [
+                {
+                  "bicim": "pptx",
+                  "dosya": "GNL-COG9-SN-U4_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pptx",
+                  "boyut": 552593,
+                  "sha256": "4b2b51d34d63d55bbecaf4dcc7bb3e1df1e95dbb02ad554efd05c1646c6fcfad"
+                },
+                {
+                  "bicim": "odp",
+                  "dosya": "GNL-COG9-SN-U4_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.odp",
+                  "boyut": 584385,
+                  "sha256": "b07ba2c4283407ee099dc9b0e3b0818872417c59de6c4ad3a7996e79fcf33cf0"
+                },
+                {
+                  "bicim": "pdf",
+                  "dosya": "GNL-COG9-SN-U4_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pdf",
+                  "boyut": 907186,
+                  "sha256": "48de8fa83c46c1513f3097f5329ca6ed7cf899030b91ebf1c9bcd58ea2cf28e7",
+                  "sayfa": 35
+                }
+              ]
+            }
+          ],
+          "calisma": {
+            "kod": "GNL-COG9-CK-U4",
+            "baslik": "Çalışma kâğıdı",
+            "sayfa": 2,
+            "dosyalar": [
+              {
+                "bicim": "docx",
+                "dosya": "GNL-COG9-CK-U4_Beseri_Sistemler_ve_Surecler_Calisma_Kagidi_v1.0.docx",
+                "boyut": 44382,
+                "sha256": "ded0d641f24ad7d5c9506e05d43c8283ab9e0c91abbcd50d1e0e6286a5e9753d"
+              },
+              {
+                "bicim": "odt",
+                "dosya": "GNL-COG9-CK-U4_Beseri_Sistemler_ve_Surecler_Calisma_Kagidi_v1.0.odt",
+                "boyut": 60825,
+                "sha256": "d293db2f59f2683742df598839b0bb4c114fc9517d6c628cd07b0c0bc9fb017b"
+              },
+              {
+                "bicim": "pdf",
+                "dosya": "GNL-COG9-CK-U4_Beseri_Sistemler_ve_Surecler_Calisma_Kagidi_v1.0.pdf",
+                "boyut": 174471,
+                "sha256": "0905718baea4ea30cfc1d29ec0e92d91a403bfe29d17cea7c3089411ea73b4a4",
+                "sayfa": 2
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

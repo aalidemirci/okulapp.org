@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import veri from '../../../data/cografya.json';
+
+// Veri kaynağı: evrakmotoru → `python arac/gnl_ders_yayin.py --site ../okulapp.org`
+export function getStaticPaths() {
+  return veri.siniflar.map((s) => ({ params: { sinif: s.slug }, props: { sinif: s } }));
+}
+
+const { sinif } = Astro.props;
+const slaytSayisi = (u: (typeof sinif.uniteler)[number]) =>
+  u.bolumler.reduce((n, b) => n + b.slayt, 0);
+---
+
+<BaseLayout
+  title={`${sinif.ad} — Coğrafya dersi — okulapp.org`}
+  description={`${sinif.ad} ders sunumları ve çalışma kâğıtları, hafta hafta: PowerPoint, OpenDocument ve PDF.`}
+>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow"><a href="/cografya/">Coğrafya</a> · Ücretsiz</p>
+      <h1>{sinif.ad}</h1>
+      <p class="lead">
+        Ünitesini seçin; her ünitenin sayfasında haftalık sunum bölümleri ve çalışma
+        kâğıdı ayrı ayrı indirilir.
+      </p>
+    </div>
+    <ul class="feature-grid cg-uniteler">
+      {sinif.uniteler.map((u) => (
+        <li class="card">
+          <p class="card-number">
+            {u.no}. ünite · {u.haftalar}. haftalar · {u.ders_saati} ders saati
+          </p>
+          <h2><a href={`/cografya/${sinif.slug}/${u.slug}/`}>{u.ad}</a></h2>
+          <p>{u.bolumler.length} bölüm · {slaytSayisi(u)} slayt · çalışma kâğıdı</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .cg-uniteler {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cg-uniteler .card {
+    min-height: auto;
+  }
+
+  .cg-uniteler h2 {
+    font-size: 1.2rem;
+    margin: 0.6rem 0 0.5rem;
+  }
+
+  @media (max-width: 520px) {
+    .cg-uniteler {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

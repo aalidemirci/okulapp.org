@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import veri from '../../data/cografya.json';
+import arsiv from '../../data/evrak-arsivi.json';
+
+// Bu veri dosyasını evrak motoru üretir:
+//   cd ../evrakmotoru && python arac/gnl_ders_yayin.py --site ../okulapp.org
+// Elle düzenlemeyin; bkz. CLAUDE.md "Ortak çalışma düzeni" (alan sahipliği).
+const siniflar = veri.siniflar;
+const bolumSayisi = siniflar.reduce(
+  (n, s) => n + s.uniteler.reduce((m, u) => m + u.bolumler.length, 0),
+  0,
+);
+const uniteSayisi = siniflar.reduce((n, s) => n + s.uniteler.length, 0);
+const slaytSayisi = (u: (typeof siniflar)[number]['uniteler'][number]) =>
+  u.bolumler.reduce((n, b) => n + b.slayt, 0);
+const guncelleme = new Date(veri.guncelleme).toLocaleDateString('tr-TR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+const planSeti = arsiv.setler.find((s) => s.slug === 'cografya-yillik-planlari');
+---
+
+<BaseLayout
+  title="Coğrafya dersi — okulapp.org"
+  description="Coğrafya dersi için hafta hafta bölünmüş ders sunumları ve çalışma kâğıtları: PowerPoint, OpenDocument ve PDF olarak ücretsiz."
+>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Coğrafya dersi · Ücretsiz</p>
+      <h1>Coğrafya ders materyalleri</h1>
+      <p class="lead">
+        Ders kitabına ve öğretim programına bağlı ders sunumları ve çalışma kâğıtları.
+        Sunumlar ünite ünite değil <b>hafta hafta</b> bölünmüştür: her dosya o haftanın
+        iki ders saatlik dersidir. PowerPoint, OpenDocument (LibreOffice, Pardus) ve PDF
+        olarak indirilir.
+      </p>
+      <p class="privacy-promise">
+        {uniteSayisi} ünite · {bolumSayisi} haftalık bölüm · Son güncelleme {guncelleme} ·
+        Kayıt gerekmez, ücretsizdir.
+      </p>
+    </div>
+
+    {siniflar.map((s) => (
+      <div class="cg-sinif" id={s.slug}>
+        <h2>{s.ad}</h2>
+        <ul class="feature-grid cg-uniteler">
+          {s.uniteler.map((u) => (
+            <li class="card">
+              <p class="card-number">
+                {u.no}. ünite · {u.haftalar}. haftalar · {u.ders_saati} ders saati
+              </p>
+              <h3><a href={`/cografya/${s.slug}/${u.slug}/`}>{u.ad}</a></h3>
+              <p>
+                {u.bolumler.length} bölüm · {slaytSayisi(u)} slayt · çalışma kâğıdı
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p class="muted cg-not">
+          Kaynak: {s.kitap.ad}, {s.kitap.baski} baskısı (MEB) ve 2026 öğretim programı ·
+          sürüm {s.surum}
+        </p>
+      </div>
+    ))}
+
+    <div class="info-box">
+      <p>
+        <b>Resmî Bakanlık materyali değildir.</b> Bir okulda derste kullanılmak üzere
+        hazırlanmış, sonra okul bilgileri çıkarılarak genelleştirilmiş çalışmalardır.
+        Ders kitabından alınan metin, soru ve görsellerin hakları Millî Eğitim
+        Bakanlığına aittir; eğitim ve öğretim amacıyla, kaynak gösterilerek
+        alıntılanmıştır. Her ünite sayfasında kaynakça ve lisans bilgisi yazılıdır.
+      </p>
+      {planSeti && (
+        <p>
+          <b>Yıllık planlar:</b> Coğrafya dersinin okula uyarlanmış yıllık planları
+          belge arşivindedir —{' '}
+          <a href={`/belge-arsivi/${planSeti.slug}/`}>{planSeti.ad}</a>.
+        </p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cg-sinif {
+    margin-bottom: 2.4rem;
+  }
+
+  .cg-sinif h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+
+  .cg-uniteler {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cg-uniteler .card {
+    min-height: auto;
+  }
+
+  .cg-uniteler h3 {
+    margin-top: 0.6rem;
+  }
+
+  .cg-not {
+    font-size: 0.9rem;
+    margin: 0.9rem 0 0;
+  }
+
+  @media (max-width: 520px) {
+    .cg-uniteler {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
