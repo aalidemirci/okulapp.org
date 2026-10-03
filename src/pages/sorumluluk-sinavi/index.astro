@@ -24,8 +24,9 @@ const releaseDate =
     ? new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(release.published_at))
     : '';
 
-// Örnek evrak: kurgu okul ("Uydurma Anadolu Lisesi") için programın kendisiyle
+// Örnek evrak: örnek okul ("Örnek Anadolu Lisesi") için programın kendisiyle
 // üretilip PDF'e çevrilen belgeler; dosyalar public/sorumluluk-sinavi/ornek-evrak/.
+// Üretici: sorumluluk-sinavi deposundaki araclar/site_ornekleri.py.
 const ornekEvrak = [
   { ad: '01-sinav-programi', baslik: 'Sınav programı (öğrenci nüshası)', sayfa: 1, yatay: false,
     aciklama: 'Tarih, saat, ders, süre ve salon; müdür onay numarası ve OLUR satırıyla.' },
@@ -37,7 +38,7 @@ const ornekEvrak = [
     aciklama: 'Üç dönemin komisyon ve gözcülük dökümü ve 12/15 durumu.' },
   { ad: '05-ilan-sinav-takvimi', baslik: 'İlan: sınav takvimi', sayfa: 1, yatay: false,
     aciklama: 'Okul sitesinde yayımlanır; kişisel veri içermez.' },
-  { ad: '06-ilan-ogrenci-cizelgesi', baslik: 'İlan: öğrenci sınav çizelgesi', sayfa: 10, yatay: false,
+  { ad: '06-ilan-ogrenci-cizelgesi', baslik: 'İlan: öğrenci sınav çizelgesi', sayfa: 8, yatay: false,
     aciklama: 'Okul numarası ve maskeli ad; açık ad hiçbir seçenekte yazılmaz.' },
   { ad: '07-ilan-basvuru-duyurusu', baslik: 'İlan: başvuru duyurusu', sayfa: 1, yatay: false,
     aciklama: 'Beklemeli ve devamsız öğrencilerin yazılı başvurusu (OKY md.58/2-d).' },
@@ -109,10 +110,10 @@ const ornekEvrak = [
       <h2>Programdan görünümler</h2>
     </div>
     <p class="shots-note">
-      Görüntülerdeki okul, öğretmen ve öğrenci adları ile numaralar <b>örnektir</b>: tanıtım
-      için kurulmuş, adı "Uydurma Anadolu Lisesi" olan kurgu bir okula aittir. Görüntüler
-      0.6.1 sürümünden, Pardus'un tabanı olan Debian 12 ortamında alındı; Windows'ta yazı
-      tipi farklıdır.
+      Görüntüler tanıtım için kurulmuş <b>örnek bir okula</b> ("Örnek Anadolu Lisesi")
+      aittir; numaralar örnektir. Kişi adlarının yerinde "Adı Soyadı" ya da "Matematik
+      Öğretmeni 1" gibi görev adları yazar. Görüntüler 0.6.1 sürümünden, Pardus'un tabanı
+      olan Debian 12 ortamında alındı; Windows'ta yazı tipi farklıdır.
     </p>
     <div class="shots-grid">
       <figure class="shot">
@@ -200,9 +201,10 @@ const ornekEvrak = [
       <h2>Programın ürettiği belgeler</h2>
     </div>
     <p class="shots-note">
-      Aşağıdaki belgeler aynı kurgu okul için programın kendisiyle üretildi; okul, kişi ve
-      ilçe adları uydurmadır. Program belgeleri <code>.docx</code> olarak verir, burada
-      inceleme kolaylığı için PDF'e çevrildi. Önizlemede ilk sayfa görünür.
+      Aşağıdaki belgeler aynı örnek okul için programın kendisiyle üretildi; imza
+      yerlerinde "Adı SOYADI", öğretmen adlarının yerinde görev adları yazar. Program
+      belgeleri <code>.docx</code> olarak verir, burada inceleme kolaylığı için PDF'e
+      çevrildi. Önizlemede ilk sayfa görünür.
     </p>
     <div class="docs-grid">
       {ornekEvrak.map((belge) => (

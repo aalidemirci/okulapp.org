@@ -54,7 +54,7 @@ dal canlıyı geri sardı (belge arşivi 5 setten 3'e düştü); kurallar bu vak
    | `public/evrak/**` + `src/data/evrak-arsivi.json` | evrakmotoru | ÜRETİLİR (`gnl_yayin.py`); elle düzenlenmez |
    | `src/data/oz-release.json` | okulzili | sürüm çıkınca elle güncellenir |
    | `src/data/dd-release.json` | disiplin-defteri-codex | sürüm çıkınca elle güncellenir |
-   | `src/data/ss-release.json` + `src/pages/sorumluluk-sinavi/**` + `public/sorumluluk-sinavi/**` | sorumluluk-sinavi | sürüm çıkınca elle güncellenir; metnin kaynağı uygulama deposundaki `BENIOKU.md`, `KURULUM.md`, `CHANGELOG.md`; ekran görüntüleri ve örnek evrak kurgu bir okulla ("Uydurma Anadolu Lisesi") üretilir |
+   | `src/data/ss-release.json` + `src/pages/sorumluluk-sinavi/**` + `public/sorumluluk-sinavi/**` | sorumluluk-sinavi | sürüm çıkınca elle güncellenir; metnin kaynağı uygulama deposundaki `BENIOKU.md`, `KURULUM.md`, `CHANGELOG.md`; ekran görüntüleri ve örnek evrak örnek bir okulla ("Örnek Anadolu Lisesi"; kişi yerinde "Adı SOYADI" ya da görev adı) `araclar/site_ornekleri.py` ve `site_ekranlari.py` ile üretilir |
    | `src/data/ks-release.json` + `src/pages/kelebek-sinav/**` | kelebek-sinav | sürüm çıkınca elle güncellenir |
    | `src/data/kd-release.json` + `src/pages/kutuphane-defteri/**` + `src/layouts/KDLayout.astro` + `public/kutuphane-defteri.png` + `public/kutuphane-defteri/**` | kutuphane (Kütüphane Defteri) | sürüm çıkınca elle güncellenir; metnin kaynağı uygulama deposundaki `docs/site-icerigi.md` |
    | sayfalar, layout, stil, bileşenler | bu deponun kendi oturumları | normal geliştirme |
