@@ -90,9 +90,9 @@ const ornekEvrak = [
     </div>
     <div class="feature-grid">
       <article class="card"><span class="card-number">01</span><h3>e-Okul raporundan başlar</h3><p>Personel listesi (<code>OOK01001R1</code>) ve sorumluluk listesi (<code>OOK12001R010</code>) içe aktarılır; branş havuzu personel raporundan kurulur. Dosya yanlış biçimdeyse program sessizce yanlış okumaz, hangi başlığı bulamadığını söyleyerek durur.</p></article>
-      <article class="card"><span class="card-number">02</span><h3>Plan ve görevlendirme birlikte</h3><p>Oturumun nereye konabileceği, o saatte komisyonun kurulup kurulamayacağına bağlıdır. İkisi birlikte çözüldüğü için aynı saatte birden çok sınav yapılabilir ve program az sayıda güne sığar. Kalabalık sınav salonlara bölünür, her salona ayrı gözcü konur.</p></article>
+      <article class="card"><span class="card-number">02</span><h3>Plan ve görevlendirme birlikte</h3><p>Oturumun nereye konabileceği, o saatte komisyonun kurulup kurulamayacağına bağlıdır. İkisi birlikte çözüldüğü için aynı saatte birden çok sınav yapılabilir ve program az sayıda güne sığar. Kalabalık sınav salonlara bölünür, her salona ayrı gözcü konur. Süresi bir sonraki saate taşan uygulama sınavı, sürdüğü bütün saatleri tutar.</p></article>
       <article class="card"><span class="card-number">03</span><h3>Gün sayısını kendisi seçer</h3><p>Öğrencilerin çoğunluğunun sığdığı en kısa program denenir: bir hafta, olmazsa iki hafta. Bir öğrencinin bir günde ikiyi aşan sınavı uyarı, üçü aşan sınavı engel olarak gösterilir (ÖDY md.5/1-k); sığmayan öğrencinin sınırı en çok üçe çıkar ve adıyla raporlanır.</p></article>
-      <article class="card"><span class="card-number">04</span><h3>Sürükle-bırak düzenleme</h3><p>Kartı başka bir güne taşıyın; öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir, engel doğuran taşıma geri alınır. İki aşamalı dersin uygulaması yazılıdan ayrı bir güne alınabilir. Plan siz kaydedene kadar veritabanına yazılmaz.</p></article>
+      <article class="card"><span class="card-number">04</span><h3>Sürükle-bırak düzenleme</h3><p>Kartı başka bir güne taşıyın; öğrenci, öğretmen ve salon çakışmaları sınav sürelerine bakılarak ayrı ayrı denetlenir, engel doğuran taşıma geri alınır. İki aşamalı dersin uygulaması yazılıdan ayrı bir güne alınabilir. Plan siz kaydedene kadar veritabanına yazılmaz.</p></article>
       <article class="card"><span class="card-number">05</span><h3>Tatil ve öğretmen müsaitliği</h3><p>Resmî tatil ve idari izin günlerine sınav konmaz; başvuru ve evrak teslim süreleri bu günleri iş günü saymaz. Öğretmenin dersi, izni ya da başka görevi olan saatlerine görev verilmez (OKY md.58/2-ç).</p></article>
       <article class="card"><span class="card-number">06</span><h3>Görevliyi elle değiştirme</h3><p>Takvimde sınava tıklayınca görevliler görünür. Yerine gelebilecek öğretmenler uygunluk gerekçeleriyle listelenir. Kesinleşmiş planda değişiklik müdür onay numarası ve gerekçeyle kaydedilir, görevlendirme çizelgesinde de yazılır.</p></article>
       <article class="card"><span class="card-number">07</span><h3>Tek ders sınavı</h3><p>Sorumluluk sınavından sonra tek dersten başarısız kalan 12. sınıf öğrencisi için takip eden haftaya ayrı plan kurulur (OKY md.58/6). Aynı kurallar ve aynı evrak geçerlidir.</p></article>
@@ -112,7 +112,7 @@ const ornekEvrak = [
     <p class="shots-note">
       Görüntüler tanıtım için kurulmuş <b>örnek bir okula</b> ("Örnek Anadolu Lisesi")
       aittir; numaralar örnektir. Kişi adlarının yerinde "Adı Soyadı" ya da "Matematik
-      Öğretmeni 1" gibi görev adları yazar. Görüntüler 0.6.2 sürümünden, Pardus'un tabanı
+      Öğretmeni 1" gibi görev adları yazar. Görüntüler 0.7.0 sürümünden, Pardus'un tabanı
       olan Debian 12 ortamında alındı; Windows'ta yazı tipi farklıdır.
     </p>
     <div class="shots-grid">
@@ -293,9 +293,10 @@ const ornekEvrak = [
       çalışır: paketler GitHub'dan değil, okulapp.org'un kendi indirme alanından gelir.
       Okulda 0.3.0 kurulu ise üzerine en yeni sürümü kurun — 0.3.0 numarasıyla iki
       farklı paket derlendi, hangi içeriği taşıdığı ayırt edilemiyor. Yükseltme önce
-      kaldırmayı gerektirmez ve kurulum veritabanına dokunmaz. 0.6 sürümü ilk açılışta
-      veritabanını yeni şemaya geçirir, geçişten önce yedeğini kendiliğinden alır;
-      yükseltmeden sonra Kurum Ayarları'na o yılın tatil günlerini girin.
+      kaldırmayı gerektirmez ve kurulum veritabanına dokunmaz. Yeni sürüm, gerekirse ilk
+      açılışta veritabanını yeni şemaya geçirir ve geçişten önce yedeğini kendiliğinden
+      alır. 0.5 ya da daha eski bir sürümden yükseltiyorsanız sonra Kurum Ayarları'na o
+      yılın tatil günlerini girin.
     </p>
   </section>
 
@@ -320,7 +321,7 @@ const ornekEvrak = [
       <p><strong>Tek ders sınavı</strong><span>OKY md.58/6 — tek dersten başarısız kalan son sınıf öğrencisi için takip eden haftada aynı usulle sınav.</span></p>
       <p><strong>Süre ve günlük sınav sayısı</strong><span>ÖDY md.5/1-l, 5/1-k — yazılı en çok bir ders saati; günde ikiyi geçmemesi esas, zorunlu hâlde üç.</span></p>
       <p><strong>Çifte rol ve yönetici görevi</strong><span>OKY md.58/2-a; Karar md.12/2-b, 2-c — aynı sınavda çifte rol yok; yönetici görevi ücretsizdir.</span></p>
-      <p><strong>Yıllık görev sayacı</strong><span>Karar md.12/2-a — 12 komisyon / 15 gözcülük sınırı; 01.01.2024 – 31.12.2027 görevlerinde uygulanmaz (7. ve 8. Dönem Toplu Sözleşme, eğitim hizmet kolu md.4).</span></p>
+      <p><strong>Yıllık görev sayacı</strong><span>Karar md.12/2-a — 12 komisyon / 15 gözcülük sınırı; 01.01.2024 – 31.12.2027 görevlerinde uygulanmaz (7. ve 8. Dönem Toplu Sözleşme, eğitim hizmet kolu md.4). İki aşamalı derste yazılı ve uygulama üyelikleri ayrı sayılır (OKY md.58/2-e; yabancı dilde ayrıca aynı sözleşmelerin md.17'si).</span></p>
       <p><strong>Evrak biçimi</strong><span>Resmî Yazışma Yönetmeliği md.6–10 — A4, Times New Roman, 1,5 cm kenar, "T.C." başlığı.</span></p>
     </div>
   </section>
