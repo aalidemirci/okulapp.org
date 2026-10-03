@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ShowcaseCard from '../components/ShowcaseCard.astro';
 import arsiv from '../data/evrak-arsivi.json';
+import cografya from '../data/cografya.json';
 
 const projects = await getCollection('projects');
 const featured = projects
@@ -107,6 +108,32 @@ const belgeSayisi = arsiv.setler.reduce((n, s) => n + s.belgeler.length, 0);
     </ul>
     <p class="section-cta">
       <a class="text-link" href="/belge-arsivi/">Belge arşivine git →</a>
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Coğrafya dersi</p>
+      <h2>Hafta hafta ders sunumları</h2>
+      <p>
+        Ders kitabına ve öğretim programına bağlı, haftalık bölümlere ayrılmış ders
+        sunumları ve çalışma kâğıtları; PowerPoint, OpenDocument ve PDF olarak.
+      </p>
+    </div>
+    <ul class="feature-grid">
+      {cografya.siniflar.map((s) => (
+        <li class="card">
+          <h3><a href={`/cografya/${s.slug}/`}>{s.ad}</a></h3>
+          <p>{s.uniteler.map((u) => `${u.no}. ${u.ad}`).join(' · ')}</p>
+          <p class="muted">
+            {s.uniteler.length} ünite ·{' '}
+            {s.uniteler.reduce((n, u) => n + u.bolumler.length, 0)} haftalık bölüm · sürüm {s.surum}
+          </p>
+        </li>
+      ))}
+    </ul>
+    <p class="section-cta">
+      <a class="text-link" href="/cografya/">Coğrafya bölümüne git →</a>
     </p>
   </section>
 

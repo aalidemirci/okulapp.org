@@ -52,6 +52,8 @@ dal canlıyı geri sardı (belge arşivi 5 setten 3'e düştü); kurallar bu vak
    | Alan | Tek yazar | Nasıl değişir |
    |---|---|---|
    | `public/evrak/**` + `src/data/evrak-arsivi.json` | evrakmotoru | ÜRETİLİR (`gnl_yayin.py`); elle düzenlenmez |
+   | `public/cografya/**` + `src/data/cografya.json` | evrakmotoru | ÜRETİLİR (`gnl_ders_yayin.py`); elle düzenlenmez |
+   | `src/pages/cografya/**` | evrakmotoru | sayfa şablonu elle; içerik manifestten gelir |
    | `src/data/oz-release.json` | okulzili | sürüm çıkınca elle güncellenir |
    | `src/data/dd-release.json` | disiplin-defteri-codex | sürüm çıkınca elle güncellenir |
    | `src/data/ss-release.json` + `src/pages/sorumluluk-sinavi/**` + `public/sorumluluk-sinavi/**` | sorumluluk-sinavi | sürüm çıkınca elle güncellenir; metnin kaynağı uygulama deposundaki `BENIOKU.md`, `KURULUM.md`, `CHANGELOG.md`; ekran görüntüleri ve örnek evrak örnek bir okulla ("Örnek Anadolu Lisesi"; kişi yerinde "Adı SOYADI" ya da görev adı) `araclar/site_ornekleri.py` ve `site_ekranlari.py` ile üretilir |
@@ -72,7 +74,7 @@ dal canlıyı geri sardı (belge arşivi 5 setten 3'e düştü); kurallar bu vak
    doğrudan canlıya deploy olur (yaşanan vaka buydu).
 
 4. **Commit dili.** Commit başlığı hangi alandan geldiğini söyler:
-   "Belge arşivi: …", "Okul Zili: …", "Disiplin Defteri: …",
+   "Belge arşivi: …", "Coğrafya: …", "Okul Zili: …", "Disiplin Defteri: …",
    "Sorumluluk Sınavı: …", "Kelebek Sınav: …", "Kütüphane Defteri: …", site
    geneli için "Site: …" / sayfa adı.
 
@@ -102,6 +104,17 @@ Kural:
   arar, bu setlerin GitHub sürümü yoktur.
 - Belgeler okul, kişi ve konum kimliği içermez (yayın öncesi denetim bunu
   zorlar). Doldurulmuş nüshalar hiçbir koşulda bu depoya girmez.
+
+**Coğrafya dersi bölümü (`/cografya/`) de aynı kurala tabidir.** Haftalık sunum
+bölümleri ve çalışma kâğıtları (pptx/odp/pdf, docx/odt/pdf) ile
+`src/data/cografya.json`, evrakmotorunun `arac/gnl_ders_yayin.py` hattından
+gelir (`--site ../okulapp.org`; dosyaları yeniden üretmeden kopyalamak için
+`--yalniz-kopya`). Hat okul kimliğini ayıklar, her dosyaya ders kitabının
+künyesini ("Kaynaklar ve Haklar" slaytı) ekler ve KVKK kilidini pptx, odp, odt
+ve pdf'e de uygular. Kitaptan alınan metin, soru ve görsellerin hakları MEB'e
+aittir (5846 sayılı Kanun md. 34 kapsamında, kaynak gösterilerek alıntı);
+CC BY 4.0 yalnız özgün katkılar içindir — sayfa metni bunu söylemeye devam
+etmelidir.
 
 ## Renk kümeleri (data-palette)
 
