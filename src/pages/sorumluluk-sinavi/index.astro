@@ -23,6 +23,29 @@ const releaseDate =
   release.available && release.published_at
     ? new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(release.published_at))
     : '';
+
+// Örnek evrak: kurgu okul ("Uydurma Anadolu Lisesi") için programın kendisiyle
+// üretilip PDF'e çevrilen belgeler; dosyalar public/sorumluluk-sinavi/ornek-evrak/.
+const ornekEvrak = [
+  { ad: '01-sinav-programi', baslik: 'Sınav programı (öğrenci nüshası)', sayfa: 1, yatay: false,
+    aciklama: 'Tarih, saat, ders, süre ve salon; müdür onay numarası ve OLUR satırıyla.' },
+  { ad: '02-sinav-programi-gorevli', baslik: 'Sınav programı (görevli nüshası)', sayfa: 2, yatay: true,
+    aciklama: 'Aynı program, komisyon üyeleri ve salon salon gözcülerle.' },
+  { ad: '03-gorevlendirme-cizelgesi', baslik: 'Görevlendirme çizelgesi', sayfa: 4, yatay: true,
+    aciklama: 'Müdür onayına sunulan olur yazısı; arkasında tebliğ-tebellüğ tablosu.' },
+  { ad: '04-gorev-sayac-raporu', baslik: 'Öğretmen görev sayacı', sayfa: 2, yatay: true,
+    aciklama: 'Üç dönemin komisyon ve gözcülük dökümü ve 12/15 durumu.' },
+  { ad: '05-ilan-sinav-takvimi', baslik: 'İlan: sınav takvimi', sayfa: 1, yatay: false,
+    aciklama: 'Okul sitesinde yayımlanır; kişisel veri içermez.' },
+  { ad: '06-ilan-ogrenci-cizelgesi', baslik: 'İlan: öğrenci sınav çizelgesi', sayfa: 10, yatay: false,
+    aciklama: 'Okul numarası ve maskeli ad; açık ad hiçbir seçenekte yazılmaz.' },
+  { ad: '07-ilan-basvuru-duyurusu', baslik: 'İlan: başvuru duyurusu', sayfa: 1, yatay: false,
+    aciklama: 'Beklemeli ve devamsız öğrencilerin yazılı başvurusu (OKY md.58/2-d).' },
+  { ad: '08-basvuru-plan-disi-tutanagi', baslik: 'Plan dışı bırakılanlar tutanağı', sayfa: 1, yatay: false,
+    aciklama: 'Başvurusu olmadığı için plana alınmayanlar; okul içi kayıttır, ilan edilmez.' },
+  { ad: '09-kisi-bazli-gorev-cizelgesi', baslik: 'Kişi bazlı görev çizelgesi', sayfa: 3, yatay: true,
+    aciklama: 'Her öğretmenin görevleri tarih, saat ve salonla tek satırda; tebellüğ imzasıyla.' },
+];
 ---
 
 <SSLayout
@@ -49,8 +72,8 @@ const releaseDate =
     </div>
     <aside class="hero-panel" aria-label="Program özeti">
       <div class="status-line"><span></span> Çevrimdışı çalışma</div>
-      <div class="metric"><strong>8 belge</strong><span>program, çizelge, ilan ve tutanak</span></div>
-      <div class="metric"><strong>18 kural</strong><span>her biri mevzuat maddesine bağlı</span></div>
+      <div class="metric"><strong>9 belge</strong><span>program, çizelge, ilan ve tutanak</span></div>
+      <div class="metric"><strong>20 kural</strong><span>her birinin dayanağı yazılı</span></div>
       <div class="metric"><strong>Eylül · Şubat · Haziran</strong><span>üç dönem, taşınan görev sayacı</span></div>
     </aside>
   </section>
@@ -66,13 +89,135 @@ const releaseDate =
     </div>
     <div class="feature-grid">
       <article class="card"><span class="card-number">01</span><h3>e-Okul raporundan başlar</h3><p>Personel listesi (<code>OOK01001R1</code>) ve sorumluluk listesi (<code>OOK12001R010</code>) içe aktarılır; branş havuzu personel raporundan kurulur. Dosya yanlış biçimdeyse program sessizce yanlış okumaz, hangi başlığı bulamadığını söyleyerek durur.</p></article>
-      <article class="card"><span class="card-number">02</span><h3>Plan ve görevlendirme birlikte</h3><p>Oturumun nereye konabileceği, o saatte komisyonun kurulup kurulamayacağına bağlıdır. İkisi birlikte çözüldüğü için aynı saatte birden çok sınav yapılabilir ve program az sayıda güne sığar.</p></article>
-      <article class="card"><span class="card-number">03</span><h3>Gün sayısını kendisi seçer</h3><p>Öğrencilerin çoğunluğunun sığdığı en kısa program denenir: bir hafta, olmazsa iki hafta. Pencereye sığmayan tek tük öğrencinin günlük sınırı gereken en düşük değere çıkarılır ve raporlanır.</p></article>
-      <article class="card"><span class="card-number">04</span><h3>Sürükle-bırak düzenleme</h3><p>Kartı başka bir güne taşıyın; öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir, engel doğuran taşıma geri alınır ve kimin çakıştığı yazılır. Geri al / ileri al vardır; plan siz kaydedene kadar veritabanına yazılmaz.</p></article>
-      <article class="card"><span class="card-number">05</span><h3>Görev dengesi ve sayaç</h3><p>Görev sayaçları üç dönem arasında taşınır: ikinci dönem planlanırken birinci dönemde çok görev almış öğretmen geri plana düşer. Rapor, bir branşta yükün kaçınılmaz olarak biriktiği durumu da görünür kılar.</p></article>
-      <article class="card"><span class="card-number">06</span><h3>KVKK uyumlu ilan çıktıları</h3><p>Okul web sayfasında yayımlanacak iki belge ayrı üretilir. Sınav takviminde hiçbir kişisel veri yoktur; öğrenci çizelgesinde ad ve soyadı hiçbir seçenekte açık yazılmaz, okul numarası ve maskeli ad gösterilir.</p></article>
-      <article class="card"><span class="card-number">07</span><h3>Başvuru kapısı</h3><p>Beklemeli ve devamsız öğrenciler otomatik plana alınmaz; yazılı başvuruları hâlinde dâhil edilir (OKY md.58/2-d). Başvuru duyurusu ve plan dışı bırakılanlar tutanağı program tarafından üretilir.</p></article>
-      <article class="card"><span class="card-number">08</span><h3>Evrak teslim takibi</h3><p>Sınavdan sonra komisyondan geri alınacak evrak oturum başına izlenir. Teslim süresi sınav tarihini izleyen ilk iş günüdür; süresinde gelmeyen evrak çizelgede kırmızı görünür.</p></article>
+      <article class="card"><span class="card-number">02</span><h3>Plan ve görevlendirme birlikte</h3><p>Oturumun nereye konabileceği, o saatte komisyonun kurulup kurulamayacağına bağlıdır. İkisi birlikte çözüldüğü için aynı saatte birden çok sınav yapılabilir ve program az sayıda güne sığar. Kalabalık sınav salonlara bölünür, her salona ayrı gözcü konur.</p></article>
+      <article class="card"><span class="card-number">03</span><h3>Gün sayısını kendisi seçer</h3><p>Öğrencilerin çoğunluğunun sığdığı en kısa program denenir: bir hafta, olmazsa iki hafta. Bir öğrencinin bir günde ikiyi aşan sınavı uyarı, üçü aşan sınavı engel olarak gösterilir (ÖDY md.5/1-k); sığmayan öğrencinin sınırı en çok üçe çıkar ve adıyla raporlanır.</p></article>
+      <article class="card"><span class="card-number">04</span><h3>Sürükle-bırak düzenleme</h3><p>Kartı başka bir güne taşıyın; öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir, engel doğuran taşıma geri alınır. İki aşamalı dersin uygulaması yazılıdan ayrı bir güne alınabilir. Plan siz kaydedene kadar veritabanına yazılmaz.</p></article>
+      <article class="card"><span class="card-number">05</span><h3>Tatil ve öğretmen müsaitliği</h3><p>Resmî tatil ve idari izin günlerine sınav konmaz; başvuru ve evrak teslim süreleri bu günleri iş günü saymaz. Öğretmenin dersi, izni ya da başka görevi olan saatlerine görev verilmez (OKY md.58/2-ç).</p></article>
+      <article class="card"><span class="card-number">06</span><h3>Görevliyi elle değiştirme</h3><p>Takvimde sınava tıklayınca görevliler görünür. Yerine gelebilecek öğretmenler uygunluk gerekçeleriyle listelenir. Kesinleşmiş planda değişiklik müdür onay numarası ve gerekçeyle kaydedilir, görevlendirme çizelgesinde de yazılır.</p></article>
+      <article class="card"><span class="card-number">07</span><h3>Tek ders sınavı</h3><p>Sorumluluk sınavından sonra tek dersten başarısız kalan 12. sınıf öğrencisi için takip eden haftaya ayrı plan kurulur (OKY md.58/6). Aynı kurallar ve aynı evrak geçerlidir.</p></article>
+      <article class="card"><span class="card-number">08</span><h3>Görev dengesi ve ücret sınırı</h3><p>Görev sayaçları üç dönem arasında taşınır; çok görev almış öğretmen sonraki dönemde geri plana düşer. Yıllık 12 komisyon / 15 gözcülük sınırı görev tarihine göre izlenir; toplu sözleşme gereği 2024–2027 görevlerinde uygulanmaz.</p></article>
+      <article class="card"><span class="card-number">09</span><h3>Resmî yazışma biçiminde evrak</h3><p>Belgeler "T.C. / Kaymakamlık / Okul Müdürlüğü" başlığıyla, Times New Roman ve siyah-beyaz baskıya uygun üretilir. İmza bloğunda düzenleyen ve OLUR satırı yer alır. Kişi bazlı görev çizelgesinde her öğretmenin görevleri tek satırda toplanır.</p></article>
+      <article class="card"><span class="card-number">10</span><h3>KVKK uyumlu ilan çıktıları</h3><p>Okul web sayfasında yayımlanacak üç belge ayrı üretilir. Sınav takviminde ve başvuru duyurusunda kişisel veri yoktur. Öğrenci çizelgesinde ad ve soyadı hiçbir seçenekte açık yazılmaz; okul numarası ve maskeli ad gösterilir.</p></article>
+      <article class="card"><span class="card-number">11</span><h3>Başvuru kapısı</h3><p>Beklemeli ve devamsız öğrenciler otomatik plana alınmaz; yazılı başvuruları hâlinde dâhil edilir (OKY md.58/2-d). Başvuru duyurusu ve plan dışı bırakılanlar tutanağı program tarafından üretilir.</p></article>
+      <article class="card"><span class="card-number">12</span><h3>Evrak teslim takibi</h3><p>Sınavdan sonra komisyondan geri alınacak evrak oturum başına izlenir. Teslim süresi sınav tarihini izleyen ilk iş günüdür; süresinde gelmeyen evrak çizelgede kırmızı görünür.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="ekranlar">
+    <div class="section-heading">
+      <p class="eyebrow">Ekranlar</p>
+      <h2>Programdan görünümler</h2>
+    </div>
+    <p class="shots-note">
+      Görüntülerdeki okul, öğretmen ve öğrenci adları ile numaralar <b>örnektir</b>: tanıtım
+      için kurulmuş, adı "Uydurma Anadolu Lisesi" olan kurgu bir okula aittir. Görüntüler
+      0.6.1 sürümünden, Pardus'un tabanı olan Debian 12 ortamında alındı; Windows'ta yazı
+      tipi farklıdır.
+    </p>
+    <div class="shots-grid">
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-sinav-plani.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Sınav planı ekranı: üç günlük takvimde paralel sınav kartları; seçili matematik sınavının iki salonu, komisyonu ve salon salon gözcüleri alttaki şeritte." />
+        <figcaption>
+          <strong>Sınav planı</strong>
+          Plan ve görevlendirme birlikte üretilir; aynı saatte birden çok sınav yapılabilir.
+          Karta tıklayınca komisyon ve gözcüler görünür. 38 öğrencili sınav iki salona
+          bölünmüş, her salona ayrı gözcü konmuş.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-gorevli-degistir.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Görevliyi değiştir penceresi: sınavın görevlileri, yerine gelebilecek öğretmenler görev sayıları ve uygunluk durumlarıyla, gerekçe ve müdür onay numarası alanları." />
+        <figcaption>
+          <strong>Görevliyi değiştirme</strong>
+          Uygun adaylar üstte, görev yükü az olan önde listelenir; uygun olmayanlar
+          nedeniyle görünür. Kesinleşmiş planda değişiklik müdür onay numarası ve
+          gerekçeyle kaydedilir.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-basvuru.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Başvuru ekranı: duyuru tarihi ve son başvuru günü, beklemeli ve devamsız öğrencilerin başvuru durumlarını gösteren tablo." />
+        <figcaption>
+          <strong>Başvuru</strong>
+          Mezun olamayan ve devamsızlık tebligatı yapılan öğrenciler yazılı başvuruyla plana
+          girer (OKY md.58/2-d). Son başvuru günü 5 iş günü kuralına göre denetlenir;
+          duyuru ilanı ve plan dışı tutanağı buradan üretilir.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-teslim-cizelgesi.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Teslim çizelgesi: her sınavın kâğıtları, komisyon tutanağı ve yoklama listesi; teslim alınanlar yeşil, gecikenler kırmızı." />
+        <figcaption>
+          <strong>Evrak teslim takibi</strong>
+          Sınavdan sonra komisyondan geri alınacak evrak oturum başına izlenir. Teslim
+          süresi sınavı izleyen ilk iş günüdür; süresinde gelmeyen evrak kırmızı görünür.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-kurum-ayarlari.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Kurum ayarları ekranı: okul bilgileri, dönem tarihleri, evrak anteti ve tatil günleri listesi." />
+        <figcaption>
+          <strong>Kurum ayarları ve tatil günleri</strong>
+          Dönem tarihlerinden üç sınav penceresi hesaplanır. Evrak anteti ilçeden türetilir.
+          Tatil ve idari izin günlerine sınav konmaz. Veritabanı yedeği de buradan alınır.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-musaitlik.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Öğretmen müsaitliği penceresi: her hafta tekrar eden dolu saatler ve tarih aralıklı izin ya da görev kayıtları." />
+        <figcaption>
+          <strong>Öğretmen müsaitliği</strong>
+          Dersi, izni ya da başka görevi olan saatler girilir; planlayıcı bu saatlere görev
+          vermez (OKY md.58/2-ç). Açıklamaya sağlık bilgisi yazılmaz.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-tek-ders.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Tek ders sınavı penceresi: olağan plandaki 12. sınıf öğrencileri ve dersleri, seçilen tek ders işaretli." />
+        <figcaption>
+          <strong>Tek ders sınavı</strong>
+          Olağan plandaki 12. sınıf öğrencilerinden başarısız kalınan tek ders seçilir;
+          program takip eden haftaya ayrı plan kurar (OKY md.58/6). Sonuçlar e-Okul'dan
+          okunur, program sonucu bilmez.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-ders-brans.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Ders ve branş eşleştirme ekranı: her dersin branşı, iki aşamalı olup olmadığı ve sorumluluk kaydı sayısı." />
+        <figcaption>
+          <strong>Ders / branş</strong>
+          Her ders bir alan branşına eşlenir. Türk dili ve edebiyatı ile yabancı diller iki
+          aşamalı (yazılı ve uygulama) işaretlenir (OKY md.58/2-e).
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="ornek-evrak">
+    <div class="section-heading">
+      <p class="eyebrow">Örnek evrak</p>
+      <h2>Programın ürettiği belgeler</h2>
+    </div>
+    <p class="shots-note">
+      Aşağıdaki belgeler aynı kurgu okul için programın kendisiyle üretildi; okul, kişi ve
+      ilçe adları uydurmadır. Program belgeleri <code>.docx</code> olarak verir, burada
+      inceleme kolaylığı için PDF'e çevrildi. Önizlemede ilk sayfa görünür.
+    </p>
+    <div class="docs-grid">
+      {ornekEvrak.map((belge) => (
+        <article class="doc-card">
+          <a class="doc-preview" href={`/sorumluluk-sinavi/ornek-evrak/${belge.ad}.pdf`} aria-label={`${belge.baslik} (PDF, ${belge.sayfa} sayfa)`}>
+            <img src={`/sorumluluk-sinavi/ornek-evrak/${belge.ad}.webp`} width={belge.yatay ? 1287 : 910} height={belge.yatay ? 910 : 1287}
+              loading="lazy" decoding="async" alt="" />
+          </a>
+          <div class="doc-body">
+            <h3>{belge.baslik}</h3>
+            <p>{belge.aciklama}</p>
+            <a class="text-link" href={`/sorumluluk-sinavi/ornek-evrak/${belge.ad}.pdf`}>PDF · {belge.sayfa} sayfa →</a>
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -82,8 +227,8 @@ const releaseDate =
       <h2>Her adım bir sonrakinin girdisi</h2>
     </div>
     <ol class="steps">
-      <li><span>1</span><div><strong>Kurum ve dönem</strong><p>Okul bilgileri ve üç dönemin tarihleri. Sınav pencereleri bu tarihlerden hesaplanır.</p></div></li>
-      <li><span>2</span><div><strong>Öğretmen, salon, ders</strong><p>Personel raporu, salon kapasiteleri ve ders-branş eşlemesi. İki aşamalı dersler burada işaretlenir.</p></div></li>
+      <li><span>1</span><div><strong>Kurum ve dönem</strong><p>Okul bilgileri, üç dönemin tarihleri ve tatil günleri. Sınav pencereleri bu tarihlerden hesaplanır.</p></div></li>
+      <li><span>2</span><div><strong>Öğretmen, salon, başvuru, ders</strong><p>Personel raporu ve müsaitlik, salon kapasiteleri, öğrenci listesi ve başvurular, ders-branş eşlemesi. İki aşamalı dersler burada işaretlenir.</p></div></li>
       <li><span>3</span><div><strong>Plan ve evrak</strong><p>Planı üretin, gerekirse elle düzenleyin, müdür onayıyla kesinleştirin; belgeleri .docx olarak alın.</p></div></li>
     </ol>
   </section>
@@ -146,7 +291,9 @@ const releaseDate =
       çalışır: paketler GitHub'dan değil, okulapp.org'un kendi indirme alanından gelir.
       Okulda 0.3.0 kurulu ise üzerine en yeni sürümü kurun — 0.3.0 numarasıyla iki
       farklı paket derlendi, hangi içeriği taşıdığı ayırt edilemiyor. Yükseltme önce
-      kaldırmayı gerektirmez ve veritabanına dokunmaz.
+      kaldırmayı gerektirmez ve kurulum veritabanına dokunmaz. 0.6 sürümü ilk açılışta
+      veritabanını yeni şemaya geçirir, geçişten önce yedeğini kendiliğinden alır;
+      yükseltmeden sonra Kurum Ayarları'na o yılın tatil günlerini girin.
     </p>
   </section>
 
@@ -155,20 +302,24 @@ const releaseDate =
       <p class="eyebrow">Mevzuat</p>
       <h2>Kuralların mevzuat dayanakları</h2>
       <p>
-        18 kural tek dosyada tanımlanır ve tek yerde uygulanır: motorun ürettiği plan da
+        20 kural tek dosyada tanımlanır ve tek yerde uygulanır: motorun ürettiği plan da
         elle düzenlenen plan da aynı doğrulayıcıdan geçer. Mevzuat değil okul kararı olan
-        kurallar kodda böyle etiketlenir.
+        kurallar kodda böyle etiketlenir. Atıflar 03.10.2026'da resmî metinlerden yeniden
+        doğrulandı.
       </p>
     </div>
     <div class="safety-list">
-      <p><strong>Sınav penceresi ve komisyon</strong><span>OKY md.58/2-a — sınavların yapılacağı dönem ve komisyon kuruluşu.</span></p>
-      <p><strong>Düzey birleştirme ve gözcü</strong><span>OKY md.58/2-b, 2-c — 30 öğrenci sınırı ve salon başına gözcü.</span></p>
-      <p><strong>Hafta sonu ve müdür onayı</strong><span>OKY md.58/2-ç — hafta içi tükenmeden hafta sonuna geçilmez.</span></p>
-      <p><strong>Başvuru zorunluluğu</strong><span>OKY md.58/2-d — beklemeli ve devamsız öğrencinin yazılı başvurusu.</span></p>
-      <p><strong>İki aşamalı dersler</strong><span>OKY md.58/2-e — yazılı ve uygulama oturumları birlikte taşınır.</span></p>
-      <p><strong>Süre ve günlük sınav sayısı</strong><span>ÖDY md.5/1-l ve 5/1-k — sınav süresi ve öğrencinin günlük sınav tavanı.</span></p>
-      <p><strong>Çifte rol ve yönetici görevi</strong><span>Karar md.12/2-b, 2-c — aynı sınavda çifte rol yok; yönetici görevi ücretsizdir.</span></p>
-      <p><strong>Yıllık görev sayacı</strong><span>Karar md.12/2-a — 12 komisyon / 15 gözcülük sınırı için sayaç tutulur.</span></p>
+      <p><strong>Sınav penceresi ve komisyon</strong><span>OKY md.58/2-a — sınavların yapılacağı dönem; iki öğretmen ve bir gözcüden oluşan komisyon.</span></p>
+      <p><strong>Salon başına gözcü</strong><span>OKY md.58/2-b — otuzu aşan ya da birden çok salonda yapılan sınavda her salona ayrı gözcü. Salona en çok 30 öğrenci konması okul kararıdır.</span></p>
+      <p><strong>Düzey birleştirme</strong><span>OKY md.58/2-c — farklı sınıfların aynı dersi toplam otuzu aşmıyorsa tek komisyonla yapılabilir.</span></p>
+      <p><strong>Hafta sonu, tatil ve müsaitlik</strong><span>OKY md.58/2-ç; 2429 sayılı Kanun — sınavlar dersleri aksatmayacak şekilde, tatil günleri dışında planlanır.</span></p>
+      <p><strong>Başvuru zorunluluğu</strong><span>OKY md.58/2-d — beklemeli ve devamsız öğrencinin 5 iş günü önce yazılı başvurusu.</span></p>
+      <p><strong>İki aşamalı dersler</strong><span>OKY md.58/2-e — Türk dili ve edebiyatı ile yabancı dilde yazılı ve uygulama için ayrı komisyon, esas olarak aynı üyelerle; farklı günlerde de yapılabilir.</span></p>
+      <p><strong>Tek ders sınavı</strong><span>OKY md.58/6 — tek dersten başarısız kalan son sınıf öğrencisi için takip eden haftada aynı usulle sınav.</span></p>
+      <p><strong>Süre ve günlük sınav sayısı</strong><span>ÖDY md.5/1-l, 5/1-k — yazılı en çok bir ders saati; günde ikiyi geçmemesi esas, zorunlu hâlde üç.</span></p>
+      <p><strong>Çifte rol ve yönetici görevi</strong><span>OKY md.58/2-a; Karar md.12/2-b, 2-c — aynı sınavda çifte rol yok; yönetici görevi ücretsizdir.</span></p>
+      <p><strong>Yıllık görev sayacı</strong><span>Karar md.12/2-a — 12 komisyon / 15 gözcülük sınırı; 01.01.2024 – 31.12.2027 görevlerinde uygulanmaz (7. ve 8. Dönem Toplu Sözleşme, eğitim hizmet kolu md.4).</span></p>
+      <p><strong>Evrak biçimi</strong><span>Resmî Yazışma Yönetmeliği md.6–10 — A4, Times New Roman, 1,5 cm kenar, "T.C." başlığı.</span></p>
     </div>
   </section>
 
@@ -224,3 +375,119 @@ const releaseDate =
     </aside>
   </section>
 </SSLayout>
+
+<style>
+  /* Ekran görüntüleri ve örnek evrak — sayfaya özgü (ortak stil dosyasına dokunulmaz).
+     Ekran ızgarası Kelebek Sınav sayfasındakiyle aynı düzendedir. */
+  .shots-note {
+    margin: 0 0 1.4rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 62ch;
+  }
+
+  .shots-grid {
+    --shots-gap: 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--shots-gap);
+  }
+
+  .shot {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .shot figcaption {
+    padding: 1rem 1.2rem 1.2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .shot figcaption strong {
+    display: block;
+    color: var(--ink);
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .doc-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* Dikey ve yatay sayfalar aynı yükseklikte kutuya sığar; sayfa kırpılmaz.
+     min-height: 0 olmadan aspect-ratio dikey sayfanın boyuna uzar, satır bozulur. */
+  .doc-preview {
+    display: block;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0.9rem;
+    background: var(--tint);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .doc-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--deep) 25%, transparent));
+  }
+
+  .doc-body {
+    padding: 0.9rem 1.1rem 1.1rem;
+  }
+
+  .doc-body h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.02rem;
+  }
+
+  .doc-body p {
+    margin: 0 0 0.6rem;
+    color: var(--muted);
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 960px) {
+    .docs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .shots-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .docs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

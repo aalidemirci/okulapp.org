@@ -16,6 +16,7 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <a href="#raporlar">e-Okul raporlarını indirme</a>
       <a href="#kullanim-sirasi">Kullanım sırası</a>
       <a href="#plan">Plan ekranı</a>
+      <a href="#tek-ders">Tek ders sınavı</a>
       <a href="#evrak">Evrak ve teslim</a>
       <a href="#ilan">İlan çıktıları</a>
       <a href="#yedekleme">Yedekleme</a>
@@ -67,7 +68,7 @@ import SSLayout from '../../layouts/SSLayout.astro';
         Paket <strong>Pardus 23 ve üzerinde</strong> (Debian 12 tabanlı dağıtımlar)
         çalışır. İndirdiğiniz dosyanın bulunduğu klasörde:
       </p>
-      <pre><code>sudo apt install ./sorumluluk-sinavi_0.5.0_amd64.deb</code></pre>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.6.1_amd64.deb</code></pre>
       <ul>
         <li>Yorumlayıcı ve bütün kitaplıklar paketin içindedir; <strong>Python kurulu
           olmasına gerek yoktur</strong> ve kurulum internet istemez.</li>
@@ -87,10 +88,15 @@ import SSLayout from '../../layouts/SSLayout.astro';
         dokunmaz</strong>: ilk açılışta gereken şema göçü uygulanır, öncesinde otomatik
         yedek alınır.
       </p>
+      <p>
+        0.6 sürümü veritabanını ilk açılışta yeni şemaya geçirir; kesinleşmiş eski planlar
+        olduğu gibi açılır. Eski sürümler tatil günü tutmadığı için yükseltmeden sonra
+        <strong>Kurum Ayarları'na o yılın tatil ve idari izin günlerini girin.</strong>
+      </p>
       <h3>Pardus'ta güncellemek</h3>
-      <pre><code>sudo apt install ./sorumluluk-sinavi_0.5.0_amd64.deb</code></pre>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.6.1_amd64.deb</code></pre>
       <h3>Windows'ta soru sormadan kurmak</h3>
-      <pre><code>.\SorumlulukSinavi-Kurulum-0.5.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
+      <pre><code>.\SorumlulukSinavi-Kurulum-0.6.1.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
       <h3>Kurulu sürümü doğrulamak</h3>
       <pre><code>(Get-Item "$env:LOCALAPPDATA\SorumlulukSinavi\uygulama\SorumlulukSinavi.exe").VersionInfo.FileVersion</code></pre>
       <p>
@@ -128,38 +134,59 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <h2 id="kullanim-sirasi">Kullanım sırası</h2>
       <p>Soldaki adımlar sırayla tamamlanır; her adım bir sonrakinin girdisidir.</p>
       <ol>
-        <li><strong>Kurum ayarları</strong> — okul bilgileri ve üç dönemin tarihleri. Sınav pencereleri bu tarihlerden hesaplanır ve ekranın altında gösterilir.</li>
-        <li><strong>Öğretmen listesi</strong> — <code>OOK01001R1</code> raporu. Önce önizleme açılır; onaylamadan hiçbir kayıt değişmez. Rapora yansımamış bir kişiyi elle ekleyebilir, ayrılan kişiyi pasife alabilirsiniz. Görevi olan kişi silinemez, pasife alınır.</li>
+        <li><strong>Kurum ayarları</strong> — okul bilgileri ve üç dönemin tarihleri (gg.aa.yyyy). Sınav pencereleri bu tarihlerden hesaplanır ve ekranın altında gösterilir. Evrak anteti (boşsa ilçeden türetilir) ile düzenleyenin adı ve unvanı da buradadır. Aynı ekranda <strong>tatil ve idari izin günlerini</strong> girin; <strong>Yedek al</strong> düğmesi de buradadır.</li>
+        <li><strong>Öğretmen listesi</strong> — <code>OOK01001R1</code> raporu. Önce önizleme açılır; onaylamadan hiçbir kayıt değişmez. Rapora yansımamış bir kişiyi elle ekleyebilir, ayrılan kişiyi pasife alabilirsiniz. Görevi olan kişi silinemez, pasife alınır. Seçili öğretmenin dersi, izni ya da başka görevi olan saatlerini <strong>Müsaitlik…</strong> penceresine girin; planlayıcı bu saatlere görev vermez (OKY md.58/2-ç). Açıklamaya sağlık bilgisi yazmayın; "izinli", "derste" yeter.</li>
         <li><strong>Salonlar</strong> — sınav salonları ve kapasiteleri. Salon sayısı aynı saatte kaç sınav yapılabileceğini belirler.</li>
         <li><strong>e-Okul sorumluluk</strong> — <code>OOK12001R010</code> raporu. Rapor okulun tamamını kapsıyorsa "tam listedir" işaretli kalsın; kısmi liste aktarıyorsanız işareti kaldırın, yoksa dosyada olmayan kayıtlar pasife alınır.</li>
-        <li><strong>Ders / branş</strong> — her ders bir branşa eşlenir. Türk dili ve edebiyatı ile yabancı dil derslerini <strong>iki aşamalı</strong> işaretleyin (OKY md.58/2-e); program ders adına bakarak öneri getirir ama kararı siz verirsiniz.</li>
-        <li><strong>Sınav planı</strong> — parametreleri seçin, isterseniz önce <strong>Yükü çözümle</strong> ile gün seçeneklerinin sonucunu görün, sonra <strong>Planı üret</strong>.</li>
+        <li><strong>Başvuru</strong> — beklemeli ve devamsız öğrencileri işaretleyin, duyuruyu kaydedin, başvuru kararlarını girin (OKY md.58/2-d). Son başvuru günü sınav tarihinden en az 5 iş günü önce olmalıdır; program bunu denetler. Tablodan öğrenci seçince mevcut işaretleri kutulara gelir. Önceki öğretim yılından kalan işaretler sarı görünür; gözden geçirip yeniden kaydedin.</li>
+        <li><strong>Ders / branş</strong> — her ders bir branşa eşlenir. Türk dili ve edebiyatı ile yabancı dil derslerini <strong>iki aşamalı</strong> işaretleyin (OKY md.58/2-e); program ders adına bakarak öneri getirir ama kararı siz verirsiniz. Birleşik derslerde (ör. Görsel Sanatlar/Müzik) ikinci alanı da seçin.</li>
+        <li><strong>Sınav planı</strong> — dönemi ve parametreleri seçin, isterseniz önce <strong>Yükü çözümle</strong> ile gün seçeneklerinin sonucunu görün, sonra <strong>Planı üret</strong>.</li>
         <li><strong>Evrak ve teslim</strong> — planı kaydettikten sonra belgeleri üretin; sınavlardan sonra geri alınan evrakı teslim çizelgesine işleyin.</li>
       </ol>
 
-      <h3>Plan üretmeden önce sorulan üç şey</h3>
+      <h3>Plan üretmeden önce sorulan dört şey</h3>
       <div class="guide-table" role="table" aria-label="Plan üretim parametreleri">
         <div role="row"><strong role="cell">Hafta sonu kullanılsın mı?</strong><span role="cell">Kullanılabilir seçilse bile hafta içi tükenmeden hafta sonuna geçilmez (OKY md.58/2-ç).</span></div>
-        <div role="row"><strong role="cell">Öğrenci günlük sınav sınırı</strong><span role="cell">Varsayılan 2. Pencereye sığmayan öğrenci için gereken en düşük değere çıkarılır ve raporlanır.</span></div>
+        <div role="row"><strong role="cell">Öğrenci günlük sınav sınırı</strong><span role="cell">1–3 arasında seçilir, varsayılan 2. Bir günde ikiyi aşan sınav uyarı, üçü aşan sınav engel olarak gösterilir (ÖDY md.5/1-k). Pencereye sığmayan öğrencinin sınırı en çok üçe çıkarılır ve adıyla raporlanır.</span></div>
         <div role="row"><strong role="cell">Yazılı + uygulama tek mi sayılsın?</strong><span role="cell">Tek sayılırsa iki aşamalı dersin iki oturumu öğrencinin günlük sayacına bir sınav olarak girer.</span></div>
+        <div role="row"><strong role="cell">Uygulama süresi</strong><span role="cell">Uygulamalı sınavın süresini zümre belirler (OKY md.45/1-f); yazılı sınav en çok bir ders saatidir (ÖDY md.5/1-l).</span></div>
       </div>
       <p>
-        Plan üretilemezse hangi kısıtın bağladığı yazılır: salon sayısı, görevli kapasitesi,
-        branş arzı ya da bir öğrencinin günlük oturum tavanı.
+        Plan üretilemezse hangi kısıtın bağladığı yazılır: salon sayısı, görevli kapasitesi
+        (öğretmen müsaitliği dâhil), branş arzı ya da bir öğrencinin günlük sınav tavanı.
       </p>
 
       <h2 id="plan">Plan ekranı</h2>
       <ul>
+        <li>Dönem kutusu açılışta bugüne göre seçilir (içinde bulunulan ya da sıradaki dönem). Dönem değiştirilince o dönemin kayıtlı planı açılır.</li>
         <li>Kartı başka bir gün/saat hücresine <strong>sürükleyip bırakın.</strong> Öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir; engel doğuran taşıma otomatik geri alınır ve kimin çakıştığı yazılır.</li>
-        <li>İki aşamalı dersin yazılı ve uygulama oturumu birlikte taşınır.</li>
-        <li><strong>Geri al / ileri al</strong> ile adım adım gezinebilirsiniz.</li>
+        <li>İki aşamalı derste yazılı kartı taşınınca uygulama da aynı gün ve saat farkıyla gelir; uygulama kartı ise tek başına başka bir güne taşınabilir (OKY md.58/2-e: farklı günlerde de yapılabilir).</li>
+        <li>Karta <strong>tıklayınca</strong> sınavın komisyonu ve salon salon gözcüleri alttaki şeritte görünür. <strong>Görevliyi değiştir…</strong> penceresinde değiştirilecek kişiyi ve yerine gelecek kişiyi seçersiniz; uygun olmayanlar nedeniyle listelenir. Taslak planda değişiklik bellekte kalır; kesinleşmiş planda müdür onay numarası ve gerekçeyle hemen kaydedilir ve görevlendirme çizelgesinde listelenir.</li>
+        <li><strong>Geri al / ileri al</strong> ile adım adım gezinebilirsiniz (görevli değişikliği dâhil). Kaydedilmemiş plan başka sayfaya gidip dönünce kaybolmaz.</li>
         <li>Plan <strong>Kaydet</strong> denene kadar veritabanına yazılmaz.</li>
-        <li><strong>Müdür onayıyla kesinleştir</strong> planı kilitler; kesinleşmiş oturum taşınamaz ve kesinleşmiş plan silinemez.</li>
+        <li><strong>Müdür onayıyla kesinleştir</strong> planı kilitler; kesinleşmiş oturum taşınamaz, kesinleşmiş plan silinemez ve yerine yeni plan kaydedilemez. Kesin kartlar ayrı renkte ve ✓ işaretiyle görünür.</li>
       </ul>
       <p>
         Alt paneldeki liste kural ihlallerini gösterir: kırmızı satırlar engel, sarı satırlar
         uyarıdır. Engelli plan taslak olarak kaydedilebilir ama kesinleştirilemez.
       </p>
+
+      <h2 id="tek-ders">Tek ders sınavı</h2>
+      <p>
+        OKY md.58/6'ya göre sorumluluk sınavı sonunda tek dersten başarısızlığı bulunan son
+        sınıf öğrencileri için aynı usulle, takip eden hafta içinde bir sınav daha yapılır.
+        Olağan sınavların sonucu e-Okul'a girildikten sonra Sınav Planı ekranında dönem
+        kutusundan "… — tek ders (58/6)" seçeneğini seçin. <strong>Tek ders
+        öğrencileri…</strong> penceresinde öğrencinin başarısız kaldığı tek dersi işaretleyin
+        ve planı üretin.
+      </p>
+      <ul>
+        <li>Plan, olağan plandaki son sınavın haftasından sonraki haftaya kurulur.</li>
+        <li>Listede o dönemin olağan planındaki 12. sınıf öğrencileri vardır. Program sınav
+          sonucunu bilmez; başarısız kalınan dersi siz seçersiniz.</li>
+        <li>Kurallar ve evrak olağan planla aynıdır. Görevler yıllık sayaçta bağlı olduğu
+          dönemin sütununa girer.</li>
+      </ul>
 
       <h2 id="evrak">Evrak ve teslim</h2>
       <p>
@@ -169,10 +196,11 @@ import SSLayout from '../../layouts/SSLayout.astro';
       </p>
       <div class="guide-table" role="table" aria-label="Üretilen belgeler">
         <div role="row"><strong role="cell">Sınav programı (öğrenci)</strong><span role="cell">Tarih, saat, ders, süre, salon.</span></div>
-        <div role="row"><strong role="cell">Sınav programı (görevli)</strong><span role="cell">Aynısı, üzerine komisyon ve gözcüler.</span></div>
-        <div role="row"><strong role="cell">Görevlendirme çizelgesi</strong><span role="cell">Komisyon bazlı; ikinci sayfasında tebliğ-tebellüğ tablosu. Yatay A4 üretilir.</span></div>
+        <div role="row"><strong role="cell">Sınav programı (görevli)</strong><span role="cell">Aynısı, üzerine komisyon ve salon salon gözcüler.</span></div>
+        <div role="row"><strong role="cell">Görevlendirme çizelgesi</strong><span role="cell">Komisyon bazlı olur yazısı; gözcüler salonlarıyla, kesin planda yapılan görevli değişiklikleri onay numarası ve gerekçesiyle yazılır. Arkasında tebliğ-tebellüğ tablosu vardır; yatay A4 üretilir.</span></div>
+        <div role="row"><strong role="cell">Kişi bazlı görev çizelgesi</strong><span role="cell">Her öğretmenin görevleri (tarih, saat, sınav, görev, salon) tek satırda, tebellüğ imzasıyla.</span></div>
         <div role="row"><strong role="cell">Öğretmen görev sayacı</strong><span role="cell">Üç dönemin dökümü ve 12/15 durumu. Kesinleşmemiş plandan da üretilebilir; taslak dönem varsa belgeye uyarı düşer.</span></div>
-        <div role="row"><strong role="cell">Plan dışı bırakılanlar tutanağı</strong><span role="cell">Başvurusu bulunmadığı için plana alınmayanlar. Okul içi kayıttır, ilan edilmez.</span></div>
+        <div role="row"><strong role="cell">Plan dışı bırakılanlar tutanağı</strong><span role="cell">Başvurusu bulunmadığı için plana alınmayanlar; Başvuru ekranından üretilir. Okul içi kayıttır, ilan edilmez.</span></div>
       </div>
       <p>
         Komisyon tutanağı, yoklama listesi ve kâğıt sarf tutanağı bu setten çıkarılmıştır;
@@ -180,21 +208,30 @@ import SSLayout from '../../layouts/SSLayout.astro';
         evrakıdır. Her belgenin altında dayanağı yazılıdır; belgeler EBYS/DYS kayıt numarası
         ve güvenli elektronik imza ibaresi üretmez.
       </p>
+      <p>
+        Evrak Resmî Yazışma Yönetmeliği biçimindedir: "T.C. / … KAYMAKAMLIĞI / … Müdürlüğü"
+        başlığı, Times New Roman, 1,5 cm kenar, siyah-beyaz baskıya uygun tablolar. İmza
+        bloğunda düzenleyenin adı ve unvanı ile OLUR'un tarih satırı yer alır; bu bilgiler
+        Kurum Ayarları'ndan gelir. Kurgu bir okul için üretilmiş örnekler
+        <a href="/sorumluluk-sinavi/#ornek-evrak">tanıtım sayfasındadır</a>.
+      </p>
       <h3>Teslim çizelgesi</h3>
       <p>
         Her oturum için beklenen evrak listelenir. Bir satırı seçip teslim eden ile teslim
-        alan görevliyi girerek <strong>Seçili evrakı teslim al</strong> düğmesine basın.
-        Teslim eden ile alan aynı kişi olamaz. Yeşil satır teslim alınmış, kırmızı satır
-        süresinde gelmemiş evrakı gösterir; teslim süresi sınav tarihini izleyen ilk iş
-        günüdür.
+        alan görevliyi, varsa adedi ve teslim tarihini (varsayılan bugün) girerek
+        <strong>Seçili evrakı teslim al</strong> düğmesine basın. Teslim eden ile alan aynı
+        kişi olamaz. Yeşil satır teslim alınmış, kırmızı satır süresinde gelmemiş evrakı
+        gösterir; teslim süresi sınav tarihini izleyen ilk iş günüdür, tatil günleri iş günü
+        sayılmaz.
       </p>
 
       <h2 id="ilan">İlan çıktıları ve KVKK</h2>
       <p>
-        Okul web sayfasında yayımlanmak üzere iki belge üretilir. <strong>Sınav
-        takviminde</strong> hiçbir kişisel veri yoktur: ne öğrenci, ne görevli öğretmen, ne
-        de imzalayan müdürün adı geçer. Her iki ilan belgesi de kişi adı yerine "Okul
-        Müdürlüğü" makam satırıyla çıkar.
+        Okul web sayfasında yayımlanmak üzere üç belge üretilir: sınav takvimi ve öğrenci
+        sınav çizelgesi Evrak ekranından, başvuru duyurusu Başvuru ekranından. <strong>Sınav
+        takviminde</strong> ve başvuru duyurusunda hiçbir kişisel veri yoktur: ne öğrenci, ne
+        görevli öğretmen, ne de imzalayan müdürün adı geçer. İlan belgeleri kişi adı yerine
+        "Okul Müdürlüğü" makam satırıyla çıkar.
       </p>
       <p>
         <strong>Öğrenci sınav çizelgesinde</strong> ad ve soyadı hiçbir seçenekte açık
@@ -206,14 +243,17 @@ import SSLayout from '../../layouts/SSLayout.astro';
         <div role="row"><strong role="cell">Yalnız maskeli ad</strong><span role="cell"><code>A**** A** D******</code></span></div>
       </div>
       <p>
-        Her iki belgede 6698 sayılı Kanuna atıf yapan bir not bulunur. Plan müdür onayıyla
+        İlan belgelerinde 6698 sayılı Kanuna atıf yapan bir not bulunur. Plan müdür onayıyla
         kesinleşmeden üretilirse belge üzerinde TASLAK uyarısı yazar.
       </p>
 
       <h2 id="yedekleme">Yedekleme</h2>
       <p>
-        Uygulamayı kapatın ve veri klasöründeki <code>sorumluluk.db</code> dosyasını kurumun
-        yedek ortamına kopyalayın. Veri klasörü Windows'ta
+        Kurum Ayarları ekranındaki <strong>Yedek al…</strong> düğmesi veritabanının tam
+        yedeğini seçtiğiniz klasöre <code>sorumluluk-yedek-&lt;tarih&gt;.db</code> adıyla alır;
+        uygulamayı kapatmanız gerekmez. Elle yedeklemek isterseniz uygulamayı kapatıp veri
+        klasöründeki <code>sorumluluk.db</code> dosyasını kurumun yedek ortamına kopyalayın.
+        Veri klasörü Windows'ta
         <code>%LOCALAPPDATA%\SorumlulukSinavi\plan</code>, Pardus'ta
         <code>~/.local/share/sorumluluk-sinavi/plan</code> altındadır. Şema yükseltmelerinde
         uygulama göç öncesi otomatik yedek alır.
@@ -232,9 +272,9 @@ import SSLayout from '../../layouts/SSLayout.astro';
         değer ile indirdiğiniz dosyanın özetini karşılaştırın.
       </p>
       <h3>Windows PowerShell</h3>
-      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.5.0.exe -Algorithm SHA256</code></pre>
+      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.6.1.exe -Algorithm SHA256</code></pre>
       <h3>Pardus / Linux</h3>
-      <pre><code>sha256sum -c SHA256SUMS-0.5.0.txt</code></pre>
+      <pre><code>sha256sum -c --ignore-missing SHA256SUMS-0.6.1.txt</code></pre>
 
       <h2 id="sorun-giderme">Sık karşılaşılan sorunlar</h2>
       <h3>İçe aktarma "başlık bulunamadı" diyerek duruyor</h3>
@@ -256,9 +296,24 @@ import SSLayout from '../../layouts/SSLayout.astro';
       </p>
       <h3>12/15 sınırı uyarı vermiyor</h3>
       <p>
-        8. Dönem Toplu Sözleşme md.4 gereği 2025-2026 ve 2026-2027 öğretim yıllarında bu
-        sınırlar uygulanmaz. Program bu iki yılı bilir; sayacı yine tutar ama sınır uyarısı
-        vermez.
+        Karar md.12/2-a'daki sınırlar, toplu sözleşme gereği 01.01.2024 – 31.12.2027
+        tarihleri arasındaki sınav görevlerinde uygulanmaz (7. Dönem, RG 03.09.2023/32298 ve
+        8. Dönem, RG 27.08.2025/32999; Eğitim, Öğretim ve Bilim Hizmet Kolu md.4). Program
+        askıyı öğretim yılına değil görev tarihine göre uygular: sayacı yine tutar, askıdaki
+        görev için uyarı vermez; askı dışındaki bir görev yılın 12. komisyon üyeliğini ya da
+        15. gözcülüğünü aşıyorsa uyarır.
+      </p>
+      <h3>Listede "günde ikiyi aşan sınav" uyarısı var</h3>
+      <p>
+        ÖDY md.5/1-k bir günde iki sınavı esas alır, zorunlu hâlde üçe izin verir. Kısa
+        takvimde sığmayan öğrencinin sınırı üçe çıkabilir; bu uyarı olarak listelenir ve müdür
+        onayından önce görülür. İstemiyorsanız gün sayısını artırın ya da hafta sonunu açın.
+      </p>
+      <h3>Kesinleşmiş planın yerine yeni plan kaydedilemiyor</h3>
+      <p>
+        Bu bilinçli bir korumadır: kesin plan değiştirilmez. Görevli değişikliği gerekiyorsa
+        plan ekranında karta tıklayıp <strong>Görevliyi değiştir…</strong> ile müdür onay
+        numarası ve gerekçe girerek yapın.
       </p>
 
       <p class="document-source">
