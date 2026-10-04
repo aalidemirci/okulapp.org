@@ -1,29 +1,29 @@
 {
   "available": true,
-  "version": "0.8.0",
-  "name": "Sorumluluk Sınavı 0.8.0",
-  "published_at": "2026-10-04T06:44:57Z",
+  "version": "0.8.1",
+  "name": "Sorumluluk Sınavı 0.8.1",
+  "published_at": "2026-10-04T08:20:53Z",
   "prerelease": false,
   "releaseUrl": "https://github.com/aalidemirci/sorumluluk-sinavi/releases",
   "assets": [
     {
       "kind": "windows_installer",
-      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Kurulum-0.8.0.exe",
-      "size": 25202707
+      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Kurulum-0.8.1.exe",
+      "size": 25202723
     },
     {
       "kind": "windows_portable",
-      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Tasinabilir-0.8.0.zip",
-      "size": 32573148
+      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SorumlulukSinavi-Tasinabilir-0.8.1.zip",
+      "size": 32575878
     },
     {
       "kind": "linux_deb",
-      "url": "https://indir.okulapp.org/sorumluluk-sinavi/sorumluluk-sinavi_0.8.0_amd64.deb",
-      "size": 40428076
+      "url": "https://indir.okulapp.org/sorumluluk-sinavi/sorumluluk-sinavi_0.8.1_amd64.deb",
+      "size": 40428712
     },
     {
       "kind": "checksums",
-      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SHA256SUMS-0.8.0.txt",
+      "url": "https://indir.okulapp.org/sorumluluk-sinavi/SHA256SUMS-0.8.1.txt",
       "size": 306
     }
   ]
