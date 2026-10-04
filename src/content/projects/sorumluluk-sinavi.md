@@ -8,7 +8,7 @@ featured: true
 order: 3
 siteUrl: /sorumluluk-sinavi/
 accent: '#9a2f4a'
-badge: Sürüm 0.7.0
+badge: Sürüm 0.8.0
 ---
 
 Sorumluluk Sınavı, yılda üç kez tekrarlanan ve her seferinde birkaç günü yiyen
@@ -17,7 +17,9 @@ masaüstü programına taşımak için yazıldı. e-Okul'dan alınan iki raporu 
 aktarırsınız: personel listesi ve sorumluluk sınavına girecek öğrenci listesi.
 Gerisini program yapar; sınav oturumlarını günlere ve saatlere yerleştirir,
 her oturuma komisyon ve gözcü atar, ortaya çıkan planı sürükle-bırakla
-düzeltmenize izin verir ve müdür onayıyla kesinleştirir.
+düzeltmenize izin verir ve müdür onayıyla kesinleştirir. Başvurusu gereken
+beklemeli ve devamsız öğrenciler listede aranıp tek tıkla, toplu olarak ya da
+e-Okul'dan kopyalanan okul numaralarıyla işaretlenir.
 
 İşin zor tarafı sınavı bir güne koymak değil, o saatte komisyonu
 kurabilmektir. Program bu ikisini ayrı adımlar olarak değil tek problem
@@ -52,12 +54,13 @@ müdür ve rehber öğretmene görev verilmemesi — böyle etiketlenir. Motorun
 sayaçları Eylül, Şubat ve Haziran dönemleri arasında taşınır; ilk dönemde çok
 görev almış öğretmen sonrakinde geri plana düşer.
 
-Teknik tarafta uygulama Python ve Tkinter ile yazılmıştır, veritabanı
+Teknik tarafta uygulama Python ve Qt (PySide6) ile yazılmıştır, veritabanı
 SQLite'tır ve şema değişiklikleri göç dosyalarıyla ilerler. Kural katmanı
 veritabanını hiç görmez; bu sayede kurallar veritabanı olmadan test edilebilir.
 Belgeler `.docx` olarak üretilir. Windows için PyInstaller + Inno Setup ile
 kullanıcı başına kurulan, yönetici parolası istemeyen bir paket, Pardus 23 ve
 üzeri için bütünleşik bir `.deb` paketi çıkarılır.
-Program hiçbir ağ isteği yapmaz: bulut, telemetri, çevrimiçi güncelleme yoktur
-ve T.C. kimlik numarası okunmaz. Ticari olmayan kullanım için ücretsizdir
+Öğrenci ve personel verisi hiçbir yere gönderilmez: bulut ve telemetri yoktur,
+T.C. kimlik numarası okunmaz. İnternete çıkan tek istek, veri taşımayan yeni
+sürüm denetimidir ve kapatılabilir. Ticari olmayan kullanım için ücretsizdir
 (PolyForm Noncommercial 1.0.0).

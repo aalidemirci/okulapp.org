@@ -13,6 +13,7 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <a href="#windows">Windows kurulumu</a>
       <a href="#pardus">Pardus kurulumu</a>
       <a href="#guncelleme">Kurulu makineyi güncelleme</a>
+      <a href="#guncelleme-denetimi">Güncelleme denetimi</a>
       <a href="#raporlar">e-Okul raporlarını indirme</a>
       <a href="#kullanim-sirasi">Kullanım sırası</a>
       <a href="#plan">Plan ekranı</a>
@@ -29,9 +30,10 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <div class="info-box">
         <strong>İnternet bağlantısı gerekmez.</strong>
         <p>
-          Program kurulduktan sonra hiçbir ağ isteği yapmaz. e-Okul'a bağlanmaz; raporları
-          siz indirir, programa yüklersiniz. Ürettiği planın e-Okul'a girişini de kullanıcı
-          elle yapar.
+          Program internetsiz eksiksiz çalışır. e-Okul'a bağlanmaz; raporları siz indirir,
+          programa yüklersiniz. Ürettiği planın e-Okul'a girişini de kullanıcı elle yapar.
+          İnternete çıkan tek isteği <a href="#guncelleme-denetimi">yeni sürüm
+          denetimidir</a>; veri taşımaz ve kapatılabilir.
         </p>
       </div>
 
@@ -68,10 +70,14 @@ import SSLayout from '../../layouts/SSLayout.astro';
         Paket <strong>Pardus 23 ve üzerinde</strong> (Debian 12 tabanlı dağıtımlar)
         çalışır. İndirdiğiniz dosyanın bulunduğu klasörde:
       </p>
-      <pre><code>sudo apt install ./sorumluluk-sinavi_0.7.0_amd64.deb</code></pre>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.8.0_amd64.deb</code></pre>
       <ul>
-        <li>Yorumlayıcı ve bütün kitaplıklar paketin içindedir; <strong>Python kurulu
-          olmasına gerek yoktur</strong> ve kurulum internet istemez.</li>
+        <li>Yorumlayıcı, Qt ve bütün kitaplıklar paketin içindedir; <strong>Python kurulu
+          olmasına gerek yoktur</strong>. Kurulum internet istemez: paketin sistemden
+          beklediği kitaplıklar (<code>libgl1</code>, <code>libegl1</code>,
+          <code>libxcb1</code>, <code>libfontconfig1</code>) her masaüstünde zaten
+          yüklüdür.</li>
+        <li>Program X11 üzerinde çalışır; Wayland oturumunda XWayland üzerinden açılır.</li>
         <li>Uygulama menüde <strong>Ofis</strong> ve <strong>Eğitim</strong> altında
           görünür; uçbirimden <code>sorumluluk-sinavi</code> komutuyla da açılır.</li>
         <li>Veritabanı kullanıcının ev klasöründedir
@@ -89,16 +95,18 @@ import SSLayout from '../../layouts/SSLayout.astro';
         yedek alınır.
       </p>
       <p>
-        0.7.0 veritabanını ilk açılışta şema 9'a geçirir: kullanılmayan bir tablo ve bir
+        0.8.0'da veritabanı şeması değişmedi. 0.6.x ya da daha eski bir sürümden
+        geliyorsanız veritabanı ilk açılışta şema 9'a geçer: kullanılmayan bir tablo ve bir
         görünüm kaldırılır, kayıtlarınıza dokunulmaz. Kesinleşmiş eski planlar olduğu gibi
         açılır. 0.5 ya da daha eski bir sürümden yükseltiyorsanız, o sürümler tatil günü
         tutmadığı için <strong>Kurum Ayarları'na o yılın tatil ve idari izin günlerini
-        girin.</strong>
+        girin.</strong> 0.8.0'dan sonraki sürümleri program kendisi
+        <a href="#guncelleme-denetimi">haber verir</a>.
       </p>
       <h3>Pardus'ta güncellemek</h3>
-      <pre><code>sudo apt install ./sorumluluk-sinavi_0.7.0_amd64.deb</code></pre>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.8.0_amd64.deb</code></pre>
       <h3>Windows'ta soru sormadan kurmak</h3>
-      <pre><code>.\SorumlulukSinavi-Kurulum-0.7.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
+      <pre><code>.\SorumlulukSinavi-Kurulum-0.8.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
       <h3>Kurulu sürümü doğrulamak</h3>
       <pre><code>(Get-Item "$env:LOCALAPPDATA\SorumlulukSinavi\uygulama\SorumlulukSinavi.exe").VersionInfo.FileVersion</code></pre>
       <p>
@@ -106,6 +114,37 @@ import SSLayout from '../../layouts/SSLayout.astro';
         da veritabanını silmez. Kurulum klasörü kaldırma yapılmadan elle silinmişse
         Ayarlar → Uygulamalar listesinde kaldırılamayan bir kayıt kalabilir; üzerine yeni
         sürümü kurmak bu kaydı düzeltir.
+      </p>
+
+      <h2 id="guncelleme-denetimi">Güncelleme denetimi</h2>
+      <p>
+        0.8.0'dan beri program, açıldıktan birkaç saniye sonra yayımlanan son sürümün
+        numarasını sorar. Yeni sürüm varsa pencerenin üstünde bir şerit çıkar;
+        <strong>Daha sonra</strong> o sürüm için şeridi kapatır. İstek yalnız sürüm
+        bilgisini alır; öğrenci, personel ya da okul verisi göndermez. İnternet yoksa ya da
+        okul ağı GitHub'ı engelliyorsa denetim sessizce geçer, program çalışmaya devam eder.
+      </p>
+      <ul>
+        <li><strong>Windows:</strong> Hakkında sayfasındaki <strong>Doğrula ve indir</strong>
+          kurulum dosyasını indirir ve yayımlanan SHA-256 özetiyle karşılaştırır; özet
+          tutmayan dosya kullanılmaz. <strong>Kurulumu başlat</strong> programı kapatıp
+          kurulumu açar. Kurulum eski sürümün üzerine yapılır, veritabanına dokunmaz.</li>
+        <li><strong>Pardus:</strong> yeni paketi bu sitenin <a href="/sorumluluk-sinavi/#indir">indirme
+          bölümünden</a> alıp yukarıdaki gibi kurun; <code>sudo</code> gerektiren kurulumu
+          program kendisi yapmaz.</li>
+      </ul>
+      <p>
+        Denetimi kapatmak için Hakkında sayfasındaki <strong>Program açılırken yeni sürümü
+        denetle</strong> seçeneğini kaldırın. Kurum genelinde kapatmak için
+        <code>SORUMLULUK_GUNCELLEME_DENETIMI</code> ortam değişkenini <code>0</code> yapın;
+        o zaman Hakkında sayfasındaki seçenek kapalı ve değiştirilemez görünür. Windows'ta
+        kullanıcı için:
+      </p>
+      <pre><code>setx SORUMLULUK_GUNCELLEME_DENETIMI 0</code></pre>
+      <p>
+        Pardus'ta aynı satır (<code>SORUMLULUK_GUNCELLEME_DENETIMI=0</code>)
+        <code>/etc/environment</code> dosyasına eklenir. Ayrıntı
+        <a href="/sorumluluk-sinavi/gizlilik/#guncelleme-denetimi">gizlilik sayfasındadır</a>.
       </p>
 
       <h2 id="raporlar">e-Okul raporlarını indirme</h2>
@@ -140,11 +179,17 @@ import SSLayout from '../../layouts/SSLayout.astro';
         <li><strong>Öğretmen listesi</strong> — <code>OOK01001R1</code> raporu. Önce önizleme açılır; onaylamadan hiçbir kayıt değişmez. Rapora yansımamış bir kişiyi elle ekleyebilir, ayrılan kişiyi pasife alabilirsiniz. Görevi olan kişi silinemez, pasife alınır. Seçili öğretmenin dersi, izni ya da başka görevi olan saatlerini <strong>Müsaitlik…</strong> penceresine girin; planlayıcı bu saatlere görev vermez (OKY md.58/2-ç). Açıklamaya sağlık bilgisi yazmayın; "izinli", "derste" yeter.</li>
         <li><strong>Salonlar</strong> — sınav salonları ve kapasiteleri. Salon sayısı aynı saatte kaç sınav yapılabileceğini belirler.</li>
         <li><strong>e-Okul sorumluluk</strong> — <code>OOK12001R010</code> raporu. Rapor okulun tamamını kapsıyorsa "tam listedir" işaretli kalsın; kısmi liste aktarıyorsanız işareti kaldırın, yoksa dosyada olmayan kayıtlar pasife alınır. Önizleme, raporda programın okumadığı sütun başlıklarını da yazar (yalnız başlık adı). Biri nakil ya da geçiş kaynağını gösteriyorsa sütun adını <a href="/sorumluluk-sinavi/#iletisim">iletişim</a> yoluyla bildirin; nakil ve geçiş kaynaklı dersler ayrı tutulmalıdır (OKY md.58/1 son cümle). Rapor dosyasını ya da öğrenci bilgisini göndermeyin, başlık adı yeter.</li>
-        <li><strong>Başvuru</strong> — beklemeli ve devamsız öğrencileri işaretleyin, duyuruyu kaydedin, başvuru kararlarını girin (OKY md.58/2-d). Son başvuru günü sınav tarihinden en az 5 iş günü önce olmalıdır; program bunu denetler. Tablodan öğrenci seçince mevcut işaretleri kutulara gelir. Önceki öğretim yılından kalan işaretler sarı görünür; gözden geçirip yeniden kaydedin.</li>
+        <li><strong>Başvuru</strong> — üç sekmede yürür (OKY md.58/2-d). <strong>İşaretler</strong> sekmesinde beklemeli ve devamsız öğrencileri işaretleyin: listede ad, okul numarası ya da şubeyle arayın (Türkçe karakter yazmanız gerekmez); şube, "Yalnız 12. sınıflar" ve "Yalnız işaretliler" süzgeçleri vardır. Satırdaki kutucuğu tıklamak hemen kaydeder, alttaki bildirimdeki <strong>Geri al</strong> işareti kaldırır. Birden çok satırı Ctrl ya da Shift ile seçip toplu işaretleyebilir, e-Okul'dan kopyaladığınız okul numaralarını <strong>Numara listesiyle işaretle…</strong> penceresine yapıştırabilirsiniz; pencere önce hangi numaranın kime karşılık geldiğini, bulunamayanları ve iki şubede geçenleri gösterir. <strong>Duyuru</strong> sekmesinde son başvuru gününü kaydedin; sınav penceresinin ilk gününden en az 5 iş günü önce olmalıdır, program bunu denetler. <strong>Başvuru kararları</strong> sekmesinde kararlar <strong>Kaydet ve sonrakine geç</strong> ile sırayla girilir. Önceki öğretim yılından kalan işaretler sarı görünür; gözden geçirip yeniden işaretleyin.</li>
         <li><strong>Ders / branş</strong> — her ders bir branşa eşlenir. Türk dili ve edebiyatı ile yabancı dil derslerini <strong>iki aşamalı</strong> işaretleyin (OKY md.58/2-e); program ders adına bakarak öneri getirir ama kararı siz verirsiniz. Birleşik derslerde (ör. Görsel Sanatlar/Müzik) ikinci alanı da seçin.</li>
         <li><strong>Sınav planı</strong> — dönemi ve parametreleri seçin, isterseniz önce <strong>Yükü çözümle</strong> ile gün seçeneklerinin sonucunu görün, sonra <strong>Planı üret</strong>.</li>
         <li><strong>Evrak ve teslim</strong> — planı kaydettikten sonra belgeleri üretin; sınavlardan sonra geri alınan evrakı teslim çizelgesine işleyin.</li>
       </ol>
+      <p>
+        Kısayollar: <strong>Ctrl+1 … Ctrl+0</strong> adımlar arasında geçer,
+        <strong>Ctrl+F</strong> sayfadaki aramaya gider, <strong>Ctrl+S</strong> kaydeder,
+        plan ekranında <strong>Ctrl+Z / Ctrl+Y</strong> taşımayı geri ve ileri alır,
+        <strong>F1</strong> yardımı açar.
+      </p>
 
       <h3>Plan üretmeden önce sorulan dört şey</h3>
       <div class="guide-table" role="table" aria-label="Plan üretim parametreleri">
@@ -163,14 +208,14 @@ import SSLayout from '../../layouts/SSLayout.astro';
         <li>Dönem kutusu açılışta bugüne göre seçilir (içinde bulunulan ya da sıradaki dönem). Dönem değiştirilince o dönemin kayıtlı planı açılır.</li>
         <li>Kartı başka bir gün/saat hücresine <strong>sürükleyip bırakın.</strong> Öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir; engel doğuran taşıma otomatik geri alınır ve kimin çakıştığı yazılır. Denetim başlangıç saatine değil sınav sürelerine bakar: uzun bir uygulama sınavı sürerken başlayan sınav da çakışma sayılır. Sonraki saate taşan uygulamanın kartında bitiş saati yazar.</li>
         <li>İki aşamalı derste yazılı kartı taşınınca uygulama da aynı gün ve saat farkıyla gelir; uygulama kartı ise tek başına başka bir güne taşınabilir (OKY md.58/2-e: farklı günlerde de yapılabilir).</li>
-        <li>Karta <strong>tıklayınca</strong> sınavın komisyonu ve salon salon gözcüleri alttaki şeritte görünür. <strong>Görevliyi değiştir…</strong> penceresinde değiştirilecek kişiyi ve yerine gelecek kişiyi seçersiniz; uygun olmayanlar nedeniyle listelenir. Taslak planda değişiklik bellekte kalır; kesinleşmiş planda müdür onay numarası ve gerekçeyle hemen kaydedilir ve görevlendirme çizelgesinde listelenir.</li>
-        <li><strong>Geri al / ileri al</strong> ile adım adım gezinebilirsiniz (görevli değişikliği dâhil). Kaydedilmemiş plan başka sayfaya gidip dönünce kaybolmaz.</li>
-        <li>Plan <strong>Kaydet</strong> denene kadar veritabanına yazılmaz.</li>
+        <li>Karta <strong>tıklayınca</strong> sınavın komisyonu ve salon salon gözcüleri sağdaki <strong>Seçili sınav</strong> kartında görünür. <strong>Görevliyi değiştir…</strong> penceresinde değiştirilecek kişiyi ve yerine gelecek kişiyi seçersiniz; uygun olmayanlar nedeniyle listelenir. Taslak planda değişiklik bellekte kalır; kesinleşmiş planda müdür onay numarası ve gerekçeyle hemen kaydedilir ve görevlendirme çizelgesinde listelenir.</li>
+        <li><strong>Geri al / İleri al</strong> (Ctrl+Z / Ctrl+Y) ile adım adım gezinebilirsiniz (görevli değişikliği dâhil). Kaydedilmemiş plan başka sayfaya gidip dönünce kaybolmaz; program kapatılırken sorulur.</li>
+        <li>Plan <strong>Kaydet</strong> (Ctrl+S) denene kadar veritabanına yazılmaz. Plan arka planda üretilir; üretim sürerken pencere donmaz.</li>
         <li><strong>Müdür onayıyla kesinleştir</strong> planı kilitler; kesinleşmiş oturum taşınamaz, kesinleşmiş plan silinemez ve yerine yeni plan kaydedilemez. Kesin kartlar ayrı renkte ve ✓ işaretiyle görünür.</li>
       </ul>
       <p>
-        Alt paneldeki liste kural ihlallerini gösterir: kırmızı satırlar engel, sarı satırlar
-        uyarıdır. Engelli plan taslak olarak kaydedilebilir ama kesinleştirilemez.
+        Sağdaki <strong>Kural denetimi</strong> listesi kural ihlallerini gösterir: kırmızı
+        satırlar engel, sarı satırlar uyarıdır. Engelli plan taslak olarak kaydedilebilir ama kesinleştirilemez.
       </p>
 
       <h2 id="tek-ders">Tek ders sınavı</h2>
@@ -222,9 +267,10 @@ import SSLayout from '../../layouts/SSLayout.astro';
       </p>
       <h3>Teslim çizelgesi</h3>
       <p>
-        Her oturum için beklenen evrak listelenir. Bir satırı seçip teslim eden ile teslim
-        alan görevliyi, varsa adedi ve teslim tarihini (varsayılan bugün) girerek
-        <strong>Seçili evrakı teslim al</strong> düğmesine basın. Teslim eden ile alan aynı
+        Her oturum için beklenen evrak listelenir. Bir ya da birden çok satırı seçip teslim
+        eden ile teslim alan görevliyi, varsa adedi ve teslim tarihini (varsayılan bugün)
+        girerek <strong>Seçilenleri teslim al</strong> düğmesine basın; yanlış işlenen
+        teslim <strong>Teslimi geri al</strong> ile kaldırılır. Teslim eden ile alan aynı
         kişi olamaz. Yeşil satır teslim alınmış, kırmızı satır süresinde gelmemiş evrakı
         gösterir; teslim süresi sınav tarihini izleyen ilk iş günüdür, tatil günleri iş günü
         sayılmaz.
@@ -277,9 +323,12 @@ import SSLayout from '../../layouts/SSLayout.astro';
         değer ile indirdiğiniz dosyanın özetini karşılaştırın.
       </p>
       <h3>Windows PowerShell</h3>
-      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.7.0.exe -Algorithm SHA256</code></pre>
+      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.8.0.exe -Algorithm SHA256</code></pre>
       <h3>Pardus / Linux</h3>
-      <pre><code>sha256sum -c --ignore-missing SHA256SUMS-0.7.0.txt</code></pre>
+      <pre><code>sha256sum -c --ignore-missing SHA256SUMS-0.8.0.txt</code></pre>
+      <p>
+        Program içinden indirilen kurulum dosyası bu doğrulamadan kendiliğinden geçer.
+      </p>
 
       <h2 id="sorun-giderme">Sık karşılaşılan sorunlar</h2>
       <h3>İçe aktarma "başlık bulunamadı" diyerek duruyor</h3>
@@ -313,6 +362,13 @@ import SSLayout from '../../layouts/SSLayout.astro';
         ÖDY md.5/1-k bir günde iki sınavı esas alır, zorunlu hâlde üçe izin verir. Kısa
         takvimde sığmayan öğrencinin sınırı üçe çıkabilir; bu uyarı olarak listelenir ve müdür
         onayından önce görülür. İstemiyorsanız gün sayısını artırın ya da hafta sonunu açın.
+      </p>
+      <h3>Güncelleme şeridi hiç çıkmıyor ya da Hakkında "Denetlenemedi" diyor</h3>
+      <p>
+        Okul ağı GitHub'ı engelliyor olabilir; MEB ağlarında yaygındır. Program bu durumda
+        çalışmaya devam eder. Yeni sürümü bu sitenin
+        <a href="/sorumluluk-sinavi/#indir">indirme bölümünden</a> alın. Denetim kurum
+        ayarıyla kapatılmışsa Hakkında sayfasındaki seçenek kapalı görünür.
       </p>
       <h3>Kesinleşmiş planın yerine yeni plan kaydedilemiyor</h3>
       <p>

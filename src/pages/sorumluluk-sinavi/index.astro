@@ -55,7 +55,7 @@ const ornekEvrak = [
 >
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Çevrimdışı · Hiçbir ağ isteği yapmaz · e-Okul'a bağlanmaz</p>
+      <p class="eyebrow">Çevrimdışı · Veri okulda kalır · e-Okul'a bağlanmaz</p>
       <h1>Sınav planını ve görevlendirmeyi hazırlayan çevrimdışı program.</h1>
       <p class="lead">
         e-Okul raporlarını içe aktarın; program sınav oturumlarını günlere ve saatlere
@@ -69,6 +69,7 @@ const ornekEvrak = [
       <p class="privacy-promise">
         Program e-Okul, MEBBİS veya DYS'ye bağlanmaz, kullanıcı adı ve şifre istemez.
         Yalnız sizin dışa aktardığınız dosyaları okur; veri okulun bilgisayarında kalır.
+        İnternete çıkan tek isteği yeni sürüm denetimidir; veri taşımaz ve kapatılabilir.
       </p>
     </div>
     <aside class="hero-panel" aria-label="Program özeti">
@@ -99,7 +100,7 @@ const ornekEvrak = [
       <article class="card"><span class="card-number">08</span><h3>Görev dengesi ve ücret sınırı</h3><p>Görev sayaçları üç dönem arasında taşınır; çok görev almış öğretmen sonraki dönemde geri plana düşer. Yıllık 12 komisyon / 15 gözcülük sınırı görev tarihine göre izlenir; toplu sözleşme gereği 2024–2027 görevlerinde uygulanmaz.</p></article>
       <article class="card"><span class="card-number">09</span><h3>Resmî yazışma biçiminde evrak</h3><p>Belgeler "T.C. / Kaymakamlık / Okul Müdürlüğü" başlığıyla, Times New Roman ve siyah-beyaz baskıya uygun üretilir. İmza bloğunda düzenleyen ve OLUR satırı yer alır. Kişi bazlı görev çizelgesinde her öğretmenin görevleri tek satırda toplanır.</p></article>
       <article class="card"><span class="card-number">10</span><h3>KVKK uyumlu ilan çıktıları</h3><p>Okul web sayfasında yayımlanacak üç belge ayrı üretilir. Sınav takviminde ve başvuru duyurusunda kişisel veri yoktur. Öğrenci çizelgesinde ad ve soyadı hiçbir seçenekte açık yazılmaz; okul numarası ve maskeli ad gösterilir.</p></article>
-      <article class="card"><span class="card-number">11</span><h3>Başvuru kapısı</h3><p>Beklemeli ve devamsız öğrenciler otomatik plana alınmaz; yazılı başvuruları hâlinde dâhil edilir (OKY md.58/2-d). Başvuru duyurusu ve plan dışı bırakılanlar tutanağı program tarafından üretilir.</p></article>
+      <article class="card"><span class="card-number">11</span><h3>Başvuru kapısı</h3><p>Beklemeli ve devamsız öğrenciler otomatik plana alınmaz; yazılı başvuruları hâlinde dâhil edilir (OKY md.58/2-d). Öğrenciler listede aranıp tek tıkla, toplu olarak ya da e-Okul'dan kopyalanan okul numaralarıyla işaretlenir. Başvuru duyurusu ve plan dışı bırakılanlar tutanağı program tarafından üretilir.</p></article>
       <article class="card"><span class="card-number">12</span><h3>Evrak teslim takibi</h3><p>Sınavdan sonra komisyondan geri alınacak evrak oturum başına izlenir. Teslim süresi sınav tarihini izleyen ilk iş günüdür; süresinde gelmeyen evrak çizelgede kırmızı görünür.</p></article>
     </div>
   </section>
@@ -112,13 +113,13 @@ const ornekEvrak = [
     <p class="shots-note">
       Görüntüler tanıtım için kurulmuş <b>örnek bir okula</b> ("Örnek Anadolu Lisesi")
       aittir; numaralar örnektir. Kişi adlarının yerinde "Adı Soyadı" ya da "Matematik
-      Öğretmeni 1" gibi görev adları yazar. Görüntüler 0.7.0 sürümünden, Pardus'un tabanı
+      Öğretmeni 1" gibi görev adları yazar. Görüntüler 0.8.0 sürümünden, Pardus'un tabanı
       olan Debian 12 ortamında alındı; Windows'ta yazı tipi farklıdır.
     </p>
     <div class="shots-grid">
       <figure class="shot">
         <img src="/sorumluluk-sinavi/ekran-sinav-plani.webp" width="1440" height="900" loading="lazy" decoding="async"
-          alt="Sınav planı ekranı: üç günlük takvimde paralel sınav kartları; seçili matematik sınavının iki salonu, komisyonu ve salon salon gözcüleri alttaki şeritte." />
+          alt="Sınav planı ekranı: üç günlük takvimde paralel sınav kartları; seçili matematik sınavının iki salonu, komisyonu ve salon salon gözcüleri sağdaki panelde." />
         <figcaption>
           <strong>Sınav planı</strong>
           Plan ve görevlendirme birlikte üretilir; aynı saatte birden çok sınav yapılabilir.
@@ -138,12 +139,23 @@ const ornekEvrak = [
       </figure>
       <figure class="shot">
         <img src="/sorumluluk-sinavi/ekran-basvuru.webp" width="1440" height="900" loading="lazy" decoding="async"
-          alt="Başvuru ekranı: duyuru tarihi ve son başvuru günü, beklemeli ve devamsız öğrencilerin başvuru durumlarını gösteren tablo." />
+          alt="Başvuru ekranı: arama kutusu ve süzgeçler; beklemeli ve devamsız kutucukları tablonun içinde, işaretli öğrencilerin başvuru durumu renkli." />
         <figcaption>
           <strong>Başvuru</strong>
           Mezun olamayan ve devamsızlık tebligatı yapılan öğrenciler yazılı başvuruyla plana
-          girer (OKY md.58/2-d). Son başvuru günü 5 iş günü kuralına göre denetlenir;
-          duyuru ilanı ve plan dışı tutanağı buradan üretilir.
+          girer (OKY md.58/2-d). Öğrenci ad, numara ya da şubeyle aranır; kutucuğa tıklamak
+          işareti hemen kaydeder, birden çok öğrenci toplu işaretlenir. Son başvuru günü 5 iş
+          günü kuralına göre denetlenir.
+        </figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/sorumluluk-sinavi/ekran-numara-listesi.webp" width="1440" height="900" loading="lazy" decoding="async"
+          alt="Numara listesiyle işaretleme penceresi: yapıştırılan okul numaraları, eşleşen öğrenciler ve listede bulunamayan numara." />
+        <figcaption>
+          <strong>Numara listesiyle işaretleme</strong>
+          e-Okul'dan kopyalanan satırlar yapıştırılır; program okul numaralarını ayıklar ve
+          önce hangi numaranın kime denk geldiğini, bulunamayanları ve iki şubede geçenleri
+          gösterir. Belirsiz numara kendiliğinden işaretlenmez.
         </figcaption>
       </figure>
       <figure class="shot">
@@ -296,7 +308,8 @@ const ornekEvrak = [
       kaldırmayı gerektirmez ve kurulum veritabanına dokunmaz. Yeni sürüm, gerekirse ilk
       açılışta veritabanını yeni şemaya geçirir ve geçişten önce yedeğini kendiliğinden
       alır. 0.5 ya da daha eski bir sürümden yükseltiyorsanız sonra Kurum Ayarları'na o
-      yılın tatil günlerini girin.
+      yılın tatil günlerini girin. 0.8.0'dan sonraki sürümleri program kendisi haber verir;
+      okul ağı GitHub'ı engelliyorsa yeni sürümü bu sayfadan alın.
     </p>
   </section>
 
