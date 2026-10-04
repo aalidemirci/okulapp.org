@@ -70,7 +70,7 @@ import SSLayout from '../../layouts/SSLayout.astro';
         Paket <strong>Pardus 23 ve üzerinde</strong> (Debian 12 tabanlı dağıtımlar)
         çalışır. İndirdiğiniz dosyanın bulunduğu klasörde:
       </p>
-      <pre><code>sudo apt install ./sorumluluk-sinavi_0.8.3_amd64.deb</code></pre>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.8.4_amd64.deb</code></pre>
       <ul>
         <li>Yorumlayıcı, Qt ve bütün kitaplıklar paketin içindedir; <strong>Python kurulu
           olmasına gerek yoktur</strong>. Kurulum internet istemez: paketin sistemden
@@ -95,7 +95,7 @@ import SSLayout from '../../layouts/SSLayout.astro';
         yedek alınır.
       </p>
       <p>
-        0.8 sürümlerinde (0.8.0 – 0.8.3) veritabanı şeması değişmedi. 0.6.x ya da daha eski bir sürümden
+        0.8 sürümlerinde (0.8.0 – 0.8.4) veritabanı şeması değişmedi. 0.6.x ya da daha eski bir sürümden
         geliyorsanız veritabanı ilk açılışta şema 9'a geçer: kullanılmayan bir tablo ve bir
         görünüm kaldırılır, kayıtlarınıza dokunulmaz. Kesinleşmiş eski planlar olduğu gibi
         açılır. 0.5 ya da daha eski bir sürümden yükseltiyorsanız, o sürümler tatil günü
@@ -104,9 +104,9 @@ import SSLayout from '../../layouts/SSLayout.astro';
         <a href="#guncelleme-denetimi">haber verir</a>.
       </p>
       <h3>Pardus'ta güncellemek</h3>
-      <pre><code>sudo apt install ./sorumluluk-sinavi_0.8.3_amd64.deb</code></pre>
+      <pre><code>sudo apt install ./sorumluluk-sinavi_0.8.4_amd64.deb</code></pre>
       <h3>Windows'ta soru sormadan kurmak</h3>
-      <pre><code>.\SorumlulukSinavi-Kurulum-0.8.3.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
+      <pre><code>.\SorumlulukSinavi-Kurulum-0.8.4.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART</code></pre>
       <h3>Kurulu sürümü doğrulamak</h3>
       <pre><code>(Get-Item "$env:LOCALAPPDATA\SorumlulukSinavi\uygulama\SorumlulukSinavi.exe").VersionInfo.FileVersion</code></pre>
       <p>
@@ -208,7 +208,8 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <h2 id="plan">Plan ekranı</h2>
       <ul>
         <li>Dönem kutusu açılışta bugüne göre seçilir (içinde bulunulan ya da sıradaki dönem). Dönem değiştirilince o dönemin kayıtlı planı açılır.</li>
-        <li>Kartı başka bir gün/saat hücresine <strong>sürükleyip bırakın.</strong> Öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir; engel doğuran taşıma otomatik geri alınır ve kimin çakıştığı yazılır. Denetim başlangıç saatine değil sınav sürelerine bakar: uzun bir uygulama sınavı sürerken başlayan sınav da çakışma sayılır. Sonraki saate taşan uygulamanın kartında bitiş saati yazar.</li>
+        <li>Kartı başka bir gün/saat hücresine <strong>sürükleyip bırakın.</strong> Öğrenci, öğretmen ve salon çakışmaları ayrı ayrı denetlenir; engel doğuran taşıma otomatik geri alınır ve kimin çakıştığı yazılır. Denetim başlangıç saatine değil sınav sürelerine bakar: uzun bir uygulama sınavı sürerken başlayan sınav da çakışma sayılır. Sonraki saate taşan uygulamanın kartında bitiş saati yazar. Hedef saatte sınavın salonu doluysa sınav aynı sayıda boş salona geçirilir; bildirim bunu söyler.</li>
+        <li>Hafta sonuna bırakılan kart için <strong>gerekçe</strong> sorulur (OKY md.58/2-ç); önerilen metni değiştirebilirsiniz, vazgeçerseniz kart yerinde kalır.</li>
         <li>İki aşamalı derste yazılı kartı taşınınca uygulama da aynı gün ve saat farkıyla gelir; uygulama kartı ise tek başına başka bir güne taşınabilir (OKY md.58/2-e: farklı günlerde de yapılabilir).</li>
         <li>Karta <strong>tıklayınca</strong> sınavın komisyonu ve salon salon gözcüleri sağdaki <strong>Seçili sınav</strong> kartında görünür. <strong>Görevliyi değiştir…</strong> penceresinde değiştirilecek kişiyi ve yerine gelecek kişiyi seçersiniz; uygun olmayanlar nedeniyle listelenir. Taslak planda değişiklik bellekte kalır; kesinleşmiş planda müdür onay numarası ve gerekçeyle hemen kaydedilir ve görevlendirme çizelgesinde listelenir.</li>
         <li><strong>Geri al / İleri al</strong> (Ctrl+Z / Ctrl+Y) ile adım adım gezinebilirsiniz (görevli değişikliği dâhil). Kaydedilmemiş plan başka sayfaya gidip dönünce kaybolmaz; program kapatılırken sorulur.</li>
@@ -325,9 +326,9 @@ import SSLayout from '../../layouts/SSLayout.astro';
         değer ile indirdiğiniz dosyanın özetini karşılaştırın.
       </p>
       <h3>Windows PowerShell</h3>
-      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.8.3.exe -Algorithm SHA256</code></pre>
+      <pre><code>Get-FileHash .\SorumlulukSinavi-Kurulum-0.8.4.exe -Algorithm SHA256</code></pre>
       <h3>Pardus / Linux</h3>
-      <pre><code>sha256sum -c --ignore-missing SHA256SUMS-0.8.3.txt</code></pre>
+      <pre><code>sha256sum -c --ignore-missing SHA256SUMS-0.8.4.txt</code></pre>
       <p>
         Program içinden indirilen kurulum dosyası bu doğrulamadan kendiliğinden geçer.
       </p>
@@ -348,7 +349,10 @@ import SSLayout from '../../layouts/SSLayout.astro';
       <p>
         Ekranda hangi kısıtın bağladığı yazar. Salon sayısını, pasife alınmış öğretmenleri
         ve ders-branş eşlemesini gözden geçirin; okulda öğretmeni olmayan bir branş
-        gerekiyorsa branş havuzuna elle ekleyin.
+        gerekiyorsa branş havuzuna elle ekleyin. Bir öğrencinin sınavları günde üç
+        sınavla (ÖDY md.5/1-k) bile pencereye sığmıyorsa ileti en az kaç gün
+        gerektiğini yazar: hafta sonunu açın ya da gün sayısını artırın; oturum saati
+        eklemek bu sınırı değiştirmez.
       </p>
       <h3>12/15 sınırı uyarı vermiyor</h3>
       <p>
