@@ -8,7 +8,7 @@ featured: true
 order: 3
 siteUrl: /sorumluluk-sinavi/
 accent: '#9a2f4a'
-badge: Sürüm 0.8.2
+badge: Sürüm 0.8.3
 ---
 
 Sorumluluk Sınavı, yılda üç kez tekrarlanan ve her seferinde birkaç günü yiyen
