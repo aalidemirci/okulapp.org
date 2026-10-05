@@ -55,7 +55,7 @@ dal canlıyı geri sardı (belge arşivi 5 setten 3'e düştü); kurallar bu vak
    | `public/cografya/**` + `src/data/cografya.json` | evrakmotoru | ÜRETİLİR (`gnl_ders_yayin.py`); elle düzenlenmez |
    | `src/pages/cografya/**` | evrakmotoru | sayfa şablonu elle; içerik manifestten gelir |
    | `src/data/oz-release.json` | okulzili | sürüm çıkınca elle güncellenir |
-   | `src/data/dd-release.json` | disiplin-defteri-codex | sürüm çıkınca elle güncellenir |
+   | `src/data/dd-release.json` + `src/pages/disiplin-defteri/**` + `src/layouts/DDLayout.astro` + `public/disiplin-defteri/**` | disiplin-defteri-codex | sürüm çıkınca elle güncellenir; ekran görüntüleri ve örnek evrak örnek bir okulla ("Örnek Anadolu Lisesi"; uydurma öğrenci adları, personel yerinde görev adı) uygulama deposundaki `scripts/site_ornekleri/site_ornekleri.sh` ile üretilir |
    | `src/data/ss-release.json` + `src/pages/sorumluluk-sinavi/**` + `public/sorumluluk-sinavi/**` | sorumluluk-sinavi | sürüm çıkınca elle güncellenir; metnin kaynağı uygulama deposundaki `BENIOKU.md`, `KURULUM.md`, `CHANGELOG.md`; ekran görüntüleri ve örnek evrak örnek bir okulla ("Örnek Anadolu Lisesi"; kişi yerinde "Adı SOYADI" ya da görev adı) `araclar/site_ornekleri.py` ve `site_ekranlari.py` ile üretilir |
    | `src/data/ks-release.json` + `src/pages/kelebek-sinav/**` | kelebek-sinav | sürüm çıkınca elle güncellenir |
    | `src/data/kd-release.json` + `src/pages/kutuphane-defteri/**` + `src/layouts/KDLayout.astro` + `public/kutuphane-defteri.png` + `public/kutuphane-defteri/**` | kutuphane (Kütüphane Defteri) | sürüm çıkınca elle güncellenir; metnin kaynağı uygulama deposundaki `docs/site-icerigi.md` |

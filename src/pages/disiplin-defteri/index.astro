@@ -23,20 +23,69 @@ const releaseDate =
   release.available && release.published_at
     ? new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(release.published_at))
     : '';
+
+// Ekran görüntüleri ve örnek evrak: örnek okul ("Örnek Anadolu Lisesi") için programın
+// kendisiyle üretildi; dosyalar public/disiplin-defteri/ altında. Üretici: disiplin-defteri-codex
+// deposundaki scripts/site_ornekleri/site_ornekleri.sh (uydurma veri, Docker'da).
+const ekranlar = [
+  { ad: 'panel', baslik: 'Panel',
+    alt: 'Panel: yasal süresi yaklaşan iş, onay bekleyen karar, dosyaların süreç dağılımı ve müdür onayı bekleyenler kartı.',
+    aciklama: 'Süresi yaklaşan ve geçen işler yasal dayanağıyla sıralanır. Onaysız kurul kararı "tebliğ" değil "onay bekliyor" olarak görünür; müdür onayı bekleyen kararlar ayrı kartta toplanır.' },
+  { ad: 'dosyalar', baslik: 'Disiplin dosyaları',
+    alt: 'Disiplin dosyaları listesi: dosya numarası, dilekçe tarihi, öğrenciler, aşama ve süreç göstergesi.',
+    aciklama: 'Dosyalar ders yılına göre numaralanır; aşama (dilekçe, rehberlik, müdür kararı, kurul, kapanış) ve süreç ilerlemesi tek satırda görünür.' },
+  { ad: 'dosya-kurul', baslik: 'Kurul ve karar',
+    alt: 'Dosya detayı, Kurul ve Karar sekmesi: yedek üyeyle yapılan kurul toplantısı ve iki öğrencinin ayrı kararları.',
+    aciklama: 'Şikâyetçi üye kurula katılamaz, yerine yedek çağrılır (md. 191/2). Her öğrencinin kararı ayrıdır; davranış puanı, onay mercii ve itiraz son günü kendiliğinden hesaplanır.' },
+  { ad: 'dosya-evrak', baslik: 'Evrak kütüğü',
+    alt: 'Dosya detayı, Evraklar sekmesi: belge üretme, belge ekleme ve dizi pusulası düğmeleri, üretilmiş savunmaya çağrı belgesi.',
+    aciklama: 'Üretilen her resmî belge PDF olarak dosyanın kütüğüne yazılır ve yeniden basılabilir. Dizi pusulası kütükten derlenir.' },
+  { ad: 'odk-toplanti', baslik: 'Kurul toplantısı',
+    alt: 'Ödül ve Disiplin Kurulu toplantı ekranı: yeter sayı bilgisi, karar bekleyen onur belgesi teklifi ve kabul edilmiş maddeler.',
+    aciklama: 'Kurul kararı toplantıda verilir: teklif gündeme alınır, madde madde kabul ya da gerekçeli ret yazılır. Yeter sayı (md. 191/1) sağlanmadan karar verilemez; karar defteri toplantıdan çıkar.' },
+  { ad: 'onur-teklifler', baslik: 'Onur Kurulu',
+    alt: 'Onur Kurulu teklifler listesi: her teklifin aşaması renkli etiketle; onur kurulu uygun görmedi, teklif edildi, onur kurulu uygun gördü.',
+    aciklama: 'Öğrenci, öğretmen ve okul yönetiminin teklifleri dönem dönem kaydedilir. Onur Kurulu teklifi görüşür ve Ödül ve Disiplin Kuruluna önerir (md. 183/b).' },
+  { ad: 'mudur-onayi', baslik: 'Müdür onayı',
+    alt: 'Müdür onayı sekmesi: onay tarihi ve kurulun kabul ettiği iki onur belgesi kararı, onayla ve onaylama düğmeleri.',
+    aciklama: 'Kurulun kabul kararı okul müdürünün onayına sunulur. Onay anında uygunluk yeniden denetlenir; kurul kararından sonra ceza alan öğrenciye onay verilmez.' },
+  { ad: 'bilgi-notu', baslik: 'Kurul bilgi notları',
+    alt: 'Kurul bilgi notları: Onur Kurulu sene başı hazırlık rehberi, içindekiler ve amaç bölümü.',
+    aciklama: 'Ödül ve Disiplin Kurulu ile Onur Kurulunun kuruluşu, görevleri ve sene başı hazırlık listesi programın içinde, maddeleriyle birlikte.' },
+];
+
+const ornekEvrak = [
+  { ad: '01-savunmaya-cagri', baslik: 'Savunmaya çağrı (Form-9)', sayfa: 1,
+    aciklama: 'Kurula sevk edilen öğrencinin savunmaya çağrılması; tarih, saat ve yer yazılır.' },
+  { ad: '02-kurul-karari-ek1', baslik: 'Kurul kararı (EK-1)', sayfa: 3,
+    aciklama: 'Okul Öğrenci Ödül ve Disiplin Kurulu kararı; öğrencinin durumu, ifade özetleri ve gerekçe ile.' },
+  { ad: '03-ceza-tebligi-veli', baslik: 'Veliye ceza tebliği (Form-15)', sayfa: 2,
+    aciklama: 'Onaylanan kurul kararının veliye tebliği; itiraz süresi 5 iş günü olarak yazılır (md. 169/3).' },
+  { ad: '04-mudur-uyarisi', baslik: 'Müdür uyarısı yazısı', sayfa: 1,
+    aciklama: 'Kurula gitmeden yazılı uyarıyla kapanan dosya için öğrenciye verilen yazı (md. 157/7).' },
+  { ad: '05-dizi-pusulasi', baslik: 'Dizi pusulası', sayfa: 1,
+    aciklama: 'Dosyadaki belgelerin sırasıyla dökümü; evrak kütüğünden derlenir.' },
+  { ad: '06-onur-kurulu-teklif-tutanagi', baslik: 'Onur Kurulu teklif tutanağı', sayfa: 1,
+    aciklama: 'Uygun görülen teklifler gerekçeleriyle; Ödül ve Disiplin Kuruluna teslim-tesellüm bölümüyle.' },
+  { ad: '07-odk-onur-belgesi-karari', baslik: 'Onur belgesi kurul kararı', sayfa: 1,
+    aciklama: 'Ödül ve Disiplin Kurulunun onur belgesi verilmesini kabul ettiği öğrenciler; müdüre sunulur.' },
+  { ad: '08-karar-defteri-onur-kurulu', baslik: 'Karar defteri sayfası', sayfa: 2,
+    aciklama: 'Onur Kurulu toplantısının gündem maddeleri, gerekçeli kararları, oy birliği/çoğunluğu ve karşı görüşü.' },
+];
 ---
 
 <DDLayout
-  title="Disiplin Defteri — Çevrimdışı disiplin, onur ve ödül programı"
-  description="Disiplin Defteri; ortaöğretim kurumlarının disiplin, onur ve ödül süreçlerini çevrimdışı yöneten ücretsiz masaüstü uygulamasıdır."
+  title="Disiplin Defteri — Çevrimdışı disiplin ve onur kurulu programı"
+  description="Disiplin Defteri; ortaöğretim kurumlarının disiplin süreçlerini, Ödül ve Disiplin Kurulu ile Onur Kurulu işlerini çevrimdışı yürüten ücretsiz masaüstü uygulamasıdır."
 >
   <section class="hero">
     <div class="hero-copy">
       <p class="eyebrow">Okul bilgisayarında çalışır · Veri buluta gitmez</p>
-      <h1>Disiplin, onur ve ödül işlemleri için çevrimdışı bir program.</h1>
+      <h1>Disiplin ve onur kurulu işleri için çevrimdışı bir program.</h1>
       <p class="lead">
-        Dilekçeden kurul kararına süreç adımlarını kaydeder, yasal süreleri hesaplar
-        ve gereken evrakı hazırlar. Ortaöğretim kurumları için, tek bilgisayarda
-        çalışan masaüstü programı.
+        Dilekçeden kurul kararına disiplin sürecini adım adım kaydeder, yasal süreleri iş
+        günüyle hesaplar ve gereken evrakı hazırlar. Ödül ve Disiplin Kurulu ile Onur
+        Kurulunun toplantı, gündem ve karar defteri işlerini yönetmelikteki sırayla yürütür.
       </p>
       <div class="hero-actions">
         <a class="button button-primary" href="#indir">Uygulamayı indir</a>
@@ -49,8 +98,8 @@ const releaseDate =
     </div>
     <aside class="hero-panel" aria-label="Program özeti">
       <div class="status-line"><span></span> Çevrimdışı çalışma</div>
-      <div class="metric"><strong>25</strong><span>evrak şablonu</span></div>
-      <div class="metric"><strong>157–206</strong><span>yönetmelik maddelerine dayalı süreçler</span></div>
+      <div class="metric"><strong>36</strong><span>evrak şablonu</span></div>
+      <div class="metric"><strong>2 kurul</strong><span>toplantı, gündem ve karar defteri</span></div>
       <div class="metric"><strong>Windows + Pardus</strong><span>kurulum seçenekleri</span></div>
     </aside>
   </section>
@@ -59,15 +108,86 @@ const releaseDate =
     <div class="section-heading">
       <p class="eyebrow">Özellikler</p>
       <h2>Program neler yapar?</h2>
+      <p>
+        Program, Ortaöğretim Kurumları Yönetmeliği'nin 157–206. maddelerindeki sırayı izler:
+        hangi adımda hangi kurulun ne yapacağı ve hangi evrakın gerektiği bellidir.
+      </p>
     </div>
     <div class="feature-grid">
-      <article class="card"><span class="card-number">01</span><h3>Süreç takibi</h3><p>Dilekçe ve ihbardan kurul kararına, itirazdan kapanışa kadar tüm adımlar tek akışta.</p></article>
-      <article class="card"><span class="card-number">02</span><h3>Yasal süreler</h3><p>İş günü temelli tebliğ, itiraz, kurul kararı ve tedbir süreleri otomatik hesaplanır.</p></article>
-      <article class="card"><span class="card-number">03</span><h3>Hazır evraklar</h3><p>Disiplin belgeleri, dizi pusulası, karar defteri ve onur/ödül belgeleri PDF olarak hazırlanır.</p></article>
-      <article class="card"><span class="card-number">04</span><h3>Kolay veri aktarımı</h3><p>Öğrenci ve personel bilgileri e-Okul Excel çıktısından veya panodan içe alınabilir.</p></article>
-      <article class="card"><span class="card-number">05</span><h3>Şifreli yedek</h3><p>Veritabanı yedeği cihazda şifrelenir; buluta otomatik yükleme yapılmaz.</p></article>
-      <article class="card"><span class="card-number">06</span><h3>Çevrimdışı kullanım</h3><p>Kurulumdan sonra internet gerekmez; uygulama yalnızca okul bilgisayarında çalışır.</p></article>
+      <article class="card"><span class="card-number">01</span><h3>Süreç takibi</h3><p>Dilekçe ve ihbardan rehberlik raporuna, müdür kararına, kurul görüşmesine, tebliğe, itiraza ve kapanışa kadar tüm adımlar tek dosyada. Aşamalar sırayla ilerler; atlamak gerekçe ister.</p></article>
+      <article class="card"><span class="card-number">02</span><h3>Yasal süreler</h3><p>Kurul karar süresi (10 iş günü, md. 192/3), itiraz (5 iş günü, md. 169/3) ve tedbir süreleri iş günüyle, okulun tatil takvimiyle hesaplanır; yaklaşan ve geçen süreler Panel'de toplanır.</p></article>
+      <article class="card"><span class="card-number">03</span><h3>Kurul işleyişi</h3><p>Ödül ve Disiplin Kurulu ile Onur Kurulu ayrı bölümlerdedir. Kurul toplanır, teklifler gündeme alınır, karar madde madde verilir. Yeter sayı (md. 191/1) olmadan karar verilmez; karar defteri toplantıdan çıkar.</p></article>
+      <article class="card"><span class="card-number">04</span><h3>Onur belgesi süreci</h3><p>Teklif, Onur Kurulunun uygun görüşü (md. 183/b), Ödül ve Disiplin Kurulunun kararı (md. 161/1) ve müdür onayı. Davranış puanı indirilmiş öğrenciye teklif yapılamaz; olumsuz karar gerekçesiz yazılmaz.</p></article>
+      <article class="card"><span class="card-number">05</span><h3>Onay ve itiraz</h3><p>Onaysız kurul kararı ceza değildir: tebliğ edilemez, puan düşürmez (md. 163/2). Müdür kararı onaylar ya da gerekçeyle bir kez iade eder (md. 197); itiraz mercii cezaya göre kendiliğinden belirlenir.</p></article>
+      <article class="card"><span class="card-number">06</span><h3>Hazır evrak</h3><p>Çağrı ve savunma belgeleri, EK-1 kurul kararı, tebliğler, müdür uyarısı, dizi pusulası, karar defteri ve onur belgesi tutanakları resmî antetle PDF olarak hazırlanır ve dosyanın kütüğüne yazılır.</p></article>
+      <article class="card"><span class="card-number">07</span><h3>Kolay veri aktarımı</h3><p>Öğrenci ve personel bilgileri e-Okul Excel çıktısından veya panodan içe alınır; yeni ders yılında liste yeniden aktarılarak güncellenir.</p></article>
+      <article class="card"><span class="card-number">08</span><h3>Şifreli yedek, isteğe bağlı parola</h3><p>Veritabanı her gün yedeklenir ve yedek şifrelenir. İsterseniz program parolayla açılır; o zaman hassas alanlar veritabanında da şifreli tutulur.</p></article>
+      <article class="card"><span class="card-number">09</span><h3>Çevrimdışı kullanım</h3><p>Kurulumdan sonra internet gerekmez; program yalnız okul bilgisayarında çalışır, hiçbir bulut hesabına bağlanmaz.</p></article>
     </div>
+  </section>
+
+  <section class="section" id="ekranlar">
+    <div class="section-heading">
+      <p class="eyebrow">Ekranlar</p>
+      <h2>Programdan görünümler</h2>
+    </div>
+    <p class="shots-note">
+      Görüntüler tanıtım için kurulmuş <b>örnek bir okula</b> ("Örnek Anadolu Lisesi")
+      aittir; öğrenci adları uydurmadır, personelin yerinde "Matematik Öğretmeni" gibi görev
+      adları yazar. Görüntüler 2026.10.0-beta.1 sürümünden, Linux ortamında alındı;
+      Windows'ta yazı tipi farklıdır.
+    </p>
+    <div class="shots-grid">
+      {ekranlar.map((ekran) => (
+        <figure class="shot">
+          <img src={`/disiplin-defteri/ekran-${ekran.ad}.webp`} width="1440" height="900" loading="lazy" decoding="async" alt={ekran.alt} />
+          <figcaption>
+            <strong>{ekran.baslik}</strong>
+            {ekran.aciklama}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="ornek-evrak">
+    <div class="section-heading">
+      <p class="eyebrow">Örnek evrak</p>
+      <h2>Programın ürettiği belgeler</h2>
+    </div>
+    <p class="shots-note">
+      Aşağıdaki belgeler aynı örnek okul için programın kendi evrak motoruyla üretildi;
+      program belgeleri doğrudan PDF olarak verir. T.C. kimlik numarası alanları boş
+      bırakıldı. Önizlemede ilk sayfa görünür.
+    </p>
+    <div class="docs-grid">
+      {ornekEvrak.map((belge) => (
+        <article class="doc-card">
+          <a class="doc-preview" href={`/disiplin-defteri/ornek-evrak/${belge.ad}.pdf`} aria-label={`${belge.baslik} (PDF, ${belge.sayfa} sayfa)`}>
+            <img src={`/disiplin-defteri/ornek-evrak/${belge.ad}.webp`} width="910" height="1287"
+              loading="lazy" decoding="async" alt="" />
+          </a>
+          <div class="doc-body">
+            <h3>{belge.baslik}</h3>
+            <p>{belge.aciklama}</p>
+            <a class="text-link" href={`/disiplin-defteri/ornek-evrak/${belge.ad}.pdf`}>PDF · {belge.sayfa} sayfa →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Onur belgesi</p>
+      <h2>İki kurul, tek süreç</h2>
+    </div>
+    <ol class="steps">
+      <li><span>1</span><div><strong>Teklif</strong><p>Öğrenci, öğretmen veya okul yönetimi örnek davranışı gösteren öğrenciyi teklif eder (md. 161/1).</p></div></li>
+      <li><span>2</span><div><strong>Onur Kurulu</strong><p>Kurul toplanır, teklifi görüşür; uygun görürse Ödül ve Disiplin Kuruluna önerir, görmezse gerekçesini yazar (md. 183/b, 184).</p></div></li>
+      <li><span>3</span><div><strong>Ödül ve Disiplin Kurulu</strong><p>Yeter sayıyla toplanır, onur belgesi verilmesine karar verir; kararı karar defterine yazıp okul müdürüne sunar (md. 161/1, 191, 196).</p></div></li>
+      <li><span>4</span><div><strong>Müdür onayı</strong><p>Müdür kararı onaylar; onaylanan belge törenle verilir (md. 162/2). Onur listesi e-Okul'da oluşur.</p></div></li>
+    </ol>
   </section>
 
   <section class="section download-section" id="indir">
@@ -116,7 +236,8 @@ const releaseDate =
       <p>
         Dosyalar bu sitenin kendi indirme alanından (indir.okulapp.org) sunulur; aynı
         dosyalar projenin resmî GitHub Releases sayfasında da yayımlanır. İndirdikten
-        sonra yayımlanan SHA-256 özetiyle doğrulamanız önerilir.
+        sonra yayımlanan SHA-256 özetiyle doğrulamanız önerilir. Yeni sürüm ilk açılışta
+        veritabanını yeni yapıya geçirir ve geçişten önce yedeğini kendiliğinden alır.
       </p>
       <a href="/disiplin-defteri/kilavuz/#dosya-dogrulama">Dosya doğrulama adımları →</a>
     </div>
@@ -126,6 +247,28 @@ const releaseDate =
       çalışır. GitHub'a erişebiliyorsanız paketleri
       <a href={release.releaseUrl} rel="noopener">GitHub Releases</a> sayfasından da indirebilirsiniz.
     </p>
+  </section>
+
+  <section class="section safety" id="mevzuat">
+    <div>
+      <p class="eyebrow">Mevzuat</p>
+      <h2>Kuralların mevzuat dayanakları</h2>
+      <p>
+        Süreler, cezalar, onay ve itiraz mercileri ile kurulların çalışma usulü Ortaöğretim
+        Kurumları Yönetmeliği'nin 157–206. maddelerine bağlıdır. Bilmediğiniz hükmü
+        kaynağından doğrulayın.
+      </p>
+    </div>
+    <div class="safety-list">
+      <p><strong>Müdür uyarısı</strong><span>md. 157/7 — kurula gitmeden yazılı uyarı; ceza değildir, davranış puanı düşürmez.</span></p>
+      <p><strong>Ceza ve tekrar</strong><span>md. 163–166 — ceza türleri; aynı öğretim yılında tekrarda bir derece ağır ceza.</span></p>
+      <p><strong>Onay ve itiraz</strong><span>md. 163/2, 169 — onaysız karar ceza değildir; tebliğden itibaren 5 iş günü içinde itiraz, mercii onaylayanın bir üstü.</span></p>
+      <p><strong>Davranış puanı</strong><span>md. 170 — ceza türüne göre indirim; onur belgesi teklifinde indirilmemiş puan şartı (md. 161).</span></p>
+      <p><strong>Rehberlik ve kurul süresi</strong><span>md. 192 — konu önce rehberlik servisine intikal eder; kurul en geç 10 iş günü içinde karar verir.</span></p>
+      <p><strong>Toplanma ve yeter sayı</strong><span>md. 185–191 — kurulun yapısı; salt çoğunlukla toplanma, oy çoğunluğuyla karar; şikâyetçi üye yerine yedek.</span></p>
+      <p><strong>Karar defteri ve müdür</strong><span>md. 196–197 — gerekçeli karar ve karşı görüş; müdür uygun bulmazsa bir kez iade eder.</span></p>
+      <p><strong>Onur Kurulu</strong><span>md. 161, 178–184 — onur genel kurulu ve onur kurulu; teklif hakkında Ödül ve Disiplin Kuruluna öneri.</span></p>
+    </div>
   </section>
 
   <section class="section updates" id="guncellemeler">
@@ -171,3 +314,125 @@ const releaseDate =
     </aside>
   </section>
 </DDLayout>
+
+<style>
+  /* Ekran görüntüleri ve örnek evrak — sayfaya özgü (ortak stil dosyasına dokunulmaz).
+     Izgara Sorumluluk Sınavı ve Kelebek Sınav sayfalarındakiyle aynı düzendedir. */
+  .shots-note {
+    margin: 0 0 1.4rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 62ch;
+  }
+
+  .shots-grid {
+    --shots-gap: 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--shots-gap);
+  }
+
+  .shot {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .shot figcaption {
+    padding: 1rem 1.2rem 1.2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .shot figcaption strong {
+    display: block;
+    color: var(--ink);
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .doc-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* Dikey sayfa kutuya sığar; sayfa kırpılmaz. min-height: 0 olmadan aspect-ratio
+     dikey sayfanın boyuna uzar, satır bozulur. */
+  .doc-preview {
+    display: block;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0.9rem;
+    background: var(--tint);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .doc-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--deep) 25%, transparent));
+  }
+
+  .doc-body {
+    padding: 0.9rem 1.1rem 1.1rem;
+  }
+
+  .doc-body h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.02rem;
+  }
+
+  .doc-body p {
+    margin: 0 0 0.6rem;
+    color: var(--muted);
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1100px) {
+    .docs-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .docs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .shots-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .docs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
