@@ -27,7 +27,9 @@ const boyut = (bayt: number) =>
   bayt >= 1024 * 1024
     ? `${(bayt / 1024 / 1024).toFixed(1).replace('.', ',')} MB`
     : `${Math.round(bayt / 1024)} KB`;
-const tarih = new Date(sinif.tarih).toLocaleDateString('tr-TR', {
+// Her ünite kaydı kendi sürümünü taşır (kısmi yayın: yalnız değişen ünite yeniden üretilir); eski kayıtta yoksa sınıfınki.
+const surum = unite.surum ?? sinif.surum;
+const tarih = new Date(unite.tarih ?? sinif.tarih).toLocaleDateString('tr-TR', {
   day: '2-digit',
   month: 'long',
   year: 'numeric',
@@ -52,7 +54,7 @@ const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
         {' '}bölüm, {toplamSlayt} slayt. Her bölüm o haftanın iki ders saatlik dersidir;
         öğretmen notları slaytların konuşmacı notlarındadır.
       </p>
-      <p class="privacy-promise">Sürüm {sinif.surum} · {tarih} · Ücretsiz</p>
+      <p class="privacy-promise">Sürüm {surum} · {tarih} · Ücretsiz</p>
     </div>
 
     <div class="info-box">

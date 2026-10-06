@@ -1,12 +1,12 @@
 {
-  "guncelleme": "2026-10-03",
+  "guncelleme": "2026-10-06",
   "siniflar": [
     {
       "slug": "9-sinif",
       "ad": "9. Sınıf Coğrafya",
       "kisa": "9. Sınıf",
-      "surum": "2026.10",
-      "tarih": "2026-10-03",
+      "surum": "2026.10.1",
+      "tarih": "2026-10-06",
       "lisans": "CC BY 4.0",
       "kitap": {
         "ad": "Coğrafya 9. Sınıf Ders Kitabı",
@@ -59,20 +59,20 @@
                 {
                   "bicim": "pptx",
                   "dosya": "GNL-COG9-SN-U1_Hafta-1_Cografya_Biliminin_Konusu_ve_Bolumleri_v1.0.pptx",
-                  "boyut": 4967413,
-                  "sha256": "305568bd0b62a30e0cf88bf7b6196656451521ece69afd537b4240fb80af6bae"
+                  "boyut": 4967415,
+                  "sha256": "88bb3f22bc5dc64032ac2c7092e97ac004fa476b1ef98c50d140c37e3a260229"
                 },
                 {
                   "bicim": "odp",
                   "dosya": "GNL-COG9-SN-U1_Hafta-1_Cografya_Biliminin_Konusu_ve_Bolumleri_v1.0.odp",
-                  "boyut": 4957716,
-                  "sha256": "570f45a19bd2e9a32cd89550a74f579f70cb3f101ee24640aa16e8ac31952060"
+                  "boyut": 4957736,
+                  "sha256": "a5482bb62b85db0e5110532ed8dd4a636735707184def9454206f0c6fc487fe7"
                 },
                 {
                   "bicim": "pdf",
                   "dosya": "GNL-COG9-SN-U1_Hafta-1_Cografya_Biliminin_Konusu_ve_Bolumleri_v1.0.pdf",
-                  "boyut": 4462215,
-                  "sha256": "15065fbfeb6dd383c4327dc012350a0103badd42c5514a758207f3e48a0374aa",
+                  "boyut": 4462216,
+                  "sha256": "950cc48d03a87de3ba32b7051d50c46f20931346b214a64923f1b7a41f9b94b0",
                   "sayfa": 44
                 }
               ]
@@ -91,20 +91,20 @@
                 {
                   "bicim": "pptx",
                   "dosya": "GNL-COG9-SN-U1_Hafta-2_Nicin_Cografya_Ogrenmeliyiz_v1.0.pptx",
-                  "boyut": 656905,
-                  "sha256": "f2e6a8b83c67a0224767149be35d55a758609c2a03f830723d23dbe58ecb9f40"
+                  "boyut": 656916,
+                  "sha256": "b13b1f137942c2fdbce77f1f223c04efbe59ccc06233dcc169ddf83054adbd2d"
                 },
                 {
                   "bicim": "odp",
                   "dosya": "GNL-COG9-SN-U1_Hafta-2_Nicin_Cografya_Ogrenmeliyiz_v1.0.odp",
-                  "boyut": 627824,
-                  "sha256": "d8c8195fd9efdd6504fc6a8f89482e3f810cf093731480ec17c404ea63bc7d07"
+                  "boyut": 628075,
+                  "sha256": "689d98cd7d06955f39949133cc1b3ede8a6657ea4d400a7d9cc6701702e51af3"
                 },
                 {
                   "bicim": "pdf",
                   "dosya": "GNL-COG9-SN-U1_Hafta-2_Nicin_Cografya_Ogrenmeliyiz_v1.0.pdf",
-                  "boyut": 994980,
-                  "sha256": "56a18cd479e885c0f2df2672ef31c254fd2086f51a001fbc4be5ed229fd13767",
+                  "boyut": 995004,
+                  "sha256": "386be2a4571ee573b71490a1e328814870f44788759d6e31abf8297c141131b9",
                   "sayfa": 39
                 }
               ]
@@ -116,28 +116,28 @@
               "etiket": "3. hafta",
               "tarih": "28 Eylül-2 Ekim 2026",
               "slayt_ilk": 82,
-              "slayt_son": 122,
-              "slayt": 41,
+              "slayt_son": 127,
+              "slayt": 46,
               "kod": "GNL-COG9-SN-U1",
               "dosyalar": [
                 {
                   "bicim": "pptx",
                   "dosya": "GNL-COG9-SN-U1_Hafta-3_Cografya_Biliminin_Gelisimi_v1.0.pptx",
-                  "boyut": 198214,
-                  "sha256": "2ae8b580a80555d4352b08e4ebafe1d095ea2239bd319f7976bcbe0aeb61306f"
+                  "boyut": 219411,
+                  "sha256": "3d4fd0f9828e88d93368c67ec8aceff42d0595eef7a5906efda5ae144ac2edd7"
                 },
                 {
                   "bicim": "odp",
                   "dosya": "GNL-COG9-SN-U1_Hafta-3_Cografya_Biliminin_Gelisimi_v1.0.odp",
-                  "boyut": 141008,
-                  "sha256": "d6e26285b02e2355718fbc8857bf59e860367a7e0a560afbb1b6b23f7a74ae73"
+                  "boyut": 146554,
+                  "sha256": "b8234867efcc5f5141bdb195345ad47d9bba09ce1c783d68256028b5a0a8dd7d"
                 },
                 {
                   "bicim": "pdf",
                   "dosya": "GNL-COG9-SN-U1_Hafta-3_Cografya_Biliminin_Gelisimi_v1.0.pdf",
-                  "boyut": 609919,
-                  "sha256": "57da89017b20a2efdb7b8006683c46b0741480c5fdf355c9ca28c77fa7d44e29",
-                  "sayfa": 42
+                  "boyut": 654605,
+                  "sha256": "f76c9abfa97b6c700ad7c8783630472748cde4e5eaff7b2763d7243826d4ed07",
+                  "sayfa": 47
                 }
               ]
             },
@@ -147,28 +147,28 @@
               "baslik": "Ünite sonu ölçme ve değerlendirme",
               "etiket": "Ünite sonu",
               "tarih": null,
-              "slayt_ilk": 123,
-              "slayt_son": 129,
+              "slayt_ilk": 128,
+              "slayt_son": 134,
               "slayt": 7,
               "kod": "GNL-COG9-SN-U1",
               "dosyalar": [
                 {
                   "bicim": "pptx",
                   "dosya": "GNL-COG9-SN-U1_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pptx",
-                  "boyut": 1008055,
-                  "sha256": "ee18ba75dbf8f148b4e23144b4b4604fa72b690f5baac8d4da83d6789d5ea2a1"
+                  "boyut": 1008066,
+                  "sha256": "a9f68d4f52fc7ba3598a048b1fd93fa64165a69f9566f13acae418338d67a114"
                 },
                 {
                   "bicim": "odp",
                   "dosya": "GNL-COG9-SN-U1_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.odp",
-                  "boyut": 1020567,
-                  "sha256": "bbb735564a56d66eccc0066023cdbb8fb7c96617c00f63d42ba5707f28085410"
+                  "boyut": 1020490,
+                  "sha256": "046a47de49608eb3d25790b8c61963c7a5cf0289d0c61e32a4b72bd59a31c636"
                 },
                 {
                   "bicim": "pdf",
                   "dosya": "GNL-COG9-SN-U1_Unite_Sonu_Olcme_ve_Degerlendirme_v1.0.pdf",
-                  "boyut": 1035663,
-                  "sha256": "73e7739582421ad4ccdbf759c0d535c26fe81a89d81b3a65c08c425636a798b1",
+                  "boyut": 1035654,
+                  "sha256": "28be642b8e4426af16e5601a9a1a8404fd3b813fbe6ad6f6a71a420d8204291c",
                   "sayfa": 8
                 }
               ]
@@ -183,23 +183,25 @@
                 "bicim": "docx",
                 "dosya": "GNL-COG9-CK-U1_Cografyanin_Dogasi_Calisma_Kagidi_v1.0.docx",
                 "boyut": 44576,
-                "sha256": "0d33b265f86efc9e19e0663a25adaa4908750591b03f4f21f195341b30f6e0cd"
+                "sha256": "e26f01ca4c4106f98315482ea31a0685b8e5c9b3a942c4f5c0f76dc41b510566"
               },
               {
                 "bicim": "odt",
                 "dosya": "GNL-COG9-CK-U1_Cografyanin_Dogasi_Calisma_Kagidi_v1.0.odt",
                 "boyut": 61168,
-                "sha256": "23a6c6d168d8247e18220d4ae48a612bd8dd6245fb64c18157d87bfd46b0713f"
+                "sha256": "c3a5f4214837b3a7548f49b034c5261566be461756f2ebcac81d7b23a839e4c2"
               },
               {
                 "bicim": "pdf",
                 "dosya": "GNL-COG9-CK-U1_Cografyanin_Dogasi_Calisma_Kagidi_v1.0.pdf",
                 "boyut": 163124,
-                "sha256": "8edc74d675450a745653ea2c01cf4f4a1c02005cf2aabe6398474559970999cb",
+                "sha256": "f5ab81ccd2b28fdecd71725eb25318852ac740d8533fd4d115e22734fafe7f21",
                 "sayfa": 2
               }
             ]
-          }
+          },
+          "surum": "2026.10.1",
+          "tarih": "2026-10-06"
         },
         {
           "no": 2,
@@ -429,7 +431,9 @@
                 "sayfa": 2
               }
             ]
-          }
+          },
+          "surum": "2026.10",
+          "tarih": "2026-10-03"
         },
         {
           "no": 3,
@@ -852,7 +856,9 @@
                 "sayfa": 2
               }
             ]
-          }
+          },
+          "surum": "2026.10",
+          "tarih": "2026-10-03"
         },
         {
           "no": 4,
@@ -1178,7 +1184,9 @@
                 "sayfa": 2
               }
             ]
-          }
+          },
+          "surum": "2026.10",
+          "tarih": "2026-10-03"
         }
       ]
     }
