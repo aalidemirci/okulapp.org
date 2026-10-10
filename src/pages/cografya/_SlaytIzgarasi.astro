@@ -1,0 +1,121 @@
+---
+// Slayt küçük resim ızgarası. İlk `ilk` slayt görünür, kalanı JS'siz <details> içinde.
+// Her küçük resim PDF'in o sayfasını yeni sekmede açar (#page=). Alt çizgili dosya sayfa üretmez.
+import { pdfDosyasi, type Bolum } from './_ortak';
+
+interface Props {
+  bolum: Bolum;
+  /** Ünite kökü: /cografya/<sınıf>/<ünite> */
+  kok: string;
+  ilk?: number;
+}
+const { bolum, kok, ilk = 12 } = Astro.props;
+const pdf = pdfDosyasi(bolum);
+const slaytlar = bolum.onizleme.slaytlar;
+const gorunen = slaytlar.slice(0, ilk);
+const kalan = slaytlar.slice(ilk);
+const resim = (dosya: string) => `${kok}/${bolum.onizleme.klasor}/${dosya}`;
+const hedef = (sayfa: number) => (pdf ? `${kok}/${pdf.dosya}#page=${sayfa}` : undefined);
+---
+
+<ol class="cg-izgara">
+  {gorunen.map((s) => (
+    <li>
+      <a href={hedef(s.sayfa)} target="_blank" rel="noopener">
+        <img src={resim(s.dosya)} width="320" height="180" loading="lazy" decoding="async" alt={`Slayt ${s.no}: ${s.baslik}`} />
+        <span class="cg-slayt-ad" aria-hidden="true"><b>{s.no}</b> {s.baslik}</span>
+      </a>
+    </li>
+  ))}
+</ol>
+{kalan.length > 0 && (
+  <details class="cg-kalan">
+    <summary><span class="cg-ac">Kalan {kalan.length} slaytı göster</span><span class="cg-kapa">Kalan {kalan.length} slaytı gizle</span></summary>
+    <ol class="cg-izgara">
+      {kalan.map((s) => (
+        <li>
+          <a href={hedef(s.sayfa)} target="_blank" rel="noopener">
+            <img src={resim(s.dosya)} width="320" height="180" loading="lazy" decoding="async" alt={`Slayt ${s.no}: ${s.baslik}`} />
+            <span class="cg-slayt-ad" aria-hidden="true"><b>{s.no}</b> {s.baslik}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </details>
+)}
+
+<style>
+  .cg-izgara {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .cg-izgara a {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    border-radius: 10px;
+  }
+
+  .cg-izgara img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--tint);
+  }
+
+  .cg-izgara a:hover img {
+    border-color: var(--link);
+  }
+
+  .cg-slayt-ad {
+    display: block;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    margin-top: 0.35rem;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+
+  .cg-slayt-ad b {
+    color: var(--link);
+    margin-right: 0.2rem;
+  }
+
+  .cg-kalan {
+    margin-top: 1rem;
+  }
+
+  .cg-kalan summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--link);
+    padding: 0.5rem 0;
+  }
+
+  .cg-kalan summary:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  .cg-kalan[open] summary {
+    margin-bottom: 0.8rem;
+  }
+
+  .cg-kapa,
+  .cg-kalan[open] .cg-ac {
+    display: none;
+  }
+
+  .cg-kalan[open] .cg-kapa {
+    display: inline;
+  }
+</style>

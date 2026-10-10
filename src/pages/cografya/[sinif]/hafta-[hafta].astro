@@ -1,0 +1,613 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Rozetler from '../_Rozetler.astro';
+import SlaytIzgarasi from '../_SlaytIzgarasi.astro';
+import {
+  veri,
+  BICIM,
+  boyut,
+  bilgiOf,
+  haftalar,
+  haftaYolu,
+  konuBol,
+  uniteKoku,
+  uniteSonu,
+  type HaftaKaydi,
+  type Sinif,
+} from '../_ortak';
+
+// Hafta sayfaları: bölümünde `hafta` değeri olan her hafta için bir sayfa (OTP dâhil).
+// Takvimde olup bölümü olmayan hafta (37. hafta, sosyal etkinlik) sayfa almaz.
+// Veri kaynağı: evrakmotoru → `python arac/gnl_ders_yayin.py --site ../okulapp.org`
+export function getStaticPaths() {
+  return veri.siniflar.flatMap((s) => {
+    const liste = haftalar(s);
+    return liste.map((k, i) => ({
+      params: { sinif: s.slug, hafta: String(k.hafta) },
+      props: { sinif: s, kayit: k, onceki: liste[i - 1], sonraki: liste[i + 1] },
+    }));
+  });
+}
+
+const { sinif, kayit, onceki, sonraki } = Astro.props as {
+  sinif: Sinif;
+  kayit: HaftaKaydi;
+  onceki?: HaftaKaydi;
+  sonraki?: HaftaKaydi;
+};
+const { hafta, takvim, unite, bolum, uniteninSonu } = kayit;
+const KOK = uniteKoku(sinif, unite);
+const bilgi = bilgiOf(bolum);
+const otp = takvim.tur === 'otp' || bilgi?.tur === 'otp';
+const { ayrinti } = konuBol(takvim.konu ?? bilgi?.konu);
+const ikiDeste = unite.desteler.length > 1;
+const sonu = uniteninSonu ? uniteSonu(unite) : undefined;
+const kitap = bilgi?.kitap && bilgi.kitap !== '—' ? bilgi.kitap : '';
+const hedefler = bilgi?.hedefler ?? [];
+const kavramlar = bilgi?.kavramlar ?? [];
+const etkinlikler = bilgi?.etkinlikler ?? [];
+const baslik = `${hafta}. hafta · ${bolum.baslik}`;
+const dosyaKarti = (b: typeof bolum) =>
+  `slayt ${b.slayt_ilk}-${b.slayt_son} · ${b.slayt} slayt`;
+---
+
+<BaseLayout
+  title={`${baslik} — ${sinif.ad} — okulapp.org`}
+  description={`${sinif.ad} ${hafta}. hafta (${takvim.tarih}): ${bolum.baslik}. Öğrenme çıktısı, kitap sayfaları, etkinlikler, slaytlar ve sunum indirme.`}
+>
+  <section class="section cg-ust-bolum">
+    <nav class="eyebrow cg-kirinti" aria-label="Konum">
+      <a href="/cografya/">Coğrafya</a> ·
+      <a href={`/cografya/${sinif.slug}/`}>{sinif.kisa}</a> ·
+      <a href={`${KOK}/`}>{unite.no}. Ünite</a>
+    </nav>
+    <div class="cg-baslik" data-bas={takvim.bas} data-son={takvim.son}>
+      <p class="cg-tarih-buyuk">
+        {takvim.tarih}
+        <span class="cg-buhafta-rozet" hidden>Bu hafta</span>
+      </p>
+      <h1>
+        <span class="cg-hafta-no">{hafta}. hafta</span>
+        <span class="cg-ayrac" aria-hidden="true"> · </span>
+        {bolum.baslik}
+      </h1>
+      {ayrinti && <p class="cg-ayrinti">{ayrinti}</p>}
+      <p class="cg-ust-rozetler">
+        <span class="cg-unite-chip">{unite.no}. ünite: {unite.ad}</span>
+        <Rozetler takvim={takvim} uzun />
+      </p>
+      <p class="cg-hizli">
+        {bolum.dosyalar.map((d) => (
+          <a
+            class={`button ${d.bicim === 'pdf' ? 'button-primary' : 'button-outline'}`}
+            href={`${KOK}/${d.dosya}`}
+            download
+            aria-label={`Sunumu indir: ${BICIM[d.bicim].ad} (${BICIM[d.bicim].not.split(' ')[0]}), ${boyut(d.boyut)}`}
+          >
+            {BICIM[d.bicim].ad}
+            <small>{boyut(d.boyut)}</small>
+          </a>
+        ))}
+      </p>
+    </div>
+
+    <nav class="cg-hafta-gezinme" aria-label="Haftalar arası gezinme">
+      {onceki ? (
+        <a href={haftaYolu(sinif, onceki.hafta)} rel="prev">
+          <small>← Önceki hafta</small>
+          <span>{onceki.hafta}. hafta · {onceki.bolum.baslik}</span>
+        </a>
+      ) : <span class="cg-bos" />}
+      {sonraki ? (
+        <a class="cg-sonraki" href={haftaYolu(sinif, sonraki.hafta)} rel="next">
+          <small>Sonraki hafta →</small>
+          <span>{sonraki.hafta}. hafta · {sonraki.bolum.baslik}</span>
+        </a>
+      ) : (
+        <a class="cg-sonraki" href={`/cografya/${sinif.slug}/#yil-sonu`}>
+          <small>Yıl akışı →</small>
+          <span>Ders yılının son ders haftası</span>
+        </a>
+      )}
+    </nav>
+  </section>
+
+  <section class="section cg-icerik">
+    <div class="cg-iki">
+      <div class="cg-sol">
+        {otp ? (
+          <div class="cg-cikti cg-cikti-otp">
+            <p class="cg-kutu-etiket">Okul temelli planlama</p>
+            <p>
+              Bu hafta çerçeve yıllık plandaki <b>okul temelli planlama</b> süresidir; planda bu
+              haftaya öğrenme çıktısı yazılmamıştır. Etkinlikler zümrenin kararıyla okulun ve öğrencilerin
+              ihtiyacına göre planlanır; aşağıdaki akış önceki haftaların ürünlerine dayanan
+              bir örnektir, zümrenizin planına göre uyarlayın.
+            </p>
+          </div>
+        ) : bilgi?.cikti ? (
+          <div class="cg-cikti">
+            <p class="cg-kutu-etiket">Öğrenme çıktısı</p>
+            <p class="cg-cikti-metin">
+              <b>{bilgi.cikti.kod}</b> {bilgi.cikti.metin}
+            </p>
+            {bilgi.surec && bilgi.surec.length > 0 && (
+              <>
+                <p class="cg-surec-baslik">Süreç bileşenleri</p>
+                <ul class="cg-surec">
+                  {bilgi.surec.map((s) => <li>{s}</li>)}
+                </ul>
+              </>
+            )}
+          </div>
+        ) : null}
+
+        {hedefler.length > 0 && (
+          <>
+            <h2 class="cg-h2">Bu hafta neler öğreneceğiz?</h2>
+            <ul class="cg-hedefler">
+              {hedefler.map((h) => <li>{h}</li>)}
+            </ul>
+          </>
+        )}
+
+        <h2 class="cg-h2">Etkinlikler</h2>
+        {etkinlikler.length > 0 ? (
+          <>
+            <ol class="cg-etkinlikler">
+              {etkinlikler.map((e) => <li>{e}</li>)}
+            </ol>
+            <p class="muted cg-kucuk">
+              Her etkinliğin örnek cevabı sunumda hemen ardındaki slayttadır.
+            </p>
+          </>
+        ) : (
+          <p class="muted">
+            Bu haftanın etkinlik akışı sunumdadır; adımları aşağıdaki{' '}
+            <a href="#slaytlar">slaytlarda</a> görebilirsiniz.
+          </p>
+        )}
+      </div>
+
+      <aside class="cg-sag" aria-label="Haftanın künyesi">
+        {kitap && (
+          <div class="cg-kitap">
+            <p class="cg-kutu-etiket">Ders kitabı</p>
+            <p class="cg-kitap-sayfa">s. {kitap}</p>
+            <p class="muted cg-kucuk">{sinif.kitap.ad}, {sinif.kitap.baski} baskısı</p>
+          </div>
+        )}
+        {kavramlar.length > 0 && (
+          <div>
+            <p class="cg-kutu-etiket">Kavramlar</p>
+            <ul class="cg-kavramlar">
+              {kavramlar.map((k) => <li class="tag">{k}</li>)}
+            </ul>
+          </div>
+        )}
+      </aside>
+    </div>
+  </section>
+
+  <section class="section cg-indir" id="indir">
+    <h2 class="cg-h2">İndir</h2>
+    <div class="download-grid">
+      <article class="download-card">
+        <p class="download-meta cg-ust">Sunum · {bolum.etiket}</p>
+        <h3>{bolum.baslik}</h3>
+        <p class="download-meta">
+          {ikiDeste ? `Sunum ${bolum.deste.slice(-1)} · ` : ''}{dosyaKarti(bolum)}
+        </p>
+        <div class="cg-dosyalar">
+          {bolum.dosyalar.map((d) => (
+            <a class="button cg-dosya" href={`${KOK}/${d.dosya}`} download>
+              <span>{BICIM[d.bicim].ad}</span>
+              <small>{BICIM[d.bicim].not} · {boyut(d.boyut)}</small>
+            </a>
+          ))}
+        </div>
+      </article>
+
+      <article class="download-card">
+        <p class="download-meta cg-ust">Çalışma kâğıdı · {unite.no}. ünite</p>
+        <h3>{unite.ad}</h3>
+        <p class="download-meta">
+          A4 · {unite.calisma.sayfa} sayfa · bölümleri haftalara ayrılmıştır
+        </p>
+        <div class="cg-dosyalar">
+          {unite.calisma.dosyalar.map((d) => (
+            <a class="button cg-dosya" href={`${KOK}/${d.dosya}`} download>
+              <span>{BICIM[d.bicim].ad}</span>
+              <small>{BICIM[d.bicim].not} · {boyut(d.boyut)}</small>
+            </a>
+          ))}
+        </div>
+      </article>
+
+      {sonu && (
+        <article class="download-card">
+          <p class="download-meta cg-ust">Ünite sonu · {unite.no}. ünite</p>
+          <h3>{sonu.baslik}</h3>
+          <p class="download-meta">
+            {ikiDeste ? `Sunum ${sonu.deste.slice(-1)} · ` : ''}{dosyaKarti(sonu)} ·{' '}
+            <a href={`${KOK}/#unite-sonu`}>slaytları gör</a>
+          </p>
+          <div class="cg-dosyalar">
+            {sonu.dosyalar.map((d) => (
+              <a class="button cg-dosya" href={`${KOK}/${d.dosya}`} download>
+                <span>{BICIM[d.bicim].ad}</span>
+                <small>{BICIM[d.bicim].not} · {boyut(d.boyut)}</small>
+              </a>
+            ))}
+          </div>
+        </article>
+      )}
+    </div>
+  </section>
+
+  <section class="section cg-slaytlar" id="slaytlar">
+    <h2 class="cg-h2">Slaytlar</h2>
+    <p class="muted cg-kucuk">
+      {bolum.slayt} slayt. Küçük resme tıklayınca PDF'in o sayfası yeni sekmede açılır.
+      Numaralar ünitenin tam sunumuna göredir.
+    </p>
+    <SlaytIzgarasi bolum={bolum} kok={KOK} ilk={12} />
+  </section>
+
+  <section class="section cg-kullanim">
+    <div class="info-box">
+      <p>
+        <b>Derste kullanmak:</b> dosya 40 + 40 dakikalık blok derse göre kurulmuştur. Amaç,
+        süre, uygulama ve beklenen cevaplar konuşmacı notlarındadır (PowerPoint'te “Sunucu
+        Görünümü”, LibreOffice Impress'te “Sunucu Konsolu”). Sunumlar 34 kişilik sınıfa göre
+        planlanmıştır; grup sayısını sınıfınıza göre uyarlayın.
+      </p>
+      <p>
+        <b>Resmî Bakanlık materyali değildir.</b> Kaynakça, haklar ve lisans:{' '}
+        <a href={`${KOK}/#kaynaklar`}>{unite.no}. ünite sayfası · Kaynaklar ve haklar</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  // Bugün bu haftanın içindeyse başlığa "Bu hafta" rozeti eklenir (tarayıcının yerel tarihi).
+  (() => {
+    const kutu = document.querySelector('[data-bas][data-son]');
+    if (!kutu) return;
+    const d = new Date();
+    const iki = (n) => String(n).padStart(2, '0');
+    const bugun = `${d.getFullYear()}-${iki(d.getMonth() + 1)}-${iki(d.getDate())}`;
+    if (kutu.dataset.bas <= bugun && bugun <= kutu.dataset.son) {
+      const r = kutu.querySelector('.cg-buhafta-rozet');
+      if (r) r.hidden = false;
+    }
+  })();
+</script>
+
+<style>
+  .cg-ust-bolum {
+    padding-bottom: 1.5rem;
+  }
+
+  .cg-kirinti {
+    margin-bottom: 1.2rem;
+  }
+
+  .cg-kirinti a {
+    color: inherit;
+  }
+
+  .cg-baslik p {
+    margin: 0;
+  }
+
+  .cg-tarih-buyuk {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    font-weight: 800;
+    color: var(--muted);
+  }
+
+  .cg-buhafta-rozet {
+    display: inline-block;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    border-radius: 999px;
+    padding: 0 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 850;
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .cg-buhafta-rozet[hidden] {
+    display: none;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 4.2vw, 2.9rem);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0.4rem 0 0;
+    max-width: 900px;
+  }
+
+  .cg-hafta-no {
+    color: var(--link);
+  }
+
+  .cg-ayrinti {
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 780px;
+    margin-top: 0.8rem !important;
+  }
+
+  .cg-ust-rozetler {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+    margin-top: 1rem !important;
+  }
+
+  .cg-unite-chip {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 0.05rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 750;
+    line-height: 1.6;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+  }
+
+  .cg-hizli {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.3rem !important;
+  }
+
+  .cg-hizli .button {
+    gap: 0.5rem;
+  }
+
+  .cg-hizli small {
+    font-weight: 650;
+    opacity: 0.85;
+  }
+
+  .cg-hafta-gezinme {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .cg-hafta-gezinme a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 0.75rem 1rem;
+    color: var(--ink);
+  }
+
+  .cg-hafta-gezinme a:hover {
+    border-color: var(--link);
+  }
+
+  .cg-hafta-gezinme small {
+    color: var(--link);
+    font-weight: 800;
+  }
+
+  .cg-hafta-gezinme span {
+    font-weight: 650;
+    line-height: 1.35;
+  }
+
+  .cg-sonraki {
+    text-align: right;
+  }
+
+  .cg-icerik,
+  .cg-indir,
+  .cg-slaytlar,
+  .cg-kullanim {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .cg-kullanim {
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .cg-iki {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .cg-sag {
+    display: grid;
+    gap: 1.4rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem;
+  }
+
+  .cg-sag p {
+    margin: 0;
+  }
+
+  .cg-kutu-etiket {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.74rem;
+    font-weight: 850;
+    color: var(--link);
+    margin: 0 0 0.4rem !important;
+  }
+
+  .cg-cikti {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--link);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.1rem 1.3rem;
+  }
+
+  .cg-cikti p {
+    margin: 0;
+  }
+
+  .cg-cikti-otp {
+    background: var(--chip);
+  }
+
+  .cg-cikti-metin {
+    font-size: 1.12rem;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
+  .cg-cikti-metin b {
+    color: var(--link);
+    margin-right: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .cg-surec-baslik {
+    margin-top: 0.9rem !important;
+    font-weight: 800;
+    font-size: 0.92rem;
+  }
+
+  .cg-surec {
+    list-style: none;
+    padding: 0;
+    margin: 0.3rem 0 0;
+    color: var(--muted);
+  }
+
+  .cg-surec li + li {
+    margin-top: 0.25rem;
+  }
+
+  .cg-h2 {
+    font-size: clamp(1.3rem, 2.6vw, 1.65rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 1.8rem 0 0.7rem;
+  }
+
+  .cg-indir .cg-h2,
+  .cg-slaytlar .cg-h2 {
+    margin-top: 0;
+  }
+
+  .cg-hedefler {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .cg-hedefler li + li,
+  .cg-etkinlikler li + li {
+    margin-top: 0.35rem;
+  }
+
+  .cg-etkinlikler {
+    margin: 0;
+    padding-left: 1.6rem;
+  }
+
+  .cg-etkinlikler li::marker {
+    color: var(--link);
+    font-weight: 800;
+  }
+
+  .cg-kucuk {
+    font-size: 0.9rem;
+    margin: 0.6rem 0 0;
+  }
+
+  .cg-kitap-sayfa {
+    font-size: 1.6rem;
+    font-weight: 850;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .cg-kavramlar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+  }
+
+  .cg-ust {
+    margin-bottom: 0.2rem;
+    font-weight: 750;
+  }
+
+  .cg-dosyalar {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .cg-dosya {
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .cg-dosya small {
+    font-weight: 600;
+    font-size: 0.82rem;
+    opacity: 0.85;
+  }
+
+  .cg-indir .download-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  @media (max-width: 760px) {
+    .cg-iki {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .cg-hafta-gezinme {
+      grid-template-columns: 1fr;
+    }
+
+    .cg-sonraki {
+      text-align: left;
+    }
+
+    .cg-bos {
+      display: none;
+    }
+
+    .cg-hizli .button {
+      flex: 1 1 auto;
+    }
+
+    .cg-indir .download-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

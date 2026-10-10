@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import veri from '../../../data/cografya.json';
+import SlaytIzgarasi from '../_SlaytIzgarasi.astro';
+import { veri, BICIM, boyut, bilgiOf, haftaYolu, uniteSonu } from '../_ortak';
 
 // Veri kaynağı: evrakmotoru → `python arac/gnl_ders_yayin.py --site ../okulapp.org`
 // Dosyalar public/cografya/<sınıf>/<ünite>/ altındadır; ikisi de ÜRETİLİR, elle düzenlenmez.
@@ -16,17 +17,6 @@ export function getStaticPaths() {
 const { sinif, unite, onceki, sonraki } = Astro.props;
 const KOK = `/cografya/${sinif.slug}/${unite.slug}`;
 
-const BICIM: Record<string, { ad: string; not: string }> = {
-  pptx: { ad: 'PowerPoint', not: '.pptx' },
-  odp: { ad: 'OpenDocument', not: '.odp · LibreOffice, Pardus' },
-  docx: { ad: 'Word', not: '.docx' },
-  odt: { ad: 'OpenDocument', not: '.odt · LibreOffice, Pardus' },
-  pdf: { ad: 'PDF', not: '.pdf' },
-};
-const boyut = (bayt: number) =>
-  bayt >= 1024 * 1024
-    ? `${(bayt / 1024 / 1024).toFixed(1).replace('.', ',')} MB`
-    : `${Math.round(bayt / 1024)} KB`;
 // Her ünite kaydı kendi sürümünü taşır (kısmi yayın: yalnız değişen ünite yeniden üretilir); eski kayıtta yoksa sınıfınki.
 const surum = unite.surum ?? sinif.surum;
 const tarih = new Date(unite.tarih ?? sinif.tarih).toLocaleDateString('tr-TR', {
@@ -37,6 +27,14 @@ const tarih = new Date(unite.tarih ?? sinif.tarih).toLocaleDateString('tr-TR', {
 const toplamSlayt = unite.bolumler.reduce((n, b) => n + b.slayt, 0);
 const ikiDeste = unite.desteler.length > 1;
 const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
+const sonu = uniteSonu(unite);
+// Hafta kartındaki konu/çıktı satırı: ders haftasında öğrenme çıktısı, OTP'de açıklama.
+const ciktiSatiri = (b: (typeof unite.bolumler)[number]) => {
+  const bilgi = bilgiOf(b);
+  if (!bilgi) return '';
+  if (bilgi.tur === 'otp') return 'Okul temelli planlama · çerçeve planda öğrenme çıktısı yok';
+  return bilgi.cikti ? `${bilgi.cikti.kod} ${bilgi.cikti.metin}` : '';
+};
 ---
 
 <BaseLayout
@@ -46,7 +44,8 @@ const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
   <section class="section">
     <div class="section-heading">
       <p class="eyebrow">
-        <a href="/cografya/">Coğrafya</a> · <a href={`/cografya/${sinif.slug}/`}>{sinif.ad}</a>
+        <a href="/cografya/">Coğrafya</a> · <a href={`/cografya/${sinif.slug}/`}>{sinif.ad}</a> ·
+        <a href={`/cografya/${sinif.slug}/#${unite.slug}`}>Yıl akışı</a>
       </p>
       <h1>{unite.no}. Ünite: {unite.ad}</h1>
       <p class="lead">
@@ -83,13 +82,27 @@ const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
     </div>
     <div class="download-grid">
       {unite.bolumler.map((b) => (
-        <article class="download-card">
+        <article class="download-card" id={b.hafta == null ? 'unite-sonu' : `hafta-${b.hafta}`}>
           <p class="download-meta cg-ust">
             {b.etiket}{b.tarih ? ` · ${b.tarih}` : ''}
           </p>
-          <h3>{b.baslik}</h3>
+          <h3>
+            {b.hafta != null ? <a href={haftaYolu(sinif, b.hafta)}>{b.baslik}</a> : b.baslik}
+          </h3>
+          {ciktiSatiri(b) && <p class="cg-cikti-satir">{ciktiSatiri(b)}</p>}
           <p class="download-meta">
             {deste(b.deste)}slayt {b.slayt_ilk}-{b.slayt_son} · {b.slayt} slayt
+            {b.hafta != null ? (
+              <>
+                {' · '}
+                <a href={haftaYolu(sinif, b.hafta)}>haftanın sayfası →</a>
+              </>
+            ) : (
+              <>
+                {' · '}
+                <a href="#unite-sonu-slaytlar">slaytlar ↓</a>
+              </>
+            )}
           </p>
           <div class="cg-dosyalar">
             {b.dosyalar.map((d) => (
@@ -102,6 +115,16 @@ const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
         </article>
       ))}
     </div>
+
+    {sonu && sonu.onizleme && (
+      <div class="cg-sonu-onizleme" id="unite-sonu-slaytlar">
+        <h3>Ünite sonu ölçme ve değerlendirme · slaytlar</h3>
+        <p class="muted cg-kucuk">
+          {sonu.slayt} slayt. Küçük resme tıklayınca PDF'in o sayfası yeni sekmede açılır.
+        </p>
+        <SlaytIzgarasi bolum={sonu} kok={KOK} ilk={8} />
+      </div>
+    )}
   </section>
 
   <section class="section">
@@ -176,8 +199,8 @@ const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
       ISBN {sinif.kitap.isbn}.
     </p>
     <p>
-      <b>Öğretim programı:</b> {sinif.program}. Etkinliklerin bir bölümü MEB Ortaöğretim
-      Genel Müdürlüğünün OGM Materyal platformundaki etkileşimli etkinliklerle paralel
+      <b>Öğretim programı:</b> {sinif.program}. Etkinliklerin bir bölümü OGM Materyal'deki
+      etkileşimli etkinliklerle, bir bölümü ders kitabının karekod içerikleriyle (EBA) paralel
       kurulmuştur.
     </p>
     <p class="legal-note">
@@ -225,6 +248,41 @@ const deste = (d: string) => (ikiDeste ? `Sunum ${d.slice(-1)} · ` : '');
     font-weight: 600;
     font-size: 0.82rem;
     opacity: 0.85;
+  }
+
+  .download-card {
+    scroll-margin-top: 1rem;
+  }
+
+  .download-card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .download-card h3 a:hover {
+    color: var(--link);
+    text-decoration: underline;
+  }
+
+  .cg-cikti-satir {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0.3rem 0 0;
+  }
+
+  .cg-sonu-onizleme {
+    margin-top: 2rem;
+    scroll-margin-top: 1rem;
+  }
+
+  .cg-sonu-onizleme h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.3rem;
+  }
+
+  .cg-kucuk {
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
   }
 
   .cg-gezinme {

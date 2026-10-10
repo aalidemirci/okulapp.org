@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import veri from '../../data/cografya.json';
 import arsiv from '../../data/evrak-arsivi.json';
+import { haftalar, haftaYolu } from './_ortak';
 
 // Bu veri dosyasını evrak motoru üretir:
 //   cd ../evrakmotoru && python arac/gnl_ders_yayin.py --site ../okulapp.org
@@ -14,6 +15,21 @@ const bolumSayisi = siniflar.reduce(
 const uniteSayisi = siniflar.reduce((n, s) => n + s.uniteler.length, 0);
 const slaytSayisi = (u: (typeof siniflar)[number]['uniteler'][number]) =>
   u.bolumler.reduce((n, b) => n + b.slayt, 0);
+const toplamSlayt = siniflar.reduce(
+  (n, s) => n + s.uniteler.reduce((m, u) => m + slaytSayisi(u), 0),
+  0,
+);
+// "Bu hafta" bağlantısı için sayfası olan haftaların tarihleri (tarayıcıda karşılaştırılır).
+const haftaTakvimi = (s: (typeof siniflar)[number]) =>
+  JSON.stringify(
+    haftalar(s).map((k) => ({
+      h: k.hafta,
+      bas: k.takvim.bas,
+      son: k.takvim.son,
+      tarih: k.takvim.tarih,
+      href: haftaYolu(s, k.hafta),
+    })),
+  );
 const guncelleme = new Date(veri.guncelleme).toLocaleDateString('tr-TR', {
   day: '2-digit',
   month: 'long',
@@ -37,7 +53,7 @@ const planSeti = arsiv.setler.find((s) => s.slug === 'cografya-yillik-planlari')
         olarak indirilir.
       </p>
       <p class="privacy-promise">
-        {uniteSayisi} ünite · {bolumSayisi} haftalık bölüm · Son güncelleme {guncelleme} ·
+        {uniteSayisi} ünite · {bolumSayisi} bölüm · {toplamSlayt} slayt · Son güncelleme {guncelleme} ·
         Kayıt gerekmez, ücretsizdir.
       </p>
     </div>
@@ -45,6 +61,23 @@ const planSeti = arsiv.setler.find((s) => s.slug === 'cografya-yillik-planlari')
     {siniflar.map((s) => (
       <div class="cg-sinif" id={s.slug}>
         <h2>{s.ad}</h2>
+        <div class="cg-akis-kart">
+          <p>
+            <b>Haftalık ders akışı:</b> ders yılı 37 hafta, her haftanın kendi sayfası var —
+            konu, öğrenme çıktısı, kitap sayfaları, etkinlikler, slaytlar ve indirme.
+          </p>
+          <p class="cg-akis-eylem">
+            <a class="button button-primary" href={`/cografya/${s.slug}/`}>Yıl akışına git</a>
+            <a
+              class="button button-outline cg-buhafta-baglanti"
+              href={`/cografya/${s.slug}/`}
+              data-takvim={`cg-takvim-${s.slug}`}
+            >
+              Bu haftanın dersi
+            </a>
+          </p>
+          <script type="application/json" id={`cg-takvim-${s.slug}`} set:html={haftaTakvimi(s)} />
+        </div>
         <ul class="feature-grid cg-uniteler">
           {s.uniteler.map((u) => (
             <li class="card">
@@ -84,6 +117,32 @@ const planSeti = arsiv.setler.find((s) => s.slug === 'cografya-yillik-planlari')
   </section>
 </BaseLayout>
 
+<script is:inline>
+  // "Bu haftanın dersi": bugün (tarayıcının yerel tarihi) içinde bulunulan ya da sıradaki haftanın
+  // sayfasına yönlendirir. Betik yoksa bağlantı yıl akışına gider.
+  (() => {
+    const d = new Date();
+    const iki = (n) => String(n).padStart(2, '0');
+    const bugun = `${d.getFullYear()}-${iki(d.getMonth() + 1)}-${iki(d.getDate())}`;
+    for (const a of document.querySelectorAll('.cg-buhafta-baglanti')) {
+      const el = document.getElementById(a.dataset.takvim);
+      if (!el) continue;
+      let liste;
+      try {
+        liste = JSON.parse(el.textContent);
+      } catch {
+        continue;
+      }
+      const simdi = liste.find((h) => h.bas <= bugun && bugun <= h.son);
+      const sonraki = liste.find((h) => h.bas > bugun);
+      const h = simdi || sonraki;
+      if (!h) continue;
+      a.href = h.href;
+      a.textContent = `${simdi ? 'Bu hafta' : 'Sıradaki'}: ${h.h}. hafta (${h.tarih})`;
+    }
+  })();
+</script>
+
 <style>
   .cg-sinif {
     margin-bottom: 2.4rem;
@@ -97,6 +156,26 @@ const planSeti = arsiv.setler.find((s) => s.slug === 'cografya-yillik-planlari')
 
   .cg-uniteler {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cg-akis-kart {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cg-akis-kart p {
+    margin: 0;
+  }
+
+  .cg-akis-eylem {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.9rem !important;
   }
 
   .cg-uniteler .card {

@@ -1,0 +1,56 @@
+---
+// Hafta rozetleri (OTP, sınav dönemi, tatil günü, sosyal etkinlik). Alt çizgili dosya sayfa üretmez.
+import { rozetler, type TakvimSatiri } from './_ortak';
+
+interface Props {
+  takvim: TakvimSatiri;
+  uzun?: boolean;
+}
+const { takvim, uzun = false } = Astro.props;
+const liste = rozetler(takvim, uzun);
+---
+
+{liste.length > 0 && (
+  <span class="cg-rozetler">
+    {liste.map((r) => (
+      <span class={`cg-rozet cg-rozet-${r.tur}`} title={r.aciklama}>{r.metin}</span>
+    ))}
+  </span>
+)}
+
+<style>
+  .cg-rozetler {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .cg-rozet {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 0.05rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 750;
+    line-height: 1.6;
+    border: 1px solid transparent;
+  }
+
+  .cg-rozet-otp {
+    background: var(--chip);
+    color: var(--link);
+    border-color: var(--link);
+  }
+
+  .cg-rozet-sinav {
+    background: var(--warn-bg);
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+
+  .cg-rozet-tatil,
+  .cg-rozet-sosyal {
+    background: var(--tint);
+    color: var(--muted);
+    border-color: var(--line);
+  }
+</style>
